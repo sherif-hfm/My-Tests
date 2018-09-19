@@ -1,0 +1,81 @@
+﻿@font-face {
+    font-family: 'GESSTwolight';
+    src: url('fonts/ge-ss-two-light/ge-ss-two-light.eot?') format('embedded-opentype'), url('fonts/ge-ss-two-light/ge-ss-two-light.woff') format('woff'), url('/_layouts/Fonts/ge-ss-two-light/ge-ss-two-light.ttf') format('truetype'), url('/_layouts/Fonts/ge-ss-two-light/ge-ss-two-light.svg#GESSTwolight-light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(fonts/Icons/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'), local('MaterialIcons-Regular'), url(fonts/Icons/MaterialIcons-Regular.woff2) format('woff2'), url(/_layouts/Fonts/Icons/MaterialIcons-Regular.woff) format('woff'), url(/_layouts/Fonts/Icons/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.rm-form-fields {
+    right: 0;
+    height: auto;
+    overflow: auto;
+    min-height: calc(100% - 60px);
+    justify-content: flex-start;
+    align-self: center;
+}
+
+html {
+     background-image: url(/Images/mobileBg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 0 0px;
+    
+    outline: none !important;
+    outline-color: transparent !important;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+html *{
+    font-family: GESSTwolight;
+}
+
+@media (max-width: 600px) {
+    .rm-form-fields .w3-col {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+}
+.login-form-container, .registration-form-container, .forget-password-form-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: inline-grid;
+}
+#divLogin
+{
+    background-color:rgba(255,255,255,.8);
+    margin: 16px;
+}
+
+#divCheckSms{
+    background-color:rgba(255,255,255,.8);
+    margin: 16px;
+}
+
+
+
+#divAccountsList{
+   background-color: rgba(255,255,255,.8);
+    margin: 16px;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    left: 0;
+}
+
+.ui-accordion .ui-accordion-content {
+    padding: 0px !important; 
+    overflow: hidden !important; 
+}
+
+

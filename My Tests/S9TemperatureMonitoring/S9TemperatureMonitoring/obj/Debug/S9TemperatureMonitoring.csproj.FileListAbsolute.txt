@@ -1,0 +1,11 @@
+C:\OneDrive\My Tests\My Tests\S9TemperatureMonitoring\S9TemperatureMonitoring\bin\Debug\S9TemperatureMonitoring.exe.config
+C:\OneDrive\My Tests\My Tests\S9TemperatureMonitoring\S9TemperatureMonitoring\bin\Debug\S9TemperatureMonitoring.exe
+C:\OneDrive\My Tests\My Tests\S9TemperatureMonitoring\S9TemperatureMonitoring\bin\Debug\S9TemperatureMonitoring.pdb
+C:\OneDrive\My Tests\My Tests\S9TemperatureMonitoring\S9TemperatureMonitoring\obj\Debug\S9TemperatureMonitoring.csprojResolveAssemblyReference.cache
+C:\OneDrive\My Tests\My Tests\S9TemperatureMonitoring\S9TemperatureMonitoring\obj\Debug\S9TemperatureMonitoring.exe
+C:\OneDrive\My Tests\My Tests\S9TemperatureMonitoring\S9TemperatureMonitoring\obj\Debug\S9TemperatureMonitoring.pdb
+C:\OneDrive\My Tests\My Tests\S9TemperatureMonitoring\S9TemperatureMonitoring\obj\Debug\S9TemperatureMonitoring.Resource.resources
+C:\OneDrive\My Tests\My Tests\S9TemperatureMonitoring\S9TemperatureMonitoring\obj\Debug\S9TemperatureMonitoring.csproj.GenerateResource.Cache
+D:\OneDrive\My Tests\My Tests\S9TemperatureMonitoring\S9TemperatureMonitoring\bin\Debug\S9TemperatureMonitoring.exe.config
+D:\OneDrive\My Tests\My Tests\S9TemperatureMonitoring\S9TemperatureMonitoring\obj\Debug\S9TemperatureMonitoring.exe
+D:\OneDrive\My Tests\My Tests\S9TemperatureMonitoring\S9TemperatureMonitoring\obj\Debug\S9TemperatureMonitoring.pdb

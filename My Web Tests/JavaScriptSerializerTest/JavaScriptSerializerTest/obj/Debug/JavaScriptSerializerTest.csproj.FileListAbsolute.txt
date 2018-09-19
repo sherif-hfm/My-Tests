@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\JavaScriptSerializerTest\JavaScriptSerializerTest\bin\JavaScriptSerializerTest.dll.config
+D:\Dropbox\My Tests\My Web Tests\JavaScriptSerializerTest\JavaScriptSerializerTest\bin\JavaScriptSerializerTest.dll
+D:\Dropbox\My Tests\My Web Tests\JavaScriptSerializerTest\JavaScriptSerializerTest\bin\JavaScriptSerializerTest.pdb
+D:\Dropbox\My Tests\My Web Tests\JavaScriptSerializerTest\JavaScriptSerializerTest\obj\Debug\JavaScriptSerializerTest.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\JavaScriptSerializerTest\JavaScriptSerializerTest\obj\Debug\JavaScriptSerializerTest.dll
+D:\Dropbox\My Tests\My Web Tests\JavaScriptSerializerTest\JavaScriptSerializerTest\obj\Debug\JavaScriptSerializerTest.pdb

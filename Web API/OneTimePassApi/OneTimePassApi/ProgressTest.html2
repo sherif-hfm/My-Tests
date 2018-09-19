@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="css/progress.css" rel="stylesheet" />
+    <script src="scripts/jquery-3.2.1.min.js"></script>
+    <script src="scripts/circle-progress.min.js"></script>
+    <script src="scripts/progress.js"></script>
+</head>
+<body>
+   
+    <div class="circle" id="circle-a">
+        <strong></strong>
+    </div>
+   
+</body>
+</html>

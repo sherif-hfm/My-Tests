@@ -1,0 +1,21 @@
+<div class="w3-container">
+    <table class="w3-table-all w3-hoverable">
+        <tr class="w3-green">
+            <th>DeviceId</th>
+            <th>Device Name</th>
+            <th>Device Status</th>
+            <th>Action</th>
+           
+        </tr>
+      <tr *ngFor="let dev of Devices">
+        <td>{{ dev.DeviceId }}</td>
+        <td>{{ dev.DeviceName }}</td>
+        <td>{{ dev.DeviceStatus }}</td>
+        <td>
+          <button class="w3-button w3-green  w3-hover-black w3-round" (click)="btnOn_Click(dev)">On</button>
+          <button class="w3-button w3-red w3-hover-black w3-round"(click)="btnOff_Click(dev)">Off</button>
+        </td>
+      </tr>
+    </table>
+</div>
+

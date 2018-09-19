@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Tests\ClearList\ClearList\bin\Debug\ClearList.exe.config
+D:\Dropbox\My Tests\My Tests\ClearList\ClearList\bin\Debug\ClearList.exe
+D:\Dropbox\My Tests\My Tests\ClearList\ClearList\bin\Debug\ClearList.pdb
+D:\Dropbox\My Tests\My Tests\ClearList\ClearList\obj\Debug\ClearList.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\ClearList\ClearList\obj\Debug\ClearList.exe
+D:\Dropbox\My Tests\My Tests\ClearList\ClearList\obj\Debug\ClearList.pdb

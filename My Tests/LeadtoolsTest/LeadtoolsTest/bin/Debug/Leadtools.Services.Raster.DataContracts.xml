@@ -1,0 +1,2815 @@
+<?xml version="1.0"?>
+<doc processed="true">
+  <assembly>
+    <name>Leadtools.Services.Raster.DataContracts</name>
+  </assembly>
+  <members>
+    <member name="T:Leadtools.Services.Raster.DataContracts.BinaryRasterRegionData">
+      <summary>
+             Creates or updates the image region using the specified region data.
+            </summary>
+      <keywords>WCF|Image region|Region|Binary data</keywords>
+      <isnew>2/28/2009</isnew>
+      <remarks>
+        <para>To update an existing region, specify how the new region is to be combined with the existing one using the
+            <see cref="P:Leadtools.Services.Raster.DataContracts.RasterRegionData.CombineMode" /> property.  For more information, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterRegionCombineMode" />.</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools.Services
+      Imports leadtools.services.datacontracts._2009._01
+      Imports leadtools.services.raster.datacontracts._2009._01
+      Imports leadtools.services.raster.faultcontracts._2009._01
+      Imports leadtools.services.imageprocessing.datacontracts._2009._01
+
+      Public Sub BinaryRasterRegionDataExample()
+         Dim client As EffectsProcessingServiceClient = New EffectsProcessingServiceClient()
+         Dim sourceBinaryData As RawBinaryData = New RawBinaryData()
+         sourceBinaryData.Data = File.ReadAllBytes(LeadtoolsExamples.Common.ImagesPath.Path &amp; "image1.cmp")
+
+         Dim convertOptions As RasterConvertOptions = New RasterConvertOptions()
+
+         convertOptions.Source = sourceBinaryData
+         convertOptions.Destination = Nothing
+         convertOptions.Format = RasterImageFormat.Bmp
+         convertOptions.FirstPage = 1
+         convertOptions.LastPage = 1
+         convertOptions.BitsPerPixel = 24
+         convertOptions.QualityFactor = 2
+
+         Dim region As Region = New Region(New Rectangle(0, 0, 200, 200))
+
+         Dim binaryRasterRegionData As BinaryRasterRegionData = New BinaryRasterRegionData()
+         binaryRasterRegionData.CombineMode = RasterRegionCombineMode.Set
+         binaryRasterRegionData.Data = region.GetRegionData().Data
+
+         Dim request As SharpenRequest = New SharpenRequest()
+
+         request.ConvertOptions = convertOptions
+         request.RegionData = binaryRasterRegionData
+         request.Sharpness = 1000
+
+         Dim response As CommandResponse = client.Sharpen(request)
+         If Not response.Destination Is Nothing Then
+            If TypeOf response.Destination Is RawBinaryData Then
+               File.WriteAllBytes(LeadtoolsExamples.Common.ImagesPath.Path &amp; "binaryRasterRegionData.bmp", (TryCast(response.Destination, RawBinaryData)).Data)
+            End If
+         End If
+
+         region.Dispose()
+         client.Close()
+      End Sub</code>
+        <code lang="CS">      using Leadtools.Services;
+      using leadtools.services.datacontracts._2009._01;
+      using leadtools.services.raster.datacontracts._2009._01;
+      using leadtools.services.raster.faultcontracts._2009._01;
+      using leadtools.services.imageprocessing.datacontracts._2009._01;
+
+      public void BinaryRasterRegionDataExample()
+      {
+         EffectsProcessingServiceClient client = new EffectsProcessingServiceClient();
+         RawBinaryData sourceBinaryData = new RawBinaryData();
+         sourceBinaryData.Data = File.ReadAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"image1.cmp"));
+
+         RasterConvertOptions convertOptions = new RasterConvertOptions();
+
+         convertOptions.Source = sourceBinaryData;
+         convertOptions.Destination = null;
+         convertOptions.Format = RasterImageFormat.Bmp;
+         convertOptions.FirstPage = 1;
+         convertOptions.LastPage = 1;
+         convertOptions.BitsPerPixel = 24;
+         convertOptions.QualityFactor = 2;
+
+         Region region = new Region(new Rectangle(0, 0, 200,200));
+
+         BinaryRasterRegionData binaryRasterRegionData = new BinaryRasterRegionData();
+         binaryRasterRegionData.CombineMode = RasterRegionCombineMode.Set;
+         binaryRasterRegionData.Data = region.GetRegionData().Data;
+
+         SharpenRequest request = new SharpenRequest();
+
+         request.ConvertOptions = convertOptions;
+         request.RegionData = binaryRasterRegionData;
+         request.Sharpness = 1000;
+
+         CommandResponse response = client.Sharpen(request);
+         if (response.Destination != null)
+         {
+            if(response.Destination is RawBinaryData)
+               File.WriteAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"binaryRasterRegionData.bmp"), (response.Destination as RawBinaryData).Data);
+         }
+
+         region.Dispose();
+         client.Close();
+      }
+
+      static class LEAD_VARS
+      {
+      public const string ImagesDir = @"C:\Users\Public\Documents\LEADTOOLS Images";
+      }
+</code>
+        <!--BinaryRasterRegionData-->
+      </example>
+    </member>
+    <member name="T:Leadtools.Services.Raster.DataContracts.RasterRegionData">
+      <summary>
+            Base class for <see cref="T:Leadtools.Services.Raster.DataContracts.ClearRasterRegionData" />, <see cref="T:Leadtools.Services.Raster.DataContracts.RectangleRasterRegionData" />, <see cref="T:Leadtools.Services.Raster.DataContracts.EllipseRasterRegionData" /> , <see cref="T:Leadtools.Services.Raster.DataContracts.PolygonRasterRegionData" />, <see cref="T:Leadtools.Services.Raster.DataContracts.MagicWandRasterRegionData" /> and <strong>BinaryRasterRegionData</strong> classes.
+            </summary>
+      <document>yes</document>
+      <keywords>WCF|Services|Image region|Region</keywords>
+      <isnew>2/28/2009</isnew>
+      <remarks>
+            This class is responsible for applying any Image processing operation to a specified region.
+            </remarks>
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RectangleRasterRegionData" />.</example>
+    </member>
+    <member name="M:Leadtools.Services.Raster.DataContracts.RasterRegionData.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.Raster.DataContracts.RasterRegionData" /> class.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.RasterRegionData.CombineMode">
+      <summary>
+            Gets or sets the action to be taken regarding the existing image region, if one is defined.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+            The <see cref="T:Leadtools.Services.Raster.DataContracts.RasterRegionCombineMode" /> to be 
+            used if a region currently exists.
+            </value>
+      <remarks>
+        <para>To update an existing region, specify how the new region is to be combined with the existing one using the
+            <b>CombineMode</b> property. For more information, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterRegionCombineMode" />.</para>
+      </remarks>
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RectangleRasterRegionData" />.</example>
+    </member>
+    <member name="M:Leadtools.Services.Raster.DataContracts.BinaryRasterRegionData.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.Raster.DataContracts.BinaryRasterRegionData" /> class.
+            </summary>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.Raster.DataContracts.BinaryRasterRegionData.#ctor(System.Byte[])">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.Raster.DataContracts.BinaryRasterRegionData" /> class.
+            </summary>
+      <isnew>2/28/2009</isnew>
+      <param name="data">
+            Array of bytes that describes the region data.
+            </param>
+      <remarks>
+        <para>To update an existing region, specify how the new region is to be combined with the existing one using the
+            <see cref="P:Leadtools.Services.Raster.DataContracts.RasterRegionData.CombineMode" /> property.  For more information, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterRegionCombineMode" />.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.BinaryRasterRegionData.Data">
+      <summary>
+            Gets or sets an array of bytes that describes the region data.
+            </summary>
+      <isnew>2/28/2009</isnew>
+      <remarks>
+        <para>To update an existing region, specify how the new region is to be combined with the existing one using the
+            <see cref="P:Leadtools.Services.Raster.DataContracts.RasterRegionData.CombineMode" /> property.  For more information, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterRegionCombineMode" />.</para>
+      </remarks>
+      <value>
+      </value>
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.BinaryRasterRegionData" />.</example>
+    </member>
+    <member name="T:Leadtools.Services.Raster.DataContracts.RasterConvertOptions">
+      <summary>
+            The <b>RasterConvertOptions</b> structure provides options for the <b>IRasterService.Convert</b>" operation.
+            </summary>
+      <document>yes</document>
+      <keywords>WCF|Image conversion|Conversion options</keywords>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <example>
+        <code lang="VB">      Imports Leadtools.Services
+      Imports leadtools.services.raster.datacontracts._2009._01
+      Imports leadtools.services.datacontracts._2009._01
+
+      Public Sub RasterConvertOptionsExample()
+         Dim client As RasterServiceClient = New RasterServiceClient()
+         Dim sourceBinaryData As RawBinaryData = New RawBinaryData()
+         sourceBinaryData.Data = File.ReadAllBytes(LeadtoolsExamples.Common.ImagesPath.Path &amp; "image1.cmp")
+
+         Dim convertOptions As RasterConvertOptions = New RasterConvertOptions()
+
+         convertOptions.Source = sourceBinaryData
+         convertOptions.Destination = Nothing
+         convertOptions.Format = RasterImageFormat.RasPdf
+         convertOptions.FirstPage = 1
+         convertOptions.LastPage = 1
+         convertOptions.BitsPerPixel = 24
+         convertOptions.QualityFactor = 2
+         convertOptions.BackColor = "Black"
+         convertOptions.Height = 200
+         convertOptions.Width = 200
+         convertOptions.ResizeFlags = RasterResizeFlags.Bicubic
+         convertOptions.ResizeMode = RasterResizeMode.Fit
+         convertOptions.HorizontalAlignMode = RasterAlignMode.Center
+         convertOptions.VerticalAlignMode = RasterAlignMode.Center
+
+         Dim request As ConvertRequest = New ConvertRequest()
+
+         request.ConvertOptions = convertOptions
+
+         Dim response As ConvertResponse = client.Convert(request)
+         If Not response.Destination Is Nothing Then
+            If TypeOf response.Destination Is RawBinaryData Then
+               File.WriteAllBytes(LeadtoolsExamples.Common.ImagesPath.Path &amp; "converted_resized.pdf", (TryCast(response.Destination, RawBinaryData)).Data)
+            End If
+         End If
+
+         client.Close()
+      End Sub</code>
+        <code lang="CS">      using Leadtools.Services;
+      using leadtools.services.raster.datacontracts._2009._01;
+      using leadtools.services.datacontracts._2009._01;
+
+      public void RasterConvertOptionsExample()
+      {
+         RasterServiceClient client = new RasterServiceClient();
+         RawBinaryData sourceBinaryData = new RawBinaryData();
+         sourceBinaryData.Data = File.ReadAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"image1.cmp"));
+
+         RasterConvertOptions convertOptions = new RasterConvertOptions();
+
+         convertOptions.Source = sourceBinaryData;
+         convertOptions.Destination = null;
+         convertOptions.Format = RasterImageFormat.RasPdf;
+         convertOptions.FirstPage = 1;
+         convertOptions.LastPage = 1;
+         convertOptions.BitsPerPixel = 24;
+         convertOptions.QualityFactor = 2;
+         convertOptions.BackColor = "Black";
+         convertOptions.Height = 200;
+         convertOptions.Width = 200;
+         convertOptions.ResizeFlags =  RasterResizeFlags.Bicubic;
+         convertOptions.ResizeMode = RasterResizeMode.Fit;
+         convertOptions.HorizontalAlignMode = RasterAlignMode.Center;
+         convertOptions.VerticalAlignMode = RasterAlignMode.Center;
+
+         ConvertRequest request = new ConvertRequest();
+
+         request.ConvertOptions = convertOptions;
+
+         ConvertResponse response = client.Convert(request);
+         if (response.Destination != null)
+         {
+            if(response.Destination is RawBinaryData)
+               File.WriteAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"converted_resized.pdf"), (response.Destination as RawBinaryData).Data);
+         }
+
+         client.Close();
+      }
+
+      static class LEAD_VARS
+      {
+      public const string ImagesDir = @"C:\Users\Public\Documents\LEADTOOLS Images";
+      }
+</code>
+        <!--RasterConvertOptions-->
+      </example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.Default">
+      <summary>
+             Gets the default conversion options used by LEADTOOLS for converting an image.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+            The default conversion options used by LEADTOOLS for converting an image.
+            </value>
+      <remarks>
+        <para>This property returns a <see cref="T:Leadtools.Services.Raster.DataContracts.RasterConvertOptions" /> structure that contains the default conversion options 
+            to be used to convert an image.</para>
+        <para>For more information, refer to the <see cref="T:Leadtools.Services.Raster.DataContracts.RasterConvertOptions" /> structure members. </para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.Source">
+      <summary>
+            Gets or sets the input data containing the image.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+            A <see cref="T:Leadtools.Services.DataContracts.BinaryData" /> object that represents the image data to be converted.
+            </value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterConvertOptions" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.Destination">
+      <summary>
+            Gets or sets the output data of the converted image file.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+            A <see cref="T:Leadtools.Services.DataContracts.BinaryData" /> object that represents the converted data.
+            </value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterConvertOptions" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.Format">
+      <summary>
+            Gets or sets the format to be used when converting the raster image.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+            The format to be used when converting the raster image.
+            </value>
+      <example>
+            For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterConvertOptions" />.
+            </example>
+      <noremarks />
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.BitsPerPixel">
+      <summary>
+            Gets or sets a value that indicates which bits per pixel to be used.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+            The bits per pixel.
+            For valid values, refer to 
+            <see cref="T:L.Topics.SummaryOfAllSupportedImageFileFormats">Summary of All Supported Image File Formats</see>.
+            </value>
+      <remarks>
+            This is the value that should be passed for the bitsPerPixel parameter when calling the <see cref="M:Leadtools.Codecs.RasterCodecs.Save(Leadtools.RasterImage,System.Uri,Leadtools.RasterImageFormat,System.Int32,System.Int32,System.Int32)" /> method.
+            </remarks>
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterConvertOptions" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.QualityFactor">
+      <summary>
+            Gets or sets the QualityFactor to be used when converting the file.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+            The QualityFactor to be used in converting the file, refer to <see cref="M:Leadtools.Codecs.RasterCodecs.Save(Leadtools.RasterImage,System.Uri,Leadtools.RasterImageFormat,System.Int32,System.Int32,System.Int32)" />.
+            </value>
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterConvertOptions" />.</example>
+      <noremarks />
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.Width">
+      <summary>
+            Gets or sets the new image width in pixels.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>New image width in pixels.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterConvertOptions" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.Height">
+      <summary>
+            Gets or sets the new image height in pixels.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>New image height in pixels.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterConvertOptions" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.ResizeFlags">
+      <summary>
+            Gets or sets the flags that control the behavior when resizing the image.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>Flags that control the behavior when resizing the image.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterConvertOptions" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.ResizeMode">
+      <summary>
+            Determines how to align the resized image in the destination rectangle using the <see cref="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.Width" /> and <see cref="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.Height" /> properties.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>A <see cref="T:Leadtools.Services.Raster.DataContracts.RasterResizeMode" /> enumeration value that determines how to align the resized image.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterConvertOptions" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.HorizontalAlignMode">
+      <summary>
+            Gets or sets a value that determines how to center the image horizontally when the width of the image is smaller than the <see cref="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.Width" /> property.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>A <see cref="T:Leadtools.Services.Raster.DataContracts.RasterAlignMode" /> enumeration value that determines how to to center the image horizontally.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterConvertOptions" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.VerticalAlignMode">
+      <summary>
+            Gets or sets a value that determines how to center the image vertically when the height of the image is smaller than the <see cref="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.Height" /> property.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>A <see cref="T:Leadtools.Services.Raster.DataContracts.RasterAlignMode" /> enumeration value that determines how to to center the image vertically.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterConvertOptions" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.BackColor">
+      <summary>
+            Gets or sets a color value that determines how to fill the background color if the image dimensions are smaller than the <see cref="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.Height" /> and <see cref="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.Width" /> properties.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>A color value: either a named color value or a hexadecimal color code.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterConvertOptions" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.FirstPage">
+      <summary>
+            Gets or sets the first page to load. This is 1-based index. 
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>An integer value that specifies the first page to be loaded.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterConvertOptions" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.LastPage">
+      <summary>
+            Gets or sets the last page to load. This is 1-based index. Must be greater than or equal to <see cref="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.FirstPage" />.
+            You can pass -1 to load from <see cref="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.FirstPage" /> to the last page in the file.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>An integer value that specifies the last page to load.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterConvertOptions" />.</example>
+    </member>
+    <member name="T:Leadtools.Services.Raster.DataContracts.ConvertRequest">
+      <summary>
+            The <b>ConvertRequest</b> object provides options for the <a href="ms-xhelp:///?id=Leadtools.Services.Raster.ServiceContracts~Leadtools.Services.Raster.ServiceContracts.IRasterService~Convert">IRasterService.Convert</a> operation.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <example>
+        <code lang="VB">      Imports Leadtools.Services
+      Imports leadtools.services.raster.datacontracts._2009._01
+      Imports leadtools.services.datacontracts._2009._01
+
+      Public Sub RasterConvertOptionsExample()
+         Dim client As RasterServiceClient = New RasterServiceClient()
+         Dim sourceBinaryData As RawBinaryData = New RawBinaryData()
+         sourceBinaryData.Data = File.ReadAllBytes(LeadtoolsExamples.Common.ImagesPath.Path &amp; "image1.cmp")
+
+         Dim convertOptions As RasterConvertOptions = New RasterConvertOptions()
+
+         convertOptions.Source = sourceBinaryData
+         convertOptions.Destination = Nothing
+         convertOptions.Format = RasterImageFormat.RasPdf
+         convertOptions.FirstPage = 1
+         convertOptions.LastPage = 1
+         convertOptions.BitsPerPixel = 24
+         convertOptions.QualityFactor = 2
+         convertOptions.BackColor = "Black"
+         convertOptions.Height = 200
+         convertOptions.Width = 200
+         convertOptions.ResizeFlags = RasterResizeFlags.Bicubic
+         convertOptions.ResizeMode = RasterResizeMode.Fit
+         convertOptions.HorizontalAlignMode = RasterAlignMode.Center
+         convertOptions.VerticalAlignMode = RasterAlignMode.Center
+
+         Dim request As ConvertRequest = New ConvertRequest()
+
+         request.ConvertOptions = convertOptions
+
+         Dim response As ConvertResponse = client.Convert(request)
+         If Not response.Destination Is Nothing Then
+            If TypeOf response.Destination Is RawBinaryData Then
+               File.WriteAllBytes(LeadtoolsExamples.Common.ImagesPath.Path &amp; "converted_resized.pdf", (TryCast(response.Destination, RawBinaryData)).Data)
+            End If
+         End If
+
+         client.Close()
+      End Sub</code>
+        <code lang="CS">      using Leadtools.Services;
+      using leadtools.services.raster.datacontracts._2009._01;
+      using leadtools.services.datacontracts._2009._01;
+
+      public void RasterConvertOptionsExample()
+      {
+         RasterServiceClient client = new RasterServiceClient();
+         RawBinaryData sourceBinaryData = new RawBinaryData();
+         sourceBinaryData.Data = File.ReadAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"image1.cmp"));
+
+         RasterConvertOptions convertOptions = new RasterConvertOptions();
+
+         convertOptions.Source = sourceBinaryData;
+         convertOptions.Destination = null;
+         convertOptions.Format = RasterImageFormat.RasPdf;
+         convertOptions.FirstPage = 1;
+         convertOptions.LastPage = 1;
+         convertOptions.BitsPerPixel = 24;
+         convertOptions.QualityFactor = 2;
+         convertOptions.BackColor = "Black";
+         convertOptions.Height = 200;
+         convertOptions.Width = 200;
+         convertOptions.ResizeFlags =  RasterResizeFlags.Bicubic;
+         convertOptions.ResizeMode = RasterResizeMode.Fit;
+         convertOptions.HorizontalAlignMode = RasterAlignMode.Center;
+         convertOptions.VerticalAlignMode = RasterAlignMode.Center;
+
+         ConvertRequest request = new ConvertRequest();
+
+         request.ConvertOptions = convertOptions;
+
+         ConvertResponse response = client.Convert(request);
+         if (response.Destination != null)
+         {
+            if(response.Destination is RawBinaryData)
+               File.WriteAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"converted_resized.pdf"), (response.Destination as RawBinaryData).Data);
+         }
+
+         client.Close();
+      }
+
+      static class LEAD_VARS
+      {
+      public const string ImagesDir = @"C:\Users\Public\Documents\LEADTOOLS Images";
+      }
+</code>
+        <!--RasterConvertOptions-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Services.Raster.DataContracts.ConvertRequest.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.Raster.DataContracts.ConvertRequest" /> class.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.ConvertRequest.ConvertOptions">
+      <summary>
+            Gets or sets the <see cref="T:Leadtools.Services.Raster.DataContracts.RasterConvertOptions" /> that controls the conversion from one image format to any other image format supported by LEADTOOLS.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>A <see cref="T:Leadtools.Services.Raster.DataContracts.RasterConvertOptions" /> structure that controls the conversion from image format to any other image format.</value>
+      <remarks>
+            Set this property before calling the <a href="ms-xhelp:///?id=Leadtools.Services.Raster.ServiceContracts~Leadtools.Services.Raster.ServiceContracts.IRasterService~Convert">IRasterService.Convert</a>.
+            </remarks>
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.ConvertRequest" />.</example>
+    </member>
+    <member name="T:Leadtools.Services.Raster.DataContracts.ConvertResponse">
+      <summary>
+            The <b>ConvertResponse</b> object provides options for the <a href="ms-xhelp:///?id=Leadtools.Services.Raster.ServiceContracts~Leadtools.Services.Raster.ServiceContracts.IRasterService~Convert">IRasterService.Convert</a> operation.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.ConvertRequest" />.</example>
+    </member>
+    <member name="M:Leadtools.Services.Raster.DataContracts.ConvertResponse.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.Raster.DataContracts.ConvertResponse" /> class.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.ConvertResponse.Destination">
+      <summary>
+            Gets or stes a <b>BinaryData</b> that represents the resulting image file from the <a href="ms-xhelp:///?id=Leadtools.Services.Raster.ServiceContracts~Leadtools.Services.Raster.ServiceContracts.IRasterService~Convert">IRasterService.Convert</a> operation.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <remarks>
+            This property will be valid only when <see cref="P:Leadtools.Services.Raster.DataContracts.RasterConvertOptions.Destination" /> is null.
+            </remarks>
+      <value>A <see cref="T:Leadtools.Services.DataContracts.BinaryData" /> object that represents the image file resulting from <a href="ms-xhelp:///?id=Leadtools.Services.Raster.ServiceContracts~Leadtools.Services.Raster.ServiceContracts.IRasterService~Convert">IRasterService.Convert</a> operation.</value>.
+            <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.ConvertRequest" />.</example></member>
+    <member name="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest">
+      <summary>
+            The <b>GetInformationRequest</b> object provides options for the <a href="ms-xhelp:///?id=Leadtools.Services.Raster.ServiceContracts~Leadtools.Services.Raster.ServiceContracts.IRasterService~GetInformation">IRasterService.GetInformation</a> operation.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <example>
+        <code lang="VB">      Imports Leadtools.Services
+      Imports leadtools.services.raster.datacontracts._2009._01
+      Imports leadtools.services.datacontracts._2009._01
+
+      Public Sub GetInformationExample()
+         Dim client As IRasterService = New RasterServiceClient()
+         Dim sourceBinaryData As RawBinaryData = New RawBinaryData()
+         sourceBinaryData.Data = File.ReadAllBytes(Path.Combine(LEAD_VARS.ImagesDir, "image1.cmp"))
+
+         Dim informationRequest As GetInformationRequest = New GetInformationRequest()
+
+         informationRequest.Source = sourceBinaryData
+         informationRequest.PageNumber = 1
+         informationRequest.TotalPages = False
+
+         Dim response As GetInformationResponse = client.GetInformation(informationRequest)
+         If Not response Is Nothing Then
+            Console.WriteLine(String.Format("BytesPerLine: {0}", response.BytesPerLine))
+            Console.WriteLine(String.Format("ColorSpace: {0}", response.ColorSpace.ToString()))
+            Console.WriteLine(String.Format("Compresion: {0}", response.Compression))
+            Console.WriteLine(String.Format("Format: {0}", response.Format))
+            Console.WriteLine(String.Format("HasAlpha: {0}", response.HasAlpha))
+            Console.WriteLine(String.Format("HasResolution: {0}", response.HasResolution))
+            Console.WriteLine(String.Format("Height: {0}", response.Height))
+            Console.WriteLine(String.Format("IsRotated: {0}", response.IsRotated))
+            Console.WriteLine(String.Format("IsSigned: {0}", response.IsSigned))
+            Console.WriteLine(String.Format("Order: {0}", response.Order))
+            Console.WriteLine(String.Format("PageNumber: {0}", response.PageNumber))
+            Console.WriteLine(String.Format("SizeDisk: {0}", response.SizeDisk))
+            Console.WriteLine(String.Format("SizeMemory: {0}", response.SizeMemory))
+            Console.WriteLine(String.Format("TotalPages: {0}", response.TotalPages))
+            Console.WriteLine(String.Format("ViewPerspective: {0}", response.ViewPerspective))
+            Console.WriteLine(String.Format("Width: {0}", response.Width))
+            Console.WriteLine(String.Format("XResolution: {0}", response.XResolution))
+            Console.WriteLine(String.Format("YResolution: {0}", response.YResolution))
+         End If
+      End Sub
+
+      Public NotInheritable Class LEAD_VARS
+      Public Const ImagesDir As String = "C:\Users\Public\Documents\LEADTOOLS Images"
+      End Class
+</code>
+        <code lang="CS">      using Leadtools.Services;
+      using leadtools.services.raster.datacontracts._2009._01;
+      using leadtools.services.datacontracts._2009._01;
+
+      public void GetInformationExample()
+      {
+         IRasterService client = new RasterServiceClient();
+         RawBinaryData sourceBinaryData = new RawBinaryData();
+         sourceBinaryData.Data = File.ReadAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"image1.cmp"));
+
+         GetInformationRequest informationRequest = new GetInformationRequest();
+
+         informationRequest.Source= sourceBinaryData;
+         informationRequest.PageNumber = 1;
+         informationRequest.TotalPages = false;
+
+         GetInformationResponse response = client.GetInformation(informationRequest);
+         if (response != null)
+         {
+            Console.WriteLine(string.Format("BytesPerLine: {0}", response.BytesPerLine));
+            Console.WriteLine(string.Format("ColorSpace: {0}", response.ColorSpace.ToString()));
+            Console.WriteLine(string.Format("Compresion: {0}", response.Compression));
+            Console.WriteLine(string.Format("Format: {0}", response.Format));
+            Console.WriteLine(string.Format("HasAlpha: {0}", response.HasAlpha));
+            Console.WriteLine(string.Format("HasResolution: {0}", response.HasResolution));
+            Console.WriteLine(string.Format("Height: {0}", response.Height));
+            Console.WriteLine(string.Format("IsRotated: {0}", response.IsRotated));
+            Console.WriteLine(string.Format("IsSigned: {0}", response.IsSigned));
+            Console.WriteLine(string.Format("Order: {0}", response.Order));
+            Console.WriteLine(string.Format("PageNumber: {0}", response.PageNumber));
+            Console.WriteLine(string.Format("SizeDisk: {0}", response.SizeDisk));
+            Console.WriteLine(string.Format("SizeMemory: {0}", response.SizeMemory));
+            Console.WriteLine(string.Format("TotalPages: {0}", response.TotalPages));
+            Console.WriteLine(string.Format("ViewPerspective: {0}", response.ViewPerspective));
+            Console.WriteLine(string.Format("Width: {0}", response.Width));
+            Console.WriteLine(string.Format("XResolution: {0}", response.XResolution));
+            Console.WriteLine(string.Format("YResolution: {0}", response.YResolution));
+         }
+      }
+
+      static class LEAD_VARS
+      {
+      public const string ImagesDir = @"C:\Users\Public\Documents\LEADTOOLS Images";
+      }
+</code>
+        <!--GetInformation-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Services.Raster.DataContracts.GetInformationRequest.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.Raster.DataContracts.ConvertRequest" /> class.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.GetInformationRequest.Source">
+      <summary>
+            Gets or sets the input data containing the image.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+            A <see cref="T:Leadtools.Services.DataContracts.BinaryData" /> object that represents the image data to get it's information.
+            </value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.GetInformationRequest.TotalPages">
+      <summary>
+            Gets or sets a value indicating whether to query the file for total number of pages or not.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+        <para>
+          <table>
+            <tr>
+              <th>Value</th>
+              <th>Meaning</th>
+            </tr>
+            <tr>
+              <td>
+                <b>true</b>
+              </td>
+              <td>To query the file for total number of pages.</td>
+            </tr>
+            <tr>
+              <td>
+                <b>false</b>
+              </td>
+              <td>Otherwise.</td>
+            </tr>
+          </table>
+        </para>
+      </value>
+      <remarks>
+        <para>Specifying true for this property can cause the process to be slow for files with a large number of
+            pages.</para>
+      </remarks>
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.GetInformationRequest.PageNumber">
+      <summary>
+            Gets or sets a value indicating the page number in the file to query.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+            An integer value that specifies the page to query.
+            </value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="T:Leadtools.Services.Raster.DataContracts.GetInformationResponse">
+      <summary>
+            The <b>GetInformationResponse</b> object provides options for the <a href="ms-xhelp:///?id=Leadtools.Services.Raster.ServiceContracts~Leadtools.Services.Raster.ServiceContracts.IRasterService~GetInformation">IRasterService.GetInformation</a> operation.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="M:Leadtools.Services.Raster.DataContracts.GetInformationResponse.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationResponse" /> class.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.HasAlpha">
+      <summary>
+            Determines whether the image contains alpha channel information or not.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>true if the image contains alpha channel information, otherwise false.</value>
+      <seealso cref="T:L.Topics.PNGFilesAndTransparency">PNG Files and Transparency</seealso>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.HasResolution">
+      <summary>
+            Determines whether the file has resolution values (DPI) stored inside or not.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>true if the image file has resolution values stored inside, otherwise false.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.IsRotated">
+      <summary>
+            Determines whether the image has a rotated view perspective or not.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>true if the image has a rotated view perspective, otherwise false.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.IsSigned">
+      <summary>
+            Determines whether the image data is signed or not.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>true if the image data contains signed (negative) values, otherwise false.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.ColorSpace">
+      <summary>
+             Gets the color space of the image, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.CodecsColorSpaceType" />.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The color space of the image.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.BitsPerPixel">
+      <summary>
+             Gets the bits per pixel of the image.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The bits per pixel of the image.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.BytesPerLine">
+      <summary>
+             Gets the number of bytes per scanline for the image data.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The number of bytes per scanline for the image data.</value>
+      <remarks>
+            The BytesPerLine is rounded upward to the nearest multiple of four.
+            </remarks>
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.Height">
+      <summary>
+             Gets the height of the image in pixels.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The height of the image in pixels.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.PageNumber">
+      <summary>
+             Gets the page number of the file.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The page number of the file.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.TotalPages">
+      <summary>
+             Gets the total number of pages in the file.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The total number of pages in the file.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.Width">
+      <summary>
+             Gets the width of the image in pixels.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The width of the image in pixels.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.XResolution">
+      <summary>
+             Gets the horizontal resolution (DPI) of the image.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The horizontal resolution (DPI) of the image.</value>
+      <remarks>
+            The <see cref="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.XResolution" /> is valid only when the value of <see cref="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.HasResolution" /> is true.
+            </remarks>
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.YResolution">
+      <summary>
+             Gets the vertical resolution (DPI) of the image.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The vertical resolution (DPI) of the image.</value>
+      <remarks>
+            The <see cref="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.YResolution" /> is valid only when the value of <see cref="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.HasResolution" /> is true.
+            </remarks>
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.SizeDisk">
+      <summary>
+             Gets the size of the image file on disk.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The size of the image file on disk.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.SizeMemory">
+      <summary>
+             Gets the size of the image when loaded uncompressed in memory.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The size of the image when loaded uncompressed in memory.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.Order">
+      <summary>
+             Gets the byte order of the image.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The byte order of the image.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.Format">
+      <summary>
+             Gets the image file format.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The image file format.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.ViewPerspective">
+      <summary>
+             Gets the view perspective of the image.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The view perspective of the image.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.GetInformationResponse.Compression">
+      <summary>
+             Gets the compression of the image file.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>A <see cref="T:System.String" /> that contains the compression of the image file.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.GetInformationRequest" />.</example>
+    </member>
+    <member name="T:Leadtools.Services.Raster.DataContracts.ClearRasterRegionData">
+      <summary>
+            Removes the region from the image and frees the memory used for the region.
+            </summary>
+      <document>yes</document>
+      <keywords>WCF|Image region|Region|Clear region</keywords>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.Raster.DataContracts.ClearRasterRegionData.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.Raster.DataContracts.ClearRasterRegionData" /> class.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="T:Leadtools.Services.Raster.DataContracts.EllipseRasterRegionData">
+      <summary>
+            Creates or updates the image region by adding an elliptical region.
+            </summary>
+      <document>yes</document>
+      <keywords>WCF|Image region|Region|Elliptical region</keywords>
+      <isnew>2/28/2009</isnew>
+      <remarks>
+        <para>To update an existing region, specify how the new region is to be combined with the existing one using the
+            <see cref="P:Leadtools.Services.Raster.DataContracts.RasterRegionData.CombineMode" /> property.  For more information, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterRegionCombineMode" />.</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools.Services
+      Imports leadtools.services.datacontracts._2009._01
+      Imports leadtools.services.raster.datacontracts._2009._01
+      Imports leadtools.services.raster.faultcontracts._2009._01
+      Imports leadtools.services.imageprocessing.datacontracts._2009._01
+
+      Public Sub EllipseRasterRegionDataExample()
+         Dim client As EffectsProcessingServiceClient = New EffectsProcessingServiceClient()
+         Dim sourceBinaryData As RawBinaryData = New RawBinaryData()
+         sourceBinaryData.Data = File.ReadAllBytes(LeadtoolsExamples.Common.ImagesPath.Path &amp; "image1.cmp")
+
+         Dim convertOptions As RasterConvertOptions = New RasterConvertOptions()
+
+         convertOptions.Source = sourceBinaryData
+         convertOptions.Destination = Nothing
+         convertOptions.Format = RasterImageFormat.Bmp
+         convertOptions.FirstPage = 1
+         convertOptions.LastPage = 1
+         convertOptions.BitsPerPixel = 24
+         convertOptions.QualityFactor = 2
+
+         Dim region As EllipseRasterRegionData = New EllipseRasterRegionData()
+         region.CombineMode = RasterRegionCombineMode.Set
+
+         Dim rect As LeadRectangle = New LeadRectangle()
+         rect.Width = 200
+         rect.Height = 200
+
+         region.Bounds = rect
+
+         Dim request As SharpenRequest = New SharpenRequest()
+
+         request.ConvertOptions = convertOptions
+         request.RegionData = region
+         request.Sharpness = 1000
+
+         Dim response As CommandResponse = client.Sharpen(request)
+         If Not response.Destination Is Nothing Then
+            If TypeOf response.Destination Is RawBinaryData Then
+               File.WriteAllBytes(LeadtoolsExamples.Common.ImagesPath.Path &amp; "EllipseRasterRegionData.bmp", (TryCast(response.Destination, RawBinaryData)).Data)
+            End If
+         End If
+
+         client.Close()
+      End Sub</code>
+        <code lang="CS">      using Leadtools.Services;
+      using leadtools.services.datacontracts._2009._01;
+      using leadtools.services.raster.datacontracts._2009._01;
+      using leadtools.services.raster.faultcontracts._2009._01;
+      using leadtools.services.imageprocessing.datacontracts._2009._01;
+
+      public void EllipseRasterRegionDataExample()
+      {
+         EffectsProcessingServiceClient client = new EffectsProcessingServiceClient();
+         RawBinaryData sourceBinaryData = new RawBinaryData();
+         sourceBinaryData.Data = File.ReadAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"image1.cmp"));
+
+         RasterConvertOptions convertOptions = new RasterConvertOptions();
+
+         convertOptions.Source = sourceBinaryData;
+         convertOptions.Destination = null;
+         convertOptions.Format = RasterImageFormat.Bmp;
+         convertOptions.FirstPage = 1;
+         convertOptions.LastPage = 1;
+         convertOptions.BitsPerPixel = 24;
+         convertOptions.QualityFactor = 2;
+
+         EllipseRasterRegionData region = new EllipseRasterRegionData();
+         region.CombineMode = RasterRegionCombineMode.Set;
+
+         LeadRectangle rect = new LeadRectangle();
+         rect.Width = 200;
+         rect.Height = 200;
+
+         region.Bounds = rect;
+
+         SharpenRequest request = new SharpenRequest();
+
+         request.ConvertOptions = convertOptions;
+         request.RegionData = region;
+         request.Sharpness = 1000;
+
+         CommandResponse response = client.Sharpen(request);
+         if (response.Destination != null)
+         {
+            if(response.Destination is RawBinaryData)
+               File.WriteAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"EllipseRasterRegionData.bmp"), (response.Destination as RawBinaryData).Data);
+         }
+
+         client.Close();
+      }
+
+      static class LEAD_VARS
+      {
+      public const string ImagesDir = @"C:\Users\Public\Documents\LEADTOOLS Images";
+      }
+</code>
+        <!--EllipseRasterRegionData-->
+      </example>
+    </member>
+    <member name="T:Leadtools.Services.Raster.DataContracts.RectangleRasterRegionData">
+      <summary>
+            Creates or updates the image region by adding a rectangular region.
+            </summary>
+      <document>yes</document>
+      <keywords>WCF|Image region|Region|Rectangular region</keywords>
+      <isnew>2/28/2009</isnew>
+      <remarks>
+        <para>To update an existing region, specify how the new region is to be combined with the existing one using the
+            <see cref="P:Leadtools.Services.Raster.DataContracts.RasterRegionData.CombineMode" /> property.  For more information, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterRegionCombineMode" />.</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools.Services
+      Imports leadtools.services.datacontracts._2009._01
+      Imports leadtools.services.raster.datacontracts._2009._01
+      Imports leadtools.services.raster.faultcontracts._2009._01
+      Imports leadtools.services.imageprocessing.datacontracts._2009._01
+
+      Public Sub RectangleRasterRegionDataExample()
+         Dim client As EffectsProcessingServiceClient = New EffectsProcessingServiceClient()
+         Dim sourceBinaryData As RawBinaryData = New RawBinaryData()
+         sourceBinaryData.Data = File.ReadAllBytes(LeadtoolsExamples.Common.ImagesPath.Path &amp; "image1.cmp")
+
+         Dim convertOptions As RasterConvertOptions = New RasterConvertOptions()
+
+         convertOptions.Source = sourceBinaryData
+         convertOptions.Destination = Nothing
+         convertOptions.Format = RasterImageFormat.Bmp
+         convertOptions.FirstPage = 1
+         convertOptions.LastPage = 1
+         convertOptions.BitsPerPixel = 24
+         convertOptions.QualityFactor = 2
+
+         Dim region As RectangleRasterRegionData = New RectangleRasterRegionData()
+         region.CombineMode = RasterRegionCombineMode.Set
+
+         Dim rect As LeadRectangle = New LeadRectangle()
+         rect.Width = 200
+         rect.Height = 200
+
+         region.Bounds = rect
+
+         Dim request As SharpenRequest = New SharpenRequest()
+
+         request.ConvertOptions = convertOptions
+         request.RegionData = region
+         request.Sharpness = 1000
+
+         Dim response As CommandResponse = client.Sharpen(request)
+         If Not response.Destination Is Nothing Then
+            If TypeOf response.Destination Is RawBinaryData Then
+               File.WriteAllBytes(LeadtoolsExamples.Common.ImagesPath.Path &amp; "RectangleRasterRegionData.bmp", (TryCast(response.Destination, RawBinaryData)).Data)
+            End If
+         End If
+
+         client.Close()
+      End Sub</code>
+        <code lang="CS">      using Leadtools.Services;
+      using leadtools.services.datacontracts._2009._01;
+      using leadtools.services.raster.datacontracts._2009._01;
+      using leadtools.services.raster.faultcontracts._2009._01;
+      using leadtools.services.imageprocessing.datacontracts._2009._01;
+
+      public void RectangleRasterRegionDataExample()
+      {
+         EffectsProcessingServiceClient client = new EffectsProcessingServiceClient();
+         RawBinaryData sourceBinaryData = new RawBinaryData();
+         sourceBinaryData.Data = File.ReadAllBytes(Path.Combine(LEAD_VARS.ImagesDir, "image1.cmp"));
+
+         RasterConvertOptions convertOptions = new RasterConvertOptions();
+
+         convertOptions.Source = sourceBinaryData;
+         convertOptions.Destination = null;
+         convertOptions.Format = RasterImageFormat.Bmp;
+         convertOptions.FirstPage = 1;
+         convertOptions.LastPage = 1;
+         convertOptions.BitsPerPixel = 24;
+         convertOptions.QualityFactor = 2;
+
+         RectangleRasterRegionData region = new RectangleRasterRegionData();
+         region.CombineMode = RasterRegionCombineMode.Set;
+
+         LeadRectangle rect = new LeadRectangle();
+         rect.Width = 200;
+         rect.Height = 200;
+
+         region.Bounds = rect;
+
+         SharpenRequest request = new SharpenRequest();
+
+         request.ConvertOptions = convertOptions;
+         request.RegionData = region;
+         request.Sharpness = 1000;
+
+         CommandResponse response = client.Sharpen(request);
+         if (response.Destination != null)
+         {
+            if(response.Destination is RawBinaryData)
+               File.WriteAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"RectangleRasterRegionData.bmp"), (response.Destination as RawBinaryData).Data);
+         }
+
+         client.Close();
+      }
+
+      static class LEAD_VARS
+      {
+      public const string ImagesDir = @"C:\Users\Public\Documents\LEADTOOLS Images";
+      }
+</code>
+        <!--RectangleRasterRegionData-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Services.Raster.DataContracts.RectangleRasterRegionData.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.Raster.DataContracts.RectangleRasterRegionData" /> class.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.Raster.DataContracts.RectangleRasterRegionData.#ctor(Leadtools.Services.DataContracts.LeadRect)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.Raster.DataContracts.RectangleRasterRegionData" /> class from a <see cref="T:Leadtools.Services.DataContracts.LeadRect" />.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="bounds">A <see cref="T:Leadtools.Services.DataContracts.LeadRect" /> that specifies the region.</param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.RectangleRasterRegionData.Bounds">
+      <summary>
+            Gets or sets the rectangular area to which the region will be set or updated.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The rectangular area to which the region will be set or updated.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RectangleRasterRegionData" />.</example>
+    </member>
+    <member name="M:Leadtools.Services.Raster.DataContracts.EllipseRasterRegionData.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.Raster.DataContracts.EllipseRasterRegionData" /> class.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.Raster.DataContracts.EllipseRasterRegionData.#ctor(Leadtools.Services.DataContracts.LeadRect)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.Raster.DataContracts.EllipseRasterRegionData" /> class from a <see cref="T:Leadtools.Services.DataContracts.LeadRect" />.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="bounds">A <see cref="T:Leadtools.Services.DataContracts.LeadRect" /> that represents the bounding rectangle that defines the ellipse.</param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="T:Leadtools.Services.Raster.DataContracts.RasterRegionCombineMode">
+      <summary>
+            Controls the creation of an image region.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterRegionCombineMode.And">
+      <summary>(0x00000000)<para>The resulting region includes only the intersection of the existing region and the new one. The following example shows the result, where the rectangles represent the existing region, the ellipse represents the new one, and the shaded area represents the resulting region.</para><para><img src="RasterRegionCombineMode_And.gif" /></para></summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterRegionCombineMode.Set">
+      <summary>(0x00000001)<para>The resulting region includes only the new region. The existing region, if any, is discarded. The following example shows the result, where the ellipse is the new region and the shaded area is the resulting region.</para><para><img src="RasterRegionCombineMode_Set.gif" /></para></summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterRegionCombineMode.AndNotImage">
+      <summary>(0x00000002)<para>The resulting region includes the intersection of the area outside the existing region and the area inside the new region. The following example shows the result, where the rectangle is the existing region, the ellipse is the new one, and the shaded area is the resulting region.</para><para><img src="RasterRegionCombineMode_AndNotImage.gif" /></para></summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterRegionCombineMode.AndNotRegion">
+      <summary>(0x00000003)<para>The resulting region includes the intersection of the area inside the existing region and the area outside the new region. The following example shows the result, where the rectangle is the existing region, the ellipse is the new one, and the shaded area is the resulting region.</para><para><img src="RasterRegionCombineMode_AndNotRegion.gif" /></para></summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterRegionCombineMode.Or">
+      <summary>(0x00000004)<para>The resulting region includes the area inside the existing region and the area inside the new region. The following example shows the result, where the rectangle is the existing region, the ellipse is the new one, and the shaded area is the resulting region.</para><para><img src="RasterRegionCombineMode_Or.gif" /></para></summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterRegionCombineMode.Xor">
+      <summary>(0x00000005)<para>The resulting region includes the area inside the existing region and the area inside the new region, except for any areas where the two intersect. The following example shows the result, where the rectangle is the existing region, the ellipse is the new one, and the shaded area is the resulting region.</para><para><img src="RasterRegionCombineMode_Xor.gif" /></para></summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterRegionCombineMode.SetNot">
+      <summary>(0x00000006)<para>The resulting region includes everything in the image, except the new region. The existing region, if any, is discarded. The following example shows the result, where the ellipse is the new region and the shaded area is the resulting region.</para><para><img src="RasterRegionCombineMode_SetNot.gif" /></para></summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="T:Leadtools.Services.Raster.DataContracts.CodecsColorSpaceType">
+      <summary>
+            Indicates the colorspace for the image data.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.CodecsColorSpaceType.Bgr">
+      <summary>(0x00000000)BGR colorspace.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.CodecsColorSpaceType.Yuv">
+      <summary>(0x00000001)YUV colorspace.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.CodecsColorSpaceType.Cmyk">
+      <summary>(0x00000002)CMYK colorspace.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.CodecsColorSpaceType.CieLab">
+      <summary>(0x00000003)CIELab colorspace.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="T:Leadtools.Services.Raster.DataContracts.RasterImageFormat">
+      <summary>
+            Indicates the image file format.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Unknown">
+      <summary>(0x00000000)Unknown (or RAW Data).</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Pcx">
+      <summary>(0x00000001)<see cref="T:L.Topics.FileFormatsPCXFormats">ZSoft PCX</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Gif">
+      <summary>(0x00000002)<see cref="T:L.Topics.FileFormatsGif">GIF</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Tif">
+      <summary>(0x00000003)<see cref="T:L.Topics.FileFormatsTIFF">TIFF (Tagged Image File Format)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Tga">
+      <summary>(0x00000004)<see cref="T:L.Topics.FileFormatsTargaFormat">Truevision TGA (TARGA)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Cmp">
+      <summary>(0x00000005)<see cref="T:L.Topics.FileFormatsJPEGAndLEADCompressed">LEAD Compressed (CMP)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Bmp">
+      <summary>(0x00000006)<see cref="T:L.Topics.FileFormatBMPFormats">Bitmap (BMP)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Jpeg">
+      <summary>(0x0000000A)<see cref="T:L.Topics.FileFormatsJPEGAndLEADCompressed">JPEG File Interchange Format (JFIF)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.JpegRgb">
+      <summary>(0x000000B6)<see cref="T:L.Topics.FileFormatsJPEGAndLEADCompressed">JPEG File Interchange Format (JFIF) (RGB)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifJpeg">
+      <summary>(0x0000000B)<see cref="T:L.Topics.FileFormatsTIFF">TIFF with JPEG compression</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Os2">
+      <summary>(0x0000000E)<see cref="T:L.Topics.FileFormatBMPFormats">OS/2 Bitmap (OS/2 BMP)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Wmf">
+      <summary>(0x0000000F)<see cref="T:L.Topics.FileFormatsWindowsMetafileFormats">Windows Metafile (WMF)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Eps">
+      <summary>(0x00000010)<see cref="T:L.Topics.FileFormatsEPS">PostScript Raster (Encapsulated PostScript)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifLzw">
+      <summary>(0x00000011)<see cref="T:L.Topics.FileFormatsTIFF">TIFF with LZW Compression</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Jpeg411">
+      <summary>(0x00000015)<see cref="T:L.Topics.FileFormatsJPEGAndLEADCompressed">JPEG File Interchange Format (4-1-1)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifJpeg411">
+      <summary>(0x00000016)<see cref="T:L.Topics.FileFormatsTIFF">TIFF with JPEG compression</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Jpeg422">
+      <summary>(0x00000017)<see cref="T:L.Topics.FileFormatsJPEGAndLEADCompressed">JPEG File Interchange Format (4-2-2)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifJpeg422">
+      <summary>(0x00000018)<see cref="T:L.Topics.FileFormatsTIFF">TIFF with JPEG compression</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Ccitt">
+      <summary>(0x00000019)<see cref="T:L.Topics.FileFormatsFax">TIFF CCITT</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Lead1Bit">
+      <summary>(0x0000001A)<see cref="T:L.Topics.FileFormatsLEAD1BitFormat">LEAD 1-bit lossless format</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.CcittGroup31Dim">
+      <summary>(0x0000001B)<see cref="T:L.Topics.FileFormatsFax">TIFF CCITT Group 3 (1 Dimensional)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.CcittGroup32Dim">
+      <summary>(0x0000001C)<see cref="T:L.Topics.FileFormatsFax">TIFF CCITT Group3 two dimensions</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.CcittGroup4">
+      <summary>(0x0000001D)<see cref="T:L.Topics.FileFormatsFax">TIFF CCITT Group4 two dimensions 4</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Abc">
+      <summary>(0x00000020)<see cref="T:L.Topics.FileFormatsABC">LEAD Advanced Bitonal Compression</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Cals">
+      <summary>(0x00000032)<see cref="T:L.Topics.FileFormatsFax">CALS Raster (Type 1)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Mac">
+      <summary>(0x00000033)<see cref="T:L.Topics.Miscellaneous1BitFormats">MacPaint (MAC)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Img">
+      <summary>(0x00000034)<see cref="T:L.Topics.Miscellaneous1BitFormats">GEM Image (IMG)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Msp">
+      <summary>(0x00000035)<see cref="T:L.Topics.Miscellaneous1BitFormats">Microsoft Paint (MSP)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Wpg">
+      <summary>(0x00000036)<see cref="T:L.Topics.FileFormatsWPG">WordPerfect (WPG)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Ras">
+      <summary>(0x00000037)<see cref="T:L.Topics.FileFormatsSun">SUN Raster Format (RAS)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Fli">
+      <summary>(0x0000003D)<see cref="T:L.Topics.FileFormatsFLC">Flic Animation (FLI)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.EpsTiff">
+      <summary>(0x0000003F)<see cref="T:L.Topics.FileFormatsEPS">PostScript Raster TIFF (Encapsulated PostScript TIFF)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.EpsWmf">
+      <summary>(0x00000040)<see cref="T:L.Topics.FileFormatsEPS">PostScript Raster WMF(Encapsulated PostScript WMF)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.FaxG31Dim">
+      <summary>(0x00000042)<see cref="T:L.Topics.FileFormatsFax">FAX Group 3 (1 Dimensional)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.FaxG32Dim">
+      <summary>(0x00000043)<see cref="T:L.Topics.FileFormatsFax">FAX Group 3 (2 Dimensional)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.FaxG4">
+      <summary>(0x00000044)<see cref="T:L.Topics.FileFormatsFax">FAX Group 4</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.WfxG31Dim">
+      <summary>(0x00000045)<see cref="T:L.Topics.FileFormatsFax">WinFax Group 3 (1 Dimensional)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.WfxG4">
+      <summary>(0x00000046)<see cref="T:L.Topics.FileFormatsFax">WinFax Group 4</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.IcaG31Dim">
+      <summary>(0x00000047)<see cref="T:L.Topics.FileFormatsIOCAFormat">IOCA (ICA) (1 Dimensional)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.IcaG32Dim">
+      <summary>(0x00000048)<see cref="T:L.Topics.FileFormatsIOCAFormat">IOCA (ICA) (2 Dimensional)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.IcaG4">
+      <summary>(0x00000049)<see cref="T:L.Topics.FileFormatsIOCAFormat">IOCA (ICA) (Group 4)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Os22">
+      <summary>(0x0000004A)<see cref="T:L.Topics.FileFormatBMPFormats">OS/2 Bitmap (OS/2 BMP)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Png">
+      <summary>(0x0000004B)<see cref="T:L.Topics.FileFormatsPNGFormat">PNG (Portable Network Graphics)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RawIcaG31Dim">
+      <summary>(0x0000004D)<see cref="T:L.Topics.FileFormatsIOCAFormat">IOCA (ICA) (Group 3 1Dimensional)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RawIcaG32Dim">
+      <summary>(0x0000004E)<see cref="T:L.Topics.FileFormatsIOCAFormat">IOCA (ICA) (Group 3 2Dimensional)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RawIcaG4">
+      <summary>(0x0000004F)<see cref="T:L.Topics.FileFormatsIOCAFormat">IOCA (ICA) (Group 4)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.BmpRle">
+      <summary>(0x00000054)<see cref="T:L.Topics.FileFormatBMPFormats">Bitmap (BMP) (With RLE)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifCmyk">
+      <summary>(0x00000055)<see cref="T:L.Topics.FileFormatsTIFF">TIFF CMYK (With CMYK colorspace)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifLzwCmyk">
+      <summary>(0x00000056)<see cref="T:L.Topics.FileFormatsTIFF">TIFF LZW (CMYK)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifPackBits">
+      <summary>(0x00000057)<see cref="T:L.Topics.FileFormatsTIFF">TIFF Packbits</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifPackBitsCmyk">
+      <summary>(0x00000058)<see cref="T:L.Topics.FileFormatsTIFF">TIFF Packbits (CMYK)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifDxf">
+      <summary>(0x0000008C)<see cref="T:L.Topics.FileFormatsTIFF">TIFF with embedded DXF</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.WinIco">
+      <summary>(0x0000005B)<see cref="T:L.Topics.FileFormatsIconsAndCursors">Windows Icon (ICO)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.WinCur">
+      <summary>(0x0000005C)<see cref="T:L.Topics.FileFormatsIconsAndCursors">Windows Cursor (CUR)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifYcc">
+      <summary>(0x0000005D)<see cref="T:L.Topics.FileFormatsTIFF">TIFF YCC</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifLzwYcc">
+      <summary>(0x0000005E)<see cref="T:L.Topics.FileFormatsTIFF">TIFF LZW YCC</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifPackbitsYcc">
+      <summary>(0x0000005F)<see cref="T:L.Topics.FileFormatsTIFF">TIFF Packbits (YCC)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Exif">
+      <summary>(0x00000060)<see cref="T:L.Topics.FileFormatsExifFormats">Exif</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.ExifYcc">
+      <summary>(0x00000061)<see cref="T:L.Topics.FileFormatsExifFormats">Exif (YCC)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.ExifJpeg422">
+      <summary>(0x00000062)<see cref="T:L.Topics.FileFormatsExifFormats">Exif (JPEG 4-2-2)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.ExifJpeg">
+      <summary>(0x00000062)<see cref="T:L.Topics.FileFormatsExifFormats">Exif (JPEG 4-2-2)</see>. This is the same as <see cref="T:Leadtools.RasterImageFormat">RasterImageFormat.ExifJpeg422</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.ExifJpeg411">
+      <summary>(0x00000065)<see cref="T:L.Topics.FileFormatsExifFormats">Exif (JPEG 4-1-1)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.PbmAscii">
+      <summary>(0x00000066)<see cref="T:L.Topics.FileFormatsPortableBitmapUtilities">PBM Ascii</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.PbmBinary">
+      <summary>(0x00000067)<see cref="T:L.Topics.FileFormatsPortableBitmapUtilities">PBM Binary</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.PgmAscii">
+      <summary>(0x00000068)<see cref="T:L.Topics.FileFormatsPortableBitmapUtilities">PGM Ascii</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.PgmBinary">
+      <summary>(0x00000069)<see cref="T:L.Topics.FileFormatsPortableBitmapUtilities">PPGM Binary</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.PpmAscii">
+      <summary>(0x0000006A)<see cref="T:L.Topics.FileFormatsPortableBitmapUtilities">PPM Ascii</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.PpmBinary">
+      <summary>(0x0000006B)<see cref="T:L.Topics.FileFormatsPortableBitmapUtilities">PPM Binary</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Cut">
+      <summary>(0x0000006C)<see cref="T:L.Topics.FileFormatsCUT">Dr. Halo</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Xpm">
+      <summary>(0x0000006D)<see cref="T:L.Topics.FileFormatsXPicMapFormat">XPM Window PixMap</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Xbm">
+      <summary>(0x0000006E)<see cref="T:L.Topics.FileFormatsXBitMap">XWindows BitMap (XBM)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.IffIlbm">
+      <summary>(0x0000006F)<see cref="T:L.Topics.FileFormatsIFF">IFF (Amiga Interchange) (ILBM)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.IffCat">
+      <summary>(0x00000070)<see cref="T:L.Topics.FileFormatsIFF">IFF (Amiga Interchange) (CAT)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Xwd">
+      <summary>(0x00000071)<see cref="T:L.Topics.FileFormatsXWD">X Window Dump (XWD)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Clp">
+      <summary>(0x00000072)<see cref="T:L.Topics.FileFormatsCLP">Microsoft Windows Clipboard (CLP)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Jbig">
+      <summary>(0x00000073)<see cref="T:L.Topics.FileFormatsJBIGFormat">JBIG (JBG)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Emf">
+      <summary>(0x00000074)<see cref="T:L.Topics.FileFormatsWindowsMetafileFormats">Windows Enhanced Metafile (EMF)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.IcaIbmMmr">
+      <summary>(0x00000075)<see cref="T:L.Topics.FileFormatsIOCAFormat">IOCA (ICA) (MMR Compressed)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RawIcaIbmMmr">
+      <summary>(0x00000076)<see cref="T:L.Topics.FileFormatsIOCAFormat">IOCA (ICA) (Raw MMR Compressed)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Ani">
+      <summary>(0x00000077)<see cref="T:L.Topics.FileFormatsWindowsAnimatedCursorFormat">Windows Animated Cursor (ANI)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.LaserData">
+      <summary>(0x00000079)<see cref="T:L.Topics.FileFormatsFax">LaserView LaserData</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.IntergraphRle">
+      <summary>(0x0000007A)<see cref="T:L.Topics.FileFormatsITG">IntergraphRLE (ITG) (RLE compressed)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Cals4">
+      <summary>(0x00000081)<see cref="T:L.Topics.FileFormatsFax">CALS Raster (Type 4)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Cals2">
+      <summary>(0x00000082)<see cref="T:L.Topics.FileFormatsFax">CALS Raster (Type 2)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Cals3">
+      <summary>(0x00000083)<see cref="T:L.Topics.FileFormatsFax">CALS Raster (Type 3)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Xwd10">
+      <summary>(0x00000084)<see cref="T:L.Topics.FileFormatsXWD">X Window Dump (XWD 10)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Xwd11">
+      <summary>(0x00000085)<see cref="T:L.Topics.FileFormatsXWD">X Window Dump (XWD 11)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Flc">
+      <summary>(0x00000086)<see cref="T:L.Topics.FileFormatsFLC">Flic Animation (FLC)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifCmp">
+      <summary>(0x0000008A)<see cref="T:L.Topics.FileFormatsTIFF">TIFF (with LEAD CMP compression)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifJbig">
+      <summary>(0x0000008B)<see cref="T:L.Topics.FileFormatsTIFF">TIFF (with JBIG compression)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifUnknown">
+      <summary>(0x0000008D)<see cref="T:L.Topics.FileFormatsTIFF">TIFF (Unknown image data)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Sgi">
+      <summary>(0x0000008E)<see cref="T:L.Topics.FileFormatsSGI">Silicon Graphics Image Format (SGI)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.SgiRle">
+      <summary>(0x0000008F)<see cref="T:L.Topics.FileFormatsSGI">Silicon Graphics Image Format (SGI) (RLE)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RasPdf">
+      <summary>(0x00000092)<see cref="T:L.Topics.FileFormatsPDF">Portable Document Format (PDF)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RasPdfG31Dim">
+      <summary>(0x00000093)<see cref="T:L.Topics.FileFormatsPDF">Portable Document Format (PDF) (Group 3 1-Dimensional)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RasPdfG32Dim">
+      <summary>(0x00000094)<see cref="T:L.Topics.FileFormatsPDF">Portable Document Format (PDF) (Group 3 2-Dimensional)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RasPdfG4">
+      <summary>(0x00000095)<see cref="T:L.Topics.FileFormatsPDF">Portable Document Format (PDF) (Group 4)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RasPdfJpeg">
+      <summary>(0x00000096)<see cref="T:L.Topics.FileFormatsPDF">Portable Document Format (PDF) (JPEG)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RasPdfJpeg422">
+      <summary>(0x00000097)<see cref="T:L.Topics.FileFormatsPDF">Portable Document Format (PDF) (JPEG 4-2-2)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RasPdfJpeg411">
+      <summary>(0x00000098)<see cref="T:L.Topics.FileFormatsPDF">Portable Document Format (PDF) (JPEG 4-1-1)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RasPdfLzw">
+      <summary>(0x000000B3)<see cref="T:L.Topics.FileFormatsPDF">Portable Document Format (PDF) (LZW Compression)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RasPdfJbig2">
+      <summary>(0x000000BC)<see cref="T:L.Topics.FileFormatsPDF">Portable Document Format (PDF) (JBIG2 Compression)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RasPdfCmyk">
+      <summary>(0x0000014D)<see cref="T:L.Topics.FileFormatsPDF">Portable Document Format (PDF) (CMYK data)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RasPdfLzwCmyk">
+      <summary>(0x0000014E)<see cref="T:L.Topics.FileFormatsPDF">Portable Document Format (PDF) (CMYK data - LZW Compression)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Raw">
+      <summary>(0x00000099)<see cref="T:L.Topics.FileFormatsRAW">Raw Image Data</see>. LEADTOOLS can load and save raw compressed or uncompressed data.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifCustom">
+      <summary>(0x0000009B)Unsupported.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RawRgb">
+      <summary>(0x0000009C)<see cref="T:L.Topics.FileFormatsRAW">Raw Image Data</see>. LEADTOOLS can load and save raw compressed or uncompressed data.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RawRle4">
+      <summary>(0x0000009D)<see cref="T:L.Topics.FileFormatsRAW">Raw Image Data</see> (RLE 4-bit). LEADTOOLS can load and save raw compressed or uncompressed data.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RawRle8">
+      <summary>(0x0000009E)<see cref="T:L.Topics.FileFormatsRAW">Raw Image Data</see> (RLE 8-bit).LEADTOOLS can load and save raw compressed or uncompressed data.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RawBitfields">
+      <summary>(0x0000009F)<see cref="T:L.Topics.FileFormatsRAW">Raw Image Data</see> (BitField compressed). LEADTOOLS can load and save raw compressed or uncompressed data.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RawPackBits">
+      <summary>(0x000000A0)<see cref="T:L.Topics.FileFormatsRAW">Raw Image Data</see> (Packbits compressed). LEADTOOLS can load and save raw compressed or uncompressed data.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RawJpeg">
+      <summary>(0x000000A1)<see cref="T:L.Topics.FileFormatsRAW">Raw Image Data</see> (JPEG compressed).</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.FaxG31DimNoEol">
+      <summary>(0x000000A2)<see cref="T:L.Topics.FileFormatsFax">FAX Group 3 (1 Dimensional) - with no EOL</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RawCcitt">
+      <summary>(0x000000A2)<see cref="T:L.Topics.FileFormatsRAW">Raw Image Data</see> (CCITT compressed). LEADTOOLS can load and save raw compressed or uncompressed data.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Jp2">
+      <summary>(0x000000A3)<see cref="T:L.Topics.FileFormatsJPEGAndLEADCompressed">JP2 - Lossy or Lossless</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.J2k">
+      <summary>(0x000000A4)<see cref="T:L.Topics.FileFormatsJPEGAndLEADCompressed">J2K - Lossy or Lossless</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Cmw">
+      <summary>(0x000000A5)<see cref="T:L.Topics.FileFormatsJPEGAndLEADCompressed">LEAD CMW</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifJ2k">
+      <summary>(0x000000A6)<see cref="T:L.Topics.FileFormatsTIFF">TIFF with JPEG 2000 compression</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifCmw">
+      <summary>(0x000000A7)<see cref="T:L.Topics.FileFormatsTIFF">TIFF with LEAD Wavelet CMW compression</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Mrc">
+      <summary>(0x000000A8)<see cref="T:L.Topics.MrcT44Fmt">Standard MRC T44 format</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.LeadMrc">
+      <summary>(0x0000013A)<see cref="T:L.Topics.LeadMrcFmt">LEADTOOLS MRC format</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifMrc">
+      <summary>(0x000000B1)<see cref="T:L.Topics.FileFormatsTIFF">TIFF with standard MRC compression</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifLeadMrc">
+      <summary>(0x0000013B)<see cref="T:L.Topics.FileFormatsTIFF">TIFF with LEAD MRC compression</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Wbmp">
+      <summary>(0x000000AA)<see cref="T:L.Topics.FileFormatsWBMP">Wireless Bitmap Format (WBMP)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.JpegLab">
+      <summary>(0x000000AB)<see cref="T:L.Topics.FileFormatsJPEGAndLEADCompressed">JPEG File Interchange Format (JFIF) (LAB)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.JpegLab411">
+      <summary>(0x000000AC)<see cref="T:L.Topics.FileFormatsJPEGAndLEADCompressed">JPEG File Interchange Format (JFIF) (LAB 4-1-1)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.JpegLab422">
+      <summary>(0x000000AD)<see cref="T:L.Topics.FileFormatsJPEGAndLEADCompressed">JPEG File Interchange Format (JFIF) (LAB 4-2-2)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.GeoTiff">
+      <summary>(0x000000AE)<see cref="T:L.Topics.FileFormatsTIFF">TIFF (GeoTIFF)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifLead1Bit">
+      <summary>(0x000000AF)<see cref="T:L.Topics.FileFormatsTIFF">TIFF with LEAD 1-bit compression</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifAbc">
+      <summary>(0x000000B4)<see cref="T:L.Topics.FileFormatsTIFF">TIFF with LEAD ABC 1-bit compression</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Postscript">
+      <summary>(0x000000DE)<see cref="T:L.Topics.FileFormatsPostScriptDoc">PostScript Document Format (PS)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Ptoca">
+      <summary>(0x000000F9)<see cref="T:L.Topics.FileFormatsPTOCA">PTOCA Format (PTOCA)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Sct">
+      <summary>(0x000000FA)<see cref="T:L.Topics.FileFormatsSCT">Scitex Continuous Tone Format (SCT)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Afp">
+      <summary>(0x000000FC)<see cref="T:L.Topics.FileFormatsAFP">AFP Format (AFP)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.IcaUncompressed">
+      <summary>(0x000000FD)<see cref="T:L.Topics.FileFormatsIOCAFormat">IOCA (ICA) (uncompressed)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RawIcaUncompressed">
+      <summary>(0x000000FE)<see cref="T:L.Topics.FileFormatsIOCAFormat">IOCA (ICA) (raw uncompressed)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Smp">
+      <summary>(0x00000100)<see cref="T:L.Topics.FileFormatsSMP">SMP Format (SMP)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.SmpG31Dim">
+      <summary>(0x00000101)<see cref="T:L.Topics.FileFormatsSMP">SMP Format (SMP) (Group 3 1-Dimensional)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.SmpG32Dim">
+      <summary>(0x00000102)<see cref="T:L.Topics.FileFormatsSMP">SMP Format (SMP) (Group 3 2-Dimensional)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.SmpG4">
+      <summary>(0x00000103)<see cref="T:L.Topics.FileFormatsSMP">SMP Format (SMP) (Group 4)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TgaRle">
+      <summary>(0x00000106)<see cref="T:L.Topics.FileFormatsTargaFormat">Truevision TGA (TARGA) (RLE)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RasRle">
+      <summary>(0x00000120)<see cref="T:L.Topics.FileFormatsSun">SUN Raster Format (RAS) (RLE)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.ClpRle">
+      <summary>(0x00000123)<see cref="T:L.Topics.FileFormatsCLP">Microsoft Windows Clipboard (CLP)(RLE compressed)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Fit">
+      <summary>(0x00000127)<see cref="T:L.Topics.FileFormatsFIT">FITS Format (FIT)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Cin">
+      <summary>(0x0000012A)<see cref="T:L.Topics.FileFormatsKODAKCineon">Cineon Format (CIN)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.EpsPostscript">
+      <summary>(0x0000012C)<see cref="T:L.Topics.FileFormatsEPS">PostScript Raster (Encapsulated PostScript)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.IntergraphCcittG4">
+      <summary>(0x0000012D)<see cref="T:L.Topics.FileFormatsITG">IntergraphRLE (ITG) (CCITT Group 4 compressed)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Sff">
+      <summary>(0x0000012E)<see cref="T:L.Topics.FileFormatsSFF">Structured Fax File Format (SFF)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.IffIlbmUncompressed">
+      <summary>(0x0000012F)<see cref="T:L.Topics.FileFormatsIFF">IFF (Amiga Interchange) (ILBM uncompressed)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.IffCatUncompressed">
+      <summary>(0x00000130)<see cref="T:L.Topics.FileFormatsIFF">IFF (Amiga Interchange) (CAT uncompressed)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.AfpIcaG31Dim">
+      <summary>(0x00000135)<see cref="T:L.Topics.FileFormatsAFP">AFP Format (AFP) IOCA Group3 1 Dimensional</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.AfpIcaG32Dim">
+      <summary>(0x00000136)<see cref="T:L.Topics.FileFormatsAFP">AFP Format (AFP) IOCA Group3 2 Dimensional</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.AfpIcaG4">
+      <summary>(0x00000137)<see cref="T:L.Topics.FileFormatsAFP">AFP Format (AFP) IOCA Group4</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.AfpIcaUncompressed">
+      <summary>(0x00000138)<see cref="T:L.Topics.FileFormatsAFP">AFP Format (AFP) IOCA Uncompressed</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.AfpIcaIbmMmr">
+      <summary>(0x00000139)<see cref="T:L.Topics.FileFormatsAFP">AFP Format (AFP) IOCA MMR Compressed</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Psd">
+      <summary>(0x0000004C)<see cref="T:L.Topics.FileFormatsPSDFormat">Photoshop 3.0 (PSD)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Jbig2">
+      <summary>(0x000000B7)<see cref="T:L.Topics.FileFormatsJBIG2Format">JBIG2 (JB2)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Crw">
+      <summary>(0x00000128)<see cref="T:L.Topics.FileFormatsCRW">AFP Format (AFP) IOCA MMR Compressed</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Dcr">
+      <summary>(0x00000124)<see cref="T:L.Topics.FileFormatsDCR">Kodak Professional Digital Camera System Format (DCR)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Dcs">
+      <summary>(0x0000010A)<see cref="T:L.Topics.FileFormatsDCS">Kodak Professional Digital Camera System Format (DCS)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Ecw">
+      <summary>(0x00000115)<see cref="T:L.Topics.FileFormatsECW">Enhanced Compressed Wavelet Format (ECW)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Kdc">
+      <summary>(0x00000087)<see cref="T:L.Topics.FileFormatsKDC">Kodak Digital Camera Format (KDC)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Pcd">
+      <summary>(0x00000039)<see cref="T:L.Topics.FileFormatsFPX">PhotoCD (PCD)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Kdc120">
+      <summary>(0x00000107)<see cref="T:L.Topics.FileFormatsKDC">Kodak Digital Camera Format (KDC) (120)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Kdc40">
+      <summary>(0x00000108)<see cref="T:L.Topics.FileFormatsKDC">Kodak Digital Camera Format (KDC) (40)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Kdc50">
+      <summary>(0x00000109)<see cref="T:L.Topics.FileFormatsKDC">Kodak Digital Camera Format (KDC) (50)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RtfRaster">
+      <summary>(0x00000131)<see cref="T:L.Topics.FileFormatsRTF">Rich Text Format (RTF)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Awd">
+      <summary>(0x00000063)<see cref="T:L.Topics.FileFormatsFax">Microsoft Fax (AWD)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Abic">
+      <summary>(0x000000BE)<see cref="T:L.Topics.FileFormatsABIC">Raw ABIC Format (ABIC)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.IcaAbic">
+      <summary>(0x000000BE)<see cref="T:L.Topics.FileFormatsIOCAFormat">IOCA with ABIC compression</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifAbic">
+      <summary>(0x000000BA)<see cref="T:L.Topics.FileFormatsTIFF">TIFF with ABIC compression</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifJbig2">
+      <summary>(0x000000BB)<see cref="T:L.Topics.FileFormatsTIFF">TIFF with JBIG2 compression</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.RawLzw">
+      <summary>(0x000000B2)<see cref="T:L.Topics.FileFormatsRAW">LZW Image Data</see>. LEADTOOLS can save raw lzw compressed data.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.PdfLeadMrc">
+      <summary>(0x0000013D)<see cref="T:L.Topics.FileFormatsPdfLeadMrc">PDF format with image segmentation using MRC</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Txt">
+      <summary>(0x0000013C)ASCII Text Format. LEADTOOLS can load TXT files as raster images.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Fpx">
+      <summary>(0x00000050)<see cref="T:L.Topics.FileFormatsFPX">Kodak Formats (PCD and FPX)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.FpxSingleColor">
+      <summary>(0x00000051)<see cref="T:L.Topics.FileFormatsFPX">Kodak Formats (PCD and FPX)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.FpxJpeg">
+      <summary>(0x00000052)<see cref="T:L.Topics.FileFormatsFPX">Kodak Formats (PCD and FPX)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.FpxJpegQFactor">
+      <summary>(0x00000053)<see cref="T:L.Topics.FileFormatsFPX">Kodak Formats (PCD and FPX)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.DicomGray">
+      <summary>(0x00000059)<see cref="T:L.Topics.FileFormatsDICOM">DICOM Format (DIC)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.DicomColor">
+      <summary>(0x0000005A)<see cref="T:L.Topics.FileFormatsDICOM">DICOM Format (DIC)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.DicomRleGray">
+      <summary>(0x0000007D)<see cref="T:L.Topics.FileFormatsDICOM">DICOM Format (DIC)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.DicomRleColor">
+      <summary>(0x0000007E)<see cref="T:L.Topics.FileFormatsDICOM">DICOM Format (DIC)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.DicomJpegGray">
+      <summary>(0x0000007F)<see cref="T:L.Topics.FileFormatsDICOM">DICOM Format (DIC)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.DicomJpegColor">
+      <summary>(0x00000080)<see cref="T:L.Topics.FileFormatsDICOM">DICOM Format (DIC)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.DicomJ2kGray">
+      <summary>(0x00000125)<see cref="T:L.Topics.FileFormatsDICOM">DICOM Format (DIC)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.DicomJ2kColor">
+      <summary>(0x00000126)<see cref="T:L.Topics.FileFormatsDICOM">DICOM Format (DIC)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Wmz">
+      <summary>(0x00000133)<see cref="T:L.Topics.FileFormatsWMZ">Compressed Windows Metafile Format (WMZ)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Pct">
+      <summary>(0x00000038)<see cref="T:L.Topics.FileFormatsPCT">Macintosh Pict Format (PCT)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifxJbig">
+      <summary>(0x0000010D)<see cref="T:L.Topics.FileFormatsFax">Xerox Internet Fax File Format</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifxJbigT43">
+      <summary>(0x0000010E)<see cref="T:L.Topics.FileFormatsFax">Xerox Internet Fax File Format</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifxJbigT43ItuLab">
+      <summary>(0x0000010F)<see cref="T:L.Topics.FileFormatsFax">Xerox Internet Fax File Format</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifxJbigT43Gs">
+      <summary>(0x00000110)<see cref="T:L.Topics.FileFormatsFax">Xerox Internet Fax File Format</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifxFaxG4">
+      <summary>(0x00000111)<see cref="T:L.Topics.FileFormatsFax">Xerox Internet Fax File Format</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifxFaxG31D">
+      <summary>(0x00000112)<see cref="T:L.Topics.FileFormatsFax">Xerox Internet Fax File Format</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifxFaxG32D">
+      <summary>(0x00000113)<see cref="T:L.Topics.FileFormatsFax">Xerox Internet Fax File Format</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifxJpeg">
+      <summary>(0x00000114)<see cref="T:L.Topics.FileFormatsFax">Xerox Internet Fax File Format</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Hdp">
+      <summary>(0x0000013E)<see cref="T:L.Topics.FileFormatsHDP">JPEG XR / Microsoft HD Photo File Format</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.HdpGray">
+      <summary>(0x0000013F)<see cref="T:L.Topics.FileFormatsHDP">JPEG XR / Microsoft HD Photo File Format</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.HdpCmyk">
+      <summary>(0x00000140)<see cref="T:L.Topics.FileFormatsHDP">JPEG XR / Microsoft HD Photo File Format</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.PngIco">
+      <summary>(0x00000141)<see cref="T:L.Topics.FileFormatsIconsAndCursors">Windows Icon (ICO), PNG Compressed (VISTA)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.TifZip">
+      <summary>(0x000000BD)<see cref="T:L.Topics.FileFormatsIconsAndCursors">TIFF (with ZIP compression)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Xps">
+      <summary>(0x00000142)<see cref="T:L.Topics.FileFormatsXPSFormat">XML Paper Specification (XPS) - with PNG Compression</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Jpx">
+      <summary>(0x00000143)<see cref="T:L.Topics.FileFormatsJPEGAndLEADCompressed">Jpeg 2000 extension part 2 (JPX)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.XpsJpeg">
+      <summary>(0x00000144)<see cref="T:L.Topics.FileFormatsXPSFormat">XML Paper Specification (XPS) - with JPEG (4-4-4) Compression</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.XpsJpeg422">
+      <summary>(0x00000145)<see cref="T:L.Topics.FileFormatsXPSFormat">XML Paper Specification (XPS) - with JPEG (4-2-2) Compression</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.XpsJpeg411">
+      <summary>(0x00000146)<see cref="T:L.Topics.FileFormatsXPSFormat">XML Paper Specification (XPS) - with JPEG (4-1-1) Compression</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Mng">
+      <summary>(0x00000147)<see cref="T:L.Topics.FileFormatsMNG">Multiple Network Graphics (MNG)</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.MngGray">
+      <summary>(0x00000149)<see cref="T:L.Topics.FileFormatsMNG">Multiple Network Graphics (MNG) - Gray</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.MngJng">
+      <summary>(0x0000014A)<see cref="T:L.Topics.FileFormatsMNG">Multiple Network Graphics (MNG) - YUV 4-4-4</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.MngJng411">
+      <summary>(0x0000014B)<see cref="T:L.Topics.FileFormatsMNG">Multiple Network Graphics (MNG) - YUV 4-1-1</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.MngJng422">
+      <summary>(0x0000014C)<see cref="T:L.Topics.FileFormatsMNG">Multiple Network Graphics (MNG) - YUV 4-2-2</see>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Jxr">
+      <summary>(0x00000161)<see cref="T:L.Topics.FileFormatsHDP">JPEG-XR - RGB</see></summary>
+      <isnew>3/23/2012</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.JxrGray">
+      <summary>(0x00000162)<see cref="T:L.Topics.FileFormatsHDP">JPEG-XR - Grayscale</see></summary>
+      <isnew>3/23/2012</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.JxrCmyk">
+      <summary>(0x00000163)<see cref="T:L.Topics.FileFormatsHDP">JPEG-XR - CMYK</see></summary>
+      <isnew>3/23/2012</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Jls">
+      <summary>(0x00000164)<see cref="T:L.Topics.FileFormatsJPEGAndLEADCompressed">JPEG LS File Format</see></summary>
+      <isnew>3/23/2012</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Jxr422">
+      <summary>(0x00000165)<see cref="T:L.Topics.FileFormatsHDP">JPEG-XR - YUV 4:2:2</see></summary>
+      <isnew>3/23/2012</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterImageFormat.Jxr420">
+      <summary>(0x00000166)<see cref="T:L.Topics.FileFormatsHDP">JPEG-XR - YUV 4:2:0</see></summary>
+      <isnew>3/23/2012</isnew>
+    </member>
+    <member name="T:Leadtools.Services.Raster.DataContracts.RasterViewPerspective">
+      <summary>
+            Indicates the view perspective of the image data.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterViewPerspective.TopLeft">
+      <summary>(0x00000001)Top-left of image is first in memory.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterViewPerspective.BottomLeft">
+      <summary>(0x00000004)Bottom-left of image is first in memory.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterViewPerspective.TopRight">
+      <summary>(0x00000002)<see cref="T:Leadtools.Topics.RasterProDocMed">(Document/Medical only)</see> First row is the right side, first column is top side.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterViewPerspective.BottomLeft180">
+      <summary>(0x00000002)<see cref="T:Leadtools.Topics.RasterProDocMed">(Document/Medical only)</see> Same as <strong>TopLeft</strong>, which is <strong>BottomLeft</strong> rotated clockwise by 180 degrees.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterViewPerspective.BottomRight">
+      <summary>(0x00000003)<see cref="T:Leadtools.Topics.RasterProDocMed">(Document/Medical only)</see> First row is the right side, first column is the bottom side.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterViewPerspective.TopLeft180">
+      <summary>(0x00000003)<see cref="T:Leadtools.Topics.RasterProDocMed">(Document/Medical only)</see> Same as <strong>BottomRight</strong>, which is <strong>TopLeft</strong> rotated clockwise by 180 degrees.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterViewPerspective.RightTop">
+      <summary>(0x00000006)<see cref="T:Leadtools.Topics.RasterProDocMed">(Document/Medical only)</see> First row is the right side, first column is top side.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterViewPerspective.TopLeft90">
+      <summary>(0x00000006)<see cref="T:Leadtools.Topics.RasterProDocMed">(Document/Medical only)</see> Same as <strong>RightTop</strong>, which is <strong>TopLeft</strong> rotated clockwise by 90 degrees.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterViewPerspective.LeftBottom">
+      <summary>(0x00000008)<see cref="T:Leadtools.Topics.RasterProDocMed">(Document/Medical only)</see> First row is the left side, first column is top side.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterViewPerspective.TopLeft270">
+      <summary>(0x00000008)<see cref="T:Leadtools.Topics.RasterProDocMed">(Document/Medical only)</see> Same as <strong>LeftBottom</strong>, which is <strong>TopLeft</strong> rotated clockwise by 270 degrees.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterViewPerspective.LeftTop">
+      <summary>(0x00000005)<see cref="T:Leadtools.Topics.RasterProDocMed">(Document/Medical only)</see> First row is the left side, first column is the top side.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterViewPerspective.BottomLeft90">
+      <summary>(0x00000005)<see cref="T:Leadtools.Topics.RasterProDocMed">(Document/Medical only)</see> Same as <strong>LeftTop</strong>, which is <strong>BottomLeft</strong> rotated clockwise by 90 degrees.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterViewPerspective.RightBottom">
+      <summary>(0x00000007)<see cref="T:Leadtools.Topics.RasterProDocMed">(Document/Medical only)</see> First row is the right side, first column is the bottom side.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterViewPerspective.BottomLeft270">
+      <summary>(0x00000007)<see cref="T:Leadtools.Topics.RasterProDocMed">(Document/Medical only)</see> Same as <strong>RightBottom</strong>, which is <strong>BottomLeft</strong> rotated clockwise by 270 degrees.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="T:Leadtools.Services.Raster.DataContracts.RasterByteOrder">
+      <summary>
+            Indicates the color byte order of the image data.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterByteOrder.Rgb">
+      <summary>(0x00000000)RGB</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterByteOrder.Bgr">
+      <summary>(0x00000001)BGR (inverse of RGB)</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterByteOrder.Gray">
+      <summary>(0x00000002)Grayscale</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterByteOrder.Romm">
+      <summary>(0x00000005)ROMM (BGR)</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="T:Leadtools.Services.Raster.DataContracts.RasterResizeFlags">
+      <summary>
+            Controls the behavior of image resize methods.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterResizeFlags.None">
+      <summary>(0x00000000)Resize normally</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterResizeFlags.FavorBlack">
+      <summary>(0x00000001)<para><see cref="T:Leadtools.Topics.RasterProDocMed">(Document/Medical only)</see> Preserve black objects when making the image smaller. This option
+            affects only 1-bit, black-and-white images, where it prevents the disappearance of thin lines. You can use a bitwise OR ( | ) to combine
+            this flag with another one. For example, <c><strong>Resample</strong> | <strong>FavorBlack</strong></c> causes color images to be resampled, 
+            but applies the favor-black option to 1-bit, black-and-white images.</para><para>If you apply this flag to an image that has more than 1 bit per pixel, then the behavior is undefined.</para></summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterResizeFlags.Resample">
+      <summary>(0x00000002)Use linear interpolation and averaging to produce a higher-quality image.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterResizeFlags.Bicubic">
+      <summary>(0x00000004)Use bicubic interpolation and averaging to produce a higher quality image. This is slower than <strong>Resample</strong>.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="T:Leadtools.Services.Raster.DataContracts.RasterResizeMode">
+      <summary>
+            Determines how to fit the image in the destination rectangle.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterResizeMode.Normal">
+      <summary>(0x00000000)Normal, no sizing</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterResizeMode.Fit">
+      <summary>(0x00000001)Fit the image into the destination rectangle while maintaining the aspect ratio.  If the image size is smaller than the destination rectangle, no resizing is done.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterResizeMode.FitAlways">
+      <summary>(0x00000002)Always fit the image into the destination rectangle while maintaining the aspect ratio even if the image size is smaller than the destination rectangle.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterResizeMode.FitWidth">
+      <summary>(0x00000003)Fit the image width to be the size of the width of the destination rectangle while maintaining the aspect ratio.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterResizeMode.Stretch">
+      <summary>(0x00000004)Fit the image to fill the destination rectangle.  Aspect ratio might not be maintained.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="T:Leadtools.Services.Raster.DataContracts.RasterAlignMode">
+      <summary>
+            Determines how to align the image in the destination rectangle.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterAlignMode.Near">
+      <summary>(0x00000000)Align the image to the left (if this is the horizontal alignment) or top (if this is the vertical alignment) of the destination rectangle.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterAlignMode.Center">
+      <summary>(0x00000001)Center the image in the middle of the destination rectangle. If the image size is greater than the destination rectangle size then do not center the image.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterAlignMode.CenterAlways">
+      <summary>(0x00000002)Center the image in the middle of the destination rectangle.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.Raster.DataContracts.RasterAlignMode.Far">
+      <summary>(0x00000003)Align the image to the right (if this is the horizontal alignment) or bottom (if this is the vertical alignment) of the destination rectangle.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="T:Leadtools.Services.Raster.DataContracts.MagicWandRasterRegionData">
+      <summary>
+            Creates or updates the image region based on the color found at a specified point.
+            </summary>
+      <document>yes</document>
+      <keywords>WCF|Image region|Region|Magic Wand</keywords>
+      <isnew>2/28/2009</isnew>
+      <remarks>
+        <para>For gray scale bitmaps:</para>
+        <para>The minimum channel tolerance value of <strong>lowerToleranceColor</strong> will be used to set the lower
+             stopping point, and the value of <strong>upperToleranceColor</strong> will be used to set the upper stopping
+            point. For example, if the value of the pixel at (x, y) is (125, 125, 125) and <strong>lowerToleranceColor</strong>
+            is (20,30,15), the smallest value of the triplet (15) will be used to create the lower stopping
+            point of (110,110,110). If <strong>upperToleranceColor</strong> is (10,25,20), the smallest value of that 
+            triplet (10) will be used to create the upper stopping point of (135,135,135).</para>
+        <para>To update an existing region, specify how the new region is to be combined with the existing one using the
+            <see cref="P:Leadtools.Services.Raster.DataContracts.RasterRegionData.CombineMode" /> parameter. For more information, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterRegionCombineMode" />.</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools.Services
+      Imports leadtools.services.datacontracts._2009._01
+      Imports leadtools.services.raster.datacontracts._2009._01
+      Imports leadtools.services.raster.faultcontracts._2009._01
+      Imports leadtools.services.imageprocessing.datacontracts._2009._01
+
+      Public Sub MagicWandRasterRegionDataExample()
+         Dim client As EffectsProcessingServiceClient = New EffectsProcessingServiceClient()
+         Dim sourceBinaryData As RawBinaryData = New RawBinaryData()
+         sourceBinaryData.Data = File.ReadAllBytes(LeadtoolsExamples.Common.ImagesPath.Path &amp; "image1.cmp")
+
+         Dim convertOptions As RasterConvertOptions = New RasterConvertOptions()
+
+         convertOptions.Source = sourceBinaryData
+         convertOptions.Destination = Nothing
+         convertOptions.Format = RasterImageFormat.Bmp
+         convertOptions.FirstPage = 1
+         convertOptions.LastPage = 1
+         convertOptions.BitsPerPixel = 24
+         convertOptions.QualityFactor = 2
+
+         Dim region As MagicWandRasterRegionData = New MagicWandRasterRegionData()
+         region.CombineMode = RasterRegionCombineMode.Set
+
+         ' Specify a pixel in the upper left of the displayed image
+         Dim pt As LeadPoint = New LeadPoint()
+         pt.X = 100
+         pt.Y = 100
+
+         region.Location = pt
+
+         ' Create a magic wand region at this point
+         region.LowerToleranceColor = "#00141E96"
+         region.UpperToleranceColor = "#000F1E0A"
+
+         Dim request As SharpenRequest = New SharpenRequest()
+
+         request.ConvertOptions = convertOptions
+         request.RegionData = region
+         request.Sharpness = 1000
+
+         Dim response As CommandResponse = client.Sharpen(request)
+         If Not response.Destination Is Nothing Then
+            File.WriteAllBytes(LeadtoolsExamples.Common.ImagesPath.Path &amp; "MagicWandRasterRegionData.bmp", (TryCast(response.Destination, RawBinaryData)).Data)
+         End If
+
+         client.Close()
+      End Sub</code>
+        <code lang="CS">      using Leadtools.Services;
+      using leadtools.services.datacontracts._2009._01;
+      using leadtools.services.raster.datacontracts._2009._01;
+      using leadtools.services.raster.faultcontracts._2009._01;
+      using leadtools.services.imageprocessing.datacontracts._2009._01;
+
+      public void MagicWandRasterRegionDataExample()
+      {
+         EffectsProcessingServiceClient client = new EffectsProcessingServiceClient();
+         RawBinaryData sourceBinaryData = new RawBinaryData();
+         sourceBinaryData.Data = File.ReadAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"image1.cmp"));
+
+         RasterConvertOptions convertOptions = new RasterConvertOptions();
+
+         convertOptions.Source = sourceBinaryData;
+         convertOptions.Destination = null;
+         convertOptions.Format = RasterImageFormat.Bmp;
+         convertOptions.FirstPage = 1;
+         convertOptions.LastPage = 1;
+         convertOptions.BitsPerPixel = 24;
+         convertOptions.QualityFactor = 2;
+
+         MagicWandRasterRegionData region = new MagicWandRasterRegionData();
+         region.CombineMode = RasterRegionCombineMode.Set;
+
+         // Specify a pixel in the upper left of the displayed image
+         LeadPoint pt = new LeadPoint();
+         pt.X = 100;
+         pt.Y = 100;
+
+         region.Location = pt;
+
+         // Create a magic wand region at this point
+         region.LowerToleranceColor = "#00141E96";
+         region.UpperToleranceColor = "#000F1E0A";
+
+         SharpenRequest request = new SharpenRequest();
+
+         request.ConvertOptions = convertOptions;
+         request.RegionData = region;
+         request.Sharpness = 1000;
+
+         CommandResponse response = client.Sharpen(request);
+         if (response.Destination != null)
+         {
+            File.WriteAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"MagicWandRasterRegionData.bmp"), (response.Destination as RawBinaryData).Data);
+         }
+
+         client.Close();
+      }
+
+      static class LEAD_VARS
+      {
+      public const string ImagesDir = @"C:\Users\Public\Documents\LEADTOOLS Images";
+      }
+</code>
+        <!--MagicWandRasterRegionData-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Services.Raster.DataContracts.MagicWandRasterRegionData.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.Raster.DataContracts.MagicWandRasterRegionData" /> class.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.Raster.DataContracts.MagicWandRasterRegionData.#ctor(Leadtools.LeadPoint,System.String,System.String)">
+      <summary>
+            Sets a region based on the color found at a location in the image.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="location">
+            A point in an image with the color will be used to set the region.
+            </param>
+      <param name="lowerToleranceColor">
+            Lower tolerance values that set the lower stopping point for the region.
+            </param>
+      <param name="upperToleranceColor">
+            Upper tolerance values that set the upper stopping point for the region.
+            </param>
+      <remarks>
+        <para>For gray scale bitmaps:</para>
+        <para>The minimum channel tolerance value of <paramref name="lowerToleranceColor" /> will be used to set the lower
+            stopping point, and the value of <paramref name="upperToleranceColor" /> will be used to set the upper stopping
+            point. For example, if the value of the pixel at (x, y) is (125, 125, 125) and <paramref name="lowerToleranceColor" />
+            is (20,30,15), the smallest value of the triplet (15) will be used to create the lower stopping
+            point of (110,110,110). If <paramref name="upperToleranceColor" /> is (10,25,20), the smallest value of that 
+            triplet (10) will be used to create the upper stopping point of (135,135,135).</para>
+        <para>To update an existing region, specify how the new region is to be combined with the existing one using the
+            <see cref="P:Leadtools.Services.Raster.DataContracts.RasterRegionData.CombineMode" /> parameter. For more information, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterRegionCombineMode" />.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.MagicWandRasterRegionData.Location">
+      <summary>
+            Gets or sets a point with the color that will be used to set the region.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <value>A <see cref="T:Leadtools.LeadPoint" /> with the color that will be used to set the region.</value>
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.MagicWandRasterRegionData" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.MagicWandRasterRegionData.LowerToleranceColor">
+      <summary>
+            Gets or sets the lower tolerance color values that set the lower stopping point for the region.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <remarks>
+        <para>To update an existing region, specify how the new region is to be combined with the existing one using the
+            <see cref="P:Leadtools.Services.Raster.DataContracts.RasterRegionData.CombineMode" /> property. For more information, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterRegionCombineMode" />.</para>
+      </remarks>
+      <value>
+            A string value that represents the lower tolerance color values.
+            </value>
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterRegionData" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.MagicWandRasterRegionData.UpperToleranceColor">
+      <summary>
+            Gets or sets the upper tolerance color values that set the upper stopping point for the region.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <remarks>
+        <para>To update an existing region, specify how the new region is to be combined with the existing one using the
+            <see cref="P:Leadtools.Services.Raster.DataContracts.RasterRegionData.CombineMode" /> property. For more information, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterRegionCombineMode" />.</para>
+      </remarks>
+      <value>
+            A string value that represents the upper tolerance color values.
+            </value>
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterRegionData" />.</example>
+    </member>
+    <member name="T:Leadtools.Services.Raster.DataContracts.PolygonRasterRegionData">
+      <summary>
+            Creates or updates the image region by adding a polygonal region.
+            </summary>
+      <document>yes</document>
+      <keywords>WCF|Image region|Region|Polygonal region</keywords>
+      <isnew>2/28/2009</isnew>
+      <remarks>
+        <para>To update an existing region, specify how the new region is to be combined with the existing one using the
+            <see cref="P:Leadtools.Services.Raster.DataContracts.RasterRegionData.CombineMode" /> property.  For more information, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.RasterRegionCombineMode" />.</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools.Services
+      Imports leadtools.services.datacontracts._2009._01
+      Imports leadtools.services.raster.datacontracts._2009._01
+      Imports leadtools.services.raster.faultcontracts._2009._01
+      Imports leadtools.services.imageprocessing.datacontracts._2009._01
+
+      Public Sub PolygonRasterRegionDataExample()
+         Dim client As EffectsProcessingServiceClient = New EffectsProcessingServiceClient()
+         Dim sourceBinaryData As RawBinaryData = New RawBinaryData()
+         sourceBinaryData.Data = File.ReadAllBytes(LeadtoolsExamples.Common.ImagesPath.Path &amp; "image1.cmp")
+
+         Dim convertOptions As RasterConvertOptions = New RasterConvertOptions()
+
+         convertOptions.Source = sourceBinaryData
+         convertOptions.Destination = Nothing
+         convertOptions.Format = RasterImageFormat.Bmp
+         convertOptions.FirstPage = 1
+         convertOptions.LastPage = 1
+         convertOptions.BitsPerPixel = 24
+         convertOptions.QualityFactor = 2
+
+         Dim point1 As LeadPoint = New LeadPoint()
+         point1.X = 1
+         point1.Y = 50
+
+         Dim point2 As LeadPoint = New LeadPoint()
+         point2.X = 10
+         point2.Y = 80
+
+         Dim point3 As LeadPoint = New LeadPoint()
+         point2.X = 50
+         point2.Y = 50
+
+
+         Dim region As PolygonRasterRegionData = New PolygonRasterRegionData()
+         region.Points = New LeadPoint(2) {}
+         region.Points(0) = point1
+         region.Points(1) = point2
+         region.Points(2) = point3
+         region.CombineMode = RasterRegionCombineMode.Set
+
+         Dim request As SharpenRequest = New SharpenRequest()
+
+         request.ConvertOptions = convertOptions
+         request.RegionData = region
+         request.Sharpness = 1000
+
+         Dim response As CommandResponse = client.Sharpen(request)
+         If Not response.Destination Is Nothing Then
+            If TypeOf response.Destination Is RawBinaryData Then
+               File.WriteAllBytes(LeadtoolsExamples.Common.ImagesPath.Path &amp; "PolygonRasterRegionData.bmp", (TryCast(response.Destination, RawBinaryData)).Data)
+            End If
+         End If
+
+         client.Close()
+      End Sub</code>
+        <code lang="CS">      using Leadtools.Services;
+      using leadtools.services.datacontracts._2009._01;
+      using leadtools.services.raster.datacontracts._2009._01;
+      using leadtools.services.raster.faultcontracts._2009._01;
+      using leadtools.services.imageprocessing.datacontracts._2009._01;
+
+      public void PolygonRasterRegionDataExample()
+      {
+         EffectsProcessingServiceClient client = new EffectsProcessingServiceClient();
+         RawBinaryData sourceBinaryData = new RawBinaryData();
+         sourceBinaryData.Data = File.ReadAllBytes(Path.Combine(LEAD_VARS.ImagesDir, "image1.cmp"));
+
+         RasterConvertOptions convertOptions = new RasterConvertOptions();
+
+         convertOptions.Source = sourceBinaryData;
+         convertOptions.Destination = null;
+         convertOptions.Format = RasterImageFormat.Bmp;
+         convertOptions.FirstPage = 1;
+         convertOptions.LastPage = 1;
+         convertOptions.BitsPerPixel = 24;
+         convertOptions.QualityFactor = 2;
+
+         LeadPoint point1 = new LeadPoint();
+         point1.X = 1;
+         point1.Y = 50;
+
+         LeadPoint point2 = new LeadPoint();
+         point2.X = 10;
+         point2.Y = 80;
+
+         LeadPoint point3 = new LeadPoint();
+         point2.X = 50;
+         point2.Y = 50;
+
+
+         PolygonRasterRegionData region = new PolygonRasterRegionData();
+         region.Points = new LeadPoint[3];
+         region.Points[0] = point1;
+         region.Points[1] = point2;
+         region.Points[2] = point3;
+         region.CombineMode = RasterRegionCombineMode.Set;
+
+         SharpenRequest request = new SharpenRequest();
+
+         request.ConvertOptions = convertOptions;
+         request.RegionData = region;
+         request.Sharpness = 1000;
+
+         CommandResponse response = client.Sharpen(request);
+         if (response.Destination != null)
+         {
+            if (response.Destination is RawBinaryData)
+               File.WriteAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"PolygonRasterRegionData.bmp"), (response.Destination as RawBinaryData).Data);
+         }
+
+         client.Close();
+      }
+
+      static class LEAD_VARS
+      {
+      public const string ImagesDir = @"C:\Users\Public\Documents\LEADTOOLS Images";
+      }
+</code>
+        <!--PolygonRasterRegionData-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Services.Raster.DataContracts.PolygonRasterRegionData.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.Raster.DataContracts.PolygonRasterRegionData" /> class.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.Raster.DataContracts.PolygonRasterRegionData.#ctor(System.Collections.Generic.List{Leadtools.LeadPoint},System.Boolean)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.Raster.DataContracts.PolygonRasterRegionData" /> class.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="points">A list of <see cref="T:Leadtools.LeadPoint" /> objects. The points in the list must be in the order in
+            which the vertices of the polygon are connected. To create the line that closes the polygon, the last point in the
+            collection is connected to the first point of the collection.</param>
+      <param name="windingFillMode">
+        <para>Indicates how to handle complex crossing lines.</para>
+        <para>
+          <table>
+            <tr>
+              <th>Value</th>
+              <th>Meaning</th>
+            </tr>
+            <tr>
+              <td>
+                <b>true</b>
+              </td>
+              <td>All pixels that are inside the resulting exterior lines are in the region.</td>
+            </tr>
+            <tr>
+              <td>
+                <b>false</b>
+              </td>
+              <td>The region includes the area between odd-numbered and even-numbered polygon sides on each scan line.</td>
+            </tr>
+          </table>
+        </para>
+      </param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.PolygonRasterRegionData.WindingFillMode">
+      <summary>
+            Gets or sets a value indicating how to handle complex crossing lines.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+        <para>
+          <table>
+            <tr>
+              <th>Value</th>
+              <th>Meaning</th>
+            </tr>
+            <tr>
+              <td>
+                <b>true</b>
+              </td>
+              <td>All pixels that are inside the resulting exterior lines are in the region.</td>
+            </tr>
+            <tr>
+              <td>
+                <b>false</b>
+              </td>
+              <td>The region includes the area between odd-numbered and even-numbered polygon sides on each scan line.</td>
+            </tr>
+          </table>
+        </para>
+      </value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.PolygonRasterRegionData" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.DataContracts.PolygonRasterRegionData.Points">
+      <summary>
+            Gets or sets a list of <see cref="T:Leadtools.LeadPoint" /> objects.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <remarks>
+            The points in the list must be in the order in
+            which the vertices of the polygon are connected. To create the line that closes the polygon, the last point in the
+            collection is connected to the first point of the collection.
+            </remarks>
+      <value>A list of <see cref="T:Leadtools.LeadPoint" /> object that represents a polygon.</value>
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.PolygonRasterRegionData" />.</example>
+    </member>
+  </members>
+</doc>

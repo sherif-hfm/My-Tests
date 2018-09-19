@@ -1,0 +1,7 @@
+D:\Dropbox\My Tests\My Tests\CallOracleStoredProcedure\CallOracleStoredProcedure\bin\Debug\CallOracleStoredProcedure.exe.config
+D:\Dropbox\My Tests\My Tests\CallOracleStoredProcedure\CallOracleStoredProcedure\bin\Debug\CallOracleStoredProcedure.exe
+D:\Dropbox\My Tests\My Tests\CallOracleStoredProcedure\CallOracleStoredProcedure\bin\Debug\CallOracleStoredProcedure.pdb
+D:\Dropbox\My Tests\My Tests\CallOracleStoredProcedure\CallOracleStoredProcedure\bin\Debug\oracle.dataaccess.dll
+D:\Dropbox\My Tests\My Tests\CallOracleStoredProcedure\CallOracleStoredProcedure\obj\Debug\CallOracleStoredProcedure.exe
+D:\Dropbox\My Tests\My Tests\CallOracleStoredProcedure\CallOracleStoredProcedure\obj\Debug\CallOracleStoredProcedure.pdb
+D:\Dropbox\My Tests\My Tests\CallOracleStoredProcedure\CallOracleStoredProcedure\obj\Debug\CallOracleStoredProcedure.csprojResolveAssemblyReference.cache

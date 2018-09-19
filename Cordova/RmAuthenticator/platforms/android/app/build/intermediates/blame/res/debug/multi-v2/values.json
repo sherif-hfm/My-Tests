@@ -1,0 +1,70 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\shhamdy\\OneDrive\\My Tests\\Cordova\\RmAuthenticator\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\shhamdy\\OneDrive\\My Tests\\Cordova\\RmAuthenticator\\platforms\\android\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "4,2,3",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "173,55,114",
+                        "endColumns": "63,58,58",
+                        "endOffsets": "232,109,168"
+                    },
+                    "to": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,119,178",
+                        "endColumns": "63,58,58",
+                        "endOffsets": "114,173,232"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Cordova\\RmAuthenticator\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "C:\\Cordova\\RmAuthenticator\\platforms\\android\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "-1,2,-1",
+                        "startColumns": "-1,4,-1",
+                        "startOffsets": "-1,55,-1",
+                        "endColumns": "-1,58,-1",
+                        "endOffsets": "-1,109,-1"
+                    },
+                    "to": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,119,178",
+                        "endColumns": "63,58,58",
+                        "endOffsets": "114,173,232"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\OneDrive\\My Tests\\Cordova\\RmAuthenticator\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "C:\\OneDrive\\My Tests\\Cordova\\RmAuthenticator\\platforms\\android\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "4,2,3",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "173,55,114",
+                        "endColumns": "63,58,58",
+                        "endOffsets": "232,109,168"
+                    },
+                    "to": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,119,178",
+                        "endColumns": "63,58,58",
+                        "endOffsets": "114,173,232"
+                    }
+                }
+            ]
+        }
+    ]
+}

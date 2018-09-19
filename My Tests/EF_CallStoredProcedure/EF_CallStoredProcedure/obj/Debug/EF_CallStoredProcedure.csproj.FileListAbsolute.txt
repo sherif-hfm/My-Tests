@@ -1,0 +1,10 @@
+D:\Dropbox\My Tests\My Tests\EF_CallStoredProcedure\EF_CallStoredProcedure\bin\Debug\EF_CallStoredProcedure.exe.config
+D:\Dropbox\My Tests\My Tests\EF_CallStoredProcedure\EF_CallStoredProcedure\bin\Debug\EF_CallStoredProcedure.exe
+D:\Dropbox\My Tests\My Tests\EF_CallStoredProcedure\EF_CallStoredProcedure\bin\Debug\EF_CallStoredProcedure.pdb
+D:\Dropbox\My Tests\My Tests\EF_CallStoredProcedure\EF_CallStoredProcedure\bin\Debug\EntityFramework.dll
+D:\Dropbox\My Tests\My Tests\EF_CallStoredProcedure\EF_CallStoredProcedure\bin\Debug\EntityFramework.SqlServer.dll
+D:\Dropbox\My Tests\My Tests\EF_CallStoredProcedure\EF_CallStoredProcedure\bin\Debug\EntityFramework.xml
+D:\Dropbox\My Tests\My Tests\EF_CallStoredProcedure\EF_CallStoredProcedure\bin\Debug\EntityFramework.SqlServer.xml
+D:\Dropbox\My Tests\My Tests\EF_CallStoredProcedure\EF_CallStoredProcedure\obj\Debug\EF_CallStoredProcedure.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\EF_CallStoredProcedure\EF_CallStoredProcedure\obj\Debug\EF_CallStoredProcedure.exe
+D:\Dropbox\My Tests\My Tests\EF_CallStoredProcedure\EF_CallStoredProcedure\obj\Debug\EF_CallStoredProcedure.pdb

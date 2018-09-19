@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\FineUploaderTest\FineUploaderTest\bin\FineUploaderTest.dll.config
+D:\Dropbox\My Tests\My Web Tests\FineUploaderTest\FineUploaderTest\bin\FineUploaderTest.dll
+D:\Dropbox\My Tests\My Web Tests\FineUploaderTest\FineUploaderTest\bin\FineUploaderTest.pdb
+D:\Dropbox\My Tests\My Web Tests\FineUploaderTest\FineUploaderTest\obj\Debug\FineUploaderTest.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\FineUploaderTest\FineUploaderTest\obj\Debug\FineUploaderTest.dll
+D:\Dropbox\My Tests\My Web Tests\FineUploaderTest\FineUploaderTest\obj\Debug\FineUploaderTest.pdb

@@ -1,0 +1,15 @@
+﻿@model ReportViewer.Models.ReportPrms
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Show Report</h2>
+
+@using (Html.BeginForm("ShowReport", "Home", FormMethod.Post, new { target = "_blank" }))
+{
+    @Html.DisplayName("Prm1:")
+    @Html.EditorFor(model => model.Prm1)
+
+    <input type="submit" value="Show Report" class="btn btn-default" />
+}

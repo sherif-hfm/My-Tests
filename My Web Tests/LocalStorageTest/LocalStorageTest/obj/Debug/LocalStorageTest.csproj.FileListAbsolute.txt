@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\LocalStorageTest\LocalStorageTest\bin\LocalStorageTest.dll.config
+D:\Dropbox\My Tests\My Web Tests\LocalStorageTest\LocalStorageTest\bin\LocalStorageTest.dll
+D:\Dropbox\My Tests\My Web Tests\LocalStorageTest\LocalStorageTest\bin\LocalStorageTest.pdb
+D:\Dropbox\My Tests\My Web Tests\LocalStorageTest\LocalStorageTest\obj\Debug\LocalStorageTest.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\LocalStorageTest\LocalStorageTest\obj\Debug\LocalStorageTest.dll
+D:\Dropbox\My Tests\My Web Tests\LocalStorageTest\LocalStorageTest\obj\Debug\LocalStorageTest.pdb

@@ -1,0 +1,61 @@
+﻿@model MVCBasics.Models.Person
+
+@{
+    var context = this.ViewContext.RequestContext;
+    var values = new RouteValueDictionary { { "controller", "Person" }, { "action", "Search" } };
+    var path = RouteTable.Routes.GetVirtualPath(context, values);
+}
+<form action="@path.VirtualPath" method="post">
+    <div class="form-group">
+        Person Name :
+        <div class="col-md-10">
+            <input type="text" name="personName" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Search" class="btn btn-default" />
+        </div>
+    </div>
+</form>
+    <div>
+        <table style="border:solid">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(p => p.PersonId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(p => p.PersonName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(p => p.Country.CountryName)
+                </th>
+                <th>
+                    -
+                </th>
+            </tr>
+            @foreach (MVCBasics.Models.Person person in ViewBag.PersonList)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(i => person.PersonId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(i => person.PersonName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(i => person.Country.CountryName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = person.PersonId }) |
+                        @Html.ActionLink("Details", "Details", new { id = person.PersonId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = person.PersonId })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>

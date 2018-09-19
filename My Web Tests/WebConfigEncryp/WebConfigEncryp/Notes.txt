@@ -1,0 +1,2 @@
+﻿
+aspnet_regiis -pe "appSettings" -app "/WebConfigEncryp" -prov "RsaProtectedConfigurationProvider"

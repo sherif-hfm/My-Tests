@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://sherifhamdy.itamana.net:8020/Common/User.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" />
+  <xs:element name="GetEmployeeList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mobile" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="GetEmployeeListResult" nillable="true" type="q1:ArrayOfUserDataInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmnUserData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmnUserDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="GetCmnUserDataResult" nillable="true" type="q2:UserDataInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAmanaHasOverdue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ownerType" type="xs:int" />
+        <xs:element minOccurs="0" name="ownerNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAmanaHasOverdueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckAmanaHasOverdueResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAmanaOverdue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ownerType" type="xs:int" />
+        <xs:element minOccurs="0" name="ownerNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAmanaOverdueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="GetAmanaOverdueResult" nillable="true" type="q3:ArrayOfAmanaOverdueInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

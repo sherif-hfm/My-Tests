@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+    <form id="form1" >
+        <div>
+            <input id="btnGetData" type="button" value="Save User Data" onclick="SaveData()" />
+            <input id="txtdata" type="text" />
+            <img id="img" src="" />
+        </div>
+    </form>
+    <script type="text/javascript">
+        function SaveData() {
+            var _userInfo = {};
+            _userInfo.UserName = "sherif";
+            _userInfo.Password = "123";
+             _userInfo.Address = {};
+            _userInfo.Address.City = "Sohag";
+            _userInfo.Address.Street = "st1";
+            var DataStr = JSON.stringify(_userInfo);
+            console.log(DataStr);
+            $.post('/api/User/SaveUserData', _userInfo,
+                function (result) {
+                    console.log(result);
+                }, 'json');
+            return;
+            
+            $.ajax({
+                type: 'POST',
+                url: '/api/User/SaveUserData',
+                data: DataStr,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (msg) {
+                    console.log(msg);
+                    //$('#img').attr('src', msg.GetUserDataResult.UserImage);
+                },
+                error: function (msg) {
+                    console.log(msg);
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

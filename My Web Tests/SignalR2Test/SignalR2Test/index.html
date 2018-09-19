@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="scripts/jquery-1.6.4.js"></script>
+    <script src="scripts/jquery.signalR-2.2.1.min.js"></script>
+    <!--<script src="http://10.110.1.143:3040/signalr/hubs"></script>-->
+    <!--<script src="http://localhost:3040/signalr/hubs"></script>-->
+    <script src="http://127.0.0.1:3040/signalr/hubs"></script>
+</head>
+<body>
+    <input id="btnSendMessage" type="button" value="button" />
+    <script type="text/javascript">
+        $(function () {
+            index = 0;
+            //$.connection.hub.url = "http://localhost:3040/signalr";
+            //$.connection.hub.url = "http://10.110.1.143:3040/signalr";
+            $.connection.hub.url = "http://127.0.0.1:3040/signalr";
+            // Declare a proxy to reference the hub.
+            var myHub = $.connection.myHub;
+
+            myHub.client.addMessage = function (msg) {
+                console.log('message');
+                console.log(msg);
+            };
+
+            $.connection.hub.disconnected(function () {
+                console.log('hub disconnected');
+            });
+
+            var client=$.connection.hub.start();
+            client.done(function () {
+                console.log('hub start done');
+                $('#btnSendMessage').click(function () {
+                    console.log('Try Send Message');
+                    var message = {};
+                    message.ClientId = $.connection.hub.id;
+                    message.Text = 'Message' + index;
+                    myHub.server.send(message);
+                    //myHub.server.send('Message' + index, $.connection.hub.id);
+
+
+                    index++;
+                });
+            });
+            client.fail(function () {
+                console.log('Could not connect');
+            });
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <!--<link href='<%= WebResource("ServerControls.Styles.esri.css")%>' rel="stylesheet" />
+    <script type="text/javascript" src='<%= WebResource("ServerControls.Scripts.arcgis.js")%>'></script>-->
+    <link rel="stylesheet" href="http://js.arcgis.com/3.13/esri/css/esri.css" />
+    <script src="http://js.arcgis.com/3.13/"></script>
+</head>
+<body>
+    <input id="hdnData" type="hidden" value="My Data" />
+    <input id="txt1" type="text" value="My txt1" />
+    <div id="divMap">
+        <div id="mapDiv" style="width:750px;height:600px">
+
+        </div>
+    </div>
+    <script type="text/javascript">
+        var map;
+        require(["esri/map", "dojo/domReady!"], function (Map) {
+            map = new Map("mapDiv", {
+                center: [-56.049, 38.485],
+                zoom: 3,
+                basemap: "streets"
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<br />
+
+<div id="AjaxText">
+    @Ajax.ActionLink("Click here to do ajax text call", "AjaxText", null,
+    new AjaxOptions
+{
+    UpdateTargetId = "AjaxText",
+    InsertionMode = InsertionMode.Replace,
+    HttpMethod = "GET"
+},
+new { @class = "btn btn-primary" })
+</div>
+
+<br /><br />
+
+<div id="AjaxView">
+    @Ajax.ActionLink("Click here to do ajax view call", "AjaxView", null,
+    new AjaxOptions
+{
+    UpdateTargetId = "AjaxView",
+    InsertionMode = InsertionMode.Replace,
+    HttpMethod = "GET"
+},
+new { @class = "btn btn-primary" })
+</div>
+
+<script type="text/javascript">
+   
+</script>
+

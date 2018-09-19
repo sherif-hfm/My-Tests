@@ -1,0 +1,5 @@
+D:\Dropbox\My Tests\SSIS_CallWebSrv\WcfSrv\WcfSrv\obj\Debug\WcfSrv.dll
+D:\Dropbox\My Tests\SSIS_CallWebSrv\WcfSrv\WcfSrv\bin\WcfSrv.dll.config
+D:\Dropbox\My Tests\SSIS_CallWebSrv\WcfSrv\WcfSrv\bin\WcfSrv.dll
+D:\Dropbox\My Tests\SSIS_CallWebSrv\WcfSrv\WcfSrv\bin\WcfSrv.pdb
+D:\Dropbox\My Tests\SSIS_CallWebSrv\WcfSrv\WcfSrv\obj\Debug\WcfSrv.pdb

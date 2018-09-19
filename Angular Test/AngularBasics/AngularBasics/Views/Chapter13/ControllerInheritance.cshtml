@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "ControllerInheritance";
+}
+
+<h2>Controller Inheritance</h2>
+
+
+<div ng-controller="topLevelCtrl">
+
+    <div class="well">
+        <h4>Top Level Controller</h4>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" ng-click="reverseText()">
+                    Reverse
+                </button>
+                <button class="btn btn-default" type="button" ng-click="changeCase()">
+                    Case
+                </button>
+            </span>
+            <input class="form-control" ng-model="data.dataValue">
+        </div>
+    </div>
+
+    <div class="well" ng-controller="firstChildCtrl">
+        <h4>First Child Controller</h4>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" ng-click="reverseText()">
+                    Reverse
+                </button>
+                <button class="btn btn-default" type="button" ng-click="changeCase()">
+                    Case
+                </button>
+            </span>
+            <input class="form-control" ng-model="data.dataValue">
+        </div>
+    </div>
+
+    <div class="well" ng-controller="secondChildCtrl">
+        <h4>Second Child Controller</h4>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" ng-click="reverseText()">
+                    Reverse
+                </button>
+                <button class="btn btn-default" type="button" ng-click="changeCase()">
+                    Case
+                </button>
+                <button class="btn btn-default" type="button" ng-click="shiftFour()">
+                    Shift
+                </button>
+            </span>
+            <input class="form-control" ng-model="data.dataValue">
+        </div>
+    </div>
+
+</div>
+
+@section Scripts
+{
+    <script src="~/Scripts/MyScripts/Chapter13/ControllerInheritance.js"></script>
+}
+
+

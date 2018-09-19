@@ -1,0 +1,8 @@
+D:\Dropbox\My Tests\My Tests\JSONDateTimeSerializ\JSONDateTimeSerializ\bin\Debug\JSONDateTimeSerializ.exe.config
+D:\Dropbox\My Tests\My Tests\JSONDateTimeSerializ\JSONDateTimeSerializ\bin\Debug\JSONDateTimeSerializ.exe
+D:\Dropbox\My Tests\My Tests\JSONDateTimeSerializ\JSONDateTimeSerializ\bin\Debug\JSONDateTimeSerializ.pdb
+D:\Dropbox\My Tests\My Tests\JSONDateTimeSerializ\JSONDateTimeSerializ\obj\Debug\JSONDateTimeSerializ.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\JSONDateTimeSerializ\JSONDateTimeSerializ\obj\Debug\JSONDateTimeSerializ.exe
+D:\Dropbox\My Tests\My Tests\JSONDateTimeSerializ\JSONDateTimeSerializ\obj\Debug\JSONDateTimeSerializ.pdb
+D:\Dropbox\My Tests\My Tests\JSONDateTimeSerializ\JSONDateTimeSerializ\bin\Debug\Newtonsoft.Json.dll
+D:\Dropbox\My Tests\My Tests\JSONDateTimeSerializ\JSONDateTimeSerializ\bin\Debug\Newtonsoft.Json.xml

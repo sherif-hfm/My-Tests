@@ -1,0 +1,8 @@
+D:\Dropbox\My Tests\My Tests\GetHardwareInfo_Code\bin\Debug\GetHardwareInfo.exe
+D:\Dropbox\My Tests\My Tests\GetHardwareInfo_Code\bin\Debug\GetHardwareInfo.pdb
+D:\Dropbox\My Tests\My Tests\GetHardwareInfo_Code\obj\Debug\GetHardwareInfo.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\GetHardwareInfo_Code\obj\Debug\GetHardwareInfo.frmMain.resources
+D:\Dropbox\My Tests\My Tests\GetHardwareInfo_Code\obj\Debug\GetHardwareInfo.Properties.Resources.resources
+D:\Dropbox\My Tests\My Tests\GetHardwareInfo_Code\obj\Debug\GetHardwareInfo.csproj.GenerateResource.Cache
+D:\Dropbox\My Tests\My Tests\GetHardwareInfo_Code\obj\Debug\GetHardwareInfo.exe
+D:\Dropbox\My Tests\My Tests\GetHardwareInfo_Code\obj\Debug\GetHardwareInfo.pdb

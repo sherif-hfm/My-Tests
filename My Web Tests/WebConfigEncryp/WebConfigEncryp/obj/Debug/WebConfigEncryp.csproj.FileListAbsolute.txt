@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\WebConfigEncryp\WebConfigEncryp\bin\WebConfigEncryp.dll.config
+D:\Dropbox\My Tests\My Web Tests\WebConfigEncryp\WebConfigEncryp\bin\WebConfigEncryp.dll
+D:\Dropbox\My Tests\My Web Tests\WebConfigEncryp\WebConfigEncryp\bin\WebConfigEncryp.pdb
+D:\Dropbox\My Tests\My Web Tests\WebConfigEncryp\WebConfigEncryp\obj\Debug\WebConfigEncryp.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\WebConfigEncryp\WebConfigEncryp\obj\Debug\WebConfigEncryp.dll
+D:\Dropbox\My Tests\My Web Tests\WebConfigEncryp\WebConfigEncryp\obj\Debug\WebConfigEncryp.pdb

@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Tests\TimeSpanTest\TimeSpanTest\bin\Debug\TimeSpanTest.exe.config
+D:\Dropbox\My Tests\My Tests\TimeSpanTest\TimeSpanTest\bin\Debug\TimeSpanTest.exe
+D:\Dropbox\My Tests\My Tests\TimeSpanTest\TimeSpanTest\bin\Debug\TimeSpanTest.pdb
+D:\Dropbox\My Tests\My Tests\TimeSpanTest\TimeSpanTest\obj\Debug\TimeSpanTest.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\TimeSpanTest\TimeSpanTest\obj\Debug\TimeSpanTest.exe
+D:\Dropbox\My Tests\My Tests\TimeSpanTest\TimeSpanTest\obj\Debug\TimeSpanTest.pdb

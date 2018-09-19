@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\WCFRoutingHost\WCFRoutingHost\bin\Debug\WCFRoutingHost.exe.config
+D:\Dropbox\My Tests\My Web Tests\WCFRoutingHost\WCFRoutingHost\bin\Debug\WCFRoutingHost.exe
+D:\Dropbox\My Tests\My Web Tests\WCFRoutingHost\WCFRoutingHost\bin\Debug\WCFRoutingHost.pdb
+D:\Dropbox\My Tests\My Web Tests\WCFRoutingHost\WCFRoutingHost\obj\Debug\WCFRoutingHost.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\WCFRoutingHost\WCFRoutingHost\obj\Debug\WCFRoutingHost.exe
+D:\Dropbox\My Tests\My Web Tests\WCFRoutingHost\WCFRoutingHost\obj\Debug\WCFRoutingHost.pdb

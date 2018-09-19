@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MVCBasicsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Persons" Relationship="Self.FK_Persons_Countries" FromRole="Countries" ToRole="Persons" />
+  </EntityType>
+  <EntityType Name="Persons">
+    <Key>
+      <PropertyRef Name="PersonId" />
+    </Key>
+    <Property Name="PersonId" Type="Int32" Nullable="false" />
+    <Property Name="PersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" />
+    <NavigationProperty Name="Countries" Relationship="Self.FK_Persons_Countries" FromRole="Persons" ToRole="Countries" />
+  </EntityType>
+  <Association Name="FK_Persons_Countries">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+    <End Role="Persons" Type="Self.Persons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="Persons">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MVCBasicsCnn" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Countries" EntityType="Self.Countries" />
+    <EntitySet Name="Persons" EntityType="Self.Persons" />
+    <AssociationSet Name="FK_Persons_Countries" Association="Self.FK_Persons_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Persons" EntitySet="Persons" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

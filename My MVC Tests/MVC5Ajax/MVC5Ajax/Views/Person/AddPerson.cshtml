@@ -1,0 +1,68 @@
+﻿@model MVC5Ajax.Models.Person
+
+@{
+    ViewBag.Title = "Add Person";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Person</h2>
+<br />
+
+@using (Ajax.BeginForm("AddPerson", "Person",
+new AjaxOptions
+{
+    InsertionMode = InsertionMode.Replace,
+    HttpMethod = "POST",
+    OnFailure = "searchFailed",
+    LoadingElementId = "ajax-loader",
+    UpdateTargetId = "searchresults",
+}))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Person</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.PersonId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PersonName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PersonName)
+                @Html.ValidationMessageFor(model => model.PersonName)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.PersonAge, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PersonAge)
+                @Html.ValidationMessageFor(model => model.PersonAge)
+            </div>
+        </div>
+
+        <div class="form-group">
+            Auto Complete Test : 
+            <div class="col-md-offset-2 col-md-10">
+                <input type="text" name="txtAutoComplete" data-autocomplete-source="@Url.Action("QuickSearch", "Person")" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {    
+    <script type="text/javascript">
+        $("input[data-autocomplete-source]").each(function () {
+            var target = $(this);
+            target.autocomplete({ source: target.attr("data-autocomplete-source") });
+        });
+    </script>
+    <script src="~/Scripts/MaxWordsAttribute.js"></script>
+}
+

@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<doc processed="true">
+  <assembly>
+    <name>Leadtools.Services.Raster.FaultContracts</name>
+  </assembly>
+  <members>
+    <member name="T:Leadtools.Services.Raster.FaultContracts.RasterFault">
+      <summary>
+            The <b>RasterFault</b> class provides information about exceptions that occur on the client side.
+            </summary>
+      <document>yes</document>
+      <keywords>WCF|Services|Exceptions|Client side|Loading images|Saving images|Disk files|Memory files</keywords>
+      <isnew>2/28/2009</isnew>
+      <remarks>
+        <para>The <see cref="T:Leadtools.Services.Raster.FaultContracts.RasterFault" /> class defines an <see cref="P:Leadtools.Services.Raster.FaultContracts.RasterFault.ErrorId" /> and an <see cref="P:Leadtools.Services.Raster.FaultContracts.RasterFault.ErrorMessage" /> property that can be examined to determine the cause of an error.</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools.Services
+      Imports leadtools.services.datacontracts._2009._01
+      Imports leadtools.services.raster.datacontracts._2009._01
+      Imports leadtools.services.raster.faultcontracts._2009._01
+      Imports leadtools.services.imageprocessing.datacontracts._2009._01
+
+      Public Sub RasterFaultExample()
+         Dim client As EffectsProcessingServiceClient = New EffectsProcessingServiceClient()
+         Dim sourceBinaryData As RawBinaryData = New RawBinaryData()
+         sourceBinaryData.Data = File.ReadAllBytes(Path.Combine(LEAD_VARS.ImagesDir, "image1.cmp"))
+
+         Dim convertOptions As RasterConvertOptions = New RasterConvertOptions()
+
+         convertOptions.Source = sourceBinaryData
+         convertOptions.Destination = Nothing
+         convertOptions.Format = RasterImageFormat.Bmp
+         convertOptions.FirstPage = 1
+         convertOptions.LastPage = 1
+         convertOptions.BitsPerPixel = 24
+         convertOptions.QualityFactor = 2
+
+         Dim destBinaryData As RawBinaryData = Nothing
+         Dim response As CommandResponse = Nothing
+         Try
+            Dim request As SharpenRequest = New SharpenRequest()
+
+            request.ConvertOptions = convertOptions
+            request.RegionData = Nothing
+            request.Sharpness = 5000
+
+            ' pass invalid argument
+            response = client.Sharpen(request)
+         Catch ex As FaultException
+            Console.WriteLine(ex.Message)
+         Finally
+            If Not response Is Nothing Then
+               If Not response.Destination Is Nothing Then
+                  If TypeOf response.Destination Is RawBinaryData Then
+                     File.WriteAllBytes(Path.Combine(LEAD_VARS.ImagesDir, "fault.bmp"), (TryCast(response.Destination, RawBinaryData)).Data)
+                  End If
+               End If
+            End If
+         End Try
+
+         client.Close()
+      End Sub
+
+      Public NotInheritable Class LEAD_VARS
+      Public Const ImagesDir As String = "C:\Users\Public\Documents\LEADTOOLS Images"
+      End Class
+</code>
+        <code lang="CS">      using Leadtools.Services;
+      using leadtools.services.datacontracts._2009._01;
+      using leadtools.services.raster.datacontracts._2009._01;
+      using leadtools.services.raster.faultcontracts._2009._01;
+      using leadtools.services.imageprocessing.datacontracts._2009._01;
+
+      public void RasterFaultExample()
+      {
+         EffectsProcessingServiceClient client = new EffectsProcessingServiceClient();
+         RawBinaryData sourceBinaryData = new RawBinaryData();
+         sourceBinaryData.Data = File.ReadAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"image1.cmp"));
+
+         RasterConvertOptions convertOptions = new RasterConvertOptions();
+
+         convertOptions.Source = sourceBinaryData;
+         convertOptions.Destination = null;
+         convertOptions.Format = RasterImageFormat.Bmp;
+         convertOptions.FirstPage = 1;
+         convertOptions.LastPage = 1;
+         convertOptions.BitsPerPixel = 24;
+         convertOptions.QualityFactor = 2;
+
+         RawBinaryData destBinaryData = null;
+         CommandResponse response = null;
+         try
+         {
+            SharpenRequest request = new SharpenRequest();
+
+            request.ConvertOptions = convertOptions;
+            request.RegionData = null;
+            request.Sharpness = 5000;
+
+            // pass invalid argument
+            response = client.Sharpen(request);
+         }
+         catch (FaultException ex)
+         {
+            Console.WriteLine(ex.Message);
+         }
+         finally
+         {
+            if (response != null)
+            {
+               if (response.Destination != null)
+               {
+                  if (response.Destination is RawBinaryData)
+                     File.WriteAllBytes(Path.Combine(LEAD_VARS.ImagesDir, "fault.bmp"), (response.Destination as RawBinaryData).Data);
+               }
+            }  
+         }
+
+         client.Close();
+      }
+
+      static class LEAD_VARS
+      {
+      public const string ImagesDir = @"C:\Users\Public\Documents\LEADTOOLS Images";
+      }
+</code>
+        <!--RasterFault-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Services.Raster.FaultContracts.RasterFault.#ctor(System.Int32,System.String)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.Raster.FaultContracts.RasterFault" /> class.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="errorId">
+            The code that caused the exception.
+            </param>
+      <param name="errorMessage">
+            The error message that explains the reason for the exception, or an empty string("").
+            </param>
+      <remarks>
+            The constructor initializes the <see cref="P:Leadtools.Services.Raster.FaultContracts.RasterFault.ErrorMessage" /> property of the new instance using <paramref name="errorMessage" /> and the <see cref="P:Leadtools.Services.Raster.FaultContracts.RasterFault.ErrorId" />
+            property of the new instance using <paramref name="errorId" />.
+            </remarks>
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.Raster.FaultContracts.RasterFault.ErrorId">
+      <summary>
+            Gets or sets the error id of the cause for the current exception.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>An <see cref="T:System.Int32" /> value that specifies what caused the exception.</value>
+      <noremarks />
+      <example>
+            For an example, refer to <see cref="T:Leadtools.Services.Raster.FaultContracts.RasterFault" />.
+            </example>
+    </member>
+    <member name="P:Leadtools.Services.Raster.FaultContracts.RasterFault.ErrorMessage">
+      <summary>
+            Gets a message that describes the current exception.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The error message that explains the reason for the exception, or an empty string("").</value>
+      <noremarks />
+      <example>
+            For an example, refer to <see cref="T:Leadtools.Services.Raster.FaultContracts.RasterFault" />.
+            </example>
+    </member>
+  </members>
+</doc>

@@ -1,0 +1,16 @@
+﻿<script src="~/Scripts/MyScript.js"></script>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div ng-app="MyModule">
+    <div ng-controller="myController">
+        <table>
+            <tr ng-repeat="person in persons">
+                <td>{{person.PersonName}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

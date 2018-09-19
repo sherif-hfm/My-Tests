@@ -1,0 +1,8 @@
+D:\Dropbox\My Tests\My Tests\WebBrowserTest\WebBrowserTest\bin\Debug\WebBrowserTest.exe.config
+D:\Dropbox\My Tests\My Tests\WebBrowserTest\WebBrowserTest\bin\Debug\WebBrowserTest.exe
+D:\Dropbox\My Tests\My Tests\WebBrowserTest\WebBrowserTest\bin\Debug\WebBrowserTest.pdb
+D:\Dropbox\My Tests\My Tests\WebBrowserTest\WebBrowserTest\obj\Debug\WebBrowserTest.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\WebBrowserTest\WebBrowserTest\obj\Debug\WebBrowserTest.Resource1.resources
+D:\Dropbox\My Tests\My Tests\WebBrowserTest\WebBrowserTest\obj\Debug\WebBrowserTest.csproj.GenerateResource.Cache
+D:\Dropbox\My Tests\My Tests\WebBrowserTest\WebBrowserTest\obj\Debug\WebBrowserTest.exe
+D:\Dropbox\My Tests\My Tests\WebBrowserTest\WebBrowserTest\obj\Debug\WebBrowserTest.pdb

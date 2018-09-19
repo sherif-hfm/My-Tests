@@ -1,0 +1,10 @@
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireDashboard\HangfireClient\bin\Debug\HangfireClient.dll
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireDashboard\HangfireClient\bin\Debug\HangfireClient.pdb
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireDashboard\HangfireClient\obj\Debug\HangfireClient.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireDashboard\HangfireClient\obj\Debug\HangfireClient.dll
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireDashboard\HangfireClient\obj\Debug\HangfireClient.pdb
+D:\Hangfire\HangfireDashboard\HangfireClient\bin\Debug\HangfireClient.dll
+D:\Hangfire\HangfireDashboard\HangfireClient\bin\Debug\HangfireClient.pdb
+D:\Hangfire\HangfireDashboard\HangfireClient\obj\Debug\HangfireClient.csprojResolveAssemblyReference.cache
+D:\Hangfire\HangfireDashboard\HangfireClient\obj\Debug\HangfireClient.dll
+D:\Hangfire\HangfireDashboard\HangfireClient\obj\Debug\HangfireClient.pdb

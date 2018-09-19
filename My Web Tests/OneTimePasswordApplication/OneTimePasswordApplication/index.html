@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="scripts/sha.js"></script>
+    <link href="scripts/bootstrap.min.css" rel="stylesheet" />
+    <script src="scripts/otp.js"></script>
+    <script src="scripts/jquery.qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div>
+            <div class="row">
+
+                <form>
+                    <fieldset>
+                        <div class="clearfix">
+                            <label for="secret">Secret (base32)</label>
+                            <div class="input"><input type="text" size="30" name="secret" id="secret" class="xlarge" value="JBSWY3DPEHPK3PXP" /></div>
+                        </div>
+                        <!-- /clearfix -->
+                        <div class="clearfix">
+                            <label>Secret (hex)</label>
+                            <div class="input">
+                                <span class="label label-default" id="secretHex"></span>
+                                <span id='secretHexLength'></span>
+                            </div>
+                        </div>
+                        <!-- /clearfix -->
+                        <div class="clearfix">
+                            <label>QR Code</label>
+                            <div class="input"><img id="qrImg" src="" /></div>
+                        </div>
+                        <!-- /clearfix -->
+                        <div class="clearfix">
+                            <label>Unix epoch div 30 (padded hex)</label>
+                            <div class="input"><span class="label label-default" id='epoch'></span></div>
+                        </div>
+                        <!-- /clearfix -->
+                        <div class="clearfix">
+                            <label>HMAC(secret, time)</label>
+                            <div class="input" id='hmac'></div>
+                        </div>
+                        <!-- /clearfix -->
+                        <div class="clearfix">
+                            <label>One-time Password</label>
+                            <div class="input"><span class="label label-primary" id='otp'></span></div>
+                        </div>
+                        <!-- /clearfix -->
+                        <div class="clearfix">
+                            <label>Updating in</label>
+                            <div class="input"><span id='updatingIn'></span></div>
+                        </div>
+                        <!-- /clearfix -->
+
+
+                    </fieldset>
+                </form>
+            </div>
+
+            <div class="row">
+                <label >Check One Time Password</label>
+                <input type="text" id="txtOtp" value="123"  />
+                <button id="btnCheck" name="btnCheck">Check</button>
+                <hr />
+                <label>Server One Time Password</label>
+                <input type="text" id="txtSrvOtp" value="" />
+                <hr />
+                <label id="jsUrl"></label><br />
+                <label id="srvUrl"></label><br />
+                <hr />
+                <label> Local Generated QRCode</label><br />
+                <div style="margin-left:20px">
+                    <div id="divQrCode"></div>
+                </div>
+                
+            </div>
+            </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+</body>
+</html>

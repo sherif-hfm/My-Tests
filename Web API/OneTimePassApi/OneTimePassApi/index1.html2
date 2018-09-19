@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/w3.css" rel="stylesheet" />
+    <link href="css/jquery-ui.min.css" rel="stylesheet" />
+    <link href="css/progress.css" rel="stylesheet" />
+    <script src="scripts/jquery-3.2.1.min.js"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
+    <script src="scripts/circle-progress.min.js"></script>
+    <script src="scripts/sha.js"></script>
+    <script src="scripts/otp.js"></script>
+    <script src="scripts/index.js"></script>
+</head>
+<body>
+    <div id="divLogin" class="login-form-container">
+        <div class="w3-row">
+            <div class="w3-col w3-center m12 w3-panel">
+                <img src="/Images/login-logo.png" class="login-logo" />
+            </div>
+        </div>
+        <div class="w3-row">
+            <div class="w3-col  m12 w3-center ">
+                <label class="w3-text-teal w3-large">
+                    <b>
+                        أمانة منطقة الرياض<br />
+                        نظام التحقق الثنائي
+                    </b>
+                </label>
+            </div>
+        </div>
+        <div class="w3-row">
+            <div class="w3-panel w3-col  m12 w3-right-align">
+                <label class="w3-text-teal w3-right-align"><b>اسم المستخدم</b></label>
+                <div class="field-has-validation">
+                    <input class="w3-input w3-border w3-white ripple" type="text" id="txtUserName" />
+                </div>
+            </div>
+        </div>
+        <div class="w3-row">
+            <div class="w3-panel w3-col  m12 w3-right-align">
+                <label class="w3-text-teal w3-right-align"><b>كلمة المرور</b></label>
+                <div class="field-has-validation">
+                    <input type="password" id="txtPassword" class="w3-input w3-border w3-white ripple" />
+                </div>
+            </div>
+        </div>
+        <div class="w3-row">
+            <div class="w3-panel w3-col m12">
+                <button id="btnLogin" class="w3-btn w3-left w3-blue ripple invert-ripple">تسجيل الدخول </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="divCheckSms" class="login-form-container w3-container w3-panel">
+        <div class="w3-row">
+            <div class="w3-col w3-center m12 w3-panel">
+                <img src="/Images/login-logo.png" class="login-logo" />
+            </div>
+        </div>
+        <div class="w3-row">
+            <div class="w3-col  m12 w3-center ">
+                <label class="w3-text-teal w3-large">
+                    <b>
+                        أمانة منطقة الرياض<br />
+                        نظام التحقق الثنائي
+                    </b>
+                </label>
+            </div>
+        </div>
+        <div class="w3-row">
+            <div class="w3-panel w3-col  m12 w3-right-align">
+                <label class="w3-text-teal w3-right-align"><b>تم ارسال كود التحقق الى الجوال المنتهي برقم</b></label>
+                <label class="w3-text-teal w3-centered" id="mobileNo">xxxxx</label>
+            </div>
+        </div>
+        <div class="w3-row">
+            <div class="w3-panel w3-col  m12 w3-right-align">
+                <label class="w3-text-teal w3-right-align"><b>ادخل كود التحقق</b></label>
+                <div class="field-has-validation">
+                    <input class="w3-input w3-border w3-white ripple" type="text" id="txtSmsCode" />
+                </div>
+            </div>
+        </div>
+        <div class="w3-row">
+            <div class="w3-panel w3-col m6">
+                <button id="btnCheckSms" class="w3-btn w3-left w3-blue ripple invert-ripple">التحقق </button>
+            </div>
+            <div class="w3-panel w3-col m6">
+                <button id="btnLogin" class="w3-btn w3-left w3-blue ripple invert-ripple">إعادة ارسال </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="divAccountsList" class="w3-container w3-panel">
+        <div  class="w3-row">
+            <div class="w3-panel w3-col m12">
+                <button id="btnAddAccount" class="w3-btn w3-left w3-blue ripple invert-ripple" style="position:absolute;bottom:16px;left:16px">اضافة حساب</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

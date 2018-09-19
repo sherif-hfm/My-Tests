@@ -1,0 +1,31 @@
+﻿
+    .frame {
+            width: 80%;
+        }
+
+        .e-rotator > li img {
+            width: 196px;
+            height: 165px;
+        }
+
+        input {
+            line-height: normal;
+            width: 113px;
+        }
+
+            input.ejinputtext {
+                text-indent: 10px;
+            }
+
+        .e-btn {
+            width: 120px;
+        }
+
+        .e-togglebutton {
+            width: 100px;
+        }
+
+        #itemMove {
+            line-height: normal;
+            width: 117px;
+        }

@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\UploadFilesAsynchronously\UploadFilesAsynchronously\bin\UploadFilesAsynchronously.dll.config
+D:\Dropbox\My Tests\My Web Tests\UploadFilesAsynchronously\UploadFilesAsynchronously\bin\UploadFilesAsynchronously.dll
+D:\Dropbox\My Tests\My Web Tests\UploadFilesAsynchronously\UploadFilesAsynchronously\bin\UploadFilesAsynchronously.pdb
+D:\Dropbox\My Tests\My Web Tests\UploadFilesAsynchronously\UploadFilesAsynchronously\obj\Debug\UploadFilesAsynchronously.dll
+D:\Dropbox\My Tests\My Web Tests\UploadFilesAsynchronously\UploadFilesAsynchronously\obj\Debug\UploadFilesAsynchronously.pdb
+D:\Dropbox\My Tests\My Web Tests\UploadFilesAsynchronously\UploadFilesAsynchronously\obj\Debug\UploadFilesAsynchronously.csprojResolveAssemblyReference.cache

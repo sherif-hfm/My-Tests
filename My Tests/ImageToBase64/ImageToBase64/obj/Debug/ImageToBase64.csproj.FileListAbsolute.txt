@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Tests\ImageToBase64\ImageToBase64\bin\Debug\ImageToBase64.exe.config
+D:\Dropbox\My Tests\My Tests\ImageToBase64\ImageToBase64\bin\Debug\ImageToBase64.exe
+D:\Dropbox\My Tests\My Tests\ImageToBase64\ImageToBase64\bin\Debug\ImageToBase64.pdb
+D:\Dropbox\My Tests\My Tests\ImageToBase64\ImageToBase64\obj\Debug\ImageToBase64.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\ImageToBase64\ImageToBase64\obj\Debug\ImageToBase64.exe
+D:\Dropbox\My Tests\My Tests\ImageToBase64\ImageToBase64\obj\Debug\ImageToBase64.pdb

@@ -1,0 +1,16 @@
+C:\OneDrive\My Tests\My Tests\MongoDbTest\MongoDbTest\bin\Debug\MongoDbTest.exe.config
+C:\OneDrive\My Tests\My Tests\MongoDbTest\MongoDbTest\bin\Debug\MongoDbTest.exe
+C:\OneDrive\My Tests\My Tests\MongoDbTest\MongoDbTest\bin\Debug\MongoDbTest.pdb
+C:\OneDrive\My Tests\My Tests\MongoDbTest\MongoDbTest\bin\Debug\DnsClient.dll
+C:\OneDrive\My Tests\My Tests\MongoDbTest\MongoDbTest\bin\Debug\MongoDB.Bson.dll
+C:\OneDrive\My Tests\My Tests\MongoDbTest\MongoDbTest\bin\Debug\MongoDB.Driver.Core.dll
+C:\OneDrive\My Tests\My Tests\MongoDbTest\MongoDbTest\bin\Debug\MongoDB.Driver.dll
+C:\OneDrive\My Tests\My Tests\MongoDbTest\MongoDbTest\bin\Debug\System.Buffers.dll
+C:\OneDrive\My Tests\My Tests\MongoDbTest\MongoDbTest\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\OneDrive\My Tests\My Tests\MongoDbTest\MongoDbTest\bin\Debug\DnsClient.xml
+C:\OneDrive\My Tests\My Tests\MongoDbTest\MongoDbTest\bin\Debug\MongoDB.Bson.xml
+C:\OneDrive\My Tests\My Tests\MongoDbTest\MongoDbTest\bin\Debug\MongoDB.Driver.xml
+C:\OneDrive\My Tests\My Tests\MongoDbTest\MongoDbTest\bin\Debug\MongoDB.Driver.Core.xml
+C:\OneDrive\My Tests\My Tests\MongoDbTest\MongoDbTest\obj\Debug\MongoDbTest.csprojResolveAssemblyReference.cache
+C:\OneDrive\My Tests\My Tests\MongoDbTest\MongoDbTest\obj\Debug\MongoDbTest.exe
+C:\OneDrive\My Tests\My Tests\MongoDbTest\MongoDbTest\obj\Debug\MongoDbTest.pdb

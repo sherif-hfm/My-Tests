@@ -1,0 +1,13 @@
+D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceWinHost\bin\Debug\ApplicationInsights.config
+D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceWinHost\bin\Debug\FileConvertServiceWinHost.exe.config
+D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceWinHost\bin\Debug\FileConvertServiceWinHost.exe
+D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceWinHost\bin\Debug\FileConvertServiceWinHost.pdb
+D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceWinHost\bin\Debug\FileConvertService.dll
+D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceWinHost\bin\Debug\FileConvertService.pdb
+D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceWinHost\obj\Debug\FileConvertServiceWinHost.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceWinHost\obj\Debug\FileConvertServiceWinHost.frmMain.resources
+D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceWinHost\obj\Debug\FileConvertServiceWinHost.Properties.Resources.resources
+D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceWinHost\obj\Debug\FileConvertServiceWinHost.csproj.GenerateResource.Cache
+D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceWinHost\obj\Debug\FileConvertServiceWinHost.exe
+D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceWinHost\obj\Debug\FileConvertServiceWinHost.pdb
+D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceWinHost\bin\Debug\Install.txt

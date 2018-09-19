@@ -1,0 +1,762 @@
+<?xml version="1.0"?>
+<doc processed="true">
+  <assembly>
+    <name>Leadtools.Caching</name>
+  </assembly>
+  <members>
+    <member name="T:Leadtools.Caching.CacheItemPolicy">
+      <summary>Defines the expiration details of a cache entry. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>The <see cref="T:Leadtools.Caching.CacheItemPolicy" /> instance contains the expiration details of a cache entry. When the cache object retrieves a cache entry,
+            the policy is checked and if the expiration details is met, the entry is deleted from the cache.</para>
+        <para>The default constructor of <see cref="T:Leadtools.Caching.CacheItemPolicy" /> creates a policy that does not expire (maximum value).</para>
+        <para>
+          <see cref="T:Leadtools.Caching.CacheItemPolicy" /> supports two types of expiration:</para>
+        <list type="bullet">
+          <item>
+            <description>
+              <para>Absolute: The entry will expire at a specific time. To use this set <see cref="P:Leadtools.Caching.CacheItemPolicy.AbsoluteExpiration" />
+            to the desired date and time and leave <see cref="P:Leadtools.Caching.CacheItemPolicy.SlidingExpiration" /> to the default value of <see cref="F:Leadtools.Caching.ObjectCache.NoSlidingExpiration" />.</para>
+            </description>
+          </item>
+          <item>
+            <description>
+              <para>Sliding: The entry will expire if it has not been accessed after for a specific time. To use this set <see cref="P:Leadtools.Caching.CacheItemPolicy.SlidingExpiration" />
+            to the desired time span value and leave <see cref="P:Leadtools.Caching.CacheItemPolicy.AbsoluteExpiration" /> to the default value of <see cref="F:Leadtools.Caching.ObjectCache.InfiniteAbsoluteExpiration" />.</para>
+            </description>
+          </item>
+        </list>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.CacheItemPolicy.#ctor">
+      <summary>Initializes a new instance of <see cref="T:Leadtools.Caching.CacheItemPolicy" /> with default parameters. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>This constructor initializes the members of this class as follows:</para>
+        <list type="table">
+          <listheader>
+            <term>Member</term>
+            <description>Value</description>
+          </listheader>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Caching.CacheItemPolicy.AbsoluteExpiration" />
+            </term>
+            <description>
+              <para>Set to <see cref="F:Leadtools.Caching.ObjectCache.InfiniteAbsoluteExpiration" />. The item will never expire.</para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Caching.CacheItemPolicy.SlidingExpiration" />
+            </term>
+            <description>
+              <para>Set to <see cref="F:Leadtools.Caching.ObjectCache.NoSlidingExpiration" />. The item will never expire.</para>
+            </description>
+          </item>
+        </list>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.CacheItemPolicy.Clone">
+      <summary>Creates an exact copy of this <see cref="T:Leadtools.Caching.CacheItemPolicy" /><a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <returns>The result object.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Caching.CacheItemPolicy.AbsoluteExpiration">
+      <summary>Gets or sets a value that indicates whether the cache entry should be deleted after a specified duration. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The period of time that must pass before a cache entry is deleted. The default value is <see cref="F:Leadtools.Caching.ObjectCache.InfiniteAbsoluteExpiration" />, meaning
+            that the entry does not expire.</value>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Caching.CacheItemPolicy.SlidingExpiration">
+      <summary>Gets or sets a value that indicate whether the cache entry should be deleted if it has not been accessed in a given span of time. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The time span which the cache entry must be accessed before the cache entry is deleted from the cache. The default is
+            <see cref="F:Leadtools.Caching.ObjectCache.NoSlidingExpiration" /> which means that the item should not be expired based on a time span.</value>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="T:Leadtools.Caching.CacheItem">
+      <summary>Specifies a cache entry. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>
+          <see cref="T:Leadtools.Caching.CacheItem" /> provides represents a cache entry. It has a string key and object value pair and an optional region.</para>
+        <para>When an item is added to the cache, the value is serialized and stored physically. Similarly when an item is retrived, the value is de-serialized.
+            Hence, the <see cref="T:Leadtools.Caching.CacheItem" /> is just a holder for the cached item and is not itself serialized or saved.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.CacheItem.#ctor(System.String)">
+      <summary>Initializes a new instance of <see cref="T:Leadtools.Caching.CacheItem" /> with the specified key. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique identifier for this cache entry. This value will be stored in <see cref="P:Leadtools.Caching.CacheItem.Key" />.</param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.CacheItem.#ctor(System.String,System.Object)">
+      <summary>Initializes a new instance of <see cref="T:Leadtools.Caching.CacheItem" /> with the specified key and value. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique identifier for this cache entry. This value will be stored in <see cref="P:Leadtools.Caching.CacheItem.Key" />.</param>
+      <param name="value">The data for this cache entry. This value will be stored in <see cref="P:Leadtools.Caching.CacheItem.Value" />.</param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.CacheItem.#ctor(System.String,System.Object,System.String)">
+      <summary>Initializes a new instance of <see cref="T:Leadtools.Caching.CacheItem" /> with the specified key and value and region. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique identifier for this cache entry. This value will be stored in <see cref="P:Leadtools.Caching.CacheItem.Key" />.</param>
+      <param name="value">The data for this cache entry. This value will be stored in <see cref="P:Leadtools.Caching.CacheItem.Value" />.</param>
+      <param name="regionName">The name of the region in the cache. This value will be stored in <see cref="P:Leadtools.Caching.CacheItem.RegionName" />.</param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Caching.CacheItem.Key">
+      <summary>Gets or sets a unique identifier for this <see cref="T:Leadtools.Caching.CacheItem" />. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The unique identifier for this <see cref="T:Leadtools.Caching.CacheItem" />. Default value is <strong>null</strong>.</value>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Caching.CacheItem.RegionName">
+      <summary>Gets or sets the name of the region in the cache for this <see cref="T:Leadtools.Caching.CacheItem" />. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The name of the region in the cache for this <see cref="T:Leadtools.Caching.CacheItem" />. Default value is <strong>null</strong>.</value>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Caching.CacheItem.Value">
+      <summary>Gets or sets the data for this <see cref="T:Leadtools.Caching.CacheItem" />. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The data for this <see cref="T:Leadtools.Caching.CacheItem" />. Default value is <strong>null</strong>.</value>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="T:Leadtools.Caching.DefaultCacheCapabilities">
+      <summary>Set of features that a cache implementation provides. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="F:Leadtools.Caching.DefaultCacheCapabilities.None">
+      <summary>(0x00000000)A cache implementation does not provide any of the features that are described in <see cref="T:Leadtools.Caching.DefaultCacheCapabilities" /><a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Caching.DefaultCacheCapabilities.InMemoryProvider">
+      <summary>(0x00000001)Cache implementation runs at least partially in memory <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Caching.DefaultCacheCapabilities.OutOfProcessProvider">
+      <summary>(0x00000002)Cache implementation runs out-of-process <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Caching.DefaultCacheCapabilities.CacheEntryChangeMonitors">
+      <summary>(0x00000004)Cache implementation supports the ability to create change monitors that monitor entries <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Caching.DefaultCacheCapabilities.AbsoluteExpirations">
+      <summary>(0x00000008)Cache implementation supports the ability to automatically remove cache entries at a specific date and time <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Caching.DefaultCacheCapabilities.SlidingExpirations">
+      <summary>(0x00000010)Cache implementation supports the ability to automatically remove cache entries that have not been accessed in a specified time span <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Caching.DefaultCacheCapabilities.CacheEntryUpdateCallback">
+      <summary>(0x00000020)Cache implementation can raise a notification that an entry is about to be removed from the cache <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Caching.DefaultCacheCapabilities.CacheEntryRemovedCallback">
+      <summary>(0x00000040)Cache implementation can raise a notification that an entry has been removed from the cache <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Caching.DefaultCacheCapabilities.CacheRegions">
+      <summary>(0x00000080)Cache implementation supports the ability to partition its storage into cache regions <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="T:Leadtools.Caching.ObjectCache">
+      <summary>Abstract class to provide cache support. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>LEADTOOLS provides the <see cref="T:Leadtools.Caching.FileCache" /> object that implements <see cref="T:Leadtools.Caching.ObjectCache" />.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Documents.DocumentFactory" />.</para>
+      </example>
+    </member>
+    <member name="F:Leadtools.Caching.ObjectCache.InfiniteAbsoluteExpiration">
+      <summary>Value that indicates that a cache entry has no absolute expiration. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="F:Leadtools.Caching.ObjectCache.NoSlidingExpiration">
+      <summary>Value that indicate that a cache entry has no sliding expiration. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ObjectCache.#ctor">
+      <summary>Initializes a new instance of <see cref="T:Leadtools.Caching.ObjectCache" /><a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ObjectCache.Add(Leadtools.Caching.CacheItem,Leadtools.Caching.CacheItemPolicy)">
+      <summary>Adds a new item into the cache using the default region <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="item">Item to add.</param>
+      <param name="policy">Expiration policy to use</param>
+      <returns>
+        <strong>true</strong> if the item was added successfully, <strong>false</strong> if there is an item in the cache that has the same
+            key.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ObjectCache.Add(System.String,System.Object,Leadtools.Caching.CacheItemPolicy,System.String)">
+      <summary>Adds a new item into the cache using the specified region name <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique identifier of the cache item.</param>
+      <param name="value">Data for the cache item.</param>
+      <param name="policy">Expiration policy to use</param>
+      <param name="regionName">Optional name of a region in cache.</param>
+      <returns>
+        <strong>true</strong> if the item was added successfully, <strong>false</strong> if there is an item in the cache that has the same
+            key.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ObjectCache.Add(System.String,System.Object,System.DateTime,System.String)">
+      <summary>Adds a new item into the cache using the specified absolute expiration data and region name <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique identifier of the cache item.</param>
+      <param name="value">Data for the cache item.</param>
+      <param name="absoluteExpiration">Absolute expiration date to use.</param>
+      <param name="regionName">Optional name of a region in cache.</param>
+      <returns>
+        <strong>true</strong> if the item was added successfully, <strong>false</strong> if there is an item in the cache that has the same
+            key.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ObjectCache.AddOrGetExisting(Leadtools.Caching.CacheItem,Leadtools.Caching.CacheItemPolicy)">
+      <summary>Adds a cache entry into the cache, and returns an existing cache entry with a matching key. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="value">Cache item to add.</param>
+      <param name="policy">Expiration policy for the item.</param>
+      <returns>The previous cache is found in the cache if found. Otherwise; <strong>null</strong>.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ObjectCache.AddOrGetExisting(System.String,System.Object,Leadtools.Caching.CacheItemPolicy,System.String)">
+      <summary>Adds an entry using key and value pair into the cache, and returns an existing cache entry with a matching key. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique identifier of the cache item.</param>
+      <param name="value">Data for the cache item.</param>
+      <param name="policy">Expiration policy for the item.</param>
+      <param name="regionName">Optional name of a region in cache.</param>
+      <returns>The previous cache is found in the cache if found. Otherwise; <strong>null</strong>.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ObjectCache.AddOrGetExisting(System.String,System.Object,System.DateTime,System.String)">
+      <summary>Adds an entry using key and value pair and absolute expiration date into the cache, and returns an existing cache entry with a matching key. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique identifier of the cache item.</param>
+      <param name="value">Data for the cache item.</param>
+      <param name="absoluteExpiration">Absolute expiration date to use.</param>
+      <param name="regionName">Optional name of a region in cache.</param>
+      <returns>The previous cache is found in the cache if found. Otherwise; <strong>null</strong>.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ObjectCache.Contains(System.String,System.String)">
+      <summary>Checks whether the specified cache entry exists in the cache. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique identifier of the cache item.</param>
+      <param name="regionName">Optional name of a region in cache.</param>
+      <returns>
+        <strong>true</strong> if the specified cache entry exists in the cache, otherwise; <strong>false</strong>.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ObjectCache.Get(System.String,System.String)">
+      <summary>Gets the value of the specified cache entry. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique identifier of the cache item.</param>
+      <param name="regionName">Optional name of a region in cache.</param>
+      <returns>The value of the specified entry if found, otherwise; <strong>null</strong>.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ObjectCache.GetCacheItem(System.String,System.String)">
+      <summary>Gets the specified cache entry from the cache. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique identifier of the cache item.</param>
+      <param name="regionName">Optional name of a region in cache.</param>
+      <returns>The cache item if found, otherwise; <strong>null</strong>.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ObjectCache.GetCount(System.String)">
+      <summary>Gets the total number of cache entries in the cache. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="regionName">Optional name of a region in cache.</param>
+      <returns>The total number of cache entries found.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ObjectCache.GetEnumerator">
+      <summary>Creates an enumerator that can be used to iterate through a collection of cache entries. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <returns>An enumerator that can be used to iterate through a collection of cache entries.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ObjectCache.GetValues(System.Collections.Generic.IEnumerable{System.String},System.String)">
+      <summary>
+            Gets the cache entries that corresponds the specified keys.
+            </summary>
+      <param name="keys">Collection of unique identifies.</param>
+      <param name="regionName">Optional name of a region in cache.</param>
+      <returns>Dictionary of key/value pair found.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ObjectCache.Remove(System.String,System.String)">
+      <summary>Removes an entry from the cache. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique identifier of the cache item.</param>
+      <param name="regionName">Optional name of a region in cache.</param>
+      <returns>The value of the item removed from the cache if found, otherwise; <strong>null</strong>.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ObjectCache.Set(Leadtools.Caching.CacheItem,Leadtools.Caching.CacheItemPolicy)">
+      <summary>Adds an item into the cache. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="item">Cache item to add.</param>
+      <param name="policy">Item expiration policy.</param>
+      <remarks>
+        <para>If the item is already in the cache, then it will be replaced with the new item and its policy updated.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ObjectCache.Set(System.String,System.Object,Leadtools.Caching.CacheItemPolicy,System.String)">
+      <summary>Adds a key/value pair item into the cache. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique identifier of the cache item.</param>
+      <param name="value">Data for the cache item.</param>
+      <param name="policy">Expiration policy for the item.</param>
+      <param name="regionName">Optional name of a region in cache.</param>
+      <remarks>
+        <para>If the item is already in the cache, then it will be replaced with the new item and its policy updated.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ObjectCache.Set(System.String,System.Object,System.DateTime,System.String)">
+      <summary>Adds a key/value pair item into the cache with the specified absolute expiration date. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique identifier of the cache item.</param>
+      <param name="value">Data for the cache item.</param>
+      <param name="absoluteExpiration">Absolute expiration date to use.</param>
+      <param name="regionName">Optional name of a region in cache.</param>
+      <remarks>
+        <para>If the item is already in the cache, then it will be replaced with the new item and its policy updated.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Caching.ObjectCache.Name">
+      <summary>Gets the unique name of this cache object <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The unique name of this cache object.</value>
+      <remarks>
+        <para>Must be implemented by derived classes.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Caching.ObjectCache.Item(System.String)">
+      <summary>
+            Gets or sets a cache item.
+            </summary>
+      <param name="key">Unqiue identifier foe the cache entry.</param>
+      <value>The value associated with this cache entry.</value>
+      <returns>The value associated with this cache entry.</returns>
+      <remarks>
+        <para>This indexer is the equivalant of calling <see cref="M:Leadtools.Caching.ObjectCache.Get(System.String,System.String)">Get(key, null)</see> and
+            <see cref="M:Leadtools.Caching.ObjectCache.Set(System.String,System.Object,Leadtools.Caching.CacheItemPolicy,System.String)">Set(key, value, null, null)</see>.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Caching.ObjectCache.DefaultCacheCapabilities">
+      <summary>Get the capabilities of this cache <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The capabilities of this cache.</value>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="T:Leadtools.Caching.ItemExpiredException">
+      <summary>Exception thrown when a cache item is expired. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>This exception is thrown by <see cref="T:Leadtools.Caching.FileCache" /> when a policy is expired during a retrieve of a cache item. The
+            <see cref="P:Leadtools.Caching.ItemExpiredException.Key" /> and <see cref="P:Leadtools.Caching.ItemExpiredException.RegionName" /> properties will hold information on the cache item.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ItemExpiredException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>Initializes a new instance of the <see cref="T:Leadtools.Caching.ItemExpiredException" /> class with serialized data. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="info">The object that holds the serialized object data.</param>
+      <param name="context">The contextual information about the source or destination.</param>
+      <remarks>
+        <para>This constructor is called during deserialization to reconstitute the exception object transmitted over a stream.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ItemExpiredException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>Overrides <see cref="M:System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">Exception.GetObjectData</see>. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that holds the serialized object data about the exception being thrown.</param>
+      <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual information about the source or destination.</param>
+      <normarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ItemExpiredException.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:Leadtools.Caching.ItemExpiredException" /> class with default values. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ItemExpiredException.#ctor(System.String)">
+      <summary>Initializes a new instance of the <see cref="T:Leadtools.Caching.ItemExpiredException" /> class with the specified error message. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="message">Message that describes the error.</param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ItemExpiredException.#ctor(System.String,System.Exception)">
+      <summary>Initializes a new instance of the <see cref="T:Leadtools.Caching.ItemExpiredException" /> class with the specified error message and inner exception. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="message">Message that describes the error.</param>
+      <param name="inner">The exception that caused the current error.</param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ItemExpiredException.#ctor(System.String,System.String)">
+      <summary>Initializes a new instance of the <see cref="T:Leadtools.Caching.ItemExpiredException" /> class with the specified cache item identifier and region name. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Cache item identifier.</param>
+      <param name="regionName">Optional region name in the cache.</param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.ItemExpiredException.#ctor(System.String,System.String,System.String)">
+      <summary>Initializes a new instance of the <see cref="T:Leadtools.Caching.ItemExpiredException" /> class with the specified cache item identifier, region name and error message. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Cache item identifier.</param>
+      <param name="regionName">Optional region name in the cache.</param>
+      <param name="message">Message that describes the error.</param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Caching.ItemExpiredException.Message">
+      <summary>Gets a message that describes the current exception. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>A message that describes the current exception.</value>
+      <remarks>
+        <para>For more information, refer to <see cref="P:System.Exception.Message">Exception.Message</see>.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Caching.ItemExpiredException.RegionName">
+      <summary>Gets the cache region name of the item that has been expired. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The region name of the item that has been expired. This value can be <strong>null</strong> if the item did not have a region in the cache.</value>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Caching.ItemExpiredException.Key">
+      <summary>Gets the unique identifier of the cache item that has been expired. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The unique identifier of the cache item that has been expired.</value>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="T:Leadtools.Caching.FileCache">
+      <summary>Represents LEADTOOLS support for a file cache. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>
+          <see cref="T:Leadtools.Caching.FileCache" /> implements <see cref="T:Leadtools.Caching.ObjectCache" /> and is the LEADTOOLS implementation of a file cache. It is used by the
+            LEADTOOLS Documents classes when caching is required to store the document data.</para>
+        <para>To use a <see cref="T:Leadtools.Caching.FileCache" />, set the <see cref="P:Leadtools.Caching.FileCache.CacheDirectory" /> property to a valid directory in your system or in a network share. then
+            use the various methods and properties to add and retrieve cache items with optional expiration policies. The cache will store the items and their
+            policies into disk using serialization and retrieve them using de-serialization.</para>
+        <para>Since the cache uses the global file system, it can be re-used after the application is terminated. <see cref="T:Leadtools.Caching.FileCache" /> does not store
+            any state data and all the items are stroed in disk. For instance, the LEADTOOLS Documents Web Service creates an instance of <see cref="T:Leadtools.Caching.FileCache" />
+            with every method call. All instances point to the same <see cref="P:Leadtools.Caching.FileCache.CacheDirectory" /> and can therefore use the same items added in previous calls. The
+            cache is thread and process safe.</para>
+        <para>
+          <see cref="T:Leadtools.Caching.FileCache" /> provide support for regions which is used to group cache items belonging to the same logical object. These regions are
+            created as sub-directories in the cache directory on disk. LEADTOOLS Documents classes uses the unique document identifier as the region name and hence
+            can delete all the items belonging to a single document by deleting the region.</para>
+        <para>Items are purged from the cache if they have an absolute or sliding expiration policy. This is done when the item is accessed (it will be deleted
+            if expired) or by the user by using <see cref="M:Leadtools.Caching.FileCache.CheckPolicy(System.String,System.String)" /> or <see cref="M:Leadtools.Caching.FileCache.CheckPolicies" />.</para>
+        <para>Since cache items that are not used will stay on disk, it is preferable to create a process for purging expired policies manually. This can be done
+            by calling <see cref="M:Leadtools.Caching.FileCache.CheckPolicies" /> which will check the whole cache and delete any items that are expired.</para>
+        <para>This cache implementation also supports data items with values set to <strong>null</strong>. Thus it is always preferable to use
+            <see cref="M:Leadtools.Caching.FileCache.Contains(System.String,System.String)" /> or <see cref="M:Leadtools.Caching.FileCache.GetCacheItem(System.String,System.String)" /> instead of relying to <see cref="M:Leadtools.Caching.FileCache.Get(System.String,System.String)" /> and checking for <strong>null</strong>.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Documents.DocumentFactory" />.</para>
+      </example>
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.CopyCacheItemPolicy(Leadtools.Caching.CacheItemPolicy)">
+      <summary>Creates a copy of a cache policy. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="policy">Source cache policy.</param>
+      <returns>Exact copy of <paramref name="policy" />, or <strong>null</strong> if <paramref name="policy" /> is <strong>null</strong>.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.#ctor">
+      <summary>Initializes a new instance of <see cref="T:Leadtools.Caching.FileCache" />. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.GetRegionName(System.String)">
+      <summary>Get the actual region name. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="regionName">Region name (sub-directory)</param>
+      <returns>The actual region name.</returns>
+      <remarks>
+        <para>Default implementation is to return the same value as <paramref name="regionName" /> or an empty string if <paramref name="regionName" />
+            is <strong>null</strong>. The region name is used by this class as a directory name. Derived classes can override this method to modify the directory
+            name to use.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.GetCacheFilePath(System.String,System.String)">
+      <summary>Gets the path to the physical file holding the data for the specified item. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique item identifier.</param>
+      <param name="regionName">Optional region (sub-directory) name.</param>
+      <returns>The physical file holding the data for the specified item.</returns>
+      <remarks>
+        <para>LEADTOOLS Documents classes uses this method to quickly access the data of an item from the disk file. It speeds up access and updating the data
+            if the value contain large amount of data such as an image file.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.GetPolicyFilePath(System.String,System.String)">
+      <summary>Gets the path to the physical file holding the policy for the specified item. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique item identifier.</param>
+      <param name="regionName">Optional region (sub-directory) name.</param>
+      <returns>The physical file holding the policy for the specified item.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.BeginAdd(System.String,System.String)">
+      <summary>Begins adding a new cache item. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique item identifier.</param>
+      <param name="regionName">Optional region (sub-directory) name.</param>
+      <returns>Returns the path to the physical file that will hold the data for the item on disk.</returns>
+      <remarks>
+        <para>LEADTOOLS Documents classes uses this method to quickly add items. It speeds up access and updating the data
+            if the value contain large amount of data such as an image file.</para>
+        <para>After this method returns, <see cref="M:Leadtools.Caching.FileCache.EndAdd(System.Boolean,System.String,Leadtools.Caching.CacheItemPolicy,System.String)" /> must be called to either commit this item into the cache or discard it.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.EndAdd(System.Boolean,System.String,Leadtools.Caching.CacheItemPolicy,System.String)">
+      <summary>Ends adding a new cache item and commit the changes. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="commit">
+        <strong>true</strong> to commit this item to the cache, <strong>false</strong> to discard it.</param>
+      <param name="key">Unique item identifier.</param>
+      <param name="policy">Expiration policy to use with this item.</param>
+      <param name="regionName">Optional region (sub-directory) name.</param>
+      <remarks>
+        <para>LEADTOOLS Documents classes uses this method to quickly add items. It speeds up access and updating the data
+            if the value contain large amount of data such as an image file.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.UpdatePolicy(System.String,Leadtools.Caching.CacheItemPolicy,System.String)">
+      <summary>Update the policy of an existing cache item. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique item identifier.</param>
+      <param name="policy">New expiration policy to use with this item.</param>
+      <param name="regionName">Optional region (sub-directory) name.</param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.CheckPolicy(System.String,System.String)">
+      <summary>Checks the policy of an existing cache item or items in a region and purge it if it has expired. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="keyName">Unique item identifier. If this value is <strong>null</strong> then all the items that belong to <paramref name="regionName" />
+            will be checked.</param>
+      <param name="regionName">Optional region (sub-directory) name. If this value is <strong>null</strong> then all the items in the cache
+            will be checked.</param>
+      <returns>
+        <strong>true</strong> if the item has not yet expired, <strong>false</strong> otherwise.</returns>
+      <remarks>
+        <para>This method checks the policy of the item if found. It its absolute or sliding expiration date is met, then it will be purged from the cache.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.CheckPolicies">
+      <summary>Checks the policy of all items in the cache and purge any item that has been expired. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>Since cache items that are not used will stay on disk, it is preferable to create a process for purging expired policies manually. This can be done
+            by calling <see cref="M:Leadtools.Caching.FileCache.CheckPolicies" /> which will check the whole cache and delete any items that are expired.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.DeleteRegion(System.String)">
+      <summary>Delets the specified region and all its data. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="regionName">region (sub-directory) name. This value cannot be <strong>null</strong>.</param>
+      <remarks>
+        <para>This method deletes all the cache item belonging to the specified region regardless of their expiration policy. The LEADTOOLS Documents library
+            will call this method to delete the items of a documents when it is disposed and not flagged to be saved in the cache.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.AddOrGetExisting(System.String,System.Object,Leadtools.Caching.CacheItemPolicy,System.String)">
+      <summary>Adds an entry using key and value pair into the cache, and returns an existing cache entry with a matching key. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique identifier of the cache item.</param>
+      <param name="value">Data for the cache item.</param>
+      <param name="policy">Expiration policy for the item.</param>
+      <param name="regionName">Optional name of a region in cache.</param>
+      <returns>The previous cache is found in the cache if found. Otherwise; <strong>null</strong>.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.AddOrGetExisting(Leadtools.Caching.CacheItem,Leadtools.Caching.CacheItemPolicy)">
+      <summary>Adds a cache entry into the cache, and returns an existing cache entry with a matching key. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="value">Cache item to add.</param>
+      <param name="policy">Expiration policy for the item.</param>
+      <returns>The previous cache is found in the cache if found. Otherwise; <strong>null</strong>.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.AddOrGetExisting(System.String,System.Object,System.DateTime,System.String)">
+      <summary>Adds an entry using key and value pair and absolute expiration date into the cache, and returns an existing cache entry with a matching key. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique identifier of the cache item.</param>
+      <param name="value">Data for the cache item.</param>
+      <param name="absoluteExpiration">Absolute expiration date to use.</param>
+      <param name="regionName">Optional name of a region in cache.</param>
+      <returns>The previous cache is found in the cache if found. Otherwise; <strong>null</strong>.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.Contains(System.String,System.String)">
+      <summary>Checks whether the specified cache entry exists in the cache. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique identifier of the cache item.</param>
+      <param name="regionName">Optional name of a region in cache.</param>
+      <returns>
+        <strong>true</strong> if the specified cache entry exists in the cache, otherwise; <strong>false</strong>.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.Get(System.String,System.String)">
+      <summary>Gets the value of the specified cache entry. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique identifier of the cache item.</param>
+      <param name="regionName">Optional name of a region in cache.</param>
+      <returns>The value of the specified entry if found, otherwise; <strong>null</strong>.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.GetCacheItem(System.String,System.String)">
+      <summary>Gets the specified cache entry from the cache. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique identifier of the cache item.</param>
+      <param name="regionName">Optional name of a region in cache.</param>
+      <returns>The cache item if found, otherwise; <strong>null</strong>.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.GetCount(System.String)">
+      <summary>Gets the total number of cache entries in the cache. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="regionName">Optional name of a region in cache.</param>
+      <returns>The total number of cache entries found.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.GetEnumerator(System.String)">
+      <summary>Creates an enumerator that can be used to iterate through a collection of cache entries. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <returns>An enumerator that can be used to iterate through a collection of cache entries.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.GetEnumerator">
+      <summary>Creates an enumerator that can be used to iterate through a collection of cache entries. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <returns>An enumerator that can be used to iterate through a collection of cache entries.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.GetValues(System.Collections.Generic.IEnumerable{System.String},System.String)">
+      <summary>
+            Gets the cache entries that corresponds the specified keys.
+            </summary>
+      <param name="keys">Collection of unique identifies.</param>
+      <param name="regionName">Optional name of a region in cache.</param>
+      <returns>Dictionary of key/value pair found.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.Remove(System.String,System.String)">
+      <summary>Removes an entry from the cache. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique identifier of the cache item.</param>
+      <param name="regionName">Optional name of a region in cache.</param>
+      <returns>The value of the item removed from the cache if found, otherwise; <strong>null</strong>.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.Set(System.String,System.Object,Leadtools.Caching.CacheItemPolicy,System.String)">
+      <summary>Adds a key/value pair item into the cache. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique identifier of the cache item.</param>
+      <param name="value">Data for the cache item.</param>
+      <param name="policy">Expiration policy for the item.</param>
+      <param name="regionName">Optional name of a region in cache.</param>
+      <remarks>
+        <para>If the item is already in the cache, then it will be replaced with the new item and its policy updated.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.Set(Leadtools.Caching.CacheItem,Leadtools.Caching.CacheItemPolicy)">
+      <summary>Adds an item into the cache. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="item">Cache item to add.</param>
+      <param name="policy">Item expiration policy.</param>
+      <remarks>
+        <para>If the item is already in the cache, then it will be replaced with the new item and its policy updated.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Caching.FileCache.Set(System.String,System.Object,System.DateTime,System.String)">
+      <summary>Adds a key/value pair item into the cache with the specified absolute expiration date. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="key">Unique identifier of the cache item.</param>
+      <param name="value">Data for the cache item.</param>
+      <param name="absoluteExpiration">Absolute expiration date to use.</param>
+      <param name="regionName">Optional name of a region in cache.</param>
+      <remarks>
+        <para>If the item is already in the cache, then it will be replaced with the new item and its policy updated.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Caching.FileCache.CacheDirectory">
+      <summary>Gets or sets the location on the file system to use for storing cache items. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The location on the file system to use for storing cache items. Default value is <strong>null</strong>.</value>
+      <remarks>
+        <para>This is the first property to set after an instance of <see cref="T:Leadtools.Caching.FileCache" /> is created. It must point to a valid directory on the
+            file system or a network share with read/write access rights for the current process.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Caching.FileCache.AccessTimeout">
+      <summary>Gets or sets a value that determines how long to wait between file access errors before an exception is thrown. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>A value that determines how long to wait between file access errors before an exception is thrown. Default value is 4 seconds.</value>
+      <remarks>
+        <para>The cache uses a file system and the items can be accessed by multiple threads or even processes at the same. When the cache is updating a
+            cache item or its policy, the file on disk is opened with exclusive write access. Meaning if another thread or process is trying to access the same
+            item, an error is occured. In this case, the cache will re-try the access at specified small intervals till it succeeds. If it cannot access the file
+            after <see cref="P:Leadtools.Caching.FileCache.AccessTimeout" />, the exception is thrown.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Caching.FileCache.DefaultRegion">
+      <summary>Gets and sets the name of the region to use when calling the properties and methods that do not use a region name. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The default policy when setting cache values using the indexer. Default value is <strong>null</strong>.</value>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Caching.FileCache.DefaultPolicy">
+      <summary>Gets or sets the default policy when setting cache values using the properties and methods that do not use a region name. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The default policy when setting cache values using the indexer. Default value is <strong>null</strong>.</value>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Caching.FileCache.Binder">
+      <summary>Gets and sets the binder to use when serializing cache items. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The binder to use when serializing cache items. Default value is <strong>null</strong>.</value>
+      <remarks>
+        <para>Set this value to a custom <see cref="T:System.Runtime.Serialization.SerializationBinder" /> to allow serialization of complex user-data types.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Caching.FileCache.Name">
+      <summary>Gets the unique name of this cache object <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The unique name of this cache object. Returns "LeadFileCache"</value>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Caching.FileCache.Item(System.String)">
+      <summary>
+            Gets or sets a cache item.
+            </summary>
+      <param name="key">Unqiue identifier foe the cache entry.</param>
+      <value>The value associated with this cache entry.</value>
+      <returns>The value associated with this cache entry.</returns>
+      <remarks>
+        <para>The getter use <see cref="P:Leadtools.Caching.FileCache.DefaultRegion" /> and the setter will use <see cref="P:Leadtools.Caching.FileCache.DefaultRegion" /> and <see cref="P:Leadtools.Caching.FileCache.DefaultPolicy" />.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Caching.FileCache.DefaultCacheCapabilities">
+      <summary>Get the capabilities of this cache. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>This property returns
+            <see cref="P:Leadtools.Caching.FileCache.DefaultCacheCapabilities">AbsoluteExpirations</see> |
+            <see cref="P:Leadtools.Caching.FileCache.DefaultCacheCapabilities">SlidingExpirations</see> |
+            <see cref="P:Leadtools.Caching.FileCache.DefaultCacheCapabilities">CacheRegions</see> |
+            <see cref="P:Leadtools.Caching.FileCache.DefaultCacheCapabilities">OutOfProcessProvider</see>.</value>
+      <noremarks />
+      <noexample />
+    </member>
+  </members>
+</doc>

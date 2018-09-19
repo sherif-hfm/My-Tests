@@ -1,0 +1,360 @@
+<?xml version="1.0"?>
+<doc processed="true">
+  <assembly>
+    <name>Leadtools.JobProcessor.Job</name>
+  </assembly>
+  <members>
+    <member name="T:Leadtools.JobProcessor.Job.IJob">
+      <exclude />
+    </member>
+    <member name="M:Leadtools.JobProcessor.Job.IJob.GetJobStatus(System.String)">
+      <exclude />
+    </member>
+    <member name="M:Leadtools.JobProcessor.Job.IJob.SetCompletedStatus(System.String,System.String)">
+      <exclude />
+    </member>
+    <member name="M:Leadtools.JobProcessor.Job.IJob.SetFailureStatus(System.String,System.Int32,System.String,System.String)">
+      <exclude />
+    </member>
+    <member name="M:Leadtools.JobProcessor.Job.IJob.SetAbortedStatus(System.String,System.String)">
+      <exclude />
+    </member>
+    <member name="M:Leadtools.JobProcessor.Job.IJob.UpdatePercentage(System.String,System.Int32,System.String)">
+      <exclude />
+    </member>
+    <member name="M:Leadtools.JobProcessor.Job.IJob.ResetJob(System.String,System.String,System.String)">
+      <exclude />
+    </member>
+    <member name="M:Leadtools.JobProcessor.Job.IJob.Log(System.String,System.String,Leadtools.JobProcessor.Job.LogType)">
+      <exclude />
+    </member>
+    <member name="T:Leadtools.JobProcessor.Job.TerminationType">
+      <summary>Indicates the reason why a job unexpectedly terminated.</summary>
+      <remarks>If a worker assembly terminates unexpectedly, or if the process is forcibly terminated by the windows service, 
+            the windows service will launch the worker process again and call the <see cref="M:Leadtools.JobProcessor.Job.JobBase.OnJobTerminated(System.String,System.String,Leadtools.JobProcessor.Job.TerminationType)">OnJobTerminated</see> method. 
+            For more information, refer to <see cref="M:Leadtools.JobProcessor.Job.JobBase.OnJobTerminated(System.String,System.String,Leadtools.JobProcessor.Job.TerminationType)">OnJobTerminated</see>.</remarks>
+      <noexample />
+      <seealso cref="T:Leadtools.Topics.ProgrammingWithDistributedComputing">Programming with the LEADTOOLS Distributed Computing (Job Processor) SDK</seealso>
+      <seealso cref="T:Leadtools.Topics.CreatingJobProcessorWorkerAssemblies">Creating Job Processor Worker Assemblies</seealso>
+      <seealso cref="M:Leadtools.JobProcessor.Job.JobBase.OnJobTerminated(System.String,System.String,Leadtools.JobProcessor.Job.TerminationType)">OnJobTerminated Method</seealso>
+    </member>
+    <member name="F:Leadtools.JobProcessor.Job.TerminationType.DidNotRespond">
+      <summary>
+        <para>(0x00000000)The worker assembly did not report a change in progress for a period greater than the value specified for 'AssumeHangAfter'. 
+            As a result, the process was assumed to be 'hung' and forcibly terminated. For more information, refer to <see cref="T:Leadtools.Topics.JobProcessorSettings">LEADTOOLS JobProcessor Settings</see>.</para>
+      </summary>
+    </member>
+    <member name="F:Leadtools.JobProcessor.Job.TerminationType.UnhandledException">
+      <summary>
+        <para>(0x00000001)The worker assembly experienced an unhandled exception (possibly a crash).</para>
+      </summary>
+    </member>
+    <member name="T:Leadtools.JobProcessor.Job.JobBase">
+      <summary>Creates worker assemblies for the LEADTOOLS Distributed Computing (Job Processor) SDK.</summary>
+      <keywords>JobProcessor | Worker | Grid | Distributed Computing</keywords>
+      <remarks>
+        <para>To create a custom worker assembly for the LEADTOOLS Distributed Computing (Job Processor) SDK, create an assembly that 
+            	contains a class derived from the <strong>JobBase</strong> class. 
+            For more information, refer to 
+            <see cref="T:Leadtools.Topics.CreatingJobProcessorWorkerAssemblies">Creating Job Processor Worker Assemblies</see>.</para>
+      </remarks>
+      <example>Refer to the 
+            OCRJobProcessorDemo. Depending on the programming language being used, the demo will be found 
+            in either the &lt;installationdir&gt;\Examples\DotNet\CS\OCRJobProcessorDemo directory. or the 
+            &lt;installationdir&gt;\Examples\DotNet\VB\OCRJobProcessorDemo directory. The &lt;installationdir&gt; 
+            represents the directory in which you installed the LEADTOOLS toolkit. </example>
+      <seealso cref="T:Leadtools.Topics.ProgrammingWithDistributedComputing">Programming with the LEADTOOLS Distributed Computing (Job Processor) SDK</seealso>
+      <seealso cref="T:Leadtools.Topics.CreatingJobProcessorWorkerAssemblies">Creating Job Processor Worker Assemblies</seealso>
+    </member>
+    <member name="M:Leadtools.JobProcessor.Job.JobBase.#ctor(Leadtools.JobProcessor.Job.IJob)">
+      <summary>
+            Initializes a new instance of the <see cref="N:Leadtools.JobProcessor.Job">JobBase</see> class.
+            </summary>
+      <param name="service">
+            Instance of an <see cref="T:Leadtools.JobProcessor.Job.IJob" /> service that communicates with the Worker Service. 
+            </param>
+      <remarks>
+            This interface communicates with the Worker Service hosted at the central server. 
+            It is not necessary to call any methods directly on this interface. It is used 
+            internally by the Distributed Computing (Job Processor) SDK.
+            </remarks>
+      <example>Refer to the 
+            OCRJobProcessorDemo. Depending on the programming language being used, the demo will be found 
+            in either the &lt;installationdir&gt;\Examples\DotNet\CS\OCRJobProcessorDemo directory. or the 
+            &lt;installationdir&gt;\Examples\DotNet\VB\OCRJobProcessorDemo directory. The &lt;installationdir&gt; 
+            represents the directory in which you installed the LEADTOOLS toolkit. </example>
+    </member>
+    <member name="M:Leadtools.JobProcessor.Job.JobBase.OnJobReceived(System.String,System.String,System.String,System.String,System.Int32)">
+      <summary> Processes new jobs when they are available and ready for processing.</summary>
+      <param name="id">A <see cref="T:System.String" /> that represents the ID (GUID) of the new job.</param>
+      <param name="userToken">The user token stores information related to the client that 
+            submitted the job.</param>
+      <param name="jobMetadata">Metadata containing information on how this job 
+            should be processed.</param>
+      <param name="jobType">Type of job. Job Types are defined in the <strong>Workers.xml</strong>. 
+            For more information on the Workers.XML configuration, refer to 
+            <see cref="T:Leadtools.Topics.JobProcessorSettings">LEADTOOLS JobProcessor Settings</see>.</param>
+      <param name="progressRate">Frequency, in seconds, that progress is reported using the 
+            <see cref="M:Leadtools.JobProcessor.Job.JobBase.UpdatePercentage(System.String,System.Int32,System.String)">UpdatePercentage</see> Method.</param>
+      <remarks>
+        <para>When Creating a  Job Processor worker, your custom assembly will be loaded to process the job. 
+            When loaded, the <see cref="M:Leadtools.JobProcessor.Job.JobBase.OnJobReceived(System.String,System.String,System.String,System.String,System.Int32)" /> Method will be called to notify your assembly a 
+            new job is ready to be 
+            processed. Your implementation of the <see cref="M:Leadtools.JobProcessor.Job.JobBase.OnJobReceived(System.String,System.String,System.String,System.String,System.Int32)" /> Method should block until 
+            job processing is complete. 
+            For more information on creating Job Processor workers, refer to 
+            <see cref="T:Leadtools.Topics.CreatingJobProcessorWorkerAssemblies">Creating Job Processor Worker Assemblies</see>.</para>
+        <para>Post the progress of the current job using the
+            	<see cref="M:Leadtools.JobProcessor.Job.JobBase.UpdatePercentage(System.String,System.Int32,System.String)">UpdatePercentage</see> Method. 
+            Failure to post progress can cause the windows service to assume the process 
+            is hung and the windows service will terminate the process. 
+            Progress should be posted at the interval specified by the progressRate parameter.</para>
+        <para>For more information on how the userToken, jobMetadata, and jobType properties are used, 
+            refer to <see cref="T:Leadtools.Topics.JobProcessorDatabase">Understanding The LEADTOOLS Job Processor Database</see>.</para>
+      </remarks>
+      <example>Refer to the 
+            OCRJobProcessorDemo. Depending on the programming language being used, the demo will be found 
+            in either the &lt;installationdir&gt;\Examples\DotNet\CS\OCRJobProcessorDemo directory. or the 
+            &lt;installationdir&gt;\Examples\DotNet\VB\OCRJobProcessorDemo directory. The &lt;installationdir&gt; 
+            represents the directory in which you installed the LEADTOOLS toolkit. </example>
+      <seealso cref="T:Leadtools.Topics.ProgrammingWithDistributedComputing">Programming with the LEADTOOLS Distributed Computing (Job Processor) SDK</seealso>
+      <seealso cref="T:Leadtools.Topics.CreatingJobProcessorWorkerAssemblies">Creating Job Processor Worker Assemblies</seealso>
+      <seealso cref="M:Leadtools.Services.JobProcessor.ServiceContracts.IJobService.AddJob(Leadtools.Services.JobProcessor.DataContracts.AddJobRequest)">AddJob Method</seealso>
+    </member>
+    <member name="M:Leadtools.JobProcessor.Job.JobBase.OnJobTerminated(System.String,System.String,Leadtools.JobProcessor.Job.TerminationType)">
+      <summary>Responds to a job that unexpectedly terminates, or when a process is forcibly 
+            terminated by the windows service.</summary>
+      <param name="id">ID (GUID) of the job which was terminated.</param>
+      <param name="jobMetadata">Metadata which contains information on how this job should be processed.</param>
+      <param name="type">Reason the job terminated.</param>
+      <returns>true to indicate that the job status was updated by the user assembly.</returns>
+      <remarks>
+        <para>When a worker assembly is terminated unexpectedly, or the windows service forcibly terminates the process, 
+            	the windows service will re-launch the worker process and call the <b>OnJobTerminated</b> method.
+            </para>
+        <para>
+            This method allows the user to react to critical failures. 
+            If this method is overridden, it can update the job status by calling either the <see cref="M:Leadtools.JobProcessor.Job.JobBase.SetFailureStatus(System.String,System.Int32,System.String,System.String)" /> method or the <see cref="M:Leadtools.JobProcessor.Job.JobBase.SetCompletedStatus(System.String,System.String)" /> method. 
+            If one of these methods is called, the <b>OnJobTerminated</b> return value should be set to true. 
+            This indicates that the job status update has been handled. 
+            <para>If this method is not overridden or returns false, the LEADTOOLS Distributed Computing (Job Processor) SDK will internally call <see cref="M:Leadtools.JobProcessor.Job.JobBase.SetFailureStatus(System.String,System.Int32,System.String,System.String)" />.</para></para>
+      </remarks>
+      <noexample />
+      <seealso cref="T:Leadtools.Topics.ProgrammingWithDistributedComputing">Programming with the LEADTOOLS Distributed Computing (Job Processor) SDK</seealso>
+      <seealso cref="T:Leadtools.Topics.CreatingJobProcessorWorkerAssemblies">Creating Job Processor Worker Assemblies</seealso>
+    </member>
+    <member name="M:Leadtools.JobProcessor.Job.JobBase.GetJobStatus(System.String)">
+      <summary>Returns the status of a specific job.</summary>
+      <param name="jobID">ID (GUID) of the job to obtain the status for.</param>
+      <returns>A <see cref="T:Leadtools.JobProcessor.Job.JobStatus" /> that represents the status of the specified job.</returns>
+      <remarks>
+        <para>Use this method to obtain the status of a specific job. If the job is not found, 
+            	<see cref="T:Leadtools.JobProcessor.Job.JobStatus">Jobstatus.NotFound</see> will be returned.</para>
+      </remarks>
+      <example>Refer to the 
+            OCRJobProcessorDemo. Depending on the programming language being used, the demo will be found 
+            in either the &lt;installationdir&gt;\Examples\DotNet\CS\OCRJobProcessorDemo directory. or the 
+            &lt;installationdir&gt;\Examples\DotNet\VB\OCRJobProcessorDemo directory. The &lt;installationdir&gt; 
+            represents the directory in which you installed the LEADTOOLS toolkit. </example>
+    </member>
+    <member name="M:Leadtools.JobProcessor.Job.JobBase.SetCompletedStatus(System.String,System.String)">
+      <summary>Sets the status of a job to <see cref="T:Leadtools.JobProcessor.Job.JobStatus">Jobstatus.Completed</see>.</summary>
+      <param name="jobID">ID (GUID) of the job to update.</param>
+      <param name="jobMetadata">Metadata which contains information on how this job should be processed.
+            </param>
+      <returns>A <see cref="T:Leadtools.JobProcessor.Job.JobStatus" /> that represents the new status of the specified job.
+            </returns>
+      <remarks>
+        <para>Use this method to set the status of a job to <see cref="T:Leadtools.JobProcessor.Job.JobStatus">Jobstatus.Completed</see>
+            	indicating the job has been successfully processed. If the job is not found, 
+            	<see cref="T:Leadtools.JobProcessor.Job.JobStatus">Jobstatus.NotFound</see> will be returned.</para>
+        <para>If an empty string is passed for the jobMetadata parameter, the existing job metadata 
+            	for the job is maintained. 
+            	For more information on how the jobMetadata property is used, 
+            	refer to <see cref="T:Leadtools.Topics.JobProcessorDatabase">Understanding The LEADTOOLS Job Processor Database</see>.</para>
+      </remarks>
+      <example>Refer to the 
+            OCRJobProcessorDemo. Depending on the programming language being used, the demo will be found 
+            in either the &lt;installationdir&gt;\Examples\DotNet\CS\OCRJobProcessorDemo directory. or the 
+            &lt;installationdir&gt;\Examples\DotNet\VB\OCRJobProcessorDemo directory. The &lt;installationdir&gt; 
+            represents the directory in which you installed the LEADTOOLS toolkit. </example>
+      <seealso cref="T:Leadtools.Topics.ProgrammingWithDistributedComputing">Programming with the LEADTOOLS Distributed Computing (Job Processor) SDK</seealso>
+      <seealso cref="T:Leadtools.Topics.CreatingJobProcessorWorkerAssemblies">Creating Job Processor Worker Assemblies</seealso>
+      <seealso cref="T:Leadtools.Topics.JobProcessorDatabase">Understanding The LEADTOOLS Job Processor Database</seealso>
+    </member>
+    <member name="M:Leadtools.JobProcessor.Job.JobBase.SetFailureStatus(System.String,System.Int32,System.String,System.String)">
+      <summary>Sets the status of a job to <see cref="T:Leadtools.JobProcessor.Job.JobStatus">Jobstatus.Failed</see>.</summary>
+      <param name="jobID">ID (GUID) of the job to update.</param>
+      <param name="failedErrorID">Error code for the job.</param>
+      <param name="failedMessage">Error message for the job.</param>
+      <param name="jobMetadata">Metadata which contains information on how this job should be processed.</param>
+      <returns>A <see cref="T:Leadtools.JobProcessor.Job.JobStatus" /> that represents the new status of the specified job.</returns>
+      <remarks>
+        <para>Use this method to set the status of a job to <see cref="T:Leadtools.JobProcessor.Job.JobStatus">Jobstatus.Failed</see>. 
+            	If the job is not found, <see cref="T:Leadtools.JobProcessor.Job.JobStatus">Jobstatus.NotFound</see> will be returned.</para>
+        <para>If an empty string is passed for the <paramref name="jobMetadata" /> parameter the existing 
+            	job metadata for the job is maintained. 
+            	For more information on how the jobMetadata property is used, refer to <see cref="T:Leadtools.Topics.JobProcessorDatabase">Understanding The LEADTOOLS Job Processor Database</see>.</para>
+      </remarks>
+      <example>Refer to the 
+            OCRJobProcessorDemo. Depending on the programming language being used, the demo will be found 
+            in either the &lt;installationdir&gt;\Examples\DotNet\CS\OCRJobProcessorDemo directory. or the 
+            &lt;installationdir&gt;\Examples\DotNet\VB\OCRJobProcessorDemo directory. The &lt;installationdir&gt; 
+            represents the directory in which you installed the LEADTOOLS toolkit. </example>
+      <seealso cref="T:Leadtools.Topics.ProgrammingWithDistributedComputing">Programming with the LEADTOOLS Distributed Computing (Job Processor) SDK</seealso>
+      <seealso cref="T:Leadtools.Topics.CreatingJobProcessorWorkerAssemblies">Creating Job Processor Worker Assemblies</seealso>
+      <seealso cref="T:Leadtools.Topics.JobProcessorDatabase">Understanding The LEADTOOLS Job Processor Database</seealso>
+    </member>
+    <member name="M:Leadtools.JobProcessor.Job.JobBase.SetAbortedStatus(System.String,System.String)">
+      <summary>Sets the status of a job to <see cref="T:Leadtools.JobProcessor.Job.JobStatus">Jobstatus.Aborted</see>.</summary>
+      <param name="jobID">ID (GUID) of the job to update.</param>
+      <param name="jobMetadata">Metadata which contains information on how this job should be processed.</param>
+      <returns>A <see cref="T:Leadtools.JobProcessor.Job.JobStatus" /> value that represents the new status of the specified job.</returns>
+      <remarks>
+        <para>Use this method to set the status of a job to <see cref="T:Leadtools.JobProcessor.Job.JobStatus">Jobstatus.Aborted</see>. 
+            	If a client or administrator deletes a job, or calls the <see cref="M:Leadtools.Services.JobProcessor.ServiceContracts.IJobService.AbortJob(Leadtools.Services.JobProcessor.DataContracts.AbortJobRequest)">AbortJob</see>
+            	Method, the next call to <see cref="M:Leadtools.JobProcessor.Job.JobBase.UpdatePercentage(System.String,System.Int32,System.String)">UpdatePercentage</see> 
+            will return false, informing you to abort the job and call SetAbortedStatus to finalize the abort operation. 
+            If the job is not found (it was deleted), 
+            <see cref="T:Leadtools.JobProcessor.Job.JobStatus">Jobstatus.NotFound</see> will be returned.</para>
+        <para>If an empty string is passed for the jobMetadata parameter, the existing job metadata for 
+            	the job is maintained. 
+            	For more information on how the jobMetadata property is used, refer to 
+            	<see cref="T:Leadtools.Topics.JobProcessorDatabase">Understanding The LEADTOOLS Job Processor Database</see>.</para>
+      </remarks>
+      <example>Refer to the OCRJobProcessorDemo (LEADTOOLS Installation Directory\Examples\DotNet\'CS or VB'\OCRJobProcessorDemo).</example>
+      <seealso cref="T:Leadtools.Topics.ProgrammingWithDistributedComputing">Programming with the LEADTOOLS Distributed Computing (Job Processor) SDK</seealso>
+      <seealso cref="T:Leadtools.Topics.CreatingJobProcessorWorkerAssemblies">Creating Job Processor Worker Assemblies</seealso>
+      <seealso cref="T:Leadtools.Topics.JobProcessorDatabase">Understanding The LEADTOOLS Job Processor Database</seealso>
+      <seealso cref="M:Leadtools.Services.JobProcessor.ServiceContracts.IJobService.AbortJob(Leadtools.Services.JobProcessor.DataContracts.AbortJobRequest)">AbortJob Method</seealso>
+    </member>
+    <member name="M:Leadtools.JobProcessor.Job.JobBase.UpdatePercentage(System.String,System.Int32,System.String)">
+      <summary>Sends updated progress information for the current job to the windows service.</summary>
+      <param name="jobID">ID (GUID) of the job to update.</param>
+      <param name="percentage">Progress (0-100) of the current job.</param>
+      <param name="workerMetadata">Metadata which contains any extra information about the job as 
+            reported by the worker assembly.</param>
+      <returns>A boolean value indicating whether processing should continue for this job (true = continue processing; 
+            false = stop processing).</returns>
+      <remarks>
+        <para>A value of false indicates the job was either aborted or deleted by an administrator or
+              client.</para>
+        <para>Failure to update the progress can cause the windows service to assume the process is 
+            	hung. 
+            	This will result in the <see cref="M:Leadtools.JobProcessor.Job.JobBase.OnJobTerminated(System.String,System.String,Leadtools.JobProcessor.Job.TerminationType)">OnJobTerminated</see> method to be called 
+            	and the process will be terminated. </para>
+        <para>Progress should be posted at the interval specified by the <paramref name="percentage" /> parameter.
+              </para>
+        <para>If an empty string is passed for the <paramref name="workerMetadata" /> parameter, the existing worker
+            	metadata for the job is maintained. 
+            	For more information on how the workerMetadata property is used, refer to <see cref="T:Leadtools.Topics.JobProcessorDatabase">Understanding The LEADTOOLS Job Processor Database</see>.</para>
+      </remarks>
+      <example>Refer to the 
+            OCRJobProcessorDemo. Depending on the programming language being used, the demo will be found 
+            in either the &lt;installationdir&gt;\Examples\DotNet\CS\OCRJobProcessorDemo directory. or the 
+            &lt;installationdir&gt;\Examples\DotNet\VB\OCRJobProcessorDemo directory. The &lt;installationdir&gt; 
+            represents the directory in which you installed the LEADTOOLS toolkit. </example>
+      <seealso cref="T:Leadtools.Topics.ProgrammingWithDistributedComputing">Programming with the LEADTOOLS Distributed Computing (Job Processor) SDK</seealso>
+      <seealso cref="T:Leadtools.Topics.CreatingJobProcessorWorkerAssemblies">Creating Job Processor Worker Assemblies</seealso>
+      <seealso cref="T:Leadtools.Topics.JobProcessorDatabase">Understanding The LEADTOOLS Job Processor Database</seealso>
+    </member>
+    <member name="M:Leadtools.JobProcessor.Job.JobBase.ResetJob(System.String,System.String,System.String)">
+      <summary>Resets the specified job.</summary>
+      <param name="jobID">ID (GUID) of the job to update.</param>
+      <param name="jobType">New jobType for the specified job.</param>
+      <param name="jobMetadata">Metadata which contains information on how this job should be processed.</param>
+      <returns>New jobType of the specified Job.</returns>
+      <remarks>
+        <para>When this method is called the status of the job is set to <see cref="T:Leadtools.JobProcessor.Job.JobStatus">Jobstatus.New</see>.
+            	If this method succeeds the job will be processed by the next available worker.</para>
+        <para>If an empty string is passed for the <paramref name="jobMetadata " /> 
+            	or <paramref name="jobType" /> parameters the existing job metadata is maintained. 
+            	For more information on how the <strong>jobMetadata</strong>, and <strong>jobType</strong> 
+            	properties are used, refer to <see cref="T:Leadtools.Topics.JobProcessorDatabase">Understanding The LEADTOOLS Job Processor Database</see>.
+            	</para>
+      </remarks>
+      <noexample />
+      <seealso cref="T:Leadtools.Topics.ProgrammingWithDistributedComputing">Programming with the LEADTOOLS Distributed Computing (Job Processor) SDK</seealso>
+      <seealso cref="T:Leadtools.Topics.CreatingJobProcessorWorkerAssemblies">Creating Job Processor Worker Assemblies</seealso>
+      <seealso cref="T:Leadtools.Topics.JobProcessorDatabase">Understanding The LEADTOOLS Job Processor Database</seealso>
+      <seealso cref="M:Leadtools.Services.JobProcessor.ServiceContracts.IJobService.ResetJob(Leadtools.Services.JobProcessor.DataContracts.ResetJobRequest)">ResetJob Method</seealso>
+    </member>
+    <member name="M:Leadtools.JobProcessor.Job.JobBase.Log(System.String,System.String,Leadtools.JobProcessor.Job.LogType)">
+      <summary>Logs an entry using the Leadtools.Logging logging framework.</summary>
+      <param name="message">The messaged to be logged.</param>
+      <param name="source">The source for the log entry.</param>
+      <param name="type">A <see cref="T:Leadtools.JobProcessor.Job.LogType" /> that represents the type of log entry.</param>
+      <remarks>
+        <para>For more information on the <see cref="N:Leadtools.Logging">Leadtools.Logging</see> framework, 
+            	refer to <see cref="T:LL.Topics.ProgrammingWithLeadtoolsLogging">Programming with LEADTOOLS Logging</see>.
+            	</para>
+      </remarks>
+      <noexample />
+      <seealso cref="T:Leadtools.Topics.CreatingJobProcessorWorkerAssemblies">Creating Job Processor Worker Assemblies</seealso>
+      <seealso cref="T:LL.Topics.ProgrammingWithLeadtoolsLogging">Programming with LEADTOOLS Logging</seealso>
+    </member>
+    <member name="T:Leadtools.JobProcessor.Job.JobStatus">
+      <summary>
+            Indicates the status of a job.
+            </summary>
+      <remarks>For more information, refer to <see cref="T:Leadtools.Topics.CreatingJobProcessorWorkerAssemblies">Creating Job Processor Worker Assemblies</see>.</remarks>
+      <noexample />
+      <seealso cref="T:Leadtools.Topics.ProgrammingWithDistributedComputing">Programming with the LEADTOOLS Distributed Computing (Job Processor) SDK</seealso>
+      <seealso cref="T:Leadtools.Topics.CreatingJobProcessorWorkerAssemblies">Creating Job Processor Worker Assemblies</seealso>
+      <seealso cref="T:Leadtools.Services.JobProcessor.ServiceContracts.IJobService">IJobService Interface</seealso>
+    </member>
+    <member name="F:Leadtools.JobProcessor.Job.JobStatus.NotFound">
+      <summary>(0x00000000)<para>(0)The job was not found in the Job Processor Database.</para></summary>
+    </member>
+    <member name="F:Leadtools.JobProcessor.Job.JobStatus.New">
+      <summary>(0x00000001)<para>(1)The job is in queue, and ready to be processed. A job is marked as new when it is added, or when <see cref="M:Leadtools.JobProcessor.Job.JobBase.ResetJob(System.String,System.String,System.String)">ResetJob</see> is called.</para></summary>
+    </member>
+    <member name="F:Leadtools.JobProcessor.Job.JobStatus.Queried">
+      <summary>(0x00000002)<para>(2)The job has been removed from the queue, and is being prepared for processing.</para></summary>
+    </member>
+    <member name="F:Leadtools.JobProcessor.Job.JobStatus.Started">
+      <summary>(0x00000003)<para>(3)The job is currently being processing.</para></summary>
+    </member>
+    <member name="F:Leadtools.JobProcessor.Job.JobStatus.Completed">
+      <summary>(0x00000004)<para>(4)The job has been successfully processed. 
+            A job is marked as completed when <see cref="M:Leadtools.JobProcessor.Job.JobBase.SetCompletedStatus(System.String,System.String)">SetCompletedStatus</see> is called.</para></summary>
+    </member>
+    <member name="F:Leadtools.JobProcessor.Job.JobStatus.Failed">
+      <summary>(0x00000005)<para>(5)The job encountered errors during processing. 
+            A job is marked as failed when <see cref="M:Leadtools.JobProcessor.Job.JobBase.SetFailureStatus(System.String,System.Int32,System.String,System.String)">SetFailureStatus</see> is called.</para></summary>
+    </member>
+    <member name="F:Leadtools.JobProcessor.Job.JobStatus.Aborted">
+      <summary>(0x00000006)<para>(6)The job was aborted during processing. 
+            A job is marked as aborted when <see cref="M:Leadtools.JobProcessor.Job.JobBase.SetAbortedStatus(System.String,System.String)">SetAbortedStatus</see> is called.</para></summary>
+    </member>
+    <member name="T:Leadtools.JobProcessor.Job.LogType">
+      <summary>
+            Specifies the type of log message.
+            </summary>
+      <remarks>For more information, refer to <see cref="T:LL.Topics.ProgrammingWithLeadtoolsLogging">Programming with LEADTOOLS Logging</see>.</remarks>
+      <noexample />
+      <seealso cref="T:Leadtools.Topics.CreatingJobProcessorWorkerAssemblies">Creating Job Processor Worker Assemblies</seealso>
+      <seealso cref="T:LL.Topics.ProgrammingWithLeadtoolsLogging">Programming with LEADTOOLS Logging</seealso>
+    </member>
+    <member name="F:Leadtools.JobProcessor.Job.LogType.Error">
+      <summary>
+            (0)Error message.
+            </summary>
+    </member>
+    <member name="F:Leadtools.JobProcessor.Job.LogType.Warning">
+      <summary>
+            (1)Warning message.
+            </summary>
+    </member>
+    <member name="F:Leadtools.JobProcessor.Job.LogType.Information">
+      <summary>
+            (2)Informational message.
+            </summary>
+    </member>
+    <member name="F:Leadtools.JobProcessor.Job.LogType.Debug">
+      <summary>
+            (3)Debug message.
+            </summary>
+    </member>
+  </members>
+</doc>

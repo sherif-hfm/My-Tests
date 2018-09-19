@@ -1,0 +1,28 @@
+﻿<ng-content></ng-content>
+
+<div class="myHeader">User Data1</div>
+<div >
+    <label [class]="lableClass">User Name : </label>
+    <input #txtUserName type="text" (keyup)="txtUserName_keyup(txtUserName)"  /> {{txtUserName.value}}<br />
+    <button name="btn1" (mouseover)="btn1MouseOver($event)" (click)="btn1Click($event)"  data-ObjId="1234">Click Me</button>
+</div>
+<br />
+
+<div>
+    <div [class]="titleClass">Class binding</div>
+    <div [class.Title]="addTitleClass">Class binding2</div>
+    <br />
+    <div [ngStyle]="myStyle">Style binding</div>
+    <div [style.color]="myStyleColor">Style binding2</div>
+    <br />
+    <div [attr.myValue]="myValue">Attribute binding</div>
+    <hr />
+</div>
+<br />
+<hr />
+
+<div>
+    Tests
+    <br />
+    <input #myText (change)="text_Ckange(myText.value)" type="text" /> {{myText.value}}
+</div>

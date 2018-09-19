@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'GESSTwoLight';
+    src: url('ge-ss-two-light.eot');
+    src: url('ge-ss-two-light.eot') format('embedded-opentype'),
+         url('ge-ss-two-light.woff') format('woff'),
+         url('ge-ss-two-light.ttf') format('truetype'),
+         url('ge-ss-two-light.svg#GESSTwoLight') format('svg');
+}

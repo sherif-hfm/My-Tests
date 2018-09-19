@@ -1,0 +1,8 @@
+D:\Dropbox\My Tests\My Tests\BPMtest\BPMtest\bin\Debug\BPMtest.exe.config
+D:\Dropbox\My Tests\My Tests\BPMtest\BPMtest\obj\Debug\BPMtest.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\BPMtest\BPMtest\bin\Debug\BPMtest.exe
+D:\Dropbox\My Tests\My Tests\BPMtest\BPMtest\bin\Debug\BPMtest.pdb
+D:\Dropbox\My Tests\My Tests\BPMtest\BPMtest\obj\Debug\BPMtest.exe
+D:\Dropbox\My Tests\My Tests\BPMtest\BPMtest\obj\Debug\BPMtest.pdb
+D:\Dropbox\My Tests\My Tests\BPMtest\BPMtest\bin\Debug\AutoMapper.dll
+D:\Dropbox\My Tests\My Tests\BPMtest\BPMtest\bin\Debug\AutoMapper.xml

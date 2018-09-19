@@ -1,0 +1,10 @@
+﻿
+        .frame
+        {
+            width: 600px;
+        }
+        #sliderContent > li .image
+        {
+            width: 600px;
+            height: 350px;
+        }

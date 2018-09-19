@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    
+</head>
+<body>
+    <input id="File" type="file" />
+    <progress id="progress" value="0" max="100" ></progress>
+    <input id="Button1" type="button" value="button" onclick="UploadLargeFile('File', 'progress');" />
+    <br />
+    <input id="File2" type="file" />
+    <progress id="progress2" value="0" max="100" ></progress>
+    <input id="Button2" type="button" value="button2" onclick="UploadLargeFile('File2', 'progress2');" />
+
+    <div>
+        <input id="Text1" type="text" />
+    </div>
+
+    <script type="text/javascript">
+
+        var bytes_per_chunk = 1024 * 1024 * 5;
+        var progress;
+        
+        function upload() {
+            debugger;
+            var fileTag = document.getElementById('File');
+            file = fileTag.files[0];
+            console.log(file);
+            var xhr = new XMLHttpRequest();
+            //xhr.addEventListener("progress", updateProgress, false);
+            xhr.upload.onprogress = function (e) {
+                updateProgress(e);
+            }
+            xhr.addEventListener("load", transferComplete, false);
+            var fd = new FormData();
+            xhr.open("POST", 'Handler.ashx', true);
+            xhr.setRequestHeader("X_FILENAME", file.name);
+            fd.append(file.name, file);
+            xhr.send(fd);
+        }
+
+        function UploadLargeFile(file, prog) {
+            debugger;
+            var myFile = new Object();
+            var fileTag = document.getElementById(file);
+            file = fileTag.files[0];
+
+            myFile.File = file;
+            myFile.Progress = document.getElementById(prog);
+            myFile.Start = 0;
+            myFile.End = bytes_per_chunk;
+            
+            myFile.Progress.value = 0;
+            myFile.Progress.max = file.size;
+            myFile.Wait = false;
+            myFile.Timer = setInterval(function () { UploadFilePart(myFile) }, 500);
+
+        }
+
+        function UploadFilePart(myFile) {
+            if (myFile.Wait == true)
+                return;
+            if (myFile.Start > myFile.File.size) {
+                clearInterval(myFile.Timer);
+                return;
+            }
+            myFile.Wait = true;
+            var blob = myFile.File.slice(myFile.Start, myFile.End)
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'Handler.ashx', false);
+            xhr.onload = function (e) {
+                UploadFilePartComplete(e, myFile);
+            }
+
+            xhr.setRequestHeader('X_FILE_NAME', myFile.File.name);
+            xhr.setRequestHeader('Content-Type', myFile.File.type)
+            xhr.send(blob);
+        }
+
+        function UploadFilePartComplete(e, myFile) {
+            myFile.Start = myFile.End;
+            myFile.End = myFile.Start + bytes_per_chunk;
+            myFile.Progress.value = myFile.End;
+            myFile.Wait = false;
+        }
+
+        function updateProgress(e) {
+            console.log('updateProgress');
+            if (e.lengthComputable) {
+                var percentComplete = e.loaded / e.total * 100;
+                console.log(percentComplete);
+            }
+        }
+
+        function transferComplete(e) {
+            console.log('transferComplete');
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"> </script>
+    
+    <script type="text/javascript">
+        function GetData() {
+
+            $.ajax({
+                type: 'POST', //GET or POST or PUT or DELETE verb
+                url: 'http://eservices.alriyadh.gov.sa:8055/DCS/dcs.svc/web/GetDcsPartDesc',
+                data:JSON.stringify({myValue: '1'}),              
+                contentType:"application/json; charset=utf-8",
+                dataType: "json",
+                processData: true,
+                headers: {'Access-Control-Request-Method': 'POST'},
+                success: function (msg) {
+                    console.log(msg);
+                },
+                error: function (msg) {
+                    console.log(msg);
+                }
+            });
+        }
+        
+    </script>
+</head>
+<body>
+
+    <input id="btnGetData" type="button" value="Get Data" onclick="GetData()" /> 
+    <input id="txtdata" type="text" />
+
+</body>
+</html>

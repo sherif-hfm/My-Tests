@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Tests\DocToImageTest\OpenMsWordServer\bin\Debug\OpenMsWordServer.exe.config
+D:\Dropbox\My Tests\My Tests\DocToImageTest\OpenMsWordServer\bin\Debug\OpenMsWordServer.exe
+D:\Dropbox\My Tests\My Tests\DocToImageTest\OpenMsWordServer\bin\Debug\OpenMsWordServer.pdb
+D:\Dropbox\My Tests\My Tests\DocToImageTest\OpenMsWordServer\obj\Debug\OpenMsWordServer.exe
+D:\Dropbox\My Tests\My Tests\DocToImageTest\OpenMsWordServer\obj\Debug\OpenMsWordServer.pdb
+D:\Dropbox\My Tests\My Tests\DocToImageTest\OpenMsWordServer\obj\Debug\OpenMsWordServer.csprojResolveAssemblyReference.cache

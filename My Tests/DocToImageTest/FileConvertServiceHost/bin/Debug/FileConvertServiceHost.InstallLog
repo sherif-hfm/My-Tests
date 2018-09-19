@@ -1,0 +1,60 @@
+﻿Installing assembly 'D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.InstallLog
+   assemblypath = D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.exe
+   logtoconsole = 
+No public installers with the RunInstallerAttribute.Yes attribute could be found in the D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.exe assembly.
+Committing assembly 'D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.InstallLog
+   assemblypath = D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.exe
+   logtoconsole = 
+No public installers with the RunInstallerAttribute.Yes attribute could be found in the D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.exe assembly.
+Remove InstallState file because there are no installers.
+Installing assembly 'D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.InstallLog
+   assemblypath = D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.exe
+   logtoconsole = 
+Installing service FileConvertServiceHost...
+Service FileConvertServiceHost has been successfully installed.
+Creating EventLog source FileConvertServiceHost in log Application...
+Committing assembly 'D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.InstallLog
+   assemblypath = D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.exe
+   logtoconsole = 
+Installing assembly 'D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.InstallLog
+   assemblypath = D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.exe
+   logtoconsole = 
+Installing service FileConvertServiceHost...
+Service FileConvertServiceHost has been successfully installed.
+Creating EventLog source FileConvertServiceHost in log Application...
+Committing assembly 'D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.InstallLog
+   assemblypath = D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.exe
+   logtoconsole = 
+Installing assembly 'D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.InstallLog
+   assemblypath = D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.exe
+   logtoconsole = 
+Installing service FileConvertServiceHost...
+Service FileConvertServiceHost has been successfully installed.
+Creating EventLog source FileConvertServiceHost in log Application...
+Committing assembly 'D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.InstallLog
+   assemblypath = D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.exe
+   logtoconsole = 

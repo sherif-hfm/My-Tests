@@ -1,0 +1,11 @@
+D:\Dropbox\My Tests\My Tests\SocketTest\SocketTest\bin\Debug\SocketTest.exe.config
+D:\Dropbox\My Tests\My Tests\SocketTest\SocketTest\bin\Debug\SocketTest.exe
+D:\Dropbox\My Tests\My Tests\SocketTest\SocketTest\bin\Debug\SocketTest.pdb
+D:\Dropbox\My Tests\My Tests\SocketTest\SocketTest\obj\Debug\SocketTest.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\SocketTest\SocketTest\obj\Debug\SocketTest.frmMain.resources
+D:\Dropbox\My Tests\My Tests\SocketTest\SocketTest\obj\Debug\SocketTest.Properties.Resources.resources
+D:\Dropbox\My Tests\My Tests\SocketTest\SocketTest\obj\Debug\SocketTest.csproj.GenerateResource.Cache
+D:\Dropbox\My Tests\My Tests\SocketTest\SocketTest\obj\Debug\SocketTest.exe
+D:\Dropbox\My Tests\My Tests\SocketTest\SocketTest\obj\Debug\SocketTest.pdb
+D:\Dropbox\My Tests\My Tests\SocketTest\SocketTest\obj\Debug\SocketTest.frmClient.resources
+D:\Dropbox\My Tests\My Tests\SocketTest\SocketTest\obj\Debug\SocketTest.frmServer.resources

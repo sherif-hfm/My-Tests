@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\WCFTest\WcfServiceLib\bin\Release\WcfServiceLib.dll.config
+D:\Dropbox\My Tests\My Web Tests\WCFTest\WcfServiceLib\bin\Release\WcfServiceLib.dll
+D:\Dropbox\My Tests\My Web Tests\WCFTest\WcfServiceLib\bin\Release\WcfServiceLib.pdb
+D:\Dropbox\My Tests\My Web Tests\WCFTest\WcfServiceLib\obj\Release\WcfServiceLib.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\WCFTest\WcfServiceLib\obj\Release\WcfServiceLib.dll
+D:\Dropbox\My Tests\My Web Tests\WCFTest\WcfServiceLib\obj\Release\WcfServiceLib.pdb

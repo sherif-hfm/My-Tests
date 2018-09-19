@@ -1,0 +1,9 @@
+<dropdown-list [dataSource]="items" dataTextField="ItemName" dataValueField="ItemId"  (ItemClicked)="item_click($event)">
+        <ng-template let-item let-index="index">
+                <button class="w3-bar-item w3-button">{{index}} - {{item.ItemName}}</button>
+        </ng-template>       
+</dropdown-list>
+<hr>
+<dropdown-list [dataSource]="items" dataTextField="ItemName" dataValueField="ItemId" (ItemClicked)="item_click($event)">
+               
+</dropdown-list>

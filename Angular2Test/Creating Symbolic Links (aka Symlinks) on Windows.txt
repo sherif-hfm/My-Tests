@@ -1,0 +1,7 @@
+https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/
+
+Hard link:
+mklink /J "node_modules" "D:\OneDrive\My Tests\Angular2Test\directives-app\node_modules"
+
+Soft link:
+mklink /D "node_modules" "D:\OneDrive\My Tests\Angular2Test\directives-app\node_modules"

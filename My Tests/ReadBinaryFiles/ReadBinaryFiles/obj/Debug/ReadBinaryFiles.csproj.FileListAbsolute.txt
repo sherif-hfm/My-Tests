@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Tests\ReadBinaryFiles\ReadBinaryFiles\bin\Debug\ReadBinaryFiles.exe.config
+D:\Dropbox\My Tests\My Tests\ReadBinaryFiles\ReadBinaryFiles\bin\Debug\ReadBinaryFiles.exe
+D:\Dropbox\My Tests\My Tests\ReadBinaryFiles\ReadBinaryFiles\bin\Debug\ReadBinaryFiles.pdb
+D:\Dropbox\My Tests\My Tests\ReadBinaryFiles\ReadBinaryFiles\obj\Debug\ReadBinaryFiles.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\ReadBinaryFiles\ReadBinaryFiles\obj\Debug\ReadBinaryFiles.exe
+D:\Dropbox\My Tests\My Tests\ReadBinaryFiles\ReadBinaryFiles\obj\Debug\ReadBinaryFiles.pdb

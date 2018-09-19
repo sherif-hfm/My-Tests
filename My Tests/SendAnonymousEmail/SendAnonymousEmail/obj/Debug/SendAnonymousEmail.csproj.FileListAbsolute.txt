@@ -1,0 +1,5 @@
+D:\Dropbox\My Tests\My Tests\SendAnonymousEmail\SendAnonymousEmail\bin\Debug\SendAnonymousEmail.exe.config
+D:\Dropbox\My Tests\My Tests\SendAnonymousEmail\SendAnonymousEmail\bin\Debug\SendAnonymousEmail.exe
+D:\Dropbox\My Tests\My Tests\SendAnonymousEmail\SendAnonymousEmail\bin\Debug\SendAnonymousEmail.pdb
+D:\Dropbox\My Tests\My Tests\SendAnonymousEmail\SendAnonymousEmail\obj\Debug\SendAnonymousEmail.exe
+D:\Dropbox\My Tests\My Tests\SendAnonymousEmail\SendAnonymousEmail\obj\Debug\SendAnonymousEmail.pdb

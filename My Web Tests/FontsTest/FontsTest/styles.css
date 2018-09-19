@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'AL-Mohanad-Web';
+	src: url('AL-Mohanad.eot');
+	src: url('AL-Mohanad.eot?#iefix') format('embedded-opentype'),
+		url('AL-Mohanad.woff') format('woff'),
+		url('AL-Mohanad.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}

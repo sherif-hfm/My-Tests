@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Tests\FileEncryption\FileEncryption\bin\Debug\FileEncryption.exe.config
+D:\Dropbox\My Tests\My Tests\FileEncryption\FileEncryption\bin\Debug\FileEncryption.exe
+D:\Dropbox\My Tests\My Tests\FileEncryption\FileEncryption\bin\Debug\FileEncryption.pdb
+D:\Dropbox\My Tests\My Tests\FileEncryption\FileEncryption\obj\Debug\FileEncryption.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\FileEncryption\FileEncryption\obj\Debug\FileEncryption.exe
+D:\Dropbox\My Tests\My Tests\FileEncryption\FileEncryption\obj\Debug\FileEncryption.pdb

@@ -1,0 +1,15 @@
+
+<div>Query Test2</div>
+<div>
+    
+</div>
+<ChildTest #ChildTest0 CtrlName="Child0" ></ChildTest>
+<ChildTest #ChildTest1 CtrlName="Child1" *ngIf="selected"></ChildTest>
+<ChildTest #ChildTest2 CtrlName="Child2" *ngIf="!selected"></ChildTest>
+<br>
+<ng-content></ng-content>
+<br>
+<button id="btnChange" (click)="btnChange_click()">Change</button>
+<button id="btnUpdate" (click)="btnUpdate_click()">Update</button>
+<br>
+<button id="btnUpdateAll" (click)="btnUpdateAll_click()">Update All</button>

@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="ITAMANA\shhamdy"
+  DTS:CreatorComputerName="SHERIFHAMDY"
+  DTS:CreationDate="11/18/2015 10:06:12 AM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{83B79666-2BED-4076-9F93-2B1C4F658C27}"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1025"
+  DTS:ObjectName="Package"
+  DTS:DTSID="{B2912861-6D0D-4F3B-BAEF-3C23C80E24E3}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[HTTP Connection Manager]"
+      DTS:ObjectName="HTTP Connection Manager"
+      DTS:DTSID="{0C5D2C2E-01D0-4748-9106-09450338B016}"
+      DTS:CreationName="HTTP">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="http://localhost:30725/WcfSrv1.svc?wsdl">
+          <DTS:HttpConnection
+            DTS:ServerURL="http://localhost:30725/WcfSrv1.svc?wsdl">
+            <DTS:Property
+              DTS:Name="ServerPassword"
+              Sensitive="1"
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0z1byTUad0qfN1/4Cc3wUgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACzrrhxAGkUG7b9lcxQigAzAAAAAASAAACgAAAAEAAAADTetuBpqkFUdeEy7eazQEUIAAAAD0hjAA98XosUAAAAfhgoXzPB1jSgC7qyBzWvQVV/Q0U</DTS:Property>
+            <DTS:Property
+              DTS:Name="ProxyPassword"
+              Sensitive="1"
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0z1byTUad0qfN1/4Cc3wUgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABITy7FfwatlpLjQpP5DhC0AAAAAASAAACgAAAAEAAAAB2pkiKvD4NHTsfl5ZeTwOoIAAAAWvMwVxvHtjIUAAAApVwt0xI6/AtIEyC0ibPGnXzYNS4</DTS:Property>
+          </DTS:HttpConnection>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.UserRequests.sa]"
+      DTS:ObjectName="LocalHost.UserRequests.sa"
+      DTS:DTSID="{129B0707-E79E-4715-B805-06F45AD8105B}"
+      DTS:CreationName="ADO">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;User ID=sa;Initial Catalog=UserRequests;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0z1byTUad0qfN1/4Cc3wUgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABKRPQ+Gh05JOn2AhdAcXUEAAAAAASAAACgAAAAEAAAAK38CuFQYYCOQkMRG0zIIRcYAAAAttRLZe8fCQVikf5aOrWnYZkRS8YhHpDsFAAAAKcC7VjBs83E4mO58jTx4cVm5wJY</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:Namespace="User"
+      DTS:IncludeInDebugDump="2345"
+      DTS:ObjectName="SqlResult"
+      DTS:DTSID="{D2C1761E-886A-4E4C-A674-CF3A73C90F09}"
+      DTS:CreationName="">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:Namespace="User"
+      DTS:IncludeInDebugDump="2345"
+      DTS:ObjectName="Variable"
+      DTS:DTSID="{48180BE4-4252-4B73-B807-5843CD5157AC}"
+      DTS:CreationName="">
+      <DTS:VariableValue
+        DTS:DataType="8">output</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="0"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:DTSID="{8D242D73-4548-4DAD-BD8F-BBF1B7F6FCD2}"
+      DTS:Description="Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{129B0707-E79E-4715-B805-06F45AD8105B}"
+          SQLTask:SqlStatementSource="Select * from Req_RequestsAdmins FOR XML RAW"
+          SQLTask:ResultType="ResultSetType_XML" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::SqlResult" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Web Service Task"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.WebServiceTask.WebServiceTask, Microsoft.SqlServer.WebServiceTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="0"
+      DTS:TaskContact="Web Service Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Web Service Task"
+      DTS:DTSID="{1C1702FB-5B27-42DD-9761-71F0295A6A16}"
+      DTS:Description="Web Service Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.WebServiceTask.WebServiceTask, Microsoft.SqlServer.WebServiceTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <WSTask:WebServiceTaskData
+          WSTask:ConnectionName="{0C5D2C2E-01D0-4748-9106-09450338B016}"
+          WSTask:Service="WcfSrv1"
+          WSTask:WSDLFile="D:\Dropbox\My Tests\SSIS_CallWebSrv\WcfSrv1.xml"
+          WSTask:OverwriteWSDLFile="True"
+          WSTask:OutputType="Variable"
+          WSTask:OutputLocation="User::Variable" xmlns:WSTask="www.microsoft.com/sqlserver/dts/tasks/webservicetask">
+          <WSTask:MethodInfo
+            WSTask:MethodName="SendData"
+            WSTask:MessageName="">
+            <WSTask:Documentation></WSTask:Documentation>
+            <WSTask:ParamInfo
+              WSTask:Name="_data"
+              WSTask:Datatype="string"
+              WSTask:ParamType="Variable"
+              WSTask:SeqNumber="0">
+              <WSTask:VariableValue>User::SqlResult</WSTask:VariableValue>
+            </WSTask:ParamInfo>
+          </WSTask:MethodInfo>
+        </WSTask:WebServiceTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:From="Package\Execute SQL Task"
+      DTS:To="Package\Web Service Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:DTSID="{BCFBA453-8A60-4A2F-965D-A60C4F056ADA}"
+      DTS:CreationName="" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Web Service Task"
+          TopLeft="247.5,240.5" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="244.5,150.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="327.75,192.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

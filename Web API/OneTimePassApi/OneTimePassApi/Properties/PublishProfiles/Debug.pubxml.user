@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\inetpub\wwwroot\OneTimePassApi</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="ApplicationInsights.config">
+      <publishTime>09/20/2017 14:54:22</publishTime>
+    </File>
+    <File Include="bin/ApplicationInsights.config">
+      <publishTime>09/20/2017 14:54:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
+      <publishTime>08/06/2015 22:16:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.DependencyCollector.dll">
+      <publishTime>10/30/2015 06:45:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
+      <publishTime>10/30/2015 06:58:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
+      <publishTime>10/30/2015 06:49:14</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Web.dll">
+      <publishTime>10/30/2015 06:49:14</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.WindowsServer.dll">
+      <publishTime>10/30/2015 06:49:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.dll">
+      <publishTime>10/29/2015 03:10:06</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>06/15/2015 12:06:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Cors.dll">
+      <publishTime>02/13/2018 16:28:06</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>02/13/2018 16:28:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
+      <publishTime>02/13/2018 16:28:12</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.dll">
+      <publishTime>02/13/2018 16:28:16</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>08/04/2014 06:33:56</publishTime>
+    </File>
+    <File Include="bin/OneTimePassApi.dll">
+      <publishTime>03/21/2018 13:50:45</publishTime>
+    </File>
+    <File Include="bin/OneTimePassApi.pdb">
+      <publishTime>03/21/2018 13:50:45</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>11/13/2012 12:19:34</publishTime>
+    </File>
+    <File Include="bin/Riyadh.EServices.IServices.dll">
+      <publishTime>03/12/2018 14:37:55</publishTime>
+    </File>
+    <File Include="bin/Riyadh.EServices.Model.dll">
+      <publishTime>03/12/2018 14:37:53</publishTime>
+    </File>
+    <File Include="bin/Riyadh.EServices.WebHttp.dll">
+      <publishTime>06/05/2017 12:52:43</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/19/2015 06:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/19/2015 06:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/19/2015 06:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/19/2015 06:19:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/19/2015 06:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/19/2015 06:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/19/2015 06:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/19/2015 06:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/19/2015 06:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/19/2015 06:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/19/2015 06:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/19/2015 06:19:46</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>02/01/2018 12:17:18</publishTime>
+    </File>
+    <File Include="bin/System.Web.Cors.dll">
+      <publishTime>01/28/2015 15:01:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.Cors.dll">
+      <publishTime>01/28/2015 15:03:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>02/01/2018 12:17:40</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.Owin.dll">
+      <publishTime>02/01/2018 12:18:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>01/28/2015 14:03:46</publishTime>
+    </File>
+    <File Include="css/jquery-ui.min.css">
+      <publishTime>12/24/2017 08:29:15</publishTime>
+    </File>
+    <File Include="css/progress.css">
+      <publishTime>12/24/2017 13:04:52</publishTime>
+    </File>
+    <File Include="css/style.css">
+      <publishTime>12/25/2017 08:19:37</publishTime>
+    </File>
+    <File Include="css/w3.css">
+      <publishTime>12/20/2017 13:40:38</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>09/20/2017 14:52:23</publishTime>
+    </File>
+    <File Include="images/login-logo.png">
+      <publishTime>12/20/2017 13:56:18</publishTime>
+    </File>
+    <File Include="images/mobileBg.jpg">
+      <publishTime>12/21/2017 08:21:35</publishTime>
+    </File>
+    <File Include="index.html">
+      <publishTime>12/25/2017 08:29:34</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>03/14/2018 11:43:48</publishTime>
+    </File>
+    <File Include="ProgressTest.html">
+      <publishTime>12/21/2017 12:57:53</publishTime>
+    </File>
+    <File Include="scripts/ai.0.15.0-build58334.js">
+      <publishTime>09/20/2017 14:54:26</publishTime>
+    </File>
+    <File Include="scripts/ai.0.15.0-build58334.min.js">
+      <publishTime>09/20/2017 14:54:24</publishTime>
+    </File>
+    <File Include="scripts/circle-progress.min.js">
+      <publishTime>12/21/2017 12:37:56</publishTime>
+    </File>
+    <File Include="scripts/index.js">
+      <publishTime>12/25/2017 08:35:57</publishTime>
+    </File>
+    <File Include="scripts/jquery-3.2.1.min.js">
+      <publishTime>09/21/2017 12:36:04</publishTime>
+    </File>
+    <File Include="scripts/jquery-ui.min.js">
+      <publishTime>12/24/2017 08:29:04</publishTime>
+    </File>
+    <File Include="scripts/otp.js">
+      <publishTime>03/13/2018 12:02:11</publishTime>
+    </File>
+    <File Include="scripts/progress.js">
+      <publishTime>12/21/2017 14:34:37</publishTime>
+    </File>
+    <File Include="scripts/sha.js">
+      <publishTime>09/21/2017 12:59:53</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>03/25/2018 11:00:35</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

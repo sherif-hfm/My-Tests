@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .active{
+        background-color:black;
+        color:white
+    }
+    .inActive{
+        background-color:white;
+        color:red
+    }
+    .ng-invalid.ng-dirty{
+        border-bottom-color:#FA787E;
+    }
+    .ng-valid.ng-dirty{
+        border-bottom-color:#78FA89;
+    }
+</style>
+
+<h2>Index</h2>
+
+<div >
+    <div ng-controller="StoreController as Store" >
+        <div ng-hide="!Store.Products[0].soldOut">
+            <h1>Product Name : {{Store.Products[0].name}}</h1>
+            <h2>Product Price : {{Store.Products[0].price}}</h2>
+            <p>Product Description : {{Store.Products[0].description}}</p>
+            <button ng-show="Store.Products[0].canPurchase">Add to Cart</button>
+        </div>
+        <br />loop<br />
+        <div ng-repeat="product in Store.Products| orderBy:'-price'" >
+            <section ng-init="active='active'" ng-controller="PanelController as Panel">
+                <div ng-hide="product.soldOut">
+                    @*<div ng-include="'/Pages/Product.html'"></div>*@
+                    <product-Info></product-Info>
+                    @Html.Action("GetAngular")
+                    <a ng-click="Panel.selectTab(1)"><p ng-class="Panel.tab==1 && active || inActive">Product Description</p></a>
+                    <a ng-click="Panel.tab = 2"><p ng-class="Panel.IsSelected(2)?active:inActive">Product Specification</p></a>
+                    <p ng-show="Panel.IsSelected(1)">{{product.description}}</p>
+                    <p ng-show="Panel.tab===2">{{product.specification}}</p>
+                    <button ng-show="product.canPurchase">Add to Cart</button>
+                    <div>Comments No:{{Store.GetCommentCount(product)}}</div>
+                    <div ng-repeat="review in product.reviews">
+                        <blockquote>
+                            Comment : {{review.comment}}<br />
+                            By : {{review.email}}
+                        </blockquote>
+                    </div>
+                    <form name="formReview" ng-controller="ReviewController as reviewCtrl" ng-submit="formReview.$valid && reviewCtrl.AddReview(product,newReview)" novalidate>
+                        Comment : <br /> <textarea ng-model="newReview.comment" required></textarea> <br />
+                        By : <br /> <input name="email" type="email" ng-model="newReview.email" required /><br />
+                        Agree : <input name="agree" type="checkbox" ng-model="newReview.agree"  /><br />
+                        <div>formReview : {{formReview.$valid}}</div>
+                        <div>Agree Status : {{reviewCtrl.CanSendCommant(newReview)}}</div>
+                        <input type="submit" value="Save" ng-disabled="!reviewCtrl.CanSendCommant(newReview)" />
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+@DateTime.Now.ToString();
+
+@section Scripts
+{
+    <script src="~/Scripts/MyScripts/BasicsCtrls.js"></script>
+    <script src="~/Scripts/MyScripts/BasicsCtrls2.js"></script>
+}

@@ -1,0 +1,1136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.es/" targetNamespace="http://ws.es/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ActionData" type="tns:actionData" />
+  <xs:element name="AreaInfoData" type="tns:areaInfoData" />
+  <xs:element name="CitizenData" type="tns:citizenData" />
+  <xs:element name="CityData" type="tns:cityData" />
+  <xs:element name="ClosureReasonsData" type="tns:closureReasonsData" />
+  <xs:element name="ContactsData" type="tns:contactsData" />
+  <xs:element name="CopyInfo" type="tns:copyInfo" />
+  <xs:element name="CopyInfoCaseData" type="tns:copyInfoCaseData" />
+  <xs:element name="CopyInfoData" type="tns:copyInfoData" />
+  <xs:element name="CountryData" type="tns:countryData" />
+  <xs:element name="DeliveryModesData" type="tns:deliveryModesData" />
+  <xs:element name="DepartmentData" type="tns:departmentData" />
+  <xs:element name="DistrictData" type="tns:districtData" />
+  <xs:element name="Document" type="tns:document" />
+  <xs:element name="DocumentImportanceData" type="tns:documentImportanceData" />
+  <xs:element name="DocumentInfoData" type="tns:documentInfoData" />
+  <xs:element name="DocumentLastActionData" type="tns:documentLastActionData" />
+  <xs:element name="DocumentStatusData" type="tns:documentStatusData" />
+  <xs:element name="DocumentsTypeData" type="tns:serviceTypeData" />
+  <xs:element name="ExportReasonsData" type="tns:exportReasonsData" />
+  <xs:element name="GenderData" type="tns:genderData" />
+  <xs:element name="IdentityTypesData" type="tns:identityTypesData" />
+  <xs:element name="LoginUserResponse" type="tns:loginUserResponse" />
+  <xs:element name="MaritalStatuesData" type="tns:maritalStatuesData" />
+  <xs:element name="MunicipalitiesData" type="tns:municipalitiesData" />
+  <xs:element name="NationalitiesData" type="tns:nationalitiesData" />
+  <xs:element name="OpenedDocumentsData" type="tns:openedDocumentsData" />
+  <xs:element name="OrganizationData" type="tns:organizationData" />
+  <xs:element name="OrganizationTypesData" type="tns:organizationTypesData" />
+  <xs:element name="OwnerTypesData" type="tns:ownerTypesData" />
+  <xs:element name="PaperStateData" type="tns:paperStateData" />
+  <xs:element name="PhysicalAttachmentsData" type="tns:physicalAttachmentsData" />
+  <xs:element name="PrefixData" type="tns:prefixData" />
+  <xs:element name="RegionData" type="tns:regionData" />
+  <xs:element name="RejectionReasonsData" type="tns:rejectionReasonsData" />
+  <xs:element name="RelatedOwnersTypesData" type="tns:relatedOwnersTypesData" />
+  <xs:element name="ReligionData" type="tns:religionData" />
+  <xs:element name="SecurityLevelsData" type="tns:securityLevelsData" />
+  <xs:element name="StateData" type="tns:stateData" />
+  <xs:element name="StreetData" type="tns:streetData" />
+  <xs:element name="StreetImportanceData" type="tns:streetImportanceData" />
+  <xs:element name="TransactionTypes" type="tns:transactionTypesData" />
+  <xs:element name="UserProfile" type="tns:userProfile" />
+  <xs:element name="ViceTypesData" type="tns:viceTypesData" />
+  <xs:element name="ctsSERVICE" type="tns:ctsSERVICE" />
+  <xs:element name="dataElement" type="tns:dataElement" />
+  <xs:element name="documentFullInfo" type="tns:documentFullInfo" />
+  <xs:element name="governmentInfo" type="tns:governmentInfo" />
+  <xs:element name="lastDocumentAction" type="tns:lastDocumentAction" />
+  <xs:element name="lastDocumentInfo" type="tns:lastDocumentInfo" />
+  <xs:element name="openedDocument" type="tns:openedDocument" />
+  <xs:element name="organization" type="tns:organization" />
+  <xs:element name="privateSectorInfo" type="tns:privateSectorInfo" />
+  <xs:element name="serviceResponse" type="tns:serviceResponse" />
+  <xs:complexType name="internalSendTargetAttachment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="attachmnets" nillable="true" type="tns:attachment" />
+      <xs:element minOccurs="0" name="sendTraget" type="tns:internalSendTargetInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="attachment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="attachmentBytes" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="description" type="xs:string" />
+      <xs:element minOccurs="0" name="fileName" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="internalSendTargetInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="departmentId" type="xs:string" />
+      <xs:element minOccurs="0" name="userCode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="copyInfoData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CopyInfoList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="CopyInfo" type="tns:copyInfo" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="serviceResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Contents" type="xs:anyType" />
+      <xs:element minOccurs="0" name="document" type="tns:document" />
+      <xs:element name="error_code" type="xs:int" />
+      <xs:element minOccurs="0" name="error_description" type="xs:string" />
+      <xs:element name="success" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="copyInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="documentNumber" type="xs:string" />
+      <xs:element name="copyNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="sendTargetID" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="document">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="documentNumber" type="xs:string" />
+      <xs:element name="copyNumber" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="openedDocumentsData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="openedDocumentsList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="openedDocument" type="tns:openedDocument" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="openedDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ACTION_NAME_AR" type="xs:string" />
+      <xs:element name="COPY_NUMBER" type="xs:int" />
+      <xs:element minOccurs="0" name="DEPARTMENT_NAME" type="xs:string" />
+      <xs:element minOccurs="0" name="DOCUMENT_NUMBER" type="xs:string" />
+      <xs:element minOccurs="0" name="FULL_NAME" type="xs:string" />
+      <xs:element minOccurs="0" name="USERNAME" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cityData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CitiesList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="City" type="tns:city" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="city">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dataElement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="country_id" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="dataElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+      <xs:element minOccurs="0" name="name_ar" type="xs:string" />
+      <xs:element minOccurs="0" name="name_en" type="xs:string" />
+      <xs:element minOccurs="0" name="code" type="xs:string" />
+      <xs:element name="active" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="loginUserResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userProfile" type="tns:userProfile" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="userProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:string" />
+      <xs:element minOccurs="0" name="typeID" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="relatedOwnersTypesData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RelatedOwnersTypesList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="RelatedOwnersType" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsIncomingDocumentInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="deliveryMode" type="xs:string" />
+      <xs:element minOccurs="0" name="documentImportance" type="xs:string" />
+      <xs:element minOccurs="0" name="documentSecurityLevel" type="xs:string" />
+      <xs:element minOccurs="0" name="incomingDateGregorian" type="xs:string" />
+      <xs:element minOccurs="0" name="incomingDateHijri" type="xs:string" />
+      <xs:element minOccurs="0" name="incomingSideType" type="xs:string" />
+      <xs:element minOccurs="0" name="recivedDocumentNumber" type="xs:string" />
+      <xs:element minOccurs="0" name="serviceType" type="xs:string" />
+      <xs:element minOccurs="0" name="sideId" type="xs:string" />
+      <xs:element minOccurs="0" name="subject" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="contactsData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="contactsList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Contact" type="tns:contact" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="contact">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dataElement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="email" type="xs:string" />
+          <xs:element minOccurs="0" name="phone" type="xs:string" />
+          <xs:element minOccurs="0" name="mobile" type="xs:string" />
+          <xs:element minOccurs="0" name="positionId" type="xs:string" />
+          <xs:element minOccurs="0" name="jobTitle" type="xs:string" />
+          <xs:element minOccurs="0" name="nationalNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="employeeNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="usercode" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsDocumentInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="actionId" type="xs:string" />
+      <xs:element minOccurs="0" name="documentSecurityLevel" type="xs:string" />
+      <xs:element minOccurs="0" name="mainServiceType" type="xs:string" />
+      <xs:element minOccurs="0" name="ownerId" type="xs:string" />
+      <xs:element name="ownerType" type="xs:int" />
+      <xs:element minOccurs="0" name="subject" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="externalSendTargetInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="citizenId" type="xs:string" />
+      <xs:element minOccurs="0" name="organizationId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="municipalitiesData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MunicipalitiesList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Municipality" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="citizen">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="active" type="xs:string" />
+      <xs:element minOccurs="0" name="address" type="xs:string" />
+      <xs:element minOccurs="0" name="creation_date" type="xs:string" />
+      <xs:element minOccurs="0" name="dateOfBirth" type="xs:string" />
+      <xs:element minOccurs="0" name="dateOfBirthHijri" type="xs:string" />
+      <xs:element minOccurs="0" name="email" type="xs:string" />
+      <xs:element minOccurs="0" name="familyName" type="xs:string" />
+      <xs:element minOccurs="0" name="firstName" type="xs:string" />
+      <xs:element minOccurs="0" name="forthName" type="xs:string" />
+      <xs:element minOccurs="0" name="gender_id" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+      <xs:element minOccurs="0" name="identity_expairy_date" type="xs:string" />
+      <xs:element minOccurs="0" name="identity_expairy_date_hijri" type="xs:string" />
+      <xs:element minOccurs="0" name="identity_issue_date" type="xs:string" />
+      <xs:element minOccurs="0" name="identity_issue_date_hijri" type="xs:string" />
+      <xs:element minOccurs="0" name="identity_issue_place_id" type="xs:string" />
+      <xs:element minOccurs="0" name="identity_number" type="xs:string" />
+      <xs:element minOccurs="0" name="mobile" type="xs:string" />
+      <xs:element minOccurs="0" name="nationality_id" type="xs:string" />
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+      <xs:element minOccurs="0" name="secondName" type="xs:string" />
+      <xs:element minOccurs="0" name="thirdName" type="xs:string" />
+      <xs:element minOccurs="0" name="username" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="privateSectorInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+      <xs:element minOccurs="0" name="name_ar" type="xs:string" />
+      <xs:element minOccurs="0" name="name_en" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="xs:string" />
+      <xs:element minOccurs="0" name="commercial_number" type="xs:string" />
+      <xs:element minOccurs="0" name="type" type="xs:string" />
+      <xs:element minOccurs="0" name="mobile" type="xs:string" />
+      <xs:element minOccurs="0" name="telephone" type="xs:string" />
+      <xs:element minOccurs="0" name="fax" type="xs:string" />
+      <xs:element minOccurs="0" name="email" type="xs:string" />
+      <xs:element minOccurs="0" name="poBox" type="xs:string" />
+      <xs:element minOccurs="0" name="postalCode" type="xs:string" />
+      <xs:element minOccurs="0" name="address" type="xs:string" />
+      <xs:element minOccurs="0" name="city" type="xs:string" />
+      <xs:element minOccurs="0" name="contact_person" type="xs:string" />
+      <xs:element minOccurs="0" name="office_id" type="xs:string" />
+      <xs:element minOccurs="0" name="website" type="xs:string" />
+      <xs:element minOccurs="0" name="building_id" type="xs:string" />
+      <xs:element minOccurs="0" name="district_id" type="xs:string" />
+      <xs:element minOccurs="0" name="area_id" type="xs:string" />
+      <xs:element minOccurs="0" name="street_id" type="xs:string" />
+      <xs:element minOccurs="0" name="username" type="xs:string" />
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+      <xs:element minOccurs="0" name="floor_number" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="documentStatusData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DocumentStatusList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentStatus" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="deliveryModesData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DeliveryModesList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="DeliveryMode" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="regionData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RegionList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Region" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="rejectionReasonsData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RejectionReasonsList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="RejectionReason" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="serviceTypeData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ServiceTypeList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceType" type="tns:ctsSERVICE" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ctsSERVICE">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dataElement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="departmentOwner" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="stateData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="StatesList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="State" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="physicalAttachmentsData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PhysicalAttachmentsList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="PhysicalAttachment" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="exportReasonsData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ExportReasonsList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="ExportReason" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="prefixData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PrefixList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Prefix" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="nationalitiesData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NationalitiesList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Nationality" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="viceTypesData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ViceTypesList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="ViceType" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="countryData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CountriesList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Country" type="tns:country" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="country">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dataElement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="natoinality_ar" type="xs:string" />
+          <xs:element minOccurs="0" name="natoinality_en" type="xs:string" />
+          <xs:element minOccurs="0" name="alfa2" type="xs:string" />
+          <xs:element minOccurs="0" name="alfa3" type="xs:string" />
+          <xs:element minOccurs="0" name="type" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="departmentData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DepartmentList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Department" type="tns:department" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="department">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dataElement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="parent_id" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="streetData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="StreetsList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Street" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsTransferInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="actionId" type="xs:string" />
+      <xs:element name="copyNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="delegateFor" type="xs:string" />
+      <xs:element minOccurs="0" name="documentNumber" type="xs:string" />
+      <xs:element minOccurs="0" name="privateNote" type="xs:string" />
+      <xs:element minOccurs="0" name="publicNote" type="xs:string" />
+      <xs:element minOccurs="0" name="sendTargets" type="tns:internalSendTargetInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="lastDocumentInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="document_number" type="xs:string" />
+      <xs:element minOccurs="0" name="document_copy_number" type="xs:string" />
+      <xs:element minOccurs="0" name="owner_identity" type="xs:string" />
+      <xs:element minOccurs="0" name="organization_commercial_no" type="xs:string" />
+      <xs:element minOccurs="0" name="received_document_number" type="xs:string" />
+      <xs:element minOccurs="0" name="received_document_date" type="xs:string" />
+      <xs:element minOccurs="0" name="received_document_date_hijri" type="xs:string" />
+      <xs:element minOccurs="0" name="incoming_side_id" type="xs:string" />
+      <xs:element minOccurs="0" name="incoming_side_type_id" type="xs:string" />
+      <xs:element minOccurs="0" name="incoming_side_name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="documentLastActionData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DocumentLastActionList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="LastDocumentAction" type="tns:lastDocumentAction" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="lastDocumentAction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="document_id" type="xs:string" />
+      <xs:element minOccurs="0" name="document_number" type="xs:string" />
+      <xs:element minOccurs="0" name="document_copy_number" type="xs:string" />
+      <xs:element minOccurs="0" name="owner_id" type="xs:string" />
+      <xs:element minOccurs="0" name="owner_type_id" type="xs:string" />
+      <xs:element minOccurs="0" name="owner_name" type="xs:string" />
+      <xs:element minOccurs="0" name="owner_mobile" type="xs:string" />
+      <xs:element minOccurs="0" name="owner_email" type="xs:string" />
+      <xs:element minOccurs="0" name="owner_identity" type="xs:string" />
+      <xs:element minOccurs="0" name="organization_commercial_no" type="xs:string" />
+      <xs:element minOccurs="0" name="organization_code" type="xs:string" />
+      <xs:element minOccurs="0" name="created_by_contact_id" type="xs:string" />
+      <xs:element minOccurs="0" name="created_by_contact_name" type="xs:string" />
+      <xs:element minOccurs="0" name="created_by_department_id" type="xs:string" />
+      <xs:element minOccurs="0" name="created_by_department_name" type="xs:string" />
+      <xs:element minOccurs="0" name="service_type_id" type="xs:string" />
+      <xs:element minOccurs="0" name="service_type_name" type="xs:string" />
+      <xs:element minOccurs="0" name="security_level_id" type="xs:string" />
+      <xs:element minOccurs="0" name="security_level_name" type="xs:string" />
+      <xs:element minOccurs="0" name="document_type" type="xs:string" />
+      <xs:element minOccurs="0" name="subject" type="xs:string" />
+      <xs:element minOccurs="0" name="received_document_number" type="xs:string" />
+      <xs:element minOccurs="0" name="received_document_date" type="xs:string" />
+      <xs:element minOccurs="0" name="received_document_date_hijri" type="xs:string" />
+      <xs:element minOccurs="0" name="incoming_side_id" type="xs:string" />
+      <xs:element minOccurs="0" name="incoming_side_type_id" type="xs:string" />
+      <xs:element minOccurs="0" name="incoming_side_name" type="xs:string" />
+      <xs:element minOccurs="0" name="document_date" type="xs:string" />
+      <xs:element minOccurs="0" name="document_date_hijri" type="xs:string" />
+      <xs:element minOccurs="0" name="doc_barcode" type="xs:string" />
+      <xs:element minOccurs="0" name="state_name" type="xs:string" />
+      <xs:element minOccurs="0" name="last_action_id" type="xs:string" />
+      <xs:element minOccurs="0" name="last_action_name" type="xs:string" />
+      <xs:element minOccurs="0" name="last_transaction_date" type="xs:string" />
+      <xs:element minOccurs="0" name="last_transaction_date_hjri" type="xs:string" />
+      <xs:element minOccurs="0" name="last_transaction_usr_id" type="xs:string" />
+      <xs:element minOccurs="0" name="last_transaction_usr_name" type="xs:string" />
+      <xs:element minOccurs="0" name="last_transaction_prv_note" type="xs:string" />
+      <xs:element minOccurs="0" name="last_transaction_pub_note" type="xs:string" />
+      <xs:element minOccurs="0" name="last_transfer_trans_timestamp" type="xs:string" />
+      <xs:element minOccurs="0" name="last_transfer_trans_timestamp_hjri" type="xs:string" />
+      <xs:element minOccurs="0" name="last_transfer_trans_usr_id" type="xs:string" />
+      <xs:element minOccurs="0" name="last_transfer_trans_usr_name" type="xs:string" />
+      <xs:element minOccurs="0" name="last_transfer_from_dept_id" type="xs:string" />
+      <xs:element minOccurs="0" name="last_transfer_from_dept_name" type="xs:string" />
+      <xs:element minOccurs="0" name="last_transfer_is_rej" type="xs:string" />
+      <xs:element minOccurs="0" name="last_transfer_rej_reason_id" type="xs:string" />
+      <xs:element minOccurs="0" name="last_transfer_rej_reason_name" type="xs:string" />
+      <xs:element minOccurs="0" name="last_transfer_to_dept_id" type="xs:string" />
+      <xs:element minOccurs="0" name="last_transfer_to_dept_name" type="xs:string" />
+      <xs:element minOccurs="0" name="last_transfer_type_id" type="xs:string" />
+      <xs:element minOccurs="0" name="last_transfer_type_name" type="xs:string" />
+      <xs:element minOccurs="0" name="last_receive_timestamp" type="xs:string" />
+      <xs:element minOccurs="0" name="last_receive_usr_id" type="xs:string" />
+      <xs:element minOccurs="0" name="last_receive_usr_name" type="xs:string" />
+      <xs:element minOccurs="0" name="last_receive_dept_id" type="xs:string" />
+      <xs:element minOccurs="0" name="last_receive_dept_name" type="xs:string" />
+      <xs:element minOccurs="0" name="last_receive_is_receved" type="xs:string" />
+      <xs:element minOccurs="0" name="last_receive_timestamp_hjri" type="xs:string" />
+      <xs:element minOccurs="0" name="last_export_trans_timestamp" type="xs:string" />
+      <xs:element minOccurs="0" name="last_export_trans_timestamp_hjri" type="xs:string" />
+      <xs:element minOccurs="0" name="last_export_trans_usr_id" type="xs:string" />
+      <xs:element minOccurs="0" name="last_export_trans_usr_name" type="xs:string" />
+      <xs:element minOccurs="0" name="last_export_to_id" type="xs:string" />
+      <xs:element minOccurs="0" name="last_export_to_type" type="xs:string" />
+      <xs:element minOccurs="0" name="last_export_to_name" type="xs:string" />
+      <xs:element minOccurs="0" name="last_export_reason_id" type="xs:string" />
+      <xs:element minOccurs="0" name="last_export_reason_name" type="xs:string" />
+      <xs:element minOccurs="0" name="last_close_trans_timestamp" type="xs:string" />
+      <xs:element minOccurs="0" name="last_close_trans_timestamp_hjri" type="xs:string" />
+      <xs:element minOccurs="0" name="last_close_trans_usr_id" type="xs:string" />
+      <xs:element minOccurs="0" name="last_close_trans_usr_name" type="xs:string" />
+      <xs:element minOccurs="0" name="last_close_reason_id" type="xs:string" />
+      <xs:element minOccurs="0" name="last_close_reason_name" type="xs:string" />
+      <xs:element minOccurs="0" name="attached_to" type="xs:string" />
+      <xs:element minOccurs="0" name="document_status_message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="religionData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ReligionList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Religion" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="maritalStatuesData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MaritalStatuesList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="MaritalStatus" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="copyInfoCaseData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CopyInfoList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="CopyInfo" type="tns:copyInfo" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="closureReasonsData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ClosureReasonsList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="ClosureReason" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="documentFullInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="document_number" type="xs:string" />
+      <xs:element minOccurs="0" name="document_copy_number" type="xs:string" />
+      <xs:element minOccurs="0" name="owner_type_id" type="xs:string" />
+      <xs:element minOccurs="0" name="owner_type_name" type="xs:string" />
+      <xs:element minOccurs="0" name="owner_id" type="xs:string" />
+      <xs:element minOccurs="0" name="owner_name" type="xs:string" />
+      <xs:element minOccurs="0" name="owner_identity" type="xs:string" />
+      <xs:element minOccurs="0" name="organization_commercial_no" type="xs:string" />
+      <xs:element minOccurs="0" name="organization_code" type="xs:string" />
+      <xs:element minOccurs="0" name="subject" type="xs:string" />
+      <xs:element minOccurs="0" name="security_level_id" type="xs:string" />
+      <xs:element minOccurs="0" name="security_level_name" type="xs:string" />
+      <xs:element minOccurs="0" name="importance_id" type="xs:string" />
+      <xs:element minOccurs="0" name="importance_name" type="xs:string" />
+      <xs:element minOccurs="0" name="delivery_id" type="xs:string" />
+      <xs:element minOccurs="0" name="delivery_name" type="xs:string" />
+      <xs:element minOccurs="0" name="service_type_id" type="xs:string" />
+      <xs:element minOccurs="0" name="service_type_name" type="xs:string" />
+      <xs:element minOccurs="0" name="document_date" type="xs:string" />
+      <xs:element minOccurs="0" name="document_date_hijri" type="xs:string" />
+      <xs:element minOccurs="0" name="document_type" type="xs:string" />
+      <xs:element minOccurs="0" name="created_by_contact_id" type="xs:string" />
+      <xs:element minOccurs="0" name="created_by_contact_name" type="xs:string" />
+      <xs:element minOccurs="0" name="created_by_department_id" type="xs:string" />
+      <xs:element minOccurs="0" name="created_by_department_name" type="xs:string" />
+      <xs:element minOccurs="0" name="received_document_number" type="xs:string" />
+      <xs:element minOccurs="0" name="received_document_date" type="xs:string" />
+      <xs:element minOccurs="0" name="received_document_date_hijri" type="xs:string" />
+      <xs:element minOccurs="0" name="incoming_side_type_id" type="xs:string" />
+      <xs:element minOccurs="0" name="incoming_side_type_name" type="xs:string" />
+      <xs:element minOccurs="0" name="incoming_side_id" type="xs:string" />
+      <xs:element minOccurs="0" name="incoming_side_name" type="xs:string" />
+      <xs:element minOccurs="0" name="outgoing_side_type_id" type="xs:string" />
+      <xs:element minOccurs="0" name="outgoing_side_type_name" type="xs:string" />
+      <xs:element minOccurs="0" name="outgoing_side_id" type="xs:string" />
+      <xs:element minOccurs="0" name="outgoing_side_name" type="xs:string" />
+      <xs:element minOccurs="0" name="action_date" type="xs:string" />
+      <xs:element minOccurs="0" name="action_date_hijri" type="xs:string" />
+      <xs:element minOccurs="0" name="action_type_id" type="xs:string" />
+      <xs:element minOccurs="0" name="action_type_name" type="xs:string" />
+      <xs:element minOccurs="0" name="from_contact_id" type="xs:string" />
+      <xs:element minOccurs="0" name="from_contact_name" type="xs:string" />
+      <xs:element minOccurs="0" name="from_department_id" type="xs:string" />
+      <xs:element minOccurs="0" name="from_department_name" type="xs:string" />
+      <xs:element minOccurs="0" name="delegate_for_id" type="xs:string" />
+      <xs:element minOccurs="0" name="delegate_for_name" type="xs:string" />
+      <xs:element minOccurs="0" name="to_contact_id" type="xs:string" />
+      <xs:element minOccurs="0" name="to_contact_name" type="xs:string" />
+      <xs:element minOccurs="0" name="to_department_id" type="xs:string" />
+      <xs:element minOccurs="0" name="to_department_name" type="xs:string" />
+      <xs:element minOccurs="0" name="public_note" type="xs:string" />
+      <xs:element minOccurs="0" name="private_note" type="xs:string" />
+      <xs:element minOccurs="0" name="documentStatusMessage" type="xs:string" />
+      <xs:element minOccurs="0" name="transfer_date" type="xs:string" />
+      <xs:element minOccurs="0" name="transfer_date_hijri" type="xs:string" />
+      <xs:element minOccurs="0" name="action_department" type="xs:string" />
+      <xs:element minOccurs="0" name="attached_to" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="documentInfoData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DocumentInfoList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentFullInfo" type="tns:documentFullInfo" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ownerTypesData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="OwnerTypesList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="OwnerType" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="organizationData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="OrganizationsList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Organization" type="tns:organization" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="organization">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+      <xs:element minOccurs="0" name="name_ar" type="xs:string" />
+      <xs:element minOccurs="0" name="name_en" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="xs:string" />
+      <xs:element minOccurs="0" name="code" type="xs:string" />
+      <xs:element minOccurs="0" name="type" type="xs:string" />
+      <xs:element minOccurs="0" name="commercial_number" type="xs:string" />
+      <xs:element minOccurs="0" name="mobile" type="xs:string" />
+      <xs:element minOccurs="0" name="telephone" type="xs:string" />
+      <xs:element minOccurs="0" name="fax" type="xs:string" />
+      <xs:element minOccurs="0" name="email" type="xs:string" />
+      <xs:element minOccurs="0" name="poBox" type="xs:string" />
+      <xs:element minOccurs="0" name="postalCode" type="xs:string" />
+      <xs:element minOccurs="0" name="address" type="xs:string" />
+      <xs:element minOccurs="0" name="city" type="xs:string" />
+      <xs:element minOccurs="0" name="contact_person" type="xs:string" />
+      <xs:element minOccurs="0" name="office_id" type="xs:string" />
+      <xs:element minOccurs="0" name="website" type="xs:string" />
+      <xs:element minOccurs="0" name="building_id" type="xs:string" />
+      <xs:element minOccurs="0" name="district_id" type="xs:string" />
+      <xs:element minOccurs="0" name="area_id" type="xs:string" />
+      <xs:element minOccurs="0" name="street_id" type="xs:string" />
+      <xs:element minOccurs="0" name="floor_number" type="xs:string" />
+      <xs:element minOccurs="0" name="username" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="areaInfoData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AreaList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Area" type="tns:area" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="area">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dataElement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="city_id" type="xs:string" />
+          <xs:element minOccurs="0" name="code" type="xs:string" />
+          <xs:element minOccurs="0" name="municipality_id" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="identityTypesData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IdentityTypesList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="IdentityType" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="streetImportanceData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="StreetImportanceList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="StreetImportance" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="districtData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DistrictsList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="District" type="tns:district" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="district">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:dataElement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="area_id" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="securityLevelsData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SecurityLevelsList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="SecurityLevel" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="genderData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GenderList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Gender" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="attachmentURL">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="attachment_path" type="xs:string" />
+      <xs:element minOccurs="0" name="description" type="xs:string" />
+      <xs:element minOccurs="0" name="fileName" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="documentImportanceData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DocumentImportanceList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentImportance" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="governmentInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+      <xs:element minOccurs="0" name="name_ar" type="xs:string" />
+      <xs:element minOccurs="0" name="name_en" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="xs:string" />
+      <xs:element minOccurs="0" name="code" type="xs:string" />
+      <xs:element minOccurs="0" name="mobile" type="xs:string" />
+      <xs:element minOccurs="0" name="telephone" type="xs:string" />
+      <xs:element minOccurs="0" name="fax" type="xs:string" />
+      <xs:element minOccurs="0" name="email" type="xs:string" />
+      <xs:element minOccurs="0" name="poBox" type="xs:string" />
+      <xs:element minOccurs="0" name="postalCode" type="xs:string" />
+      <xs:element minOccurs="0" name="address" type="xs:string" />
+      <xs:element minOccurs="0" name="city" type="xs:string" />
+      <xs:element minOccurs="0" name="contact_person" type="xs:string" />
+      <xs:element minOccurs="0" name="office_id" type="xs:string" />
+      <xs:element minOccurs="0" name="website" type="xs:string" />
+      <xs:element minOccurs="0" name="building_id" type="xs:string" />
+      <xs:element minOccurs="0" name="district_id" type="xs:string" />
+      <xs:element minOccurs="0" name="area_id" type="xs:string" />
+      <xs:element minOccurs="0" name="street_id" type="xs:string" />
+      <xs:element minOccurs="0" name="username" type="xs:string" />
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+      <xs:element minOccurs="0" name="floor_number" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="transactionTypesData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TransactionTypesList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="TransactionType" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="organizationTypesData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="OrganizationTypesList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganizationType" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="paperStateData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PaperStateList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="PaperState" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="actionData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActionsList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Action" type="tns:dataElement" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="citizenData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="citizensList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Citizen" type="tns:citizen" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="internalSendTargetAttachmentArray" final="#all">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="tns:internalSendTargetAttachment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="attachmentArray" final="#all">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="tns:attachment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="attachmentURLArray" final="#all">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="tns:attachmentURL" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

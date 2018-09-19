@@ -1,0 +1,5 @@
+D:\Dropbox\My Tests\My Tests\EncodingTest\ArabicNumbers\bin\Debug\ArabicNumbers.dll
+D:\Dropbox\My Tests\My Tests\EncodingTest\ArabicNumbers\bin\Debug\ArabicNumbers.pdb
+D:\Dropbox\My Tests\My Tests\EncodingTest\ArabicNumbers\obj\Debug\ArabicNumbers.dll
+D:\Dropbox\My Tests\My Tests\EncodingTest\ArabicNumbers\obj\Debug\ArabicNumbers.pdb
+D:\Dropbox\My Tests\My Tests\EncodingTest\ArabicNumbers\obj\Debug\ArabicNumbers.csprojResolveAssemblyReference.cache

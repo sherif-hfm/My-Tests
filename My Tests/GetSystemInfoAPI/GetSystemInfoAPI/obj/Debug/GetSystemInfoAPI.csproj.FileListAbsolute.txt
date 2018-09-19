@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Tests\GetSystemInfoAPI\GetSystemInfoAPI\bin\Debug\GetSystemInfoAPI.exe.config
+D:\Dropbox\My Tests\My Tests\GetSystemInfoAPI\GetSystemInfoAPI\bin\Debug\GetSystemInfoAPI.exe
+D:\Dropbox\My Tests\My Tests\GetSystemInfoAPI\GetSystemInfoAPI\bin\Debug\GetSystemInfoAPI.pdb
+D:\Dropbox\My Tests\My Tests\GetSystemInfoAPI\GetSystemInfoAPI\obj\Debug\GetSystemInfoAPI.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\GetSystemInfoAPI\GetSystemInfoAPI\obj\Debug\GetSystemInfoAPI.exe
+D:\Dropbox\My Tests\My Tests\GetSystemInfoAPI\GetSystemInfoAPI\obj\Debug\GetSystemInfoAPI.pdb

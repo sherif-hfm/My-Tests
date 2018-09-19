@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TLSService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="ITLS_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ITLSWEB_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8020/TLS/TLSService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8020/TLS/TLSService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8020/TLS/TLSService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ITLS_GetLicenseInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLicenseInfo" />
+  </wsdl:message>
+  <wsdl:message name="ITLS_GetLicenseInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLicenseInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLS_GetLicenseStoreInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLicenseStoreInfo" />
+  </wsdl:message>
+  <wsdl:message name="ITLS_GetLicenseStoreInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLicenseStoreInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLS_LicenseAllowedRenew_InputMessage">
+    <wsdl:part name="parameters" element="tns:LicenseAllowedRenew" />
+  </wsdl:message>
+  <wsdl:message name="ITLS_LicenseAllowedRenew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LicenseAllowedRenewResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLS_SendInspectorReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendInspectorReport" />
+  </wsdl:message>
+  <wsdl:message name="ITLS_SendInspectorReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendInspectorReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLS_AddImageData_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddImageData" />
+  </wsdl:message>
+  <wsdl:message name="ITLS_AddImageData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddImageDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLS_GetLicenseMapPath_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLicenseMapPath" />
+  </wsdl:message>
+  <wsdl:message name="ITLS_GetLicenseMapPath_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLicenseMapPathResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetMalls_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMalls" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetMalls_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMallsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_SaveTLSIssueRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTLSIssueRequest" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_SaveTLSIssueRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTLSIssueRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetUserTradingLicenses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserTradingLicenses" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetUserTradingLicenses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserTradingLicensesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_SaveRenewRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRenewRequest" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_SaveRenewRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRenewRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetAllowServiceLicenses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllowServiceLicenses" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetAllowServiceLicenses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllowServiceLicensesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_SaveTlsRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTlsRequest" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_SaveTlsRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTlsRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetLicenseActivities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLicenseActivities" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetLicenseActivities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLicenseActivitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetGlobalActivities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGlobalActivities" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetGlobalActivities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGlobalActivitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetMainActivities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMainActivities" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetMainActivities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMainActivitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetSubActivities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubActivities" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetSubActivities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubActivitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetBoardsTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBoardsTypes" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetBoardsTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBoardsTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetLicenseBoards_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLicenseBoards" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetLicenseBoards_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLicenseBoardsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetActivitiesConditions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActivitiesConditions" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetActivitiesConditions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActivitiesConditionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetActivitiesConditionsNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActivitiesConditionsNew" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetActivitiesConditionsNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActivitiesConditionsNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetMainType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMainType" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetMainType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMainTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetActivitiesApprovals_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActivitiesApprovals" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetActivitiesApprovals_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActivitiesApprovalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetAcivitiesDocuments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAcivitiesDocuments" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetAcivitiesDocuments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAcivitiesDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetTlsAuthorities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTlsAuthorities" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetTlsAuthorities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTlsAuthoritiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetRenewDisableReason_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRenewDisableReason" />
+  </wsdl:message>
+  <wsdl:message name="ITLSWeb_GetRenewDisableReason_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRenewDisableReasonResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ITLS">
+    <wsdl:operation name="GetLicenseInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLS/GetLicenseInfo" message="tns:ITLS_GetLicenseInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLS/GetLicenseInfoResponse" message="tns:ITLS_GetLicenseInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseStoreInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLS/GetLicenseStoreInfo" message="tns:ITLS_GetLicenseStoreInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLS/GetLicenseStoreInfoResponse" message="tns:ITLS_GetLicenseStoreInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LicenseAllowedRenew">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLS/LicenseAllowedRenew" message="tns:ITLS_LicenseAllowedRenew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLS/LicenseAllowedRenewResponse" message="tns:ITLS_LicenseAllowedRenew_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendInspectorReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLS/SendInspectorReport" message="tns:ITLS_SendInspectorReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLS/SendInspectorReportResponse" message="tns:ITLS_SendInspectorReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddImageData">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLS/AddImageData" message="tns:ITLS_AddImageData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLS/AddImageDataResponse" message="tns:ITLS_AddImageData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseMapPath">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLS/GetLicenseMapPath" message="tns:ITLS_GetLicenseMapPath_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLS/GetLicenseMapPathResponse" message="tns:ITLS_GetLicenseMapPath_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ITLSWeb">
+    <wsdl:operation name="GetMalls">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLSWeb/GetMalls" message="tns:ITLSWeb_GetMalls_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLSWeb/GetMallsResponse" message="tns:ITLSWeb_GetMalls_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTLSIssueRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLSWeb/SaveTLSIssueRequest" message="tns:ITLSWeb_SaveTLSIssueRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLSWeb/SaveTLSIssueRequestResponse" message="tns:ITLSWeb_SaveTLSIssueRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTradingLicenses">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLSWeb/GetUserTradingLicenses" message="tns:ITLSWeb_GetUserTradingLicenses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLSWeb/GetUserTradingLicensesResponse" message="tns:ITLSWeb_GetUserTradingLicenses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRenewRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLSWeb/SaveRenewRequest" message="tns:ITLSWeb_SaveRenewRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLSWeb/SaveRenewRequestResponse" message="tns:ITLSWeb_SaveRenewRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllowServiceLicenses">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLSWeb/GetAllowServiceLicenses" message="tns:ITLSWeb_GetAllowServiceLicenses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLSWeb/GetAllowServiceLicensesResponse" message="tns:ITLSWeb_GetAllowServiceLicenses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTlsRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLSWeb/SaveTlsRequest" message="tns:ITLSWeb_SaveTlsRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLSWeb/SaveTlsRequestResponse" message="tns:ITLSWeb_SaveTlsRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseActivities">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLSWeb/GetLicenseActivities" message="tns:ITLSWeb_GetLicenseActivities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLSWeb/GetLicenseActivitiesResponse" message="tns:ITLSWeb_GetLicenseActivities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGlobalActivities">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLSWeb/GetGlobalActivities" message="tns:ITLSWeb_GetGlobalActivities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLSWeb/GetGlobalActivitiesResponse" message="tns:ITLSWeb_GetGlobalActivities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMainActivities">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLSWeb/GetMainActivities" message="tns:ITLSWeb_GetMainActivities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLSWeb/GetMainActivitiesResponse" message="tns:ITLSWeb_GetMainActivities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubActivities">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLSWeb/GetSubActivities" message="tns:ITLSWeb_GetSubActivities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLSWeb/GetSubActivitiesResponse" message="tns:ITLSWeb_GetSubActivities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBoardsTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLSWeb/GetBoardsTypes" message="tns:ITLSWeb_GetBoardsTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLSWeb/GetBoardsTypesResponse" message="tns:ITLSWeb_GetBoardsTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseBoards">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLSWeb/GetLicenseBoards" message="tns:ITLSWeb_GetLicenseBoards_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLSWeb/GetLicenseBoardsResponse" message="tns:ITLSWeb_GetLicenseBoards_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivitiesConditions">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLSWeb/GetActivitiesConditions" message="tns:ITLSWeb_GetActivitiesConditions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLSWeb/GetActivitiesConditionsResponse" message="tns:ITLSWeb_GetActivitiesConditions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivitiesConditionsNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLSWeb/GetActivitiesConditionsNew" message="tns:ITLSWeb_GetActivitiesConditionsNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLSWeb/GetActivitiesConditionsNewResponse" message="tns:ITLSWeb_GetActivitiesConditionsNew_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMainType">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLSWeb/GetMainType" message="tns:ITLSWeb_GetMainType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLSWeb/GetMainTypeResponse" message="tns:ITLSWeb_GetMainType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivitiesApprovals">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLSWeb/GetActivitiesApprovals" message="tns:ITLSWeb_GetActivitiesApprovals_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLSWeb/GetActivitiesApprovalsResponse" message="tns:ITLSWeb_GetActivitiesApprovals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAcivitiesDocuments">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLSWeb/GetAcivitiesDocuments" message="tns:ITLSWeb_GetAcivitiesDocuments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLSWeb/GetAcivitiesDocumentsResponse" message="tns:ITLSWeb_GetAcivitiesDocuments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTlsAuthorities">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLSWeb/GetTlsAuthorities" message="tns:ITLSWeb_GetTlsAuthorities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLSWeb/GetTlsAuthoritiesResponse" message="tns:ITLSWeb_GetTlsAuthorities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRenewDisableReason">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITLSWeb/GetRenewDisableReason" message="tns:ITLSWeb_GetRenewDisableReason_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITLSWeb/GetRenewDisableReasonResponse" message="tns:ITLSWeb_GetRenewDisableReason_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ITLS" type="tns:ITLS">
+    <wsp:PolicyReference URI="#ITLS_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLicenseInfo">
+      <soap12:operation soapAction="http://tempuri.org/ITLS/GetLicenseInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseStoreInfo">
+      <soap12:operation soapAction="http://tempuri.org/ITLS/GetLicenseStoreInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LicenseAllowedRenew">
+      <soap12:operation soapAction="http://tempuri.org/ITLS/LicenseAllowedRenew" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInspectorReport">
+      <soap12:operation soapAction="http://tempuri.org/ITLS/SendInspectorReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddImageData">
+      <soap12:operation soapAction="http://tempuri.org/ITLS/AddImageData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseMapPath">
+      <soap12:operation soapAction="http://tempuri.org/ITLS/GetLicenseMapPath" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ITLSWEB" type="tns:ITLSWeb">
+    <wsp:PolicyReference URI="#ITLSWEB_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMalls">
+      <soap12:operation soapAction="http://tempuri.org/ITLSWeb/GetMalls" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTLSIssueRequest">
+      <soap12:operation soapAction="http://tempuri.org/ITLSWeb/SaveTLSIssueRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTradingLicenses">
+      <soap12:operation soapAction="http://tempuri.org/ITLSWeb/GetUserTradingLicenses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveRenewRequest">
+      <soap12:operation soapAction="http://tempuri.org/ITLSWeb/SaveRenewRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllowServiceLicenses">
+      <soap12:operation soapAction="http://tempuri.org/ITLSWeb/GetAllowServiceLicenses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTlsRequest">
+      <soap12:operation soapAction="http://tempuri.org/ITLSWeb/SaveTlsRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseActivities">
+      <soap12:operation soapAction="http://tempuri.org/ITLSWeb/GetLicenseActivities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGlobalActivities">
+      <soap12:operation soapAction="http://tempuri.org/ITLSWeb/GetGlobalActivities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMainActivities">
+      <soap12:operation soapAction="http://tempuri.org/ITLSWeb/GetMainActivities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubActivities">
+      <soap12:operation soapAction="http://tempuri.org/ITLSWeb/GetSubActivities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBoardsTypes">
+      <soap12:operation soapAction="http://tempuri.org/ITLSWeb/GetBoardsTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseBoards">
+      <soap12:operation soapAction="http://tempuri.org/ITLSWeb/GetLicenseBoards" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivitiesConditions">
+      <soap12:operation soapAction="http://tempuri.org/ITLSWeb/GetActivitiesConditions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivitiesConditionsNew">
+      <soap12:operation soapAction="http://tempuri.org/ITLSWeb/GetActivitiesConditionsNew" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMainType">
+      <soap12:operation soapAction="http://tempuri.org/ITLSWeb/GetMainType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivitiesApprovals">
+      <soap12:operation soapAction="http://tempuri.org/ITLSWeb/GetActivitiesApprovals" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAcivitiesDocuments">
+      <soap12:operation soapAction="http://tempuri.org/ITLSWeb/GetAcivitiesDocuments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTlsAuthorities">
+      <soap12:operation soapAction="http://tempuri.org/ITLSWeb/GetTlsAuthorities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRenewDisableReason">
+      <soap12:operation soapAction="http://tempuri.org/ITLSWeb/GetRenewDisableReason" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TLSService">
+    <wsdl:port name="ITLS" binding="tns:ITLS">
+      <soap12:address location="http://localhost:8020/TLS/TLSService.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:8020/TLS/TLSService.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="ITLSWEB" binding="tns:ITLSWEB">
+      <soap12:address location="http://localhost:8020/TLS/TLSService.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:8020/TLS/TLSService.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

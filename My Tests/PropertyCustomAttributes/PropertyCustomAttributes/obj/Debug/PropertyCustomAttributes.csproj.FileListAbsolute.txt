@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Tests\PropertyCustomAttributes\PropertyCustomAttributes\bin\Debug\PropertyCustomAttributes.exe.config
+D:\Dropbox\My Tests\My Tests\PropertyCustomAttributes\PropertyCustomAttributes\bin\Debug\PropertyCustomAttributes.exe
+D:\Dropbox\My Tests\My Tests\PropertyCustomAttributes\PropertyCustomAttributes\bin\Debug\PropertyCustomAttributes.pdb
+D:\Dropbox\My Tests\My Tests\PropertyCustomAttributes\PropertyCustomAttributes\obj\Debug\PropertyCustomAttributes.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\PropertyCustomAttributes\PropertyCustomAttributes\obj\Debug\PropertyCustomAttributes.exe
+D:\Dropbox\My Tests\My Tests\PropertyCustomAttributes\PropertyCustomAttributes\obj\Debug\PropertyCustomAttributes.pdb

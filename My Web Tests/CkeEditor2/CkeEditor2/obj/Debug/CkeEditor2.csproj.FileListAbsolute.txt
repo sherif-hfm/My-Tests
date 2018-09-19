@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\CkeEditor2\CkeEditor2\bin\CkeEditor2.dll.config
+D:\Dropbox\My Tests\My Web Tests\CkeEditor2\CkeEditor2\bin\CkeEditor2.dll
+D:\Dropbox\My Tests\My Web Tests\CkeEditor2\CkeEditor2\bin\CkeEditor2.pdb
+D:\Dropbox\My Tests\My Web Tests\CkeEditor2\CkeEditor2\bin\CKEditor.NET.dll
+D:\Dropbox\My Tests\My Web Tests\CkeEditor2\CkeEditor2\obj\Debug\CkeEditor2.dll
+D:\Dropbox\My Tests\My Web Tests\CkeEditor2\CkeEditor2\obj\Debug\CkeEditor2.pdb

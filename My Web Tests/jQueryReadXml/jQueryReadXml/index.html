@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"> </script>
+</head>
+<body>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: "Data.xml",
+                dataType: "xml",
+                success: function (xml) {
+                    $(xml).find('Person').each(function (index,data) {
+                        var id = $(this).attr('Id');
+                        var name = $(this).attr('Name');
+                        var text = $(this).text();
+                        console.log(id + ' ' + name);
+                        console.log(text);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

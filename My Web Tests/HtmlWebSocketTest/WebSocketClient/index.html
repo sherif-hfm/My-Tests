@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <input id="btnConnect" type="button" value="Connect" onclick="connect();" />
+    <br />
+    <br />
+    <input id="btnSendData" type="button" value="Send Data" onclick="SendData();" />
+
+    <script type="text/javascript">
+        var ws;
+        function connect() {
+            ws = new WebSocket("ws://localhost:8080/service");
+            ws.onopen = function () {
+                console.log("Conected ......");
+            };
+
+            ws.onmessage = function (evt) {
+                var received_msg = evt.data;
+                console.log("Message received = " + received_msg);
+            };
+            ws.onclose = function () {
+                // websocket is closed.
+                console.log("Connection is closed...");
+            };
+        };
+
+        function SendData() {
+            console.log("About to send data");
+            ws.send("Hello Server");
+            console.log("Message sent!");
+        }
+
+
+    </script>
+</body>
+</html>

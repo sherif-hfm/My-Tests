@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "ControllerInheritance";
+}
+
+<h2>Setting Up jQuery UI</h2>
+
+
+<div id="angularRegion" class="well" ng-controller="simpleCtrl">
+    <h4>AngularJS</h4>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" ng-model="buttonEnabled"> Enable Button
+        </label>
+    </div>
+    Click counter: {{clickCounter}}
+</div>
+<div id="jqui" class="well">
+    <h4>jQuery UI</h4>
+    <button >Click Me!</button>
+</div>
+
+@section Scripts
+{
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="~/Scripts/MyScripts/Chapter13/SettingUpjQueryUI.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/sunny/jquery-ui.min.css" />
+}
+
+

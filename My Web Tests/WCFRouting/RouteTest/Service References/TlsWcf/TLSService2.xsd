@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="LicenseInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActivityType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AqarNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BillboardValue" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CommercialChamberNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ComputerNo" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CurrentDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CurrentTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateSuspend" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DirectorateName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DirectorateNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DistrictName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DistrictNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Fines" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IdentityNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IdentityType" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="InformativeBoardValue" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LicenceNo" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="MaxRenewYears" type="xs:int" />
+          <xs:element minOccurs="0" name="MinRenewYears" type="xs:int" />
+          <xs:element minOccurs="0" name="OpeningNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProfessionFees" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Propaganda" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Reason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ServiceFeeCode" type="xs:int" />
+          <xs:element minOccurs="0" name="ServiceFeeValue" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Signage" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StoreName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StreetName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StreetNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ViolationValue" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LicenseInfo" nillable="true" type="tns:LicenseInfo" />
+  <xs:complexType name="BaseInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseInfo" nillable="true" type="tns:BaseInfo" />
+  <xs:complexType name="ArrayOfLicenseInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LicenseInfo" nillable="true" type="tns:LicenseInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLicenseInfo" nillable="true" type="tns:ArrayOfLicenseInfo" />
+  <xs:complexType name="ArrayOfMallInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MallInfo" nillable="true" type="tns:MallInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMallInfo" nillable="true" type="tns:ArrayOfMallInfo" />
+  <xs:complexType name="MallInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BmCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentStoreName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentStoreNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuarterName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuarterNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RealestateNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RealestateOwnerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SeqNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StreetName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StreetNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MallInfo" nillable="true" type="tns:MallInfo" />
+  <xs:complexType name="TLSRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequestInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AttachedFiles" nillable="true" type="tns:ArrayOfDocumentTypeInfo" />
+          <xs:element minOccurs="0" name="BillTotal" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BillboardValue" type="xs:decimal" />
+          <xs:element minOccurs="0" name="IdNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IdType" type="xs:int" />
+          <xs:element minOccurs="0" name="InformativeBoardValue" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LicNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="ProfessionFees" type="xs:decimal" />
+          <xs:element minOccurs="0" name="RenewYears" type="xs:int" />
+          <xs:element minOccurs="0" name="RequestReason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SelectedActivities" nillable="true" type="tns:ArrayOfLicenseActivity" />
+          <xs:element minOccurs="0" name="SelectedLicenseBoards" nillable="true" type="tns:ArrayOfLicenseBoard" />
+          <xs:element minOccurs="0" name="StoreName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StoreNewLength" type="xs:decimal" />
+          <xs:element minOccurs="0" name="StoreNewWidth" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TLSIssueLocationInfo" nillable="true" type="tns:TLSIssueLocationInfo" />
+          <xs:element minOccurs="0" name="TLSIssueMainInfo" nillable="true" type="tns:TLSIssueMainInfo" />
+          <xs:element minOccurs="0" name="ViolationValue" type="xs:decimal" />
+          <xs:element minOccurs="0" name="WebUserLogin" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TLSRequest" nillable="true" type="tns:TLSRequest" />
+  <xs:complexType name="BaseRequestInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Attachment" nillable="true" type="tns:ArrayOfDocumentTypeInfo" />
+      <xs:element minOccurs="0" name="BeneficiaryUpdateFlg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Directorate" nillable="true" type="tns:DirectoratInfo" />
+      <xs:element minOccurs="0" name="DirectorateExecuted" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="tns:GeoInfo" />
+      <xs:element minOccurs="0" name="MainService" type="xs:int" />
+      <xs:element minOccurs="0" name="Remarks" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequesStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestMonth" type="xs:int" />
+      <xs:element minOccurs="0" name="RequestNo" type="xs:long" />
+      <xs:element minOccurs="0" name="RequestYear" type="xs:int" />
+      <xs:element minOccurs="0" name="SubService" type="xs:int" />
+      <xs:element minOccurs="0" name="WebUserCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WebUserNamee" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseRequestInfo" nillable="true" type="tns:BaseRequestInfo" />
+  <xs:complexType name="ArrayOfDocumentTypeInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentTypeInfo" nillable="true" type="tns:DocumentTypeInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDocumentTypeInfo" nillable="true" type="tns:ArrayOfDocumentTypeInfo" />
+  <xs:complexType name="DocumentTypeInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BeneficiaryView" type="xs:int" />
+          <xs:element minOccurs="0" name="DocumentFiles" nillable="true" type="tns:ArrayOfDocumentFile" />
+          <xs:element minOccurs="0" name="DocumentName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DocumentSerial" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsRequired" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MaxFileSerial" type="xs:int" />
+          <xs:element minOccurs="0" name="PhasSerial" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DocumentTypeInfo" nillable="true" type="tns:DocumentTypeInfo" />
+  <xs:complexType name="ArrayOfDocumentFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentFile" nillable="true" type="tns:DocumentFile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDocumentFile" nillable="true" type="tns:ArrayOfDocumentFile" />
+  <xs:complexType name="DocumentFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DocumentSerial" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileDate" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="FileId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileSize" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentFile" nillable="true" type="tns:DocumentFile" />
+  <xs:complexType name="DirectoratInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DepartmentCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EnglishDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GLobalDepartmentCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DirectoratInfo" nillable="true" type="tns:DirectoratInfo" />
+  <xs:complexType name="GeoInfo">
+    <xs:sequence>
+      <xs:element name="_x003C_Markers_x003E_k__BackingField" nillable="true" type="tns:ArrayOfMarkerInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GeoInfo" nillable="true" type="tns:GeoInfo" />
+  <xs:complexType name="ArrayOfMarkerInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MarkerInfo" nillable="true" type="tns:MarkerInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMarkerInfo" nillable="true" type="tns:ArrayOfMarkerInfo" />
+  <xs:complexType name="MarkerInfo">
+    <xs:sequence>
+      <xs:element name="_x003C_Lat_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Long_x003E_k__BackingField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MarkerInfo" nillable="true" type="tns:MarkerInfo" />
+  <xs:complexType name="ArrayOfLicenseActivity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LicenseActivity" nillable="true" type="tns:LicenseActivity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLicenseActivity" nillable="true" type="tns:ArrayOfLicenseActivity" />
+  <xs:complexType name="LicenseActivity">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GlobalCode" type="xs:int" />
+          <xs:element minOccurs="0" name="GlobalName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MainCode" type="xs:int" />
+          <xs:element minOccurs="0" name="MainName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SubCode" type="xs:int" />
+          <xs:element minOccurs="0" name="SubName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LicenseActivity" nillable="true" type="tns:LicenseActivity" />
+  <xs:complexType name="ArrayOfLicenseBoard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LicenseBoard" nillable="true" type="tns:LicenseBoard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLicenseBoard" nillable="true" type="tns:ArrayOfLicenseBoard" />
+  <xs:complexType name="LicenseBoard">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BoardHeight" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BoardId" type="xs:int" />
+      <xs:element minOccurs="0" name="BoardTypeCode" type="xs:int" />
+      <xs:element minOccurs="0" name="BoardTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BoardWidth" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MeterValuePerYear" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalCost" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LicenseBoard" nillable="true" type="tns:LicenseBoard" />
+  <xs:complexType name="TLSIssueLocationInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DistrctCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FloorNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HouseNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LandNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MallNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MunicipalityCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlanNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShopNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StreetCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TLSIssueLocationInfo" nillable="true" type="tns:TLSIssueLocationInfo" />
+  <xs:complexType name="TLSIssueMainInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BuildLicNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BuildingOwnerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CrNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DoorCount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FloorCount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShopLength" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShopName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShopWidth" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TLSIssueMainInfo" nillable="true" type="tns:TLSIssueMainInfo" />
+  <xs:complexType name="TlsRequestSaveResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BillNumber" type="xs:long" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestNumber" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TlsRequestSaveResult" nillable="true" type="tns:TlsRequestSaveResult" />
+  <xs:complexType name="ArrayOfLicenseActivityNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LicenseActivityNode" nillable="true" type="tns:LicenseActivityNode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLicenseActivityNode" nillable="true" type="tns:ArrayOfLicenseActivityNode" />
+  <xs:complexType name="LicenseActivityNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActivityArea" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ActivityCode" type="xs:int" />
+      <xs:element minOccurs="0" name="ActivityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CategoryCode" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LicenseActivityNode" nillable="true" type="tns:LicenseActivityNode" />
+  <xs:complexType name="ArrayOfActivitiesConditionsInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ActivitiesConditionsInfo" nillable="true" type="tns:ActivitiesConditionsInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfActivitiesConditionsInfo" nillable="true" type="tns:ArrayOfActivitiesConditionsInfo" />
+  <xs:complexType name="ActivitiesConditionsInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConditionCode" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ConditionTypeCode" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ConditionTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GlobalCancelRequired" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GlobalCode" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="GlobalIssueRequired" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GlobalRenewRequired" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MainCancelRequired" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MainCode" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MainIssueRequired" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MainRenewRequired" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubCode" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SubCodeCancelRequired" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubCodeIssueRequired" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubCodeRenewRequired" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ActivitiesConditionsInfo" nillable="true" type="tns:ActivitiesConditionsInfo" />
+  <xs:complexType name="ArrayOfActivitiesApprovals">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ActivitiesApprovals" nillable="true" type="tns:ActivitiesApprovals" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfActivitiesApprovals" nillable="true" type="tns:ArrayOfActivitiesApprovals" />
+  <xs:complexType name="ActivitiesApprovals">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ActivitiesConditionsInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AuthorityCode" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="GlobalApprovalSerial" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="MainApprovalSerial" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SubApprovalSerial" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ActivitiesApprovals" nillable="true" type="tns:ActivitiesApprovals" />
+  <xs:complexType name="ArrayOfAcivitiesDocuments">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AcivitiesDocuments" nillable="true" type="tns:AcivitiesDocuments" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAcivitiesDocuments" nillable="true" type="tns:ArrayOfAcivitiesDocuments" />
+  <xs:complexType name="AcivitiesDocuments">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ActivitiesConditionsInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DocumentCode" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="DocumentTypeCode" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="DocumentTypeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GlobalDocumentSerial" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="MainDocumentSerial" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SubDocumentSerial" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AcivitiesDocuments" nillable="true" type="tns:AcivitiesDocuments" />
+  <xs:complexType name="ArrayOfBaseInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BaseInfo" nillable="true" type="tns:BaseInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBaseInfo" nillable="true" type="tns:ArrayOfBaseInfo" />
+  <xs:complexType name="ServicesSatatusInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FaultReasons" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestNo" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServicesSatatusInfo" nillable="true" type="tns:ServicesSatatusInfo" />
+</xs:schema>

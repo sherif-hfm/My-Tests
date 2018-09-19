@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Tests\CustomDataAnnotations\CustomDataAnnotations\bin\Debug\CustomDataAnnotations.exe.config
+D:\Dropbox\My Tests\My Tests\CustomDataAnnotations\CustomDataAnnotations\bin\Debug\CustomDataAnnotations.exe
+D:\Dropbox\My Tests\My Tests\CustomDataAnnotations\CustomDataAnnotations\bin\Debug\CustomDataAnnotations.pdb
+D:\Dropbox\My Tests\My Tests\CustomDataAnnotations\CustomDataAnnotations\obj\Debug\CustomDataAnnotations.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\CustomDataAnnotations\CustomDataAnnotations\obj\Debug\CustomDataAnnotations.exe
+D:\Dropbox\My Tests\My Tests\CustomDataAnnotations\CustomDataAnnotations\obj\Debug\CustomDataAnnotations.pdb

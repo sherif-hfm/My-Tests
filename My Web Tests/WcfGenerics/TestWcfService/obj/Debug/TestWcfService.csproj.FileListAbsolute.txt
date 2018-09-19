@@ -1,0 +1,5 @@
+D:\Dropbox\My Tests\My Web Tests\WcfGenerics\TestWcfService\bin\Debug\TestWcfService.exe.config
+D:\Dropbox\My Tests\My Web Tests\WcfGenerics\TestWcfService\bin\Debug\TestWcfService.exe
+D:\Dropbox\My Tests\My Web Tests\WcfGenerics\TestWcfService\bin\Debug\TestWcfService.pdb
+D:\Dropbox\My Tests\My Web Tests\WcfGenerics\TestWcfService\obj\Debug\TestWcfService.exe
+D:\Dropbox\My Tests\My Web Tests\WcfGenerics\TestWcfService\obj\Debug\TestWcfService.pdb

@@ -1,0 +1,32 @@
+﻿@using System.Web.Optimization;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    
+</head>
+<body>
+    <script>
+        
+    </script>
+    <div>
+        Layout
+        @RenderBody()
+    </div>
+
+   
+    
+    @*RenderSection("Footer", required: false);*@
+        @if (IsSectionDefined("Footer")){
+            @RenderSection("Footer");
+        }
+        else{
+            @Html.Partial("~/Views/footer.cshtml");
+        }
+ 
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+</body>
+</html>

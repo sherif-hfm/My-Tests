@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://sherifhamdy.itamana.net:8020/Common/User.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfUserDataInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserDataInfo" nillable="true" type="tns:UserDataInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserDataInfo" nillable="true" type="tns:ArrayOfUserDataInfo" />
+  <xs:complexType name="UserDataInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="tns:BaseAddressInfo" />
+      <xs:element minOccurs="0" name="ContactData" nillable="true" type="tns:BaseContactDataInfo" />
+      <xs:element minOccurs="0" name="DateOfBirthH" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FamilyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FatherName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" type="xs:short" />
+      <xs:element minOccurs="0" name="HifizaNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Identification" nillable="true" type="tns:BaseIdentityInfo" />
+      <xs:element minOccurs="0" name="LifeStatus" type="ser:char" />
+      <xs:element minOccurs="0" name="LogId" type="xs:int" />
+      <xs:element minOccurs="0" name="MeaningMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nationality" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Occupation" type="xs:short" />
+      <xs:element minOccurs="0" name="OfficeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OfficeNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReligionCode" type="xs:short" />
+      <xs:element minOccurs="0" name="SponsorMoiNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubtribeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ThirdName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserLoginName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserDataInfo" nillable="true" type="tns:UserDataInfo" />
+  <xs:complexType name="BaseAddressInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BoBox" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HouseNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Quarter" nillable="true" type="tns:QuarterInfo" />
+      <xs:element minOccurs="0" name="Street" nillable="true" type="tns:StreetInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseAddressInfo" nillable="true" type="tns:BaseAddressInfo" />
+  <xs:complexType name="QuarterInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AreaCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DirectoratCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NameNumbrer" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="QuarterInfo" nillable="true" type="tns:QuarterInfo" />
+  <xs:complexType name="BaseInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseInfo" nillable="true" type="tns:BaseInfo" />
+  <xs:complexType name="StreetInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="QuarterCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StreetInfo" nillable="true" type="tns:StreetInfo" />
+  <xs:complexType name="BaseContactDataInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FaxNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HomeTelephon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkTelephon" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseContactDataInfo" nillable="true" type="tns:BaseContactDataInfo" />
+  <xs:complexType name="BaseIdentityInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BorderExpiryDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BorderNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdExpiredDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdIssueDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdIssuePlace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdentificationNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdentificationType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nationality" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassportNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseIdentityInfo" nillable="true" type="tns:BaseIdentityInfo" />
+  <xs:complexType name="ArrayOfAmanaOverdueInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AmanaOverdueInfo" nillable="true" type="tns:AmanaOverdueInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAmanaOverdueInfo" nillable="true" type="tns:ArrayOfAmanaOverdueInfo" />
+  <xs:complexType name="AmanaOverdueInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppTypeDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillAccount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direction" nillable="true" type="tns:DirectionInfo" />
+      <xs:element minOccurs="0" name="FormAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Owner" nillable="true" type="tns:BaseIdentityInfo" />
+      <xs:element minOccurs="0" name="Remarks" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AmanaOverdueInfo" nillable="true" type="tns:AmanaOverdueInfo" />
+  <xs:complexType name="DirectionInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseInfo">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DirectionInfo" nillable="true" type="tns:DirectionInfo" />
+</xs:schema>

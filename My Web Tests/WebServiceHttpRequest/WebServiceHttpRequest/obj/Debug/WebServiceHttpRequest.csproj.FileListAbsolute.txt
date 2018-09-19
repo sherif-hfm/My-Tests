@@ -1,0 +1,5 @@
+D:\Dropbox\My Tests\My Web Tests\WebServiceHttpRequest\WebServiceHttpRequest\bin\Debug\WebServiceHttpRequest.exe.config
+D:\Dropbox\My Tests\My Web Tests\WebServiceHttpRequest\WebServiceHttpRequest\bin\Debug\WebServiceHttpRequest.exe
+D:\Dropbox\My Tests\My Web Tests\WebServiceHttpRequest\WebServiceHttpRequest\bin\Debug\WebServiceHttpRequest.pdb
+D:\Dropbox\My Tests\My Web Tests\WebServiceHttpRequest\WebServiceHttpRequest\obj\Debug\WebServiceHttpRequest.exe
+D:\Dropbox\My Tests\My Web Tests\WebServiceHttpRequest\WebServiceHttpRequest\obj\Debug\WebServiceHttpRequest.pdb

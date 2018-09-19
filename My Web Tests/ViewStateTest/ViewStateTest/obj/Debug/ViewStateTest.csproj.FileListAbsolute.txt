@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\ViewStateTest\ViewStateTest\bin\ViewStateTest.dll.config
+D:\Dropbox\My Tests\My Web Tests\ViewStateTest\ViewStateTest\bin\ViewStateTest.dll
+D:\Dropbox\My Tests\My Web Tests\ViewStateTest\ViewStateTest\bin\ViewStateTest.pdb
+D:\Dropbox\My Tests\My Web Tests\ViewStateTest\ViewStateTest\obj\Debug\ViewStateTest.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\ViewStateTest\ViewStateTest\obj\Debug\ViewStateTest.dll
+D:\Dropbox\My Tests\My Web Tests\ViewStateTest\ViewStateTest\obj\Debug\ViewStateTest.pdb

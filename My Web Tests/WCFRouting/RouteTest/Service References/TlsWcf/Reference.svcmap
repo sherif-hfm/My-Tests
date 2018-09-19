@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="47a2c61d-228f-471f-ad8b-81ff051ffb61" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8020/TLS/TLSService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TLSService.xsd" MetadataType="Schema" ID="b3ff5f1d-d041-4b44-9e15-e926047a5430" SourceId="1" SourceUrl="http://localhost:8020/TLS/TLSService.svc?xsd=xsd1" />
+    <MetadataFile FileName="TLSService.disco" MetadataType="Disco" ID="675e086f-bc39-4bcf-94a6-a2f5759a460f" SourceId="1" SourceUrl="http://localhost:8020/TLS/TLSService.svc?disco" />
+    <MetadataFile FileName="TLSService.wsdl" MetadataType="Wsdl" ID="2740d108-dcbe-41e7-aa1b-817954e6dac4" SourceId="1" SourceUrl="http://localhost:8020/TLS/TLSService.svc?wsdl" />
+    <MetadataFile FileName="TLSService1.xsd" MetadataType="Schema" ID="788b2b78-fc51-4c03-b54b-999dc9eeb179" SourceId="1" SourceUrl="http://localhost:8020/TLS/TLSService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TLSService2.xsd" MetadataType="Schema" ID="57215724-83ac-49f5-9e26-723dc26e6339" SourceId="1" SourceUrl="http://localhost:8020/TLS/TLSService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

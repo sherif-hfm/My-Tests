@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Tests\WebClientTest\WebClientTest\bin\Debug\WebClientTest.exe.config
+D:\Dropbox\My Tests\My Tests\WebClientTest\WebClientTest\bin\Debug\WebClientTest.exe
+D:\Dropbox\My Tests\My Tests\WebClientTest\WebClientTest\bin\Debug\WebClientTest.pdb
+D:\Dropbox\My Tests\My Tests\WebClientTest\WebClientTest\obj\Debug\WebClientTest.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\WebClientTest\WebClientTest\obj\Debug\WebClientTest.exe
+D:\Dropbox\My Tests\My Tests\WebClientTest\WebClientTest\obj\Debug\WebClientTest.pdb

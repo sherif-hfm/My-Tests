@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>index</title>
+	<meta charset="utf-8" />
+    <script src="scripts/jquery-1.6.4.js"></script>
+    <script src="scripts/jquery.signalR-2.2.1.min.js"></script>
+    <script src="http://localhost:3040/signalr/hubs"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        $(function () {
+
+            $.connection.hub.url = "http://localhost:3040/signalr";
+            // Declare a proxy to reference the hub.
+            var myHub = $.connection.myHub1;
+
+            myHub.client.needApprove = function (_data) {
+                console.log('Receiving needApprove');
+                console.log(_data);
+                var r = confirm("Are you sure you want to approve?");
+                if (r == true)
+                    myHub.server.approve('1');
+                else
+                    myHub.server.notApprove('1');
+            };
+
+            myHub.client.subscribeDone = function (_data) {
+                console.log('subscribeDone');
+            };
+
+            $.connection.hub.disconnected(function () {
+                console.log('hub disconnected');
+            });
+
+            var client=$.connection.hub.start();
+            client.done(function () {
+                console.log('hub start done');
+                console.log('try subscribe');
+                var clientInfo = {};
+                clientInfo.ClientId = $.connection.hub.id;
+                clientInfo.ClientCode = "1";
+                myHub.server.subscribe(clientInfo);
+            });
+            client.fail(function () {
+                console.log('Could not connect');
+            });
+
+        });
+    </script>
+</body>
+</html>

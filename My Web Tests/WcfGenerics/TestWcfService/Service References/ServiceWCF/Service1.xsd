@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WcfService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WcfService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ServiceResultOfPersonInfonezOiMMd">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ServiceResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/WcfService" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="PersonInfo" Namespace="http://schemas.datacontract.org/2004/07/WcfService" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:PersonInfo" />
+      <xs:element minOccurs="0" name="Status" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceResultOfPersonInfonezOiMMd" nillable="true" type="tns:ServiceResultOfPersonInfonezOiMMd" />
+  <xs:complexType name="PersonInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PersonId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersonName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersonInfo" nillable="true" type="tns:PersonInfo" />
+</xs:schema>

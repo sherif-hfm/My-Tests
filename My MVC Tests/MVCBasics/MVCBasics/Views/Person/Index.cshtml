@@ -1,0 +1,73 @@
+﻿@model MVCBasics.Models.Person
+
+@{
+    ViewBag.Title = "Person List";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h2>List</h2>
+
+<div>
+    Person Id: @Model.PersonId <br />
+    Person Name : @Model.PersonName <br />
+</div>
+
+<div>
+    Address : @Html.TextBox("Address") <br />
+</div>
+
+<div>
+    Mam Person Id: @Html.TextBox("Mam.PersonId") <br />
+    Mam Person Name: @Html.TextBox("Mam.PersonName") <br />
+</div>
+
+<br />
+<div>
+    @Html.DropDownList("PersonList", new SelectList((List<MVCBasics.Models.Person>)ViewBag.PersonList, "PersonId", "PersonName"))
+</div>
+<br />
+<div>
+    <table style="border:solid">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(p => p.PersonId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(p => p.PersonName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(p => p.Country.CountryName)
+            </th>
+            <th>
+                -               
+            </th>
+        </tr>
+        @foreach (MVCBasics.Models.Person person in ViewBag.PersonList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(i => person.PersonId)
+                </td>
+                <td>
+                    @Html.DisplayFor(i => person.PersonName)
+                </td>
+                <td>
+                    @Html.DisplayFor(i => person.Country.CountryName)
+                </td>
+                <td >
+                    @Html.ActionLink("Edit", "Edit", new { id = person.PersonId }) |
+                    @Html.ActionLink("Details", "Details", new { id = person.PersonId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = person.PersonId })
+                </td>
+            </tr>
+        }
+    </table>
+    <br />
+    @foreach (var person in (List<MVCBasics.Models.Person>)ViewBag.PersonList)
+    {
+        <li>person name @person.PersonName</li>
+    }
+</div>
+
+<br />
+

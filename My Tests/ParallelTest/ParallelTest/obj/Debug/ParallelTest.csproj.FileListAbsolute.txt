@@ -1,0 +1,12 @@
+D:\My Tests\ParallelTest\ParallelTest\bin\Debug\ParallelTest.exe.config
+D:\My Tests\ParallelTest\ParallelTest\bin\Debug\ParallelTest.exe
+D:\My Tests\ParallelTest\ParallelTest\bin\Debug\ParallelTest.pdb
+D:\My Tests\ParallelTest\ParallelTest\obj\Debug\ParallelTest.csprojResolveAssemblyReference.cache
+D:\My Tests\ParallelTest\ParallelTest\obj\Debug\ParallelTest.exe
+D:\My Tests\ParallelTest\ParallelTest\obj\Debug\ParallelTest.pdb
+D:\Dropbox\My Tests\My Tests\ParallelTest\ParallelTest\bin\Debug\ParallelTest.exe.config
+D:\Dropbox\My Tests\My Tests\ParallelTest\ParallelTest\obj\Debug\ParallelTest.exe
+D:\Dropbox\My Tests\My Tests\ParallelTest\ParallelTest\obj\Debug\ParallelTest.pdb
+D:\Dropbox\My Tests\My Tests\ParallelTest\ParallelTest\bin\Debug\ParallelTest.exe
+D:\Dropbox\My Tests\My Tests\ParallelTest\ParallelTest\bin\Debug\ParallelTest.pdb
+D:\Dropbox\My Tests\My Tests\ParallelTest\ParallelTest\obj\Debug\ParallelTest.csprojResolveAssemblyReference.cache

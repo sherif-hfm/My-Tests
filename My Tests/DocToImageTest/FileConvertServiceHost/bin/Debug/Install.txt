@@ -1,0 +1,5 @@
+﻿InstallUtil /i "D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.exe"
+
+sc create FileConvertServiceHost DisplayName= "Riyadh File Convert Service Host" binpath= "D:\Dropbox\My Tests\My Tests\DocToImageTest\FileConvertServiceHost\bin\Debug\FileConvertServiceHost.exe"
+
+sc delete FileConvertServiceHost

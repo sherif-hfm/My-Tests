@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\AJAXTest\AJAXTest\bin\AJAXTest.dll.config
+D:\Dropbox\My Tests\My Web Tests\AJAXTest\AJAXTest\bin\AJAXTest.dll
+D:\Dropbox\My Tests\My Web Tests\AJAXTest\AJAXTest\bin\AJAXTest.pdb
+D:\Dropbox\My Tests\My Web Tests\AJAXTest\AJAXTest\obj\Debug\AJAXTest.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\AJAXTest\AJAXTest\obj\Debug\AJAXTest.dll
+D:\Dropbox\My Tests\My Web Tests\AJAXTest\AJAXTest\obj\Debug\AJAXTest.pdb

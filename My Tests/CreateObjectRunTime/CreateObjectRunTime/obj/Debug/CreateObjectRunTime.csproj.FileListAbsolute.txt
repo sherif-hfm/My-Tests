@@ -1,0 +1,5 @@
+D:\Dropbox\My Tests\My Tests\CreateObjectRunTime\CreateObjectRunTime\bin\Debug\CreateObjectRunTime.exe.config
+D:\Dropbox\My Tests\My Tests\CreateObjectRunTime\CreateObjectRunTime\bin\Debug\CreateObjectRunTime.exe
+D:\Dropbox\My Tests\My Tests\CreateObjectRunTime\CreateObjectRunTime\bin\Debug\CreateObjectRunTime.pdb
+D:\Dropbox\My Tests\My Tests\CreateObjectRunTime\CreateObjectRunTime\obj\Debug\CreateObjectRunTime.exe
+D:\Dropbox\My Tests\My Tests\CreateObjectRunTime\CreateObjectRunTime\obj\Debug\CreateObjectRunTime.pdb

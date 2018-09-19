@@ -1,0 +1,5 @@
+D:\My Web Tests\UserControlsWeb\UserControls\bin\UserControls.dll.config
+D:\My Web Tests\UserControlsWeb\UserControls\bin\UserControls.dll
+D:\My Web Tests\UserControlsWeb\UserControls\bin\UserControls.pdb
+D:\My Web Tests\UserControlsWeb\UserControls\obj\Debug\UserControls.dll
+D:\My Web Tests\UserControlsWeb\UserControls\obj\Debug\UserControls.pdb

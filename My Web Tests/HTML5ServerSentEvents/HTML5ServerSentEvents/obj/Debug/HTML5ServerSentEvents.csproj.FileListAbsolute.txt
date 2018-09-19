@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\HTML5ServerSentEvents\HTML5ServerSentEvents\bin\HTML5ServerSentEvents.dll.config
+D:\Dropbox\My Tests\My Web Tests\HTML5ServerSentEvents\HTML5ServerSentEvents\bin\HTML5ServerSentEvents.dll
+D:\Dropbox\My Tests\My Web Tests\HTML5ServerSentEvents\HTML5ServerSentEvents\bin\HTML5ServerSentEvents.pdb
+D:\Dropbox\My Tests\My Web Tests\HTML5ServerSentEvents\HTML5ServerSentEvents\obj\Debug\HTML5ServerSentEvents.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\HTML5ServerSentEvents\HTML5ServerSentEvents\obj\Debug\HTML5ServerSentEvents.dll
+D:\Dropbox\My Tests\My Web Tests\HTML5ServerSentEvents\HTML5ServerSentEvents\obj\Debug\HTML5ServerSentEvents.pdb

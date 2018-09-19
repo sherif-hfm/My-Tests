@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\ImpersonatorUserTest\ImpersonatorUserTest\bin\ImpersonatorUserTest.dll.config
+D:\Dropbox\My Tests\My Web Tests\ImpersonatorUserTest\ImpersonatorUserTest\bin\ImpersonatorUserTest.dll
+D:\Dropbox\My Tests\My Web Tests\ImpersonatorUserTest\ImpersonatorUserTest\bin\ImpersonatorUserTest.pdb
+D:\Dropbox\My Tests\My Web Tests\ImpersonatorUserTest\ImpersonatorUserTest\obj\Debug\ImpersonatorUserTest.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\ImpersonatorUserTest\ImpersonatorUserTest\obj\Debug\ImpersonatorUserTest.dll
+D:\Dropbox\My Tests\My Web Tests\ImpersonatorUserTest\ImpersonatorUserTest\obj\Debug\ImpersonatorUserTest.pdb

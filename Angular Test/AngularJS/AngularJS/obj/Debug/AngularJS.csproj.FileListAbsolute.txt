@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\AngularJS\AngularJS\bin\AngularJS.dll.config
+D:\Dropbox\My Tests\My Web Tests\AngularJS\AngularJS\bin\AngularJS.dll
+D:\Dropbox\My Tests\My Web Tests\AngularJS\AngularJS\bin\AngularJS.pdb
+D:\Dropbox\My Tests\My Web Tests\AngularJS\AngularJS\obj\Debug\AngularJS.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\AngularJS\AngularJS\obj\Debug\AngularJS.dll
+D:\Dropbox\My Tests\My Web Tests\AngularJS\AngularJS\obj\Debug\AngularJS.pdb

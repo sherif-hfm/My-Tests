@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model.DocFlow" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model.DocFlow" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8020/DocFlow/DocFlow.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" />
+  <xs:complexType name="DocSearchParameters">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AssignToEmployeeCode" type="xs:int" />
+      <xs:element minOccurs="0" name="ConfirmationUserCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateByDepartmentCode" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DocFromDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DocReference" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocSubject" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocToDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FromOrganisationOrCitizen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSubmitted" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TransferFromDepartmentCode" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TransferNumber" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TransferToDepartmentCode" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocSearchParameters" nillable="true" type="tns:DocSearchParameters" />
+  <xs:complexType name="ArrayOfDocFlowInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DocFlowInfo" nillable="true" type="tns:DocFlowInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDocFlowInfo" nillable="true" type="tns:ArrayOfDocFlowInfo" />
+  <xs:complexType name="DocFlowInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AddUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AttachmentsNo" type="xs:int" />
+      <xs:element minOccurs="0" name="ConfirmationDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ConfirmationUserCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Header" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsCanceled" type="xs:int" />
+      <xs:element minOccurs="0" name="IsClosed" type="xs:int" />
+      <xs:element minOccurs="0" name="IsReceived" type="xs:int" />
+      <xs:element minOccurs="0" name="IsRejected" type="xs:int" />
+      <xs:element minOccurs="0" name="IsSubmitted" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LetterContents" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NotificationDays" type="xs:int" />
+      <xs:element minOccurs="0" name="ReceivedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ReceivedDateHejry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferenceNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalRowCount" type="xs:int" />
+      <xs:element minOccurs="0" name="TransferDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TransferDateHejry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransferFrom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransferFromDepartmentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransferFromOrganisationCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransferNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="TransferParent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransferTo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransferToDepartmentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransferToOrganisationCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocFlowInfo" nillable="true" type="tns:DocFlowInfo" />
+  <xs:complexType name="ArrayOfDepartment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Department" nillable="true" type="tns:Department" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDepartment" nillable="true" type="tns:ArrayOfDepartment" />
+  <xs:complexType name="Department">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DepartmentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentNameAr" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Department" nillable="true" type="tns:Department" />
+  <xs:complexType name="ArrayOfOrganization">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Organization" nillable="true" type="tns:Organization" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganization" nillable="true" type="tns:ArrayOfOrganization" />
+  <xs:complexType name="Organization">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OrganizationCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationNameAr" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Organization" nillable="true" type="tns:Organization" />
+  <xs:complexType name="ArrayOfEmployeeInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EmployeeInfo" nillable="true" type="tns:EmployeeInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmployeeInfo" nillable="true" type="tns:ArrayOfEmployeeInfo" />
+  <xs:complexType name="EmployeeInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" base="q1:BaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Directorate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EmployeeInfo" nillable="true" type="tns:EmployeeInfo" />
+  <xs:complexType name="ArrayOfLetterTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LetterTemplate" nillable="true" type="tns:LetterTemplate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLetterTemplate" nillable="true" type="tns:ArrayOfLetterTemplate" />
+  <xs:complexType name="LetterTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DirCode" type="xs:int" />
+      <xs:element minOccurs="0" name="TemplateCode" type="xs:int" />
+      <xs:element minOccurs="0" name="TemplateData" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TemplateNameAr" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LetterTemplate" nillable="true" type="tns:LetterTemplate" />
+</xs:schema>

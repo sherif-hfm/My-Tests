@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5284B70E-9917-40EA-8575-D6E8B677392B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UmmAlQuraCalendar</RootNamespace>
+    <AssemblyName>UmmAlQuraCalendar</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Home.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Calendar\calendar-blue.gif" />
+    <Content Include="Calendar\calendar-green.gif" />
+    <Content Include="Calendar\calendar.gif" />
+    <Content Include="Calendar\calendarsBasic.html" />
+    <Content Include="Calendar\calendarsPickerBasic.html" />
+    <Content Include="Calendar\flora.calendars.picker.css" />
+    <Content Include="Calendar\humanity.calendars.picker.css" />
+    <Content Include="Calendar\jquery.calendars-af.js" />
+    <Content Include="Calendar\jquery.calendars-am.js" />
+    <Content Include="Calendar\jquery.calendars-ar-DZ.js" />
+    <Content Include="Calendar\jquery.calendars-ar-EG.js" />
+    <Content Include="Calendar\jquery.calendars-ar.js" />
+    <Content Include="Calendar\jquery.calendars-az.js" />
+    <Content Include="Calendar\jquery.calendars-bg.js" />
+    <Content Include="Calendar\jquery.calendars-bs.js" />
+    <Content Include="Calendar\jquery.calendars-ca.js" />
+    <Content Include="Calendar\jquery.calendars-cs.js" />
+    <Content Include="Calendar\jquery.calendars-da.js" />
+    <Content Include="Calendar\jquery.calendars-de-CH.js" />
+    <Content Include="Calendar\jquery.calendars-de.js" />
+    <Content Include="Calendar\jquery.calendars-el.js" />
+    <Content Include="Calendar\jquery.calendars-en-AU.js" />
+    <Content Include="Calendar\jquery.calendars-en-GB.js" />
+    <Content Include="Calendar\jquery.calendars-en-NZ.js" />
+    <Content Include="Calendar\jquery.calendars-eo.js" />
+    <Content Include="Calendar\jquery.calendars-es-AR.js" />
+    <Content Include="Calendar\jquery.calendars-es-PE.js" />
+    <Content Include="Calendar\jquery.calendars-es.js" />
+    <Content Include="Calendar\jquery.calendars-et.js" />
+    <Content Include="Calendar\jquery.calendars-eu.js" />
+    <Content Include="Calendar\jquery.calendars-fa.js" />
+    <Content Include="Calendar\jquery.calendars-fi.js" />
+    <Content Include="Calendar\jquery.calendars-fo.js" />
+    <Content Include="Calendar\jquery.calendars-fr-CH.js" />
+    <Content Include="Calendar\jquery.calendars-fr.js" />
+    <Content Include="Calendar\jquery.calendars-gl.js" />
+    <Content Include="Calendar\jquery.calendars-gu.js" />
+    <Content Include="Calendar\jquery.calendars-he.js" />
+    <Content Include="Calendar\jquery.calendars-hi-IN.js" />
+    <Content Include="Calendar\jquery.calendars-hr.js" />
+    <Content Include="Calendar\jquery.calendars-hu.js" />
+    <Content Include="Calendar\jquery.calendars-hy.js" />
+    <Content Include="Calendar\jquery.calendars-id.js" />
+    <Content Include="Calendar\jquery.calendars-is.js" />
+    <Content Include="Calendar\jquery.calendars-it.js" />
+    <Content Include="Calendar\jquery.calendars-ja.js" />
+    <Content Include="Calendar\jquery.calendars-ka.js" />
+    <Content Include="Calendar\jquery.calendars-km.js" />
+    <Content Include="Calendar\jquery.calendars-ko.js" />
+    <Content Include="Calendar\jquery.calendars-lt.js" />
+    <Content Include="Calendar\jquery.calendars-lv.js" />
+    <Content Include="Calendar\jquery.calendars-me-ME.js" />
+    <Content Include="Calendar\jquery.calendars-me.js" />
+    <Content Include="Calendar\jquery.calendars-mk.js" />
+    <Content Include="Calendar\jquery.calendars-ml.js" />
+    <Content Include="Calendar\jquery.calendars-ms.js" />
+    <Content Include="Calendar\jquery.calendars-mt.js" />
+    <Content Include="Calendar\jquery.calendars-nl-BE.js" />
+    <Content Include="Calendar\jquery.calendars-nl.js" />
+    <Content Include="Calendar\jquery.calendars-no.js" />
+    <Content Include="Calendar\jquery.calendars-pl.js" />
+    <Content Include="Calendar\jquery.calendars-pt-BR.js" />
+    <Content Include="Calendar\jquery.calendars-rm.js" />
+    <Content Include="Calendar\jquery.calendars-ro.js" />
+    <Content Include="Calendar\jquery.calendars-ru.js" />
+    <Content Include="Calendar\jquery.calendars-sk.js" />
+    <Content Include="Calendar\jquery.calendars-sl.js" />
+    <Content Include="Calendar\jquery.calendars-sq.js" />
+    <Content Include="Calendar\jquery.calendars-sr-SR.js" />
+    <Content Include="Calendar\jquery.calendars-sr.js" />
+    <Content Include="Calendar\jquery.calendars-sv.js" />
+    <Content Include="Calendar\jquery.calendars-ta.js" />
+    <Content Include="Calendar\jquery.calendars-th.js" />
+    <Content Include="Calendar\jquery.calendars-tr.js" />
+    <Content Include="Calendar\jquery.calendars-tt.js" />
+    <Content Include="Calendar\jquery.calendars-uk.js" />
+    <Content Include="Calendar\jquery.calendars-ur.js" />
+    <Content Include="Calendar\jquery.calendars-vi.js" />
+    <Content Include="Calendar\jquery.calendars-zh-CN.js" />
+    <Content Include="Calendar\jquery.calendars-zh-HK.js" />
+    <Content Include="Calendar\jquery.calendars-zh-TW.js" />
+    <Content Include="Calendar\jquery.calendars.all.js" />
+    <Content Include="Calendar\jquery.calendars.all.min.js" />
+    <Content Include="Calendar\jquery.calendars.coptic.js" />
+    <Content Include="Calendar\jquery.calendars.coptic.min.js" />
+    <Content Include="Calendar\jquery.calendars.ethiopian-am.js" />
+    <Content Include="Calendar\jquery.calendars.ethiopian.js" />
+    <Content Include="Calendar\jquery.calendars.ethiopian.min.js" />
+    <Content Include="Calendar\jquery.calendars.hebrew-he.js" />
+    <Content Include="Calendar\jquery.calendars.hebrew.js" />
+    <Content Include="Calendar\jquery.calendars.hebrew.min.js" />
+    <Content Include="Calendar\jquery.calendars.islamic-ar.js" />
+    <Content Include="Calendar\jquery.calendars.islamic-fa.js" />
+    <Content Include="Calendar\jquery.calendars.islamic.js" />
+    <Content Include="Calendar\jquery.calendars.islamic.min.js" />
+    <Content Include="Calendar\jquery.calendars.js" />
+    <Content Include="Calendar\jquery.calendars.julian.js" />
+    <Content Include="Calendar\jquery.calendars.julian.min.js" />
+    <Content Include="Calendar\jquery.calendars.lang.js" />
+    <Content Include="Calendar\jquery.calendars.lang.min.js" />
+    <Content Include="Calendar\jquery.calendars.mayan.js" />
+    <Content Include="Calendar\jquery.calendars.mayan.min.js" />
+    <Content Include="Calendar\jquery.calendars.min.js" />
+    <Content Include="Calendar\jquery.calendars.nepali-ne.js" />
+    <Content Include="Calendar\jquery.calendars.nepali.js" />
+    <Content Include="Calendar\jquery.calendars.nepali.min.js" />
+    <Content Include="Calendar\jquery.calendars.persian-fa.js" />
+    <Content Include="Calendar\jquery.calendars.persian.js" />
+    <Content Include="Calendar\jquery.calendars.persian.min.js" />
+    <Content Include="Calendar\jquery.calendars.picker-af.js" />
+    <Content Include="Calendar\jquery.calendars.picker-am.js" />
+    <Content Include="Calendar\jquery.calendars.picker-ar-DZ.js" />
+    <Content Include="Calendar\jquery.calendars.picker-ar-EG.js" />
+    <Content Include="Calendar\jquery.calendars.picker-ar.js" />
+    <Content Include="Calendar\jquery.calendars.picker-az.js" />
+    <Content Include="Calendar\jquery.calendars.picker-bg.js" />
+    <Content Include="Calendar\jquery.calendars.picker-bs.js" />
+    <Content Include="Calendar\jquery.calendars.picker-ca.js" />
+    <Content Include="Calendar\jquery.calendars.picker-cs.js" />
+    <Content Include="Calendar\jquery.calendars.picker-da.js" />
+    <Content Include="Calendar\jquery.calendars.picker-de-CH.js" />
+    <Content Include="Calendar\jquery.calendars.picker-de.js" />
+    <Content Include="Calendar\jquery.calendars.picker-el.js" />
+    <Content Include="Calendar\jquery.calendars.picker-en-AU.js" />
+    <Content Include="Calendar\jquery.calendars.picker-en-GB.js" />
+    <Content Include="Calendar\jquery.calendars.picker-en-NZ.js" />
+    <Content Include="Calendar\jquery.calendars.picker-eo.js" />
+    <Content Include="Calendar\jquery.calendars.picker-es-AR.js" />
+    <Content Include="Calendar\jquery.calendars.picker-es-PE.js" />
+    <Content Include="Calendar\jquery.calendars.picker-es.js" />
+    <Content Include="Calendar\jquery.calendars.picker-et.js" />
+    <Content Include="Calendar\jquery.calendars.picker-eu.js" />
+    <Content Include="Calendar\jquery.calendars.picker-fa.js" />
+    <Content Include="Calendar\jquery.calendars.picker-fi.js" />
+    <Content Include="Calendar\jquery.calendars.picker-fo.js" />
+    <Content Include="Calendar\jquery.calendars.picker-fr-CH.js" />
+    <Content Include="Calendar\jquery.calendars.picker-fr.js" />
+    <Content Include="Calendar\jquery.calendars.picker-gl.js" />
+    <Content Include="Calendar\jquery.calendars.picker-gu.js" />
+    <Content Include="Calendar\jquery.calendars.picker-he.js" />
+    <Content Include="Calendar\jquery.calendars.picker-hi-IN.js" />
+    <Content Include="Calendar\jquery.calendars.picker-hr.js" />
+    <Content Include="Calendar\jquery.calendars.picker-hu.js" />
+    <Content Include="Calendar\jquery.calendars.picker-hy.js" />
+    <Content Include="Calendar\jquery.calendars.picker-id.js" />
+    <Content Include="Calendar\jquery.calendars.picker-is.js" />
+    <Content Include="Calendar\jquery.calendars.picker-it.js" />
+    <Content Include="Calendar\jquery.calendars.picker-ja.js" />
+    <Content Include="Calendar\jquery.calendars.picker-ka.js" />
+    <Content Include="Calendar\jquery.calendars.picker-km.js" />
+    <Content Include="Calendar\jquery.calendars.picker-ko.js" />
+    <Content Include="Calendar\jquery.calendars.picker-lt.js" />
+    <Content Include="Calendar\jquery.calendars.picker-lv.js" />
+    <Content Include="Calendar\jquery.calendars.picker-me-ME.js" />
+    <Content Include="Calendar\jquery.calendars.picker-me.js" />
+    <Content Include="Calendar\jquery.calendars.picker-mk.js" />
+    <Content Include="Calendar\jquery.calendars.picker-ml.js" />
+    <Content Include="Calendar\jquery.calendars.picker-ms.js" />
+    <Content Include="Calendar\jquery.calendars.picker-mt.js" />
+    <Content Include="Calendar\jquery.calendars.picker-nl-BE.js" />
+    <Content Include="Calendar\jquery.calendars.picker-nl.js" />
+    <Content Include="Calendar\jquery.calendars.picker-no.js" />
+    <Content Include="Calendar\jquery.calendars.picker-pl.js" />
+    <Content Include="Calendar\jquery.calendars.picker-pt-BR.js" />
+    <Content Include="Calendar\jquery.calendars.picker-rm.js" />
+    <Content Include="Calendar\jquery.calendars.picker-ro.js" />
+    <Content Include="Calendar\jquery.calendars.picker-ru.js" />
+    <Content Include="Calendar\jquery.calendars.picker-sk.js" />
+    <Content Include="Calendar\jquery.calendars.picker-sl.js" />
+    <Content Include="Calendar\jquery.calendars.picker-sq.js" />
+    <Content Include="Calendar\jquery.calendars.picker-sr-SR.js" />
+    <Content Include="Calendar\jquery.calendars.picker-sr.js" />
+    <Content Include="Calendar\jquery.calendars.picker-sv.js" />
+    <Content Include="Calendar\jquery.calendars.picker-ta.js" />
+    <Content Include="Calendar\jquery.calendars.picker-th.js" />
+    <Content Include="Calendar\jquery.calendars.picker-tr.js" />
+    <Content Include="Calendar\jquery.calendars.picker-tt.js" />
+    <Content Include="Calendar\jquery.calendars.picker-uk.js" />
+    <Content Include="Calendar\jquery.calendars.picker-ur.js" />
+    <Content Include="Calendar\jquery.calendars.picker-vi.js" />
+    <Content Include="Calendar\jquery.calendars.picker-zh-CN.js" />
+    <Content Include="Calendar\jquery.calendars.picker-zh-HK.js" />
+    <Content Include="Calendar\jquery.calendars.picker-zh-TW.js" />
+    <Content Include="Calendar\jquery.calendars.picker.css" />
+    <Content Include="Calendar\jquery.calendars.picker.ext.js" />
+    <Content Include="Calendar\jquery.calendars.picker.ext.min.js" />
+    <Content Include="Calendar\jquery.calendars.picker.js" />
+    <Content Include="Calendar\jquery.calendars.picker.lang.js" />
+    <Content Include="Calendar\jquery.calendars.picker.lang.min.js" />
+    <Content Include="Calendar\jquery.calendars.picker.min.js" />
+    <Content Include="Calendar\jquery.calendars.plus.js" />
+    <Content Include="Calendar\jquery.calendars.plus.min.js" />
+    <Content Include="Calendar\jquery.calendars.taiwan-zh-TW.js" />
+    <Content Include="Calendar\jquery.calendars.taiwan.js" />
+    <Content Include="Calendar\jquery.calendars.taiwan.min.js" />
+    <Content Include="Calendar\jquery.calendars.thai-th.js" />
+    <Content Include="Calendar\jquery.calendars.thai.js" />
+    <Content Include="Calendar\jquery.calendars.thai.min.js" />
+    <Content Include="Calendar\jquery.calendars.ummalqura-ar.js" />
+    <Content Include="Calendar\jquery.calendars.ummalqura.js" />
+    <Content Include="Calendar\jquery.calendars.ummalqura.min.js" />
+    <Content Include="Calendar\jquery.calendars.validation.js" />
+    <Content Include="Calendar\jquery.calendars.validation.min.js" />
+    <Content Include="Calendar\jquery.plugin.js" />
+    <Content Include="Calendar\jquery.plugin.min.js" />
+    <Content Include="Calendar\redmond.calendars.picker.css" />
+    <Content Include="Calendar\smoothness.calendars.picker.css" />
+    <Content Include="Calendar\ui-black-tie.calendars.picker.css" />
+    <Content Include="Calendar\ui-blitzer.calendars.picker.css" />
+    <Content Include="Calendar\ui-cupertino.calendars.picker.css" />
+    <Content Include="Calendar\ui-dark-hive.calendars.picker.css" />
+    <Content Include="Calendar\ui-dot-luv.calendars.picker.css" />
+    <Content Include="Calendar\ui-eggplant.calendars.picker.css" />
+    <Content Include="Calendar\ui-excite-bike.calendars.picker.css" />
+    <Content Include="Calendar\ui-flick.calendars.picker.css" />
+    <Content Include="Calendar\ui-hot-sneaks.calendars.picker.css" />
+    <Content Include="Calendar\ui-humanity.calendars.picker.css" />
+    <Content Include="Calendar\ui-le-frog.calendars.picker.css" />
+    <Content Include="Calendar\ui-mint-choc.calendars.picker.css" />
+    <Content Include="Calendar\ui-overcast.calendars.picker.css" />
+    <Content Include="Calendar\ui-pepper-grinder.calendars.picker.css" />
+    <Content Include="Calendar\ui-redmond.calendars.picker.css" />
+    <Content Include="Calendar\ui-smoothness.calendars.picker.css" />
+    <Content Include="Calendar\ui-south-street.calendars.picker.css" />
+    <Content Include="Calendar\ui-start.calendars.picker.css" />
+    <Content Include="Calendar\ui-sunny.calendars.picker.css" />
+    <Content Include="Calendar\ui-swanky-purse.calendars.picker.css" />
+    <Content Include="Calendar\ui-trontastic.calendars.picker.css" />
+    <Content Include="Calendar\ui-ui-darkness.calendars.picker.css" />
+    <Content Include="Calendar\ui-ui-lightness.calendars.picker.css" />
+    <Content Include="Calendar\ui-vader.calendars.picker.css" />
+    <Content Include="Calendar\ui.calendars.picker.css" />
+    <Content Include="Global.asax" />
+    <Content Include="index.aspx" />
+    <Content Include="index.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Home.Master.cs">
+      <DependentUpon>Home.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.Master.designer.cs">
+      <DependentUpon>Home.Master</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>23796</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:23796/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

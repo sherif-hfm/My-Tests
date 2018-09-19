@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc processed="true">
+  <assembly>
+    <name>Leadtools.Forms.Recognition.Barcode</name>
+  </assembly>
+  <members>
+    <member name="T:Leadtools.Forms.Recognition.Barcode.BarcodeObjectsManager">
+      <summary>
+            Creates a Barcode objects manager that extracts barcode features in a form. 
+            The created object is added to 
+            <see cref="P:Leadtools.Forms.Recognition.FormRecognitionEngine.ObjectsManagers">ObjectsManagers</see>.
+            </summary>
+      <keywords>Forms|Recognition|Barcodes|Engines</keywords>
+      <remarks>
+            This manager detects barcode features of the forms. Colored barcode is supported if the spaces color is closer white than black and the bars color is closer to black than white 
+            </remarks>
+      <example>For an example, refer to <see cref="P:Leadtools.Forms.Recognition.FormRecognitionEngine.ObjectsManagers">ObjectsManagers</see>.</example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.Barcode.BarcodeObjectsManager.#ctor(Leadtools.Barcode.BarcodeEngine)">
+      <summary>
+            Initializes a new 
+            <see cref="T:Leadtools.Forms.Recognition.Barcode.BarcodeObjectsManager" /> class object.
+            </summary>
+      <keywords>Forms|Recognition|Barcodes|Engines</keywords>
+      <param name="engine">
+            The barcode engine.
+            </param>
+      <noremarks>
+      </noremarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.Barcode.BarcodeObjectsManager.Engine">
+      <summary>
+            Gets/sets the barcode engine to read barcodes.
+            </summary>
+      <keywords>Forms|Recognition|Barcodes|Engines</keywords>
+      <value>The <see cref="T:Leadtools.Barcode.BarcodeEngine" /> that is used in this 
+            <see cref="T:Leadtools.Forms.Recognition.Barcode.BarcodeObjectsManager" /> to 
+            perform barcode reading</value>
+      <noremarks>
+      </noremarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+  </members>
+</doc>

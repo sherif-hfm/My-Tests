@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <script type="text/template" id="tmpl1">
+        <div data-div="">
+            <input type="file" data-file="" style="display:none" />
+            <input type="text" data-txt="" readonly />
+            <input type="button" data-btn="" value="Open" />
+            <br />
+        </div>
+        <script>
+            //console.log('tmpl1');
+        </script>
+    </script>
+
+    <div divFile=""></div>
+    <div divfile=""></div>
+    <div divfile=""></div>
+    
+
+    <script type="text/javascript">
+        var files = [];
+        $(document).ready(function () {
+            var tmpl1 = $('#tmpl1');
+            
+            $('[divFile]').append(tmpl1.html());
+
+            $('[data-div]').each(function (index, element) {
+                var file = $(this).find('[data-file]').first();
+                var txt = $(this).find('[data-txt]').first();
+                var btn = $(this).find('[data-btn]').first();
+                var args = { File: file, Text: txt, Button: btn };
+                btn.on('click', args, btnClick);
+                file.on('change', args, fileChange);
+            });
+
+            function btnClick(args)
+            {
+                var data = args.data
+                data.File.click();
+            }
+            function fileChange(args)
+            {
+                var data = args.data
+                data.Text.val($(this).val());
+            }
+           
+        });
+    </script>
+</body>
+</html>

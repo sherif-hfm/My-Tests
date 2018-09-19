@@ -1,0 +1,3583 @@
+<?xml version="1.0"?>
+<doc processed="true">
+  <assembly>
+    <name>Leadtools.Forms.Processing</name>
+  </assembly>
+  <members>
+    <member name="T:Leadtools.Forms.Processing.TableColumn">
+      <summary>
+            A column of <see cref="T:Leadtools.Forms.Processing.TableFormField" />.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|OCR</keywords>
+      <noremarks />
+      <example>
+            For an example, refer to <see cref="T:Leadtools.Forms.Processing.TableFormField" />.
+            </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.TableColumn.#ctor(Leadtools.Forms.Processing.OcrFormField)">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.TableColumn" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|OCR</keywords>
+      <param name="ocrField">
+            The field containing data in the column.
+            </param>
+      <noremarks />
+      <example>
+            For an example, refer to <see cref="T:Leadtools.Forms.Processing.TableFormField" />.
+            </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.TableColumn.#ctor(Leadtools.Forms.Processing.OcrFormField,System.Boolean)">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.TableColumn" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|OCR</keywords>
+      <param name="ocrField">
+            The field containing data in the column.
+            </param>
+      <param name="isKeyColumn">
+            Specifies whether the column is primary key.
+            </param>
+      <noremarks />
+      <example>
+            For an example, refer to <see cref="T:Leadtools.Forms.Processing.TableFormField" />.
+            </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TableColumn.IsKeyColumn">
+      <summary>
+            Specifies whether the column is primary key.
+            </summary>
+      <keywords>Primary key|Forms|Processing|Fields|Recognition|OCR</keywords>
+      <value>true if the column is a primary key; otherwise, not.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TableColumn.Alignment">
+      <summary>
+            (Read only) Gets the column alignment after detection.
+            </summary>
+      <keywords>Alignment|Forms|Processing|Fields|Recognition|OCR</keywords>
+      <value>Column fields alignment.</value>
+      <remarks>
+            This value is valid after processing <see cref="T:Leadtools.Forms.Processing.TableFormField" /> that contains <see cref="T:Leadtools.Forms.Processing.TableColumn" />.
+            </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TableColumn.Tag">
+      <summary>
+            Assigns object to the column.
+            </summary>
+      <keywords>Object|Forms|Processing|Fields|Recognition|OCR</keywords>
+      <value>The object assigned to <see cref="T:Leadtools.Forms.Processing.TableColumn" />.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TableColumn.FullBounds">
+      <summary>
+            (Read only) Gets the bounds of column area.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|OCR</keywords>
+      <value>The full Area occupied by column fields.</value>
+      <remarks>
+            The value is valid after processing <see cref="T:Leadtools.Forms.Processing.TableFormField" /> that contains <see cref="T:Leadtools.Forms.Processing.TableColumn" />.
+            </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TableColumn.OcrField">
+      <summary>
+            (Read only) Gets the <see cref="T:Leadtools.Forms.Processing.OcrFormField" /> that the <see cref="T:Leadtools.Forms.Processing.TableColumn" /> object initialized with.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|OCR</keywords>
+      <value>get the <see cref="T:Leadtools.Forms.Processing.OcrFormField" /> that the <see cref="T:Leadtools.Forms.Processing.TableColumn" /> object initialized with.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.TableFormField">
+      <summary>
+            A single rectangular region on a form that extended to defines a table/invoice area 
+            on a table header (not filled-in) form so a text reading process can be performed on the filled 
+            form during form processing on the recognized fields to the end of the invoice area.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|OCR</keywords>
+      <remarks>
+        <para>Fields are defined for each page in the processing engine. All fields require you 
+            fill in the Property specifying where the field is located, and a Name Property.</para>
+        <para>Fields can be added or retrieved through the <see cref="P:Leadtools.Forms.Processing.FormProcessingEngine.Pages" /> 
+            property. Once fields are defined, they can be loaded/saved from disk using the 
+            <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.LoadFields(System.String)" /> and 
+            <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.SaveFields(System.String)" /> methods, 
+            allowing you to define MasterForm fields just once and save them to disk.
+            LEADTOOLS supports <see cref="T:Leadtools.Forms.Processing.TableFormField" />, 
+            <see cref="T:Leadtools.Forms.Processing.OmrFormField" />, 
+            <see cref="T:Leadtools.Forms.Processing.BarcodeFormField" />, 
+            <see cref="T:Leadtools.Forms.Processing.ImageFormField" />, 
+            <see cref="T:Leadtools.Forms.Processing.TableFormField" />, 
+            and custom user-defined fields derived from <see cref="T:Leadtools.Forms.Processing.FormField" />. 
+            When obtaining processing results, you should check for the type of each 
+            field, and cast it to the appropriate type in order to obtain the field 
+            specific results (barcode, image, etc).</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      ''' This example shows how to create a TableFormField.
+      Public Sub AddTableFormField(ByVal processingEngine As FormProcessingEngine)
+         ''' Create a new page for the form. 
+         Dim formPage As FormPage = New FormPage(1, 150, 150)
+         Dim tableField as TableFormField = New TableFormField()
+         ''' Set Table Rule which tell us that each table row is seperated with
+         ''' horizontal line.
+         tableField.Rules = TableRules.RowsLineSeparator
+
+         ''' add two columns to new table field
+         Dim column1 As TextFormField = New TextFormField()
+         column1.Name = "Column1"
+         column1.Bounds = New LogicalRectangle(0, 0, 100, 50, LogicalUnit.Pixel)
+         tableField.Columns.Add(New TableColumn(column1))
+
+         Dim column2 As TextFormField = New TextFormField()
+         column2.Name = "Column2"
+         column2.Bounds = New LogicalRectangle(150, 0, 100, 50, LogicalUnit.Pixel)
+         tableField.Columns.Add(New TableColumn(column2))
+
+         formPage.Add(tableField)
+         ''' Add the page to the engine 
+         processingEngine.Pages.Add(formPage)
+      End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      ///This example shows how to create a TableFormField.
+      public void AddTableFormField(FormProcessingEngine processingEngine)
+      {
+         //Create a new page for the form. 
+         FormPage formPage = new FormPage(1, 150, 150);
+         TableFormField tableField = new TableFormField();
+         //Set Table Rule which tell us that each table row is seperated with
+         //horizontal line.
+         tableField.Rules = TableRules.RowsLineSeparator;
+
+         //add two columns to new table field
+         TextFormField column1 = new TextFormField();
+         column1.Name = "Column1";
+         column1.Bounds = new LogicalRectangle(0, 0, 100, 50, LogicalUnit.Pixel);
+         tableField.Columns.Add(new TableColumn(column1));
+
+         TextFormField column2 = new TextFormField();
+         column2.Name = "Column2";
+         column2.Bounds = new LogicalRectangle(150, 0, 100, 50, LogicalUnit.Pixel);
+         tableField.Columns.Add(new TableColumn(column2));
+
+         formPage.Add(tableField);
+         //Add the page to the engine 
+         processingEngine.Pages.Add(formPage);
+      }</code>
+        <!--TableFormField-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.FormField">
+      <summary>
+             The base class for all form fields. Any form field, either predefined or user-defined, 
+             should implement <see cref="T:Leadtools.Forms.Processing.FormField" />.
+             </summary>
+      <keywords>Forms|Processing|Recognition|Fields</keywords>
+      <remarks>
+        <para>Fields are defined for each page in the processing engine. All fields require that you fill in the Property specifying where the field is located, and the Name Property.</para>
+        <para>Fields can be added or retrieved using the <see cref="P:Leadtools.Forms.Processing.FormProcessingEngine.Pages" /> property. Once fields are defined, they can be loaded or saved using the <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.LoadFields(System.String)" /> or the <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.SaveFields(System.String)" /> methods. You define MasterForm fields just once and save them to disk.
+            LEADTOOLS supports <see cref="T:Leadtools.Forms.Processing.TextFormField" />, <see cref="T:Leadtools.Forms.Processing.OmrFormField" />, <see cref="T:Leadtools.Forms.Processing.BarcodeFormField" />, <see cref="T:Leadtools.Forms.Processing.ImageFormField" />, and custom user-defined fields derived from <see cref="T:Leadtools.Forms.Processing.FormField" />. When obtaining processing results, check each field's type and cast it to the appropriate type in order to obtain the field-specific results (barcode, image, etc).</para>
+      </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.FormField.ReadXmlValues(System.Xml.XPath.IXPathNavigable,System.Collections.Generic.IList{System.String})">
+      <summary>
+            Fills this <see cref="T:Leadtools.Forms.Processing.FormField" /> from the XML string stored in <paramref name="values" />.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|XML</keywords>
+      <param name="navigator">
+            Provides an accessor to the <see cref="T:System.Xml.XPath.XPathNavigator" /> class.
+            </param>
+      <param name="values">
+            A list of XML strings containing this <see cref="T:Leadtools.Forms.Processing.FormField" /> data.
+            </param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.FormField.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.FormField" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.FormField.WriteXmlValues(System.Xml.XPath.IXPathNavigable,System.Xml.XPath.IXPathNavigable)">
+      <summary>
+            Writes this <see cref="T:Leadtools.Forms.Processing.FormField" /> class data to the specified XML <paramref name="valuesElement" />.
+            
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|XML</keywords>
+      <param name="document">
+            Provides an accessor to the <see cref="T:System.Xml.XPath.XPathNavigator" /> class.
+            </param>
+      <param name="valuesElement">
+            Provides an accessor to the <see cref="T:System.Xml.XPath.XPathNavigator" /> class.
+            </param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.FormField.ReadXml(System.Xml.XPath.IXPathNavigable)">
+      <summary>
+            Reads the values stored in the XML file.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|XML</keywords>
+      <param name="navigator">
+            Provides an accessor to the <see cref="T:System.Xml.XPath.XPathNavigator" /> class.
+            </param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.FormField.WriteXml(System.Xml.XPath.IXPathNavigable,System.Xml.XPath.IXPathNavigable)">
+      <summary>
+            Writes the values to an XML file.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|XML</keywords>
+      <param name="document">
+            Provides an accessor to the <see cref="T:System.Xml.XPath.XPathNavigator" /> class.
+            </param>
+      <param name="element">
+            Provides an accessor to the <see cref="T:System.Xml.XPath.XPathNavigator" /> class.
+            </param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.FormField.Process(Leadtools.Forms.Processing.FormProcessingEngine,Leadtools.RasterImage,Leadtools.Forms.PageAlignment)">
+      <summary>
+            Performs processing on a form.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Master Forms|OCR|Engines</keywords>
+      <param name="engine">
+            The processing engine that is initialized with the OCR and barcode engines (as needed).
+            </param>
+      <param name="form">
+            The image on which the processing should be performed.
+            </param>
+      <param name="pageAlignment">
+            A PageAlignment value that specifies how to align a Master Form's field to the processed form.
+            </param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.FormField.Result">
+      <summary>
+            Gets the results of processing this field.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields</keywords>
+      <value>A value that indicates the results of field processing.</value>
+      <noremarks />
+      <example>
+            For example, refer to the <see cref="T:Leadtools.Forms.Processing.FormFieldResult" /> example.
+            </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.FormField.Bounds">
+      <summary>
+                Gets or sets a <see cref="T:Leadtools.Forms.LogicalRectangle" /> that specifies
+                the location of the field in the form image.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Logical Rectangle</keywords>
+      <value>
+                A <see cref="T:Leadtools.Forms.LogicalRectangle" /> that specifies the location
+                of this field.
+            </value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.FormField.MasterPageNumber">
+      <summary>
+            Gets or sets the master page index that this <see cref="T:Leadtools.Forms.Processing.FormField" /> belong to.
+            </summary>
+      <keywords>MasterPageNumber|Forms|Processing|Fields|Recognition</keywords>
+      <value> Master page index in MasterForm that is related to this <see cref="T:Leadtools.Forms.Processing.FormField" /> .</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.FormField.Dropout">
+      <summary>
+            Gets or sets the dropout options.
+            </summary>
+      <keywords>Dropout|Forms|Processing|Fields|Recognition</keywords>
+      <value>Dropout options or comination of them.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.FormField.Name">
+      <summary>
+            Gets or sets the field name.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields</keywords>
+      <value>The string associated with this field.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.FormField.Tag">
+      <summary>
+            Gets or sets user-defined data of the field.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields</keywords>
+      <value>The user-defined data of the field.</value>
+      <remarks>
+        <para>The type of the Tag should be serializable to be saved with the field, otherwise it will not be saved.</para>
+      </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.TableFormField.ReadXmlValues(System.Xml.XPath.IXPathNavigable,System.Collections.Generic.IList{System.String})">
+      <summary>
+            Reads the data of <see cref="T:Leadtools.Forms.Processing.TableFormField" /> from the XML string stored in <paramref name="values" />.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|Text|XML</keywords>
+      <param name="navigator">
+            Provides an accessor to the <see cref="T:System.Xml.XPath.XPathNavigator" /> class.
+            </param>
+      <param name="values">
+            A list of XML strings containing the <see cref="T:Leadtools.Forms.Processing.TableFormField" /> data.
+            </param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.TableFormField.WriteXmlValues(System.Xml.XPath.IXPathNavigable,System.Xml.XPath.IXPathNavigable)">
+      <summary>
+            Writes the <see cref="T:Leadtools.Forms.Processing.TableFormField" /> class data into the specified XML <paramref name="valuesElement" />.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|Text|XML</keywords>
+      <param name="document">
+            Provides an accessor to the <see cref="T:System.Xml.XPath.XPathNavigator" /> class.
+            </param>
+      <param name="valuesElement">
+            Provides an accessor to the <see cref="T:System.Xml.XPath.XPathNavigator" /> class.
+            </param>
+      <noremarks />
+      <example>
+            For an example, refer to <see cref="T:Leadtools.Forms.Processing.TableFormField" />.
+            </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.TableFormField.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.TableFormField" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|Text</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.TableFormField.#ctor(System.Collections.Generic.List{Leadtools.Forms.Processing.TableColumn})">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.TableFormField" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|Text</keywords>
+      <param name="columns">
+            Initialize a new <see cref="T:Leadtools.Forms.Processing.TableFormField" /> class object with list of <see cref="T:Leadtools.Forms.Processing.TableColumn" />.
+            </param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.TableFormField.Process(Leadtools.Forms.Processing.FormProcessingEngine,Leadtools.RasterImage,Leadtools.Forms.PageAlignment)">
+      <summary>
+            Performs the processing of a field.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|Engines|OCR</keywords>
+      <param name="engine">
+            The processing engine that is initialized with OCR and barcode engines.
+            </param>
+      <param name="form">
+            The image on which the processing should be performed.
+            </param>
+      <param name="pageAlignment">
+            The page alignment to align the field to this form image.
+            </param>
+      <remarks>
+            This method is designed to be called through <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.ProcessPage(Leadtools.RasterImage,Leadtools.Forms.PageAlignment,System.Int32)" /> method, it cannot be called directly.
+            </remarks>
+      <example>
+            For an example, refer to <see cref="T:Leadtools.Forms.Processing.TableFormField" />.
+            </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TableFormField.Result">
+      <summary>
+            (Read only) Gets the results of processing the field.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition</keywords>
+      <value>The results of field processing.</value>
+      <remarks>
+            To get each field results, they must be casted into <see cref="T:Leadtools.Forms.Processing.TableFormFieldResult" />.
+            </remarks>
+      <example>
+            For an example, refer to <see cref="T:Leadtools.Forms.Processing.FormFieldResult" /> example.
+            </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TableFormField.Columns">
+      <summary>
+            Gets or sets the columns list of the table.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|OCR</keywords>
+      <value>The columns list of the table.</value>
+      <remarks>
+            A table must have at least a column.
+            </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TableFormField.Rules">
+      <summary>
+            Gets or sets the rules for the table.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|OCR</keywords>
+      <value>The Rules used to recognize the table.</value>
+      <remarks>
+            Detecting and Choosing common good rules will effect the results and make the better.
+            </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TableFormField.PagesBounds">
+      <summary>
+            Gets Dictionary of Pages bounds and Pages indices.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|OCR</keywords>
+      <value>The Bounds for each page index that occupied by table field.</value>
+      <remarks>
+            Through this property we can get the <see cref="T:Leadtools.Forms.Processing.TableFormField" /> Bound for each page containg it.
+            </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TableFormField.ExpectedPages">
+      <summary>
+            Gets List of expected pages indices that are occupied by <see cref="T:Leadtools.Forms.Processing.TableFormField" />.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|OCR</keywords>
+      <value>List of expected pages indices for the <see cref="T:Leadtools.Forms.Processing.TableFormField" />.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.TableFormFieldResult">
+      <summary>
+            Provides the results of processing the table field.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|OCR</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.FormFieldResult">
+      <summary>
+             Provides the results of processing the field. The base class for all form field result classes.
+             </summary>
+      <keywords>Forms|Processing|Recognition|Fields</keywords>
+      <remarks>
+        <para>Fields are defined for each page in the processing engine. All fields require you fill in the Property specifying where the field is located, and a Name Property.</para>
+        <para>Fields can be added or retrieved through the <see cref="P:Leadtools.Forms.Processing.FormProcessingEngine.Pages" /> property. Once fields are defined, they can be loaded/saved from disk using the <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.LoadFields(System.String)" /> and <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.SaveFields(System.String)" /> methods, allowing you to define MasterForm fields just once and save them to disk.
+            LEADTOOLS supports <see cref="T:Leadtools.Forms.Processing.TextFormField" />, <see cref="T:Leadtools.Forms.Processing.OmrFormField" />, <see cref="T:Leadtools.Forms.Processing.BarcodeFormField" />, <see cref="T:Leadtools.Forms.Processing.ImageFormField" />, and custom user-defined fields derived from <see cref="T:Leadtools.Forms.Processing.FormField" />. When obtaining processing results, you should check for the type of each field, and cast it to the appropriate type in order to obtain the field specific results (barcode, image, etc).</para>
+      </remarks>
+      <example>
+        <code lang="VB">        Imports Leadtools
+        Imports Leadtools.Barcode
+        Imports Leadtools.Codecs
+        Imports Leadtools.Forms
+        Imports Leadtools.Forms.Ocr
+        Imports Leadtools.Forms.Processing
+        Imports Leadtools.Forms.Recognition
+        Imports Leadtools.Forms.Recognition.Barcode
+        Imports Leadtools.Forms.Recognition.Ocr
+
+        '''This example prints field results.
+      Private Function GetDataString(ByVal data As Byte()) As String
+         Dim result As String = String.Empty
+         Dim i As Integer = 0
+         Do While i &lt; data.Length
+            result = result &amp; System.Convert.ToChar(data(i)).ToString()
+            i += 1
+         Loop
+
+         Return result
+      End Function
+      Public Sub PrintOutFieldResults(ByVal processingEngine As FormProcessingEngine)
+         For Each page As FormPage In processingEngine.Pages
+            For Each field As FormField In page
+               Dim row As String() = New String(4){}
+               row(0) = field.Name
+               row(4) = field.Bounds.ToString()
+
+               If Not field.Result Is Nothing Then
+                  If TypeOf field Is TextFormField Then
+                     row(1) = "Text"
+                     row(2) = (TryCast((TryCast(field, TextFormField)).Result, TextFormFieldResult)).Text
+                     row(3) = (TryCast((TryCast(field, TextFormField)).Result, TextFormFieldResult)).AverageConfidence.ToString()
+                  ElseIf TypeOf field Is OmrFormField Then
+                     row(1) = "Omr"
+                     row(2) = (TryCast((TryCast(field, OmrFormField)).Result, OmrFormFieldResult)).Text
+                     row(3) = (TryCast((TryCast(field, OmrFormField)).Result, OmrFormFieldResult)).AverageConfidence.ToString()
+                  ElseIf TypeOf field Is BarcodeFormField Then
+                     row(1) = "Barcode"
+                     Dim i As Integer = 0
+                     Do While i &lt; (TryCast((TryCast(field, BarcodeFormField)).Result, BarcodeFormFieldResult)).BarcodeData.Count
+                        row(2) = GetDataString((TryCast((TryCast(field, BarcodeFormField)).Result, BarcodeFormFieldResult)).BarcodeData(i).GetData())
+                        i += 1
+                     Loop
+
+                     row(3) = "N/A"
+                  ElseIf TypeOf field Is ImageFormField Then
+                     row(1) = "Image"
+                     row(2) = "N/A"
+                     row(3) = "N/A"
+                  End If
+               End If
+               For Each line As String In row
+                  Console.WriteLine(line &amp; Constants.vbCrLf)
+               Next line
+            Next field
+         Next page
+      End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      ///This example prints field results.
+      private string GetDataString(byte[] data)
+      {
+         string result = string.Empty;
+         for (int i = 0; i &lt; data.Length; i++)
+         {
+            result = result + System.Convert.ToChar(data[i]).ToString();
+         }
+
+         return result;
+      }
+      public void PrintOutFieldResults(FormProcessingEngine processingEngine)
+      {
+         foreach(FormPage page in processingEngine.Pages)
+         {
+            foreach(FormField field in page)
+            {
+               string[] row = new string[5];
+               row[0] = field.Name;
+               row[4] = field.Bounds.ToString();
+
+               if(field.Result != null)
+               {
+                  if(field is TextFormField)
+                  {
+                     row[1] = "Text";
+                     row[2] = ((field as TextFormField).Result as TextFormFieldResult).Text;
+                     row[3] = ((field as TextFormField).Result as TextFormFieldResult).AverageConfidence.ToString();
+                  }
+                  else if(field is OmrFormField)
+                  {
+                     row[1] = "Omr";
+                     row[2] = ((field as OmrFormField).Result as OmrFormFieldResult).Text;
+                     row[3] = ((field as OmrFormField).Result as OmrFormFieldResult).AverageConfidence.ToString();
+                  }
+                  else if(field is BarcodeFormField)
+                  {
+                     row[1] = "Barcode";
+                     for(int i = 0; i &lt; ((field as BarcodeFormField).Result as BarcodeFormFieldResult).BarcodeData.Count; i++)
+                        row[2] = GetDataString(((field as BarcodeFormField).Result as BarcodeFormFieldResult).BarcodeData[i].GetData());
+
+                     row[3] = "N/A";
+                  }
+                  else if(field is ImageFormField)
+                  {
+                     row[1] = "Image";
+                     row[2] = "N/A";
+                     row[3] = "N/A";
+                  }
+               }
+               foreach(string line in row)
+                  Console.WriteLine(line + "\r\n");
+            }
+         }
+      }</code>
+        <!--FormFieldResult-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.FormFieldResult.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.FormFieldResult" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.FormFieldResult.Status">
+      <summary>Gets or sets the status of processing the field.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Status</keywords>
+      <value>The status of processing the field.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.TableFormFieldResult.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.TableFormFieldResult" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|OCR</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TableFormFieldResult.Rows">
+      <summary>
+            Gets the recognized list of <see cref="T:Leadtools.Forms.Processing.TableFormRow" /> in the table.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|OCR</keywords>
+      <value>List of recognized <see cref="T:Leadtools.Forms.Processing.TableFormRow" /> in the table.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.TableFormRow">
+      <summary>
+            The row containing the recognized fields in the table.
+            </summary>
+      <keywords>Row|Forms|Processing|Recognition|Fields|OCR</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.TableFormRow.#ctor(System.Int32)">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.TableFormRow" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|OCR</keywords>
+      <param name="pageIndex">
+            The Page Index of the <see cref="T:Leadtools.Forms.Processing.TableFormRow" />.
+            </param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TableFormRow.Fields">
+      <summary>
+            Gets the list of recognized <see cref="T:Leadtools.Forms.Processing.OcrFormField" /> in the row.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|OCR</keywords>
+      <value>List of recognized <see cref="T:Leadtools.Forms.Processing.OcrFormField" /> in the row.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TableFormRow.PageIndex">
+      <summary>
+            Gets the page index of the current row.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|OCR</keywords>
+      <value>Page index of the <see cref="T:Leadtools.Forms.Processing.TableFormRow" />.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.BarcodeFormField">
+      <summary>
+            A single rectangular region on a form. 
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Barcodes</keywords>
+      <remarks>FormField defines a barcode area on a blank (not
+            filled-in) form so that a barcode reading process can be performed on the filled form
+            during form processing. Colored barcode is supported if the spaces color is closer white than black and the bars color is closer to black than white </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.BarcodeFormField.ReadXmlValues(System.Xml.XPath.IXPathNavigable,System.Collections.Generic.IList{System.String})">
+      <summary>
+             Fills this <see cref="T:Leadtools.Forms.Processing.BarcodeFormField" /> from the XML string stored in <paramref name="values" />.
+             </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Barcodes</keywords>
+      <param name="navigator">
+             Provides an accessor to the <see cref="T:System.Xml.XPath.XPathNavigator" /> class.
+             </param>
+      <param name="values">
+             A list of XML strings containing this <see cref="T:Leadtools.Forms.Processing.BarcodeFormField" /> data.
+             </param>
+      <remarks>
+        <para>Fields are defined for each page in the processing engine. All fields require you fill in the Property specifying where the field is located, and a Name Property.</para>
+        <para>Fields can be added or retrieved through the <see cref="P:Leadtools.Forms.Processing.FormProcessingEngine.Pages" /> property. Once fields are defined, they can be loaded/saved from disk using the <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.LoadFields(System.String)" /> and <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.SaveFields(System.String)" /> methods, allowing you to define MasterForm fields just once and save them to disk.
+            LEADTOOLS supports <see cref="T:Leadtools.Forms.Processing.TextFormField" />, <see cref="T:Leadtools.Forms.Processing.OmrFormField" />, <see cref="T:Leadtools.Forms.Processing.BarcodeFormField" />, <see cref="T:Leadtools.Forms.Processing.ImageFormField" />, and custom user-defined fields derived from <see cref="T:Leadtools.Forms.Processing.FormField" />. When obtaining processing results, check for the type of each field, and cast it to the appropriate type in order to obtain the field specific results (barcode, image, etc).</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      '''This example shows how to create a BarcodeFormField.
+      Public Sub AddBarcodeFormField(ByVal processingEngine As FormProcessingEngine)
+         'Create a new page for the form. 
+         Dim formPage As FormPage = New FormPage(1, 150, 150)
+         Dim barcodeField As BarcodeFormField = New BarcodeFormField()
+         barcodeField.Name = "Request Number"
+         barcodeField.Bounds = New LogicalRectangle(196, 327, 1402, 40, LogicalUnit.Pixel)
+         formPage.Add(barcodeField)
+         'Add the page to the engine 
+         processingEngine.Pages.Add(formPage)
+      End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      ///This example shows how to create a BarcodeFormField.
+      public void AddBarcodeFormField(FormProcessingEngine processingEngine)
+      {
+         //Create a new page for the form. 
+         FormPage formPage = new FormPage(1, 150, 150);
+         BarcodeFormField barcodeField = new BarcodeFormField();
+         barcodeField.Name = "Request Number";
+         barcodeField.Bounds = new LogicalRectangle(196, 327, 1402, 40, LogicalUnit.Pixel);
+         formPage.Add(barcodeField);
+         //Add the page to the engine 
+         processingEngine.Pages.Add(formPage);
+      }</code>
+        <!--BarcodeFormField-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.BarcodeFormField.WriteXmlValues(System.Xml.XPath.IXPathNavigable,System.Xml.XPath.IXPathNavigable)">
+      <summary>
+            Writes this <see cref="T:Leadtools.Forms.Processing.BarcodeFormField" /> class data into the specified XML  <paramref name="valuesElement" /></summary>
+      <keywords>Forms|Processing|Recognition|Fields|Barcodes|XML</keywords>
+      <param name="document">
+            Provides an accessor to the <see cref="T:System.Xml.XPath.XPathNavigator" /> class.
+            </param>
+      <param name="valuesElement">
+            Provides an accessor to the <see cref="T:System.Xml.XPath.XPathNavigator" /> class.
+            </param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.BarcodeFormField.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.BarcodeFormField" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Barcodes</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.BarcodeFormField.Process(Leadtools.Forms.Processing.FormProcessingEngine,Leadtools.RasterImage,Leadtools.Forms.PageAlignment)">
+      <summary>
+            Performs the processing of this field.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Barcodes|Engines</keywords>
+      <param name="engine">
+            The processing engine that is initialized with OCR and barcode engines (as
+            needed).
+            </param>
+      <param name="form">
+            The image on which processing will be performed.
+            </param>
+      <param name="pageAlignment">
+                Page alignment value that specifies how to align a Master Form to the
+                <paramref name="form" />.
+            </param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Forms.Processing.BarcodeFormField.Result">
+      <summary>
+            Gets the results of processing this field.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Barcodes</keywords>
+      <value>A value that describes the results of field processing.</value>
+      <noremarks />
+      <example>
+            For example, refer to the <see cref="T:Leadtools.Forms.Processing.FormFieldResult" /> example.
+            </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.BarcodeFormField.Symbology">
+      <summary>
+            Gets or sets the barcode symbology associated with this field.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Barcodes</keywords>
+      <value>The barcode symboology to search for inside this field area. Default value is <see cref="T:Leadtools.Barcode.BarcodeSymbology">BarcodeSymbology.Unknown</see>.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.BarcodeFormFieldResult">
+      <summary>
+             Provides the results of processing the barcode field.
+             </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Barcodes</keywords>
+      <remarks>
+        <para>Fields are defined for each page in the processing engine. All fields require you fill in the Property specifying where the field is located, and a Name Property.</para>
+        <para>Fields can be added or retrieved through the <see cref="P:Leadtools.Forms.Processing.FormProcessingEngine.Pages" /> property. Once fields are defined, they can be loaded/saved from disk using the <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.LoadFields(System.String)" /> and <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.SaveFields(System.String)" /> methods, allowing you to define MasterForm fields just once and save them to disk.
+            LEADTOOLS supports <see cref="T:Leadtools.Forms.Processing.TextFormField" />, <see cref="T:Leadtools.Forms.Processing.OmrFormField" />, <see cref="T:Leadtools.Forms.Processing.BarcodeFormField" />, <see cref="T:Leadtools.Forms.Processing.ImageFormField" />, and custom user-defined fields derived from <see cref="T:Leadtools.Forms.Processing.FormField" />. When obtaining processing results, check for the type of each field, and cast it to the appropriate type in order to obtain the field specific results (barcode, image, etc).</para>
+      </remarks>
+      <example>
+             For example, refer to the <see cref="T:Leadtools.Forms.Processing.FormFieldResult" /> example.
+             </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.BarcodeFormFieldResult.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.BarcodeFormFieldResult" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Barcodes</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.BarcodeFormFieldResult.BarcodeData">
+      <summary>
+            List of BarcodeData classes in a BarcodeDataCollection class representing the 
+            detected barcodes inside the barcode field.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Barcodes</keywords>
+      <value>List containing information about the detected barcode.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.FormFieldStatus">
+      <summary>Values that describe the status of field processing.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Status</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="F:Leadtools.Forms.Processing.FormFieldStatus.Failed">
+      <summary>(0x00000001)Failure.</summary>
+    </member>
+    <member name="F:Leadtools.Forms.Processing.FormFieldStatus.Success">
+      <summary>(0x00000000)Success.</summary>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.OcrTextType">
+      <summary>
+            Values that indicate the different text field types. 
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|OCR|Text</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="F:Leadtools.Forms.Processing.OcrTextType.FlowText">
+      <summary>(0x00000000)Flow text type field.</summary>
+    </member>
+    <member name="F:Leadtools.Forms.Processing.OcrTextType.Graphic">
+      <summary>(0x00000002)Field containing graphics.</summary>
+    </member>
+    <member name="F:Leadtools.Forms.Processing.OcrTextType.Table">
+      <summary>(0x00000001)Table type field.</summary>
+    </member>
+    <member name="F:Leadtools.Forms.Processing.OcrTextType.Omr">
+      <summary>(0x00000003)Omr type field.</summary>
+    </member>
+    <member name="F:Leadtools.Forms.Processing.OcrTextType.Icr">
+      <summary>(0x00000005)Icr (hand written) text type field.</summary>
+    </member>
+    <member name="F:Leadtools.Forms.Processing.OcrTextType.Micr">
+      <summary>(0x00000004)Micr (Magnetic ink character recognition) type field.</summary>
+    </member>
+    <member name="F:Leadtools.Forms.Processing.OcrTextType.None">
+      <summary>(0x00000008)None type field.</summary>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.TextFieldType">
+      <summary>
+            Values that represent the type of the text in the Text Field.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Text|Character|Numerical </keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="F:Leadtools.Forms.Processing.TextFieldType.Character">
+      <summary>(0x00000000)Undetermined.</summary>
+    </member>
+    <member name="F:Leadtools.Forms.Processing.TextFieldType.Numerical">
+      <summary>(0x00000001)24-pin draft dot-matrix printout.</summary>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.FieldAlignment">
+      <summary>
+            Values that represent the alignment of columns/fields in a table.
+            </summary>
+      <keywords>Forms|Processing|Fields</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="F:Leadtools.Forms.Processing.FieldAlignment.Left">
+      <summary>(0x00000000)Left alignment.</summary>
+    </member>
+    <member name="F:Leadtools.Forms.Processing.FieldAlignment.Center">
+      <summary>(0x00000001)Center alignment.</summary>
+    </member>
+    <member name="F:Leadtools.Forms.Processing.FieldAlignment.Right">
+      <summary>(0x00000002)Right alignment.</summary>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.DropoutFlag">
+      <summary>
+            Values that represent the Dropout options for a form field.
+            </summary>
+      <keywords>Dropout|Forms|Processing|Fields</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="F:Leadtools.Forms.Processing.DropoutFlag.None">
+      <summary>(0x00000000)Donot use dropout feature.</summary>
+    </member>
+    <member name="F:Leadtools.Forms.Processing.DropoutFlag.CellsDropout">
+      <summary>(0x00000001)Dropout cell borders conatining the data, so cell lines will not be detected.</summary>
+    </member>
+    <member name="F:Leadtools.Forms.Processing.DropoutFlag.WordsDropout">
+      <summary>(0x00000002)Dropout the words appearing in the master forms in the same field area.</summary>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.TableRules">
+      <summary>
+            Values that represent the rules that will help when recognizing Table Field.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields</keywords>
+      <noremarks />
+      <example>
+            For an example, refer to <see cref="T:Leadtools.Forms.Processing.TableFormField" />.
+            </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="F:Leadtools.Forms.Processing.TableRules.NoRules">
+      <summary>(0x00000000)There is no rules used when recognizing Table Field.</summary>
+    </member>
+    <member name="F:Leadtools.Forms.Processing.TableRules.RowsLineSeparator">
+      <summary>(0x00000001)There will horizontal line which will seperate each table row from the others rows.</summary>
+    </member>
+    <member name="F:Leadtools.Forms.Processing.TableRules.EqualFixedRowHeight">
+      <summary>(0x00000002)The distance between each row in the table is equaled.</summary>
+    </member>
+    <member name="F:Leadtools.Forms.Processing.TableRules.EqualFixedLineHeight">
+      <summary>(0x00000004)The distance between each linein the table is equaled.</summary>
+    </member>
+    <member name="F:Leadtools.Forms.Processing.TableRules.MultiPageTableHeaderRepeted">
+      <summary>(0x00000100)If table is extended to multipages, then each should have table header that containes columns names.</summary>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.ProcessFieldEventArgs">
+      <summary>
+            Handles each field processed by the <see cref="T:Leadtools.Forms.Processing.FormProcessingEngine" />.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Event Args</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.ProcessFieldEventArgs.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.ProcessFieldEventArgs" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Event Args</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.ProcessFieldEventArgs.#ctor(Leadtools.RasterImage,System.Int32,System.Int32,System.Int32,Leadtools.Forms.Processing.FormField,System.Int32,System.Int32)">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.ProcessFieldEventArgs" /> class object with explicit parameters.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Event Args</keywords>
+      <param name="form">
+            The page image that is under processing.
+            </param>
+      <param name="formFirstPageNumber">The starting page number for the process.</param>
+      <param name="formCurrentPageNumber">The current page number that is undergoing processing.</param>
+      <param name="formLastPageNumber">The last page number to be processed.</param>
+      <param name="field">The current field being processed.</param>
+      <param name="fieldIndex">The index of the field being processed.</param>
+      <param name="fieldCount">The number of fields in the current page.</param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.ProcessFieldEventArgs.Field">
+      <summary>Gets the field currently being processed.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Event Args</keywords>
+      <value>The field currently being processed.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.ProcessFieldEventArgs.FieldCount">
+      <summary>
+            Gets the number of fields in the current form page.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Event Args</keywords>
+      <value>The number of fields in the current form page.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.ProcessFieldEventArgs.FieldIndex">
+      <summary>
+            Gets the index of the current field in the page field list.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Event Args</keywords>
+      <value>The zero-based integer that specifies the position of the current field in the fields list.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.ProcessFieldEventArgs.FormCurrentPageNumber">
+      <summary>Gets the page number of the page that is currently undergoing processing.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Event Args</keywords>
+      <value>The 1-based integer that specifies the page number of the current form.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.ProcessFieldEventArgs.FormFirstPageNumber">
+      <summary>Gets the first page number of the form to be processed.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Event Args</keywords>
+      <value>The 1-based integer that specifies the first page number to process.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.ProcessFieldEventArgs.FormLastPageNumber">
+      <summary>Gets the last page number of the form to be processed.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Event Args</keywords>
+      <value>
+            The 1-based integer that specifies the page number of the last page to be
+            processed.
+            </value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.ProcessFieldEventArgs.Form">
+      <summary>Gets the form page image that is undergoing processing.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Event Args</keywords>
+      <value>A <see cref="T:Leadtools.RasterImage" /> object that represents the form image.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.ProcessFieldEventArgs.Cancel">
+      <summary>Gets or sets a flag to cancel the current processing.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Event Args</keywords>
+      <value>true to abort, false to continue normally.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.ProcessPageEventArgs">
+      <summary>
+            Handles each page processed by <see cref="T:Leadtools.Forms.Processing.FormProcessingEngine" />.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Event Args</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.ProcessPageEventArgs.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.ProcessPageEventArgs" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Event Args</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.ProcessPageEventArgs.#ctor(Leadtools.RasterImage,System.Int32,System.Int32,System.Int32,System.Boolean,Leadtools.Forms.Ocr.IOcrDocument,System.Int32)">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.ProcessPageEventArgs" /> class object with explicit parameters.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Event Args</keywords>
+      <param name="form">
+            The page image that is under processing.
+            </param>
+      <param name="formFirstPageNumber">
+            The start processing page number.
+            </param>
+      <param name="formCurrentPageNumber">
+            The current page number that is under processing.
+            </param>
+      <param name="formLastPageNumber">
+            The last processing page number.
+            </param>
+      <param name="requiresOcr">
+            Specifies if this page needs to be added to the OCR engine to process its fields.
+            </param>
+      <param name="ocrDocument">
+            Specifies an OCR Document that is created from the Ocr engine.
+            </param>
+      <param name="ocrPageNumber">
+            Specifies the page index in the <paramref name="ocrDocument" /> if it is already added or -1 if it is not.
+            </param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.ProcessPageEventArgs.RequiresOcr">
+      <summary>
+            Gets a flag that specifies whether this page needs to be added to the OCR engine
+            in order to process its fields.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Event Args</keywords>
+      <value>true if this page needs OCR, otherwise, false</value>
+      <remarks>
+            If the page has one or more OMR or text fields, this page requires OCR.
+            </remarks>
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Forms.Processing.ProcessPageEventArgs.FormCurrentPageNumber">
+      <summary>Gets the current page number that is undergoing processing.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Event Args</keywords>
+      <value> The 1-based integer that specifies the current form page number.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.ProcessPageEventArgs.FormFirstPageNumber">
+      <summary>Gets the starting page number of the form being processed.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Event Args</keywords>
+      <value>
+            The 1-based integer that specifies starting form page number being
+            processed.
+            </value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.ProcessPageEventArgs.FormLastPageNumber">
+      <summary>Gets the last page number of the form being processed.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Event Args</keywords>
+      <value>The 1-based integer that specifies the last form page number being processed.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.ProcessPageEventArgs.Form">
+      <summary>Gets the form page image that is being processed.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Event Args</keywords>
+      <value>A <see cref="T:Leadtools.RasterImage" /> object that represents the form image.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.ProcessPageEventArgs.OcrPageNumber">
+      <summary>Gets or sets the index of the page in the <see cref="P:Leadtools.Forms.Processing.ProcessPageEventArgs.OcrDocument" />.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Event Args</keywords>
+      <value>
+            The 0-based integer that specifies the index of the current page in the <see cref="P:Leadtools.Forms.Processing.ProcessPageEventArgs.OcrDocument" />.
+            </value>
+      <remarks>
+            -1 means this page is not added to the <see cref="P:Leadtools.Forms.Processing.ProcessPageEventArgs.OcrDocument" />, otherwise, the page is at the specified index.
+            </remarks>
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Forms.Processing.ProcessPageEventArgs.OcrDocument">
+      <summary>Gets or sets the OcrDocument that contains the page.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Event Args</keywords>
+      <value>
+            The OCR Document that is created from the Ocr engine and used for processing.
+            </value>
+      <remarks>
+            If this value is null the processing engine will create its own OcrDocument and add the page image to it.
+            </remarks>
+      <noexample />
+    </member>
+    <member name="T:Leadtools.Forms.Processing.FormPage">
+      <summary>
+            Specifies the page properties and fields for a Master Form.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Master Forms|Pages</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.FormPage.#ctor(System.Int32,System.Int32,System.Int32)">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.FormPage" /> class object with explicit parameters.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Pages</keywords>
+      <param name="pageNumber">
+            Master Form page number that this object represents.
+            </param>
+      <param name="dpiX">
+            The Master Form page image resolution along the x-axis.
+            </param>
+      <param name="dpiY">
+            The Master Form page image resolution along the y-axis.
+            </param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.FormPage.PageNumber">
+      <summary>
+            Gets the page number of the Master Form.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Master Form|Pages</keywords>
+      <value>The 1-based index of the Master Form page that <see cref="T:Leadtools.Forms.Processing.FormPage" /> represents.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.FormPage.DpiX">
+      <summary>
+            Gets or sets the page image resolution along the x-axis of the Master Form.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Master Form|Pages|Resolution|DPI</keywords>
+      <value>The horizontal DPI (dots per inch) of the image on the Master Form page.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.FormPage.DpiY">
+      <summary>
+            Gets or sets the page image resolution along the y-axis of the Master Form.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Master Form|Pages|Resolution|DPI</keywords>
+      <value>The vertical DPI (dots per inch) of the image on the Master Form page.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.FormPages">
+      <summary>
+            Collection of <see cref="T:Leadtools.Forms.Processing.FormPage" /> objects.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Pages</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.FormPages.GetPage(System.Int32)">
+      <summary>
+            Returns the <see cref="T:Leadtools.Forms.Processing.FormPage" /> at the specified page number.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Pages</keywords>
+      <param name="pageNumber">
+            The page number.
+            </param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.FormProcessingEngine">
+      <summary>
+            Class that contains the processing engine used to perform field processing.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Pages</keywords>
+      <noremarks />
+      <example>
+        <code lang="VB">   Imports Leadtools
+   Imports Leadtools.Barcode
+   Imports Leadtools.Codecs
+   Imports Leadtools.Forms
+   Imports Leadtools.Forms.Ocr
+   Imports Leadtools.Forms.Processing
+   Imports Leadtools.Forms.Recognition
+   Imports Leadtools.Forms.Recognition.Barcode
+   Imports Leadtools.Forms.Recognition.Ocr
+
+   ''' This class contains all Master Form information.
+   Friend Class MasterForm
+      Public Image As RasterImage
+      Public Attributes As FormRecognitionAttributes
+      Public Properties As FormRecognitionProperties
+      Public ProcessingPages As FormPages
+      ''' This constructor initialize all MasterForm memebers to zero/null/Empty.
+      Public Sub New()
+         Image = Nothing
+         Attributes = Nothing
+         Properties = FormRecognitionProperties.Empty
+         ProcessingPages = Nothing
+      End Sub
+   End Class
+
+   ''' This class contains all my Form information. My Form is the filled form that is going to be identified and processed by the application.
+   Friend Class MyForm
+      Public FileName As String
+      Public Image As RasterImage
+      Public Attributes As FormRecognitionAttributes
+      Public Master As MasterForm
+      Public Result As FormRecognitionResult
+      Public Alignment As IList(Of PageAlignment)
+      Public ProcessingPages As FormPages
+
+      ''' This constructor initialize all MyForm memebers to zero/null/Empty.
+      Public Sub New()
+         FileName = Nothing
+         Image = Nothing
+         Attributes = Nothing
+         Master = Nothing
+         Result = Nothing
+         Alignment = Nothing
+      End Sub
+   End Class
+
+   ''' TestForms is a class that has all the needed methods to recognize and process unknown forms. Once an instance of it is created StartUp should be called first to intialize
+   ''' Ocr and barcode engines, besides building the Master Forms set, then Run method should be called to recognize and process a specific form, finally the ShutDown method should be called
+   ''' once the program is terminated.
+   Friend Class TestForms
+      Private RecognitionEngine As FormRecognitionEngine
+      Private ProcessingEngine As FormProcessingEngine
+      Private FormsBarcodeEngine As BarcodeEngine
+      Private FormsOcrEngine As IOcrEngine
+      Private FormSet As List(Of MasterForm)
+      Private RecognizeFirstPageOnly As Boolean
+      Private LoadFromScanner As Boolean
+      Private FormsCodec As RasterCodecs
+
+
+      '===========================================================================
+      ''' This method loads an image from scanner.
+      Public Function LoadImageScanner(ByVal count As Integer) As RasterImage
+         'TODO
+         Return Nothing
+      End Function
+
+      ''' This method loads an image from scanner for recognition purposes.
+      Public Function LoadRecognitionImageScanner() As RasterImage
+         'TODO
+         Return Nothing
+      End Function
+
+      ''' This method loads an image from a file.
+      Public Function LoadImageFile(ByVal fileName As String, ByVal firstPage As Integer, ByVal lastPage As Integer) As RasterImage
+         ' Load the image and verify that we loaded all the pages 
+         Dim image As RasterImage = FormsCodec.Load(fileName, 1, CodecsLoadByteOrder.Bgr, firstPage, lastPage)
+         Return image
+      End Function
+      '===========================================================================
+      ''' This method loads an image from a file for recognition purposes.
+      Public Function LoadRecognitionImageFile(ByVal fileName As String) As RasterImage
+         Dim image As RasterImage
+         If RecognizeFirstPageOnly Then
+            image = LoadImageFile(fileName, 1, 1)
+         Else
+            image = LoadImageFile(fileName, 1, -1)
+         End If
+         Return image
+      End Function
+
+      ''' This method loads an image for recognition purposes.
+      Public Function LoadRecognitionImage(ByVal fileName As String) As RasterImage
+         Dim image As RasterImage
+         If RecognizeFirstPageOnly Then
+            image = LoadRecognitionImageScanner()
+         Else
+            image = LoadRecognitionImageFile(fileName)
+         End If
+         Return image
+      End Function
+
+      '===========================================================================
+      ''' This method creates a form attributes for recognition.
+      Public Function CreateForm() As FormRecognitionAttributes
+         Dim attributes As FormRecognitionAttributes = RecognitionEngine.CreateForm(Nothing)
+         RecognitionEngine.CloseForm(attributes)
+         Return attributes
+      End Function
+
+      ''' This method adds a page to form attributes for recognition.
+      Public Sub AddPageToForm(ByVal image As RasterImage, ByVal attributes As FormRecognitionAttributes)
+         RecognitionEngine.OpenForm(attributes)
+         RecognitionEngine.AddFormPage(attributes, image, Nothing)
+         RecognitionEngine.CloseForm(attributes)
+      End Sub
+
+      ''' This method deletes a page from form attributes for recognition.
+      Public Sub DeletePageFromForm(ByVal pagenumber As Integer, ByVal form As FormRecognitionAttributes)
+         RecognitionEngine.OpenForm(form)
+         RecognitionEngine.DeleteFormPage(form, pagenumber)
+         RecognitionEngine.CloseForm(form)
+      End Sub
+
+      ''' This method creates a form with its pages for recognition.
+      Public Sub CreateFormForRecognition(ByVal form As MyForm)
+         form.Attributes = CreateForm()
+         Dim saveCurrentPageIndex As Integer = form.Image.Page
+         Dim i As Integer = 0
+         Do While i &lt; form.Image.PageCount
+            form.Image.Page = i + 1 'page index is a 1-based starts from 1 not zero
+            AddPageToForm(form.Image, form.Attributes)
+            i += 1
+         Loop
+         form.Image.Page = saveCurrentPageIndex
+      End Sub
+
+      '===========================================================================
+      ''' This method creates a Master Form recognition attributes.
+      Public Function CreateMasterForm(ByVal name As String) As FormRecognitionAttributes
+         Dim attributes As FormRecognitionAttributes = RecognitionEngine.CreateMasterForm(name, Guid.Empty, Nothing)
+         RecognitionEngine.CloseMasterForm(attributes)
+         Return attributes
+      End Function
+
+      ''' This method adds a page to a Master Form recognition attributes.
+      Public Sub AddPageToMasterForm(ByVal image As RasterImage, ByVal attributes As FormRecognitionAttributes)
+         RecognitionEngine.OpenMasterForm(attributes)
+         RecognitionEngine.AddMasterFormPage(attributes, image, Nothing)
+         RecognitionEngine.CloseMasterForm(attributes)
+      End Sub
+
+      ''' This method deletes a page from a Master Form recognition attributes.
+      Public Sub DeletePageFromMasterForm(ByVal pagenumber As Integer, ByVal form As FormRecognitionAttributes)
+         RecognitionEngine.OpenMasterForm(form)
+         RecognitionEngine.DeleteMasterFormPage(form, pagenumber)
+         RecognitionEngine.CloseMasterForm(form)
+      End Sub
+
+      ''' This method creates a Master Form with its pages for recognition purposes.
+      Public Sub CreateMasterFormForRecognition(ByVal name As String, ByVal form As MasterForm)
+         form.Attributes = CreateMasterForm(name)
+         Dim saveCurrentPageIndex As Integer = form.Image.Page
+         Dim i As Integer = 0
+         Do While i &lt; form.Image.PageCount
+            form.Image.Page = i + 1 'page index is a 1-based starts from 1 not zero
+            AddPageToMasterForm(form.Image, form.Attributes)
+            i += 1
+         Loop
+         form.Image.Page = saveCurrentPageIndex
+      End Sub
+
+      '===========================================================================
+      '''This method compares a Form to a Master Form using all pages.
+      Private Function CompareForm(ByVal master As FormRecognitionAttributes, ByVal form As FormRecognitionAttributes) As FormRecognitionResult
+         Return RecognitionEngine.CompareForm(master, form, Nothing)
+      End Function
+
+      '''This method compares the first page of a Form to the first page of a Master Form.
+      Private Function CompareFirstPage(ByVal master As FormRecognitionAttributes, ByVal form As FormRecognitionAttributes) As FormRecognitionResult
+         Dim resultPage As PageRecognitionResult = RecognitionEngine.ComparePage(master, 1, form, 1)
+         Dim result As FormRecognitionResult = New FormRecognitionResult()
+         result.Confidence = resultPage.Confidence
+         result.LargestConfidencePageNumber = 1
+         result.PageResults.Add(resultPage)
+         result.Reason = FormRecognitionReason.Success
+         Return result
+      End Function
+
+      '''This method identifies the type of the form based on the comparison results.
+      Public Function IdentefyForm(ByVal results As FormRecognitionResult()) As Integer
+         Dim maxIndex As Integer = 0
+         maxIndex = 0
+         Dim i As Integer = 1
+         Do While i &lt; results.Length
+            If results(maxIndex).Confidence &lt; results(i).Confidence Then
+               maxIndex = i
+            End If
+            i += 1
+         Loop
+         If results(maxIndex).Confidence &lt; 30 Then
+            maxIndex = -1 'no match
+         End If
+         Return maxIndex
+      End Function
+
+      '''This method recognizes the type of the unknown form
+      Public Sub RecognizeForm(ByVal form As MyForm)
+         CreateFormForRecognition(form)
+         Dim results As FormRecognitionResult() = New FormRecognitionResult(FormSet.Count - 1) {}
+         Dim i As Integer = 0
+         Do While i &lt; FormSet.Count
+            If RecognizeFirstPageOnly Then
+               results(i) = CompareFirstPage(FormSet(i).Attributes, form.Attributes)
+            Else
+               results(i) = CompareForm(FormSet(i).Attributes, form.Attributes)
+            End If
+            i += 1
+         Loop
+         Dim index As Integer = IdentefyForm(results)
+         If index &gt;= 0 Then
+            form.Master = FormSet(index)
+            form.Result = results(index)
+         Else
+            form.Master = Nothing
+            form.Result = Nothing
+         End If
+      End Sub
+      '===========================================================================
+      '''This method load images for processing purposes if needed.
+      Private Function LoadProcessingImage(ByVal form As MyForm) As Boolean
+         Dim count As Integer = form.Master.Properties.Pages - form.Image.PageCount
+         If count = 0 Then
+            Return False
+         End If
+
+         Dim image As RasterImage
+
+         If LoadFromScanner Then
+            image = LoadImageScanner(count)
+         Else
+            image = LoadImageFile(form.FileName, form.Image.PageCount + 1, form.Image.PageCount + count)
+         End If
+
+         form.Image.AddPages(image, 1, count)
+         Return True
+      End Function
+      '===========================================================================
+      '''This method calculates the aligmnet for the recognized form.
+      Public Sub AlignForm(ByVal form As MyForm, ByVal calculateAlignment As Boolean)
+         If calculateAlignment Then
+            CreateFormForRecognition(form)
+            form.Alignment = RecognitionEngine.GetFormAlignment(form.Master.Attributes, form.Attributes, Nothing)
+         Else
+            form.Alignment = New List(Of PageAlignment)()
+            Dim i As Integer = 0
+            Do While i &lt; form.Result.PageResults.Count
+               form.Alignment.Add(form.Result.PageResults(i).Alignment)
+               i += 1
+            Loop
+         End If
+      End Sub
+
+      '===========================================================================
+      '''This method processes the recognized form.
+      Public Sub ProcessForm(ByVal form As MyForm)
+         form.ProcessingPages = form.Master.ProcessingPages
+         ProcessingEngine.Pages.Clear()
+         ProcessingEngine.Pages.AddRange(form.ProcessingPages)
+         ProcessingEngine.Process(form.Image, form.Alignment)
+      End Sub
+
+      '===========================================================================
+      '''This method recognizes the unknown form then processes it.
+      Public Sub RunFormRecognitionAndProcessing(ByVal form As MyForm)
+         form.Image = LoadRecognitionImage(form.FileName)
+         RecognizeForm(form)
+         If form.Master Is Nothing Then
+            Console.WriteLine("Unknown form")
+            Return
+         End If
+         Dim calculateAlignment As Boolean = LoadProcessingImage(form)
+         AlignForm(form, calculateAlignment)
+         ProcessForm(form)
+         PrintOutResults(form)
+      End Sub
+
+      '===========================================================================
+      ''' This method loads the specified master form attributes, fields, and image.
+      Public Function LoadMasterForm(ByVal attributesFileName As String, ByVal fieldsFileName As String, ByVal imageFileName As String) As MasterForm
+         Dim formData As Byte()
+         Dim form As MasterForm = New MasterForm()
+         formData = File.ReadAllBytes(attributesFileName)
+         form.Attributes = New FormRecognitionAttributes
+         form.Attributes.SetData(formData)
+         form.Properties = RecognitionEngine.GetFormProperties(form.Attributes)
+         ProcessingEngine.LoadFields(fieldsFileName)
+         form.ProcessingPages = ProcessingEngine.Pages
+         form.Image = FormsCodec.Load(imageFileName, 1, CodecsLoadByteOrder.Bgr, 1, -1)
+         Return form
+      End Function
+
+      ''' This method saves master form attributes to the specified filename.
+      Public Sub SaveMasterFormAttributes(ByVal form As MasterForm, ByVal attributesFileName As String)
+         Dim formData As Byte() = form.Attributes.GetData()
+         File.WriteAllBytes(attributesFileName, formData)
+      End Sub
+
+      ''' This method saves master form fields to the specified filename.
+      Public Sub SaveMasterFormFields(ByVal form As MasterForm, ByVal fieldsFileName As String)
+         ProcessingEngine.Pages.Clear()
+         ProcessingEngine.Pages.AddRange(form.ProcessingPages)
+         ProcessingEngine.SaveFields(fieldsFileName)
+      End Sub
+
+      '===========================================================================
+      ''' This method builds the Form Set.
+      Public Sub BuildFormsSet()
+         FormSet = New List(Of MasterForm)()
+
+         Dim Form107 As MasterForm = LoadMasterForm(Path.Combine(LEAD_VARS.ImagesDir, "Forms\MasterForm Sets\OCR\FFC-107.bin"), Path.Combine(LEAD_VARS.ImagesDir, "Forms\MasterForm Sets\OCR\FFC-107.xml"), Path.Combine(LEAD_VARS.ImagesDir, "Forms\MasterForm Sets\OCR\FFC-107.tif"))
+         FormSet.Add(Form107)
+
+         Dim Form180 As MasterForm = LoadMasterForm(Path.Combine(LEAD_VARS.ImagesDir, "Forms\MasterForm Sets\OCR\SF-180.bin"), Path.Combine(LEAD_VARS.ImagesDir, "Forms\MasterForm Sets\OCR\SF-180.xml"), Path.Combine(LEAD_VARS.ImagesDir, "Forms\MasterForm Sets\OCR\SF-180.tif"))
+         FormSet.Add(Form180)
+
+         Dim Form3881 As MasterForm = LoadMasterForm(Path.Combine(LEAD_VARS.ImagesDir, "Forms\MasterForm Sets\OCR\SF-3881.bin"), Path.Combine(LEAD_VARS.ImagesDir, "Forms\MasterForm Sets\OCR\SF-3881.xml"), Path.Combine(LEAD_VARS.ImagesDir, "Forms\MasterForm Sets\OCR\SF-3881.tif"))
+         FormSet.Add(Form3881)
+      End Sub
+
+      '===========================================================================
+
+      ''' This method prints the image field results
+      Public Sub PrintOutImage(ByVal field As ImageFormField)
+         Console.WriteLine()
+         Console.WriteLine("*** Image Field")
+         Dim result As ImageFormFieldResult = TryCast(field.Result, ImageFormFieldResult)
+         FormsCodec.Save(result.Image, Path.Combine(LEAD_VARS.ImagesDir, "ImageField.tif"), RasterImageFormat.Tif, 1)
+      End Sub
+
+      ''' This method prints the barcode field results
+      Public Sub PrintOutBarcode(ByVal field As BarcodeFormField)
+         Console.WriteLine()
+         Console.WriteLine("*** Barcode Field")
+         Dim result As BarcodeFormFieldResult = TryCast(field.Result, BarcodeFormFieldResult)
+         For Each barcode As BarcodeFieldData In result.BarcodeData
+            Console.WriteLine(" *- Barcode Type: " &amp; barcode.Symbology)
+            Console.WriteLine("  - Barcode Data: ")
+            Console.WriteLine(barcode.GetData())
+         Next barcode
+      End Sub
+
+      ''' This method prints the Omr field results
+      Public Sub PrintOutOmr(ByVal field As OmrFormField)
+         Console.WriteLine()
+         Console.WriteLine("*** Omr Field")
+         Dim result As OmrFormFieldResult = TryCast(field.Result, OmrFormFieldResult)
+         Console.WriteLine(" Is Checked?[1 = yes, 0 = No] = " &amp; result.Text)
+      End Sub
+
+      ''' This method prints the text field results
+      Public Sub PrintOutText(ByVal field As TextFormField)
+         Console.WriteLine()
+         Console.WriteLine("*** Text Field")
+         Dim result As TextFormFieldResult = TryCast(field.Result, TextFormFieldResult)
+         Console.WriteLine("Text: " &amp; result.Text)
+      End Sub
+
+      ''' This method prints the processing results
+      Public Sub PrintOutResults(ByVal form As MyForm)
+         If form.Result.Confidence &lt; 30 Then
+            Console.WriteLine("No match found")
+            Return
+         End If
+         Console.WriteLine("=======================Type===========================")
+         Console.WriteLine("Form Type is: " &amp; form.Master.Properties.Name)
+         Console.WriteLine("Confidance = " &amp; form.Result.Confidence)
+         Console.WriteLine()
+         Console.WriteLine("====================Fieds Result=======================")
+
+         Dim pageIndex As Integer = 0
+         Do While pageIndex &lt; form.ProcessingPages.Count
+            Console.WriteLine()
+            Console.WriteLine("=====Page # " &amp; form.ProcessingPages(pageIndex).PageNumber &amp; "=====")
+            Console.WriteLine()
+            For Each field As FormField In form.ProcessingPages(pageIndex)
+               If TypeOf field Is ImageFormField Then
+                  PrintOutImage(TryCast(field, ImageFormField))
+               ElseIf TypeOf field Is BarcodeFormField Then
+                  PrintOutBarcode(TryCast(field, BarcodeFormField))
+               ElseIf TypeOf field Is OmrFormField Then
+                  PrintOutOmr(TryCast(field, OmrFormField))
+               ElseIf TypeOf field Is TextFormField Then
+                  PrintOutText(TryCast(field, TextFormField))
+               End If
+            Next field
+            pageIndex += 1
+         Loop
+      End Sub
+
+      '===========================================================================
+      '''This method starts up the Ocr engine
+      Private Sub StartUpOcrEngine()
+         Try
+            FormsOcrEngine = OcrEngineManager.CreateEngine(OcrEngineType.Advantage, False)
+            FormsOcrEngine.Startup(FormsCodec, Nothing, Nothing, LEAD_VARS.OcrAdvantageRuntimeDir)
+         Catch exp As Exception
+            Console.WriteLine(exp.Message)
+         End Try
+      End Sub
+
+      '''This method shuts down the Ocr engine
+      Private Sub ShutDownOcrEngine()
+         FormsOcrEngine.Shutdown()
+         FormsOcrEngine.Dispose()
+      End Sub
+
+      '''This method starts up the Barcode engine
+      Private Sub StartUpBarcodeEngine()
+         Try
+            FormsBarcodeEngine = New BarcodeEngine()
+         Catch exp As Exception
+            Console.WriteLine(exp.Message)
+         End Try
+      End Sub
+
+      '''This method sets the object managers.
+      Public Sub SetObjectManagers(ByVal enableDefault As Boolean, ByVal enableOcr As Boolean, ByVal enableBarcode As Boolean)
+         If RecognitionEngine Is Nothing Then
+            Return
+         End If
+         If enableDefault Then
+            Dim defaultObjectManager As DefaultObjectsManager = New DefaultObjectsManager()
+            RecognitionEngine.ObjectsManagers.Add(defaultObjectManager)
+         End If
+
+         If enableOcr Then
+            Dim ocrObejectManager As OcrObjectsManager = New OcrObjectsManager(FormsOcrEngine)
+            ocrObejectManager.Engine = FormsOcrEngine
+            RecognitionEngine.ObjectsManagers.Add(ocrObejectManager)
+         End If
+
+         If enableBarcode Then
+            Dim barcodeObjectManager As BarcodeObjectsManager = New BarcodeObjectsManager(FormsBarcodeEngine)
+            barcodeObjectManager.Engine = FormsBarcodeEngine
+            RecognitionEngine.ObjectsManagers.Add(barcodeObjectManager)
+         End If
+      End Sub
+
+      '''This method starts up all engines.
+      Public Sub StartUpEngines()
+         StartUpOcrEngine()
+         StartUpBarcodeEngine()
+         RecognitionEngine = New FormRecognitionEngine()
+         SetObjectManagers(False, True, False)
+         ProcessingEngine = New FormProcessingEngine()
+         ProcessingEngine.OcrEngine = FormsOcrEngine
+         ProcessingEngine.BarcodeEngine = FormsBarcodeEngine
+      End Sub
+
+      '''This method shuts down all engines.
+      Public Sub ShutDownEngines()
+         ShutDownOcrEngine()
+      End Sub
+
+      '''This method starts up RasterCodec, intialize Form Codec, starts up all engines, and Build the form set
+      Public Sub StartUp()
+         '1)
+         FormsCodec = New RasterCodecs()
+         '2)
+         StartUpEngines()
+         '3)
+         RecognizeFirstPageOnly = False
+         LoadFromScanner = False
+         '4)
+         BuildFormsSet()
+      End Sub
+
+      '''This method shuts down engines, dispose all images, and shut down the RasterCodec.
+      Public Sub ShutDown()
+         '1)
+         ShutDownEngines()
+         '2)
+         For Each master As MasterForm In FormSet
+            master.Image.Dispose()
+         Next master
+         '3)
+         FormsCodec.Dispose()
+      End Sub
+
+
+      ''' Here all starts for to recognize and process the unknown form that is stored in a fiel with passed fileName.
+      Public Sub Run(ByVal fileName As String)
+         Dim form As MyForm = New MyForm()
+         form.FileName = fileName
+         RunFormRecognitionAndProcessing(form)
+         If Not form.Image Is Nothing Then
+            form.Image.Dispose()
+         End If
+      End Sub
+   End Class
+
+   Friend Class Program
+      ''' The main entry to the program.
+      Shared Sub Main(ByVal args As String())
+         If args Is Nothing OrElse args.Length = 0 Then
+            Return
+         End If
+
+         Dim test As TestForms = New TestForms()
+
+         test.StartUp()
+
+         test.Run(args(0))
+
+         test.ShutDown()
+      End Sub
+   End Class
+
+   Public NotInheritable Class LEAD_VARS
+   Public Const ImagesDir As String = "C:\Users\Public\Documents\LEADTOOLS Images"
+   Public Const OcrAdvantageRuntimeDir As String = "C:\LEADTOOLS 19\Bin\Common\OcrAdvantageRuntime"
+   End Class
+</code>
+        <code lang="CS">   using Leadtools;
+   using Leadtools.Barcode;
+   using Leadtools.Codecs;
+   using Leadtools.Forms;
+   using Leadtools.Forms.Ocr;
+   using Leadtools.Forms.Processing;
+   using Leadtools.Forms.Recognition;
+   using Leadtools.Forms.Recognition.Barcode;
+   using Leadtools.Forms.Recognition.Ocr;
+
+   /// This class contains all Master Form information.
+   class MasterForm
+   {
+      public RasterImage Image;
+      public FormRecognitionAttributes Attributes;
+      public FormRecognitionProperties Properties;
+      public FormPages ProcessingPages;
+      /// This constructor initializes all MasterForm members to zero/null/Empty.
+      public MasterForm()
+      {
+         Image = null;
+         Attributes = null;
+         Properties = FormRecognitionProperties.Empty;
+         ProcessingPages = null;
+      }
+   }
+
+   /// This class contains all MyForm information. MyForm is the filled form that is going to be identified and processed by the application.
+   class MyForm
+   {
+      public string FileName;
+      public RasterImage Image;
+      public FormRecognitionAttributes Attributes;
+      public MasterForm Master;
+      public FormRecognitionResult Result;
+      public IList&lt;PageAlignment&gt; Alignment;
+      public FormPages ProcessingPages;
+
+      /// This constructor initializes all MyForm members to zero/null/Empty.
+      public MyForm()
+      {
+         FileName = null;
+         Image = null;
+         Attributes = null;
+         Master = null;
+         Result = null;
+         Alignment = null;
+      }
+   }
+
+   /// TestForms is a class that has all the needed methods to recognize and process unknown forms. Once an instance of it is created StartUp should be called first to initialize the 
+   /// OCR and barcode engines in addition to building the Master Forms set. Next, call the Run method to recognize and process a specific form. Finally, call the ShutDown method 
+   /// once the program is terminated.
+   class TestForms
+   {
+      FormRecognitionEngine RecognitionEngine;
+      FormProcessingEngine ProcessingEngine;
+      BarcodeEngine FormsBarcodeEngine;
+      IOcrEngine FormsOcrEngine;
+      List&lt;MasterForm&gt; FormSet;
+      bool RecognizeFirstPageOnly;
+      bool LoadFromScanner;
+      RasterCodecs FormsCodec;
+
+
+      //===========================================================================
+      /// This method loads an image from a scanner.
+      public RasterImage LoadImageScanner(int count)
+      {
+         //TODO
+         return null;
+      }
+
+      /// This method loads an image from a scanner for recognition.
+      public RasterImage LoadRecognitionImageScanner()
+      {
+         //TODO
+         return null;
+      }
+
+      /// This method loads an image from a file.
+      public RasterImage LoadImageFile(string fileName, int firstPage, int lastPage)
+      {
+         // This method loads an image and verifies that all pages have been loaded.
+         RasterImage image = FormsCodec.Load(fileName, 1, CodecsLoadByteOrder.Bgr, firstPage, lastPage);
+         return image;
+      }
+      //===========================================================================
+      /// This method loads an image from a file for recognition.
+      public RasterImage LoadRecognitionImageFile(string fileName)
+      {
+         RasterImage image;
+         if (RecognizeFirstPageOnly)
+            image = LoadImageFile(fileName, 1, 1);
+         else
+            image = LoadImageFile(fileName, 1, -1);
+         return image;
+      }
+
+      /// This method loads an image for recognition.
+      public RasterImage LoadRecognitionImage(string fileName)
+      {
+         RasterImage image;
+         if (RecognizeFirstPageOnly)
+            image = LoadRecognitionImageScanner();
+         else
+            image = LoadRecognitionImageFile(fileName);
+         return image;
+      }
+
+      //===========================================================================
+      /// This method creates a form attributes object for recognition.
+      public FormRecognitionAttributes CreateForm()
+      {
+         FormRecognitionAttributes attributes = RecognitionEngine.CreateForm(null);
+         RecognitionEngine.CloseForm(attributes);
+         return attributes;
+      }
+
+      /// This method adds a page to a form attributes object for recognition.
+      public void AddPageToForm(RasterImage image, FormRecognitionAttributes attributes)
+      {
+         RecognitionEngine.OpenForm(attributes);
+         RecognitionEngine.AddFormPage(attributes, image, null);
+         RecognitionEngine.CloseForm(attributes);
+      }
+
+      /// This method deletes a page from a form attributes object for recognition.
+      public void DeletePageFromForm(int pagenumber, FormRecognitionAttributes form)
+      {
+         RecognitionEngine.OpenForm(form);
+         RecognitionEngine.DeleteFormPage(form, pagenumber);
+         RecognitionEngine.CloseForm(form);
+      }
+
+      /// This method creates a form along with its pages for recognition.
+      public void CreateFormForRecognition(MyForm form)
+      {
+         form.Attributes = CreateForm();
+         int saveCurrentPageIndex = form.Image.Page;
+         for (int i = 0; i &lt; form.Image.PageCount; i++)
+         {
+            form.Image.Page = i + 1;//page index is a 1-based index that starts from 1 not zero
+            AddPageToForm(form.Image, form.Attributes);
+         }
+         form.Image.Page = saveCurrentPageIndex;
+      }
+
+      //===========================================================================
+      /// This method creates a Master Form recognition attributes object.
+      public FormRecognitionAttributes CreateMasterForm(string name)
+      {
+         FormRecognitionAttributes attributes = RecognitionEngine.CreateMasterForm(name, Guid.Empty, null);
+         RecognitionEngine.CloseMasterForm(attributes);
+         return attributes;
+      }
+
+      /// This method adds a page to a Master Form recognition attributes object.
+      public void AddPageToMasterForm(RasterImage image, FormRecognitionAttributes attributes)
+      {
+         RecognitionEngine.OpenMasterForm(attributes);
+         RecognitionEngine.AddMasterFormPage(attributes, image, null);
+         RecognitionEngine.CloseMasterForm(attributes);
+      }
+
+      /// This method deletes a page from a Master Form recognition attributes object.
+      public void DeletePageFromMasterForm(int pagenumber, FormRecognitionAttributes form)
+      {
+         RecognitionEngine.OpenMasterForm(form);
+         RecognitionEngine.DeleteMasterFormPage(form, pagenumber);
+         RecognitionEngine.CloseMasterForm(form);
+      }
+
+      /// This method creates a Master Form with its pages for recognition purposes.
+      public void CreateMasterFormForRecognition(string name, MasterForm form)
+      {
+         form.Attributes = CreateMasterForm(name);
+         int saveCurrentPageIndex = form.Image.Page;
+         for (int i = 0; i &lt; form.Image.PageCount; i++)
+         {
+            form.Image.Page = i + 1;//page index is a 1-based starts from 1 not zero
+            AddPageToMasterForm(form.Image, form.Attributes);
+         }
+         form.Image.Page = saveCurrentPageIndex;
+      }
+
+      //===========================================================================
+      ///This method compares a Form to a Master Form using all pages.
+      FormRecognitionResult CompareForm(FormRecognitionAttributes master, FormRecognitionAttributes form)
+      {
+         return RecognitionEngine.CompareForm(master, form, null);
+      }
+
+      ///This method compares the first page of a Form to the first page of a Master Form.
+      FormRecognitionResult CompareFirstPage(FormRecognitionAttributes master, FormRecognitionAttributes form)
+      {
+         PageRecognitionResult resultPage = RecognitionEngine.ComparePage(master, 1, form, 1);
+         FormRecognitionResult result = new FormRecognitionResult();
+         result.Confidence = resultPage.Confidence;
+         result.LargestConfidencePageNumber = 1;
+         result.PageResults.Add(resultPage);
+         result.Reason = FormRecognitionReason.Success;
+         return result;
+      }
+
+      ///This method identifies the type of the form based on the comparison results.
+      public int IdentefyForm(FormRecognitionResult[] results)
+      {
+         int maxIndex = 0;
+         maxIndex = 0;
+         for (int i = 1; i &lt; results.Length; i++)
+         {
+            if (results[maxIndex].Confidence &lt; results[i].Confidence)
+               maxIndex = i;
+         }
+         if (results[maxIndex].Confidence &lt; 30)
+            maxIndex = -1;//no match
+         return maxIndex;
+      }
+
+      ///This method recognizes the type of an unknown form.
+      public void RecognizeForm(MyForm form)
+      {
+         CreateFormForRecognition(form);
+         FormRecognitionResult[] results = new FormRecognitionResult[FormSet.Count];
+         for (int i = 0; i &lt; FormSet.Count; i++)
+         {
+            if (RecognizeFirstPageOnly)
+               results[i] = CompareFirstPage(FormSet[i].Attributes, form.Attributes);
+            else
+               results[i] = CompareForm(FormSet[i].Attributes, form.Attributes);
+         }
+         int index = IdentefyForm(results);
+         if (index &gt;= 0)
+         {
+            form.Master = FormSet[index];
+            form.Result = results[index];
+         }
+         else
+         {
+            form.Master = null;
+            form.Result = null;
+         }
+      }
+      //===========================================================================
+      ///This method loadd images for processing purposes if needed.
+      bool LoadProcessingImage(MyForm form)
+      {
+         int count = form.Master.Properties.Pages - form.Image.PageCount;
+         if (count == 0)
+            return false;
+
+         RasterImage image;
+
+         if (LoadFromScanner)
+            image = LoadImageScanner(count);
+         else
+            image = LoadImageFile(form.FileName, form.Image.PageCount + 1, form.Image.PageCount + count);
+
+         form.Image.AddPages(image, 1, count);
+         return true;
+      }
+      //===========================================================================
+      ///This method calculates the alignment for the recognized form.
+      public void AlignForm(MyForm form, bool calculateAlignment)
+      {
+         if (calculateAlignment)
+         {
+            CreateFormForRecognition(form);
+            form.Alignment = RecognitionEngine.GetFormAlignment(form.Master.Attributes, form.Attributes, null);
+         }
+         else
+         {
+            form.Alignment = new List&lt;PageAlignment&gt;();
+            for (int i = 0; i &lt; form.Result.PageResults.Count; i++)
+               form.Alignment.Add(form.Result.PageResults[i].Alignment);
+         }
+      }
+
+      //===========================================================================
+      ///This method processes the recognized form.
+      public void ProcessForm(MyForm form)
+      {
+         form.ProcessingPages = form.Master.ProcessingPages;
+         ProcessingEngine.Pages.Clear();
+         ProcessingEngine.Pages.AddRange(form.ProcessingPages);
+         ProcessingEngine.Process(form.Image, form.Alignment);
+      }
+
+      //===========================================================================
+      ///This method recognizes the unknown form then processes it.
+      public void RunFormRecognitionAndProcessing(MyForm form)
+      {
+         form.Image = LoadRecognitionImage(form.FileName);
+         RecognizeForm(form);
+         if (form.Master == null)
+         {
+            Console.WriteLine("Unknown form");
+            return;
+         }
+         bool calculateAlignment = LoadProcessingImage(form);
+         AlignForm(form, calculateAlignment);
+         ProcessForm(form);
+         PrintOutResults(form);
+      }
+
+      //===========================================================================
+      /// This method loads the specified master form attributes object, fields, and image.
+      public MasterForm LoadMasterForm(string attributesFileName, string fieldsFileName, string imageFileName)
+      {
+         byte[] formData;
+         MasterForm form = new MasterForm();
+         formData = File.ReadAllBytes(attributesFileName);
+         form.Attributes = new FormRecognitionAttributes();
+         form.Attributes.SetData(formData);
+         form.Properties = RecognitionEngine.GetFormProperties(form.Attributes);
+         ProcessingEngine.LoadFields(fieldsFileName);
+         form.ProcessingPages = ProcessingEngine.Pages;
+         form.Image = FormsCodec.Load(imageFileName, 1, CodecsLoadByteOrder.Bgr, 1, -1);
+         return form;
+      }
+
+      /// This method saves the master form attributes object to the specified filename.
+      public void SaveMasterFormAttributes(MasterForm form, string attributesFileName)
+      {
+         byte[] formData = form.Attributes.GetData();
+         File.WriteAllBytes(attributesFileName, formData);
+      }
+
+      /// This method saves master form fields to the specified filename.
+      public void SaveMasterFormFields(MasterForm form, string fieldsFileName)
+      {
+         ProcessingEngine.Pages.Clear();
+         ProcessingEngine.Pages.AddRange(form.ProcessingPages);
+         ProcessingEngine.SaveFields(fieldsFileName);
+      }
+
+      //===========================================================================
+      /// This method builds the Form Set.
+      public void BuildFormsSet()
+      {
+         FormSet = new List&lt;MasterForm&gt;();
+
+         MasterForm Form107 = LoadMasterForm(
+            Path.Combine(LEAD_VARS.ImagesDir, @"Forms\MasterForm Sets\OCR\FFC-107.bin"),
+            Path.Combine(LEAD_VARS.ImagesDir, @"Forms\MasterForm Sets\OCR\FFC-107.xml"),
+            Path.Combine(LEAD_VARS.ImagesDir, @"Forms\MasterForm Sets\OCR\FFC-107.tif"));
+         FormSet.Add(Form107);
+
+         MasterForm Form180 = LoadMasterForm(
+            Path.Combine(LEAD_VARS.ImagesDir, @"Forms\MasterForm Sets\OCR\SF-180.bin"),
+            Path.Combine(LEAD_VARS.ImagesDir, @"Forms\MasterForm Sets\OCR\SF-180.xml"),
+            Path.Combine(LEAD_VARS.ImagesDir, @"Forms\MasterForm Sets\OCR\SF-180.tif"));
+         FormSet.Add(Form180);
+
+         MasterForm Form3881 = LoadMasterForm(
+            Path.Combine(LEAD_VARS.ImagesDir, @"Forms\MasterForm Sets\OCR\SF-3881.bin"),
+            Path.Combine(LEAD_VARS.ImagesDir, @"Forms\MasterForm Sets\OCR\SF-3881.xml"),
+            Path.Combine(LEAD_VARS.ImagesDir, @"Forms\MasterForm Sets\OCR\SF-3881.tif"));
+         FormSet.Add(Form3881);
+      }
+
+      //===========================================================================
+
+      /// This method prints the image field results
+      public void PrintOutImage(ImageFormField field)
+      {
+         Console.WriteLine();
+         Console.WriteLine("*** Image Field");
+         ImageFormFieldResult result = field.Result as ImageFormFieldResult;
+         FormsCodec.Save(result.Image, Path.Combine(LEAD_VARS.ImagesDir, "ImageField.tif"), RasterImageFormat.Tif, 1);
+      }
+
+      /// This method prints the barcode field results.
+      public void PrintOutBarcode(BarcodeFormField field)
+      {
+         Console.WriteLine();
+         Console.WriteLine("*** Barcode Field");
+         BarcodeFormFieldResult result = field.Result as BarcodeFormFieldResult;
+         foreach (BarcodeFieldData barcode in result.BarcodeData)
+         {
+            Console.WriteLine(" *- Barcode Type: " + barcode.Symbology);
+            Console.WriteLine("  - Barcode Data: " + barcode.GetData());
+         }
+      }
+
+      /// This method prints the OMR field results.
+      public void PrintOutOmr(OmrFormField field)
+      {
+         Console.WriteLine();
+         Console.WriteLine("*** Omr Field");
+         OmrFormFieldResult result = field.Result as OmrFormFieldResult;
+         Console.WriteLine(" Is Checked?[1 = yes, 0 = No] = " + result.Text);
+      }
+
+      /// This method prints the text field results.
+      public void PrintOutText(TextFormField field)
+      {
+         Console.WriteLine();
+         Console.WriteLine("*** Text Field");
+         TextFormFieldResult result = field.Result as TextFormFieldResult;
+         Console.WriteLine("Text: " + result.Text);
+      }
+
+      /// This method prints the processing results.
+      public void PrintOutResults(MyForm form)
+      {
+         if (form.Result.Confidence &lt; 30)
+         {
+            Console.WriteLine("No match found");
+            return;
+         }
+         Console.WriteLine("=======================Type===========================");
+         Console.WriteLine("Form Type is: " + form.Master.Properties.Name);
+         Console.WriteLine("Confidance = " + form.Result.Confidence);
+         Console.WriteLine();
+         Console.WriteLine("====================Fieds Result=======================");
+
+         for (int pageIndex = 0; pageIndex &lt; form.ProcessingPages.Count; pageIndex++)
+         {
+            Console.WriteLine();
+            Console.WriteLine("=====Page # " + form.ProcessingPages[pageIndex].PageNumber + "=====");
+            Console.WriteLine();
+            foreach (FormField field in form.ProcessingPages[pageIndex])
+            {
+               if (field is ImageFormField)
+                  PrintOutImage(field as ImageFormField);
+               else if (field is BarcodeFormField)
+                  PrintOutBarcode(field as BarcodeFormField);
+               else if (field is OmrFormField)
+                  PrintOutOmr(field as OmrFormField);
+               else if (field is TextFormField)
+                  PrintOutText(field as TextFormField);
+            }
+         }
+      }
+
+      //===========================================================================
+      ///This method starts up the OCR engine.
+      private void StartUpOcrEngine()
+      {
+         try
+         {
+            FormsOcrEngine = OcrEngineManager.CreateEngine(OcrEngineType.Advantage, false);
+            FormsOcrEngine.Startup(FormsCodec, null, null, LEAD_VARS.OcrAdvantageRuntimeDir);
+         }
+         catch (Exception exp)
+         {
+            Console.WriteLine(exp.Message);
+         }
+      }
+
+      ///This method shuts down the OCR engine.
+      private void ShutDownOcrEngine()
+      {
+         FormsOcrEngine.Shutdown();
+         FormsOcrEngine.Dispose();
+      }
+
+      ///This method starts up the Barcode engine.
+      private void StartUpBarcodeEngine()
+      {
+         try
+         {
+            FormsBarcodeEngine = new BarcodeEngine();
+         }
+         catch (Exception exp)
+         {
+            Console.WriteLine(exp.Message);
+         }
+      }
+
+      ///This method sets the object managers.
+      public void SetObjectManagers(bool enableDefault, bool enableOcr, bool enableBarcode)
+      {
+         if (RecognitionEngine == null)
+            return;
+         if (enableDefault)
+         {
+            DefaultObjectsManager defaultObjectManager = new DefaultObjectsManager();
+            RecognitionEngine.ObjectsManagers.Add(defaultObjectManager);
+         }
+
+         if (enableOcr)
+         {
+            OcrObjectsManager ocrObejectManager = new OcrObjectsManager(FormsOcrEngine);
+            ocrObejectManager.Engine = FormsOcrEngine;
+            RecognitionEngine.ObjectsManagers.Add(ocrObejectManager);
+         }
+
+         if (enableBarcode)
+         {
+            BarcodeObjectsManager barcodeObjectManager = new BarcodeObjectsManager(FormsBarcodeEngine);
+            barcodeObjectManager.Engine = FormsBarcodeEngine;
+            RecognitionEngine.ObjectsManagers.Add(barcodeObjectManager);
+         }
+      }
+
+      ///This method starts up all engines.
+      public void StartUpEngines()
+      {
+         StartUpOcrEngine();
+         StartUpBarcodeEngine();
+         RecognitionEngine = new FormRecognitionEngine();
+         SetObjectManagers(false, true, false);
+         ProcessingEngine = new FormProcessingEngine();
+         ProcessingEngine.OcrEngine = FormsOcrEngine;
+         ProcessingEngine.BarcodeEngine = FormsBarcodeEngine;
+      }
+
+      ///This method shuts down all engines.
+      public void ShutDownEngines()
+      {
+         ShutDownOcrEngine();
+      }
+
+      ///This method starts up a RasterCodec object, initializes a Form Codec, starts up all engines, and builds the form set.
+      public void StartUp()
+      {
+         //1)
+         FormsCodec = new RasterCodecs();
+         //2)
+         StartUpEngines();
+         //3)
+         RecognizeFirstPageOnly = false;
+         LoadFromScanner = false;
+         //4)
+         BuildFormsSet();
+      }
+
+      ///This method shuts down all engines, dispose of all images, and shuts down the RasterCodec.
+      public void ShutDown()
+      {
+         //1)
+         ShutDownEngines();
+         //2)
+         foreach (MasterForm master in FormSet)
+            master.Image.Dispose();
+         //3)
+         FormsCodec.Dispose();
+      }
+
+
+      /// This method starts the recognition process on the unknown form that is stored in a file with the passed fileName.
+      public void Run(string fileName)
+      {
+         MyForm form = new MyForm();
+         form.FileName = fileName;
+         RunFormRecognitionAndProcessing(form);
+         if (form.Image != null)
+            form.Image.Dispose();
+      }
+   }
+
+   class Program
+   {
+      /// The main entry to the program.
+      static void Main(string[] args)
+      {
+         if (args == null || args.Length == 0)
+            return;
+
+         TestForms test = new TestForms();
+
+         test.StartUp();
+
+         test.Run(args[0]);
+
+         test.ShutDown();
+      }
+   }
+
+   static class LEAD_VARS
+   {
+   public const string ImagesDir = @"C:\Users\Public\Documents\LEADTOOLS Images";
+   public const string OcrAdvantageRuntimeDir = @"C:\LEADTOOLS 19\Bin\Common\OcrAdvantageRuntime";
+   }
+</code>
+        <!--FormsRecognitionAndProcessing-->
+      </example>   /// 
+            <docaddon>yes</docaddon></member>
+    <member name="M:Leadtools.Forms.Processing.FormProcessingEngine.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.FormProcessingEngine" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Pages</keywords>
+      <noremarks />
+      <example>
+        <para>For a complete example on using the forms recognition and processing, refer to the <see cref="T:Leadtools.Forms.Processing.FormProcessingEngine" /> example.</para>
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.FormProcessingEngine.LoadFields(System.String)">
+      <summary>
+            Loads field data from the specified file.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Pages</keywords>
+      <param name="fileName">
+            The path of the file to load. 
+            </param>
+      <noremarks />
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      ''' This method loads the specified master form attributes object, fields, and image.
+      Public Function LoadMasterForm(ByVal recognitionEngine As FormRecognitionEngine, ByVal processingEngine As FormProcessingEngine, ByVal formsCodec As RasterCodecs, ByVal attributesFileName As String, ByVal fieldsFileName As String, ByVal imageFileName As String) As MasterForm
+         Dim formData As Byte()
+         Dim form As MasterForm = New MasterForm()
+         formData = File.ReadAllBytes(attributesFileName)
+         form.Attributes.SetData(formData)
+         form.Properties = recognitionEngine.GetFormProperties(form.Attributes)
+         processingEngine.LoadFields(fieldsFileName)
+         form.ProcessingPages = processingEngine.Pages
+         form.Image = formsCodec.Load(imageFileName, 1, CodecsLoadByteOrder.Bgr, 1, -1)
+         Return form
+      End Function</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      /// This method loads the specified master form attributes, fields, and image.
+      public MasterForm LoadMasterForm(FormRecognitionEngine recognitionEngine, FormProcessingEngine processingEngine, RasterCodecs formsCodec, string attributesFileName, string fieldsFileName, string imageFileName)
+      {
+         byte[] formData;
+         MasterForm form = new MasterForm();
+         formData = File.ReadAllBytes(attributesFileName);
+         form.Attributes.SetData(formData);
+         form.Properties = recognitionEngine.GetFormProperties(form.Attributes);
+         processingEngine.LoadFields(fieldsFileName);
+         form.ProcessingPages = processingEngine.Pages;
+         form.Image = formsCodec.Load(imageFileName, 1, CodecsLoadByteOrder.Bgr, 1, -1);
+         return form;
+      }</code>
+        <!--FormProcessingEngine.LoadFields-->
+      </example>   /// 
+            <docaddon>yes</docaddon></member>
+    <member name="M:Leadtools.Forms.Processing.FormProcessingEngine.LoadFields(System.IO.Stream)">
+      <summary>
+            Loads field data from the specified stream.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Pages</keywords>
+      <param name="stream">
+            A <see cref="T:System.IO.Stream" /> containing the fields data to be loaded.
+            </param>
+      <noremarks />
+      <example>
+        <para>For a complete example on using the forms recognition and processing, refer to the <see cref="T:Leadtools.Forms.Processing.FormProcessingEngine" /> example.</para>
+      </example>   /// 
+            <docaddon>yes</docaddon></member>
+    <member name="M:Leadtools.Forms.Processing.FormProcessingEngine.Process(Leadtools.RasterImage,System.Collections.Generic.IList{Leadtools.Forms.PageAlignment})">
+      <summary>
+            Performs field processing on the form image.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Pages</keywords>
+      <param name="form">
+            Form image.
+            </param>
+      <param name="formAlignment">
+            A value that indicates the Form Alignment. It aligns Master Form's fields to this form field. 
+            If it is null fields will be aligned depending on the image resolution.
+            </param>
+      <noremarks />
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      '''This method processes the recognized form.
+      Public Sub ProcessForm(ByVal processingEngine As FormProcessingEngine, ByVal form As MyForm)
+         form.ProcessingPages = CType(form.Master.ProcessingPages.GetRange(0, form.Master.ProcessingPages.Count), FormPages)
+         processingEngine.Pages.Clear()
+         processingEngine.Pages.AddRange(form.ProcessingPages)
+         processingEngine.Process(form.Image, form.Alignment)
+      End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      ///This method processes the recognized form.
+      public void ProcessForm(FormProcessingEngine processingEngine, MyForm form)
+      {
+         form.ProcessingPages = (FormPages)form.Master.ProcessingPages.GetRange(0, form.Master.ProcessingPages.Count);
+         processingEngine.Pages.Clear();
+         processingEngine.Pages.AddRange(form.ProcessingPages);
+         processingEngine.Process(form.Image, form.Alignment);
+      }</code>
+        <!--FormProcessingEngine.Process-->
+      </example>   /// 
+            <docaddon>yes</docaddon></member>
+    <member name="M:Leadtools.Forms.Processing.FormProcessingEngine.Process(Leadtools.RasterImage,System.Int32,System.Int32,System.Collections.Generic.IList{Leadtools.Forms.PageAlignment})">
+      <summary>
+            Performs field processing on the form image.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Pages</keywords>
+      <param name="form">
+            Form image.
+            </param>
+      <param name="firstPageNumber">
+            First form page to process. It is a 1-based value.
+            </param>
+      <param name="lastPageNumber">
+            last form page to process. It is a 1-based value.
+            </param>
+      <param name="formAlignment">
+            A value that indicates the Form Alignment. It aligns Master Form's fields to this form field. 
+            If it is null fields will be aligned depending on the image resolution.
+            </param>
+      <noremarks />
+      <example>
+        <para>For a complete example on using the forms recognition and processing, refer to the <see cref="T:Leadtools.Forms.Processing.FormProcessingEngine" /> example.</para>
+      </example>   /// 
+            <docaddon>yes</docaddon></member>
+    <member name="M:Leadtools.Forms.Processing.FormProcessingEngine.ProcessPage(Leadtools.RasterImage,Leadtools.Forms.PageAlignment,System.Int32)">
+      <summary>
+            Performs field processing on the page image provided.
+            </summary>
+      <isnew>2/28/2009</isnew>
+      <keywords>Forms|Processing|Recognition|Fields|Pages</keywords>
+      <param name="page">
+            Page image.
+            </param>
+      <param name="pageAlignment">
+            A value that indicates the page Alignment. It aligns the Master Form's fields to this page field. 
+            If it is null fields will be aligned depending on the image resolution.
+            </param>
+      <param name="formPageNumber">
+            1-based index, indicate the Master Form page number that corrospondslast to the provided form page.
+            </param>
+      <remarks>
+            The current page of <paramref name="page" /> will be processed.
+            </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.FormProcessingEngine.SaveFields(System.String)">
+      <summary>
+            Saves field data for the specified file.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Pages</keywords>
+      <param name="fileName">
+            The path of the file to save. 
+            </param>
+      <noremarks />
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      ''' This method saves master form fields to the specified filename.
+      Public Sub SaveMasterFormFields(ByVal processingEngine As FormProcessingEngine, ByVal form As MasterForm, ByVal fieldsFileName As String)
+         processingEngine.Pages.Clear()
+         processingEngine.Pages.AddRange(form.ProcessingPages)
+         processingEngine.SaveFields(fieldsFileName)
+      End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      /// This method saves master form fields to the specified filename.
+      public void SaveMasterFormFields(FormProcessingEngine processingEngine, MasterForm form, string fieldsFileName)
+      {
+         processingEngine.Pages.Clear();
+         processingEngine.Pages.AddRange(form.ProcessingPages);
+         processingEngine.SaveFields(fieldsFileName);
+      }</code>
+        <!--FormProcessingEngine.SaveFields-->
+      </example>   /// 
+            <docaddon>yes</docaddon></member>
+    <member name="M:Leadtools.Forms.Processing.FormProcessingEngine.SaveFields(System.IO.Stream)">
+      <summary>
+            Saves field data to the specified stream.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Pages</keywords>
+      <param name="stream">
+            A <see cref="T:System.IO.Stream" /> where fields data will be saved.
+            </param>
+      <noremarks />
+      <example>
+        <para>For a complete example on using the forms recognition and processing, refer to the <see cref="T:Leadtools.Forms.Processing.FormProcessingEngine" /> example.</para>
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="E:Leadtools.Forms.Processing.FormProcessingEngine.PostProcessPage">
+      <summary>
+            Optional delegate method used after page processing is finished. 
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Pages</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="E:Leadtools.Forms.Processing.FormProcessingEngine.PreProcessPage">
+      <summary>
+            Optional delegate method used before page processing begins. 
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Pages</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="E:Leadtools.Forms.Processing.FormProcessingEngine.ProcessField">
+      <summary>
+            Optional delegate method used after field processing is finished.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Pages</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.FormProcessingEngine.Pages">
+      <summary>
+            Gets the form page fields and properties.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Pages</keywords>
+      <value>
+        <para>The form field page and properties.</para>
+      </value>
+      <noremarks />
+      <example>For an example, refer to 
+            <a href="ms-xhelp:///?id=Leadtools.Forms.Processing~Leadtools.Forms.Processing.FormProcessingEngine~Process(RasterImage,IList{PageAlignment})">Leadtools.Forms.Processing.FormProcessingEngine.Process(RasterImage,IList&lt;PageAlignment&gt;)</a>.</example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.FormProcessingEngine.BarcodeEngine">
+      <summary>
+            Gets or sets the barcode engine that is going to be used for field processing.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Pages|OCR|Engines</keywords>
+      <value>The barcode engine to be used to recognize barcodes.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.FormProcessingEngine.OcrEngine">
+      <summary>
+            Gets or sets the OCR engine that is going to be used for field processing.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Pages|OCR|Engines</keywords>
+      <value>The OCR engine used to recognize text and OMR.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.FormProcessingEngine.TradeoffMode">
+      <summary>
+            Specifies which recognition algorithm trade-off setting to use for forms processing.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Clean Up</keywords>
+      <value>The <see cref="T:Leadtools.Forms.FormsTradeoffMode" /> setting to use for forms processing.</value>
+      <remarks>
+            Using modes other than <see cref="T:Leadtools.Forms.FormsTradeoffMode"> Accurate</see> may affect the results of forms processing.
+            </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.ImageFormField">
+      <summary>
+             A single rectangular region on a form that defines an image area on a blank (not
+             filled-in) form to be used when an image reading process is performed on the filled
+             form during form processing.
+             </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Rectangle</keywords>
+      <remarks>
+        <para>Fields are defined for each page in the processing engine. All fields require that you fill in the Property specifying where the field is located, as well as the Name Property.</para>
+        <para>Fields can be added or retrieved through the <see cref="P:Leadtools.Forms.Processing.FormProcessingEngine.Pages" /> property. Once fields are defined, they can be loaded/saved from disk using the <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.LoadFields(System.String)" /> and <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.SaveFields(System.String)" /> methods, allowing you to define MasterForm fields just once and save them to disk.
+            LEADTOOLS supports <see cref="T:Leadtools.Forms.Processing.TextFormField" />, <see cref="T:Leadtools.Forms.Processing.OmrFormField" />, <see cref="T:Leadtools.Forms.Processing.BarcodeFormField" />, <see cref="T:Leadtools.Forms.Processing.ImageFormField" />, and custom user-defined fields derived from <see cref="T:Leadtools.Forms.Processing.FormField" />. When obtaining processing results, you should check for the type of each field, and cast it to the appropriate type in order to obtain the field specific results (barcode, image, etc).</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      '''This example shows how to create an ImageFormField.
+      Public Sub AddImageFormField(ByVal processingEngine As FormProcessingEngine)
+         'Create a new page for the form. 
+         Dim formPage As FormPage = New FormPage(1, 150, 150)
+         Dim imageField As ImageFormField = New ImageFormField()
+         imageField.Name = "Signature"
+         imageField.Bounds = New LogicalRectangle(196, 327, 1402, 40, LogicalUnit.Pixel)
+         formPage.Add(imageField)
+         'Add the page to the engine 
+         processingEngine.Pages.Add(formPage)
+      End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      ///This example shows how to create an ImageFormField.
+      public void AddImageFormField(FormProcessingEngine processingEngine)
+      {
+         //Create a new page for the form. 
+         FormPage formPage = new FormPage(1, 150, 150);
+         ImageFormField imageField = new ImageFormField();
+         imageField.Name = "Signature";
+         imageField.Bounds = new LogicalRectangle(196, 327, 1402, 40, LogicalUnit.Pixel);
+         formPage.Add(imageField);
+         //Add the page to the engine 
+         processingEngine.Pages.Add(formPage);
+      }</code>
+        <!--ImageFormField-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.ImageFormField.ReadXmlValues(System.Xml.XPath.IXPathNavigable,System.Collections.Generic.IList{System.String})">
+      <summary>
+            Fills this <see cref="T:Leadtools.Forms.Processing.ImageFormField" /> from the XML string stored in <paramref name="values" />.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|XML</keywords>
+      <param name="navigator">
+            Provides an accessor to the <see cref="T:System.Xml.XPath.XPathNavigator" /> class.
+            </param>
+      <param name="values">
+            A list of XML strings containing this <see cref="T:Leadtools.Forms.Processing.BarcodeFormField" /> data.
+            </param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.ImageFormField.WriteXmlValues(System.Xml.XPath.IXPathNavigable,System.Xml.XPath.IXPathNavigable)">
+      <summary>
+            Writes this <see cref="T:Leadtools.Forms.Processing.ImageFormField" /> class data into the specified XML  <paramref name="valuesElement" /></summary>
+      <keywords>Forms|Processing|Recognition|Fields|XML</keywords>
+      <param name="document">
+            Provides an accessor to the <see cref="T:System.Xml.XPath.XPathNavigator" /> class.
+            </param>
+      <param name="valuesElement">
+            Provides an accessor to the <see cref="T:System.Xml.XPath.XPathNavigator" /> class.
+            </param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.ImageFormField.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.ImageFormField" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.ImageFormField.Process(Leadtools.Forms.Processing.FormProcessingEngine,Leadtools.RasterImage,Leadtools.Forms.PageAlignment)">
+      <summary>Performs the processing on this field.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|Barcodes</keywords>
+      <param name="engine">
+            The processing engine that is initialized with OCR and barcode engines (as needed).
+            </param>
+      <param name="form">
+            The image on which the processing should be performed.
+            </param>
+      <param name="pageAlignment">A value which indicates how the field is to be aligned on the form image.</param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.ImageFormField.Result">
+      <summary>
+            Gets the results of processing this field.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields</keywords>
+      <value>The results of field processing.</value>
+      <noremarks />
+      <example>
+            For example, refer to the <see cref="T:Leadtools.Forms.Processing.FormFieldResult" /> example.
+            </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.ImageFormFieldResult">
+      <summary>
+             Provides the results of processing the image field.
+             </summary>
+      <keywords>Forms|Processing|Recognition|Fields</keywords>
+      <remarks>
+        <para>Fields are defined for each page in the processing engine. All fields require you fill in the Property specifying where the field is located, and a Name Property.</para>
+        <para>Fields can be added or retrieved through the <see cref="P:Leadtools.Forms.Processing.FormProcessingEngine.Pages" /> property. Once fields are defined, they can be loaded/saved from disk using the <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.LoadFields(System.String)" /> and <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.SaveFields(System.String)" /> methods, allowing you to define MasterForm fields just once and save them to disk.
+            LEADTOOLS supports <see cref="T:Leadtools.Forms.Processing.TextFormField" />, <see cref="T:Leadtools.Forms.Processing.OmrFormField" />, <see cref="T:Leadtools.Forms.Processing.BarcodeFormField" />, <see cref="T:Leadtools.Forms.Processing.ImageFormField" />, and custom user-defined fields derived from <see cref="T:Leadtools.Forms.Processing.FormField" />. When obtaining processing results, check for the type of each field, and cast it to the appropriate type in order to obtain the field specific results (barcode, image, etc).</para>
+      </remarks>
+      <example>
+             For example, refer to the <see cref="T:Leadtools.Forms.Processing.FormFieldResult" /> example.
+             </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.ImageFormFieldResult.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.ImageFormFieldResult" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.ImageFormFieldResult.Image">
+      <summary>
+            Gets the image that is specified by the image field.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields</keywords>
+      <value>The results of field processing.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.OcrFormField">
+      <summary>
+            The base class for all text, OMR and OCR fields. Any OCR form field, whether predefined or 
+            user-defined, should implement <see cref="T:Leadtools.Forms.Processing.OcrFormField" />.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|OCR|OMR|Text</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.OcrFormField.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.OcrFormField" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|OCR|OMR|Text</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.OcrFormFieldResult">
+      <summary>
+            Provides the results of processing the OCR field.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|OCR</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.OcrFormFieldResult.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.OcrFormFieldResult" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|OCR</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.OcrFormFieldResult.Characters">
+      <summary>
+            List of character classes representing the detected characters inside the OCR field.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|OCR|Characters</keywords>
+      <value>The recognized characters.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.OcrFormFieldResult.AverageConfidence">
+      <summary>
+            Gets or sets the average confidence of all detected characters.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|OCR|Characters</keywords>
+      <value>The confidence number expressing the average certainty of the recognized characters.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.OcrFormFieldResult.MaximumConfidence">
+      <summary>
+            Gets or sets the maximum confidence of the detected characters.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|OCR|Characters</keywords>
+      <value>The confidence number expressing the maximum certainty of the recognized characters.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.OcrFormFieldResult.MinimumConfidence">
+      <summary>
+            Gets or sets the minimum confidence of the detected characters.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|OCR|Characters</keywords>
+      <value>The confidence number expressing the minimum certainty of the recognized characters.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.OcrFormFieldResult.Text">
+      <summary>
+            Gets or sets the detected text inside the OCR field.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields|OCR|Text</keywords>
+      <value>The recognized text string of the OCR field.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.OmrFormField">
+      <summary>
+             A single rectangular region on a form that defines an OMR (optical mark) area on a blank (not filled-in) form so that an OMR reading process can be performed on the filled form during form processing.
+             </summary>
+      <keywords>Forms|Processing|Fields|OCR|Recognition|OMR</keywords>
+      <remarks>
+        <para>Fields are defined for each page in the processing engine. All fields require you fill in the Property specifying where the field is located, and a Name Property.</para>
+        <para>Fields can be added or retrieved through the <see cref="P:Leadtools.Forms.Processing.FormProcessingEngine.Pages" /> property. Once fields are defined, they can be loaded/saved from disk using the <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.LoadFields(System.String)" /> and <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.SaveFields(System.String)" /> methods, allowing you to define MasterForm fields just once and save them to disk.
+            LEADTOOLS supports <see cref="T:Leadtools.Forms.Processing.TextFormField" />, <see cref="T:Leadtools.Forms.Processing.OmrFormField" />, <see cref="T:Leadtools.Forms.Processing.BarcodeFormField" />, <see cref="T:Leadtools.Forms.Processing.ImageFormField" />, and custom user-defined fields derived from <see cref="T:Leadtools.Forms.Processing.FormField" />. When obtaining processing results, you should check for the type of each field, and cast it to the appropriate type in order to obtain the field specific results (barcode, image, etc).</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      '''This example shows how to create an OmrFormField.
+      Public Sub AddOmrFormField(ByVal processingEngine As FormProcessingEngine)
+         'Create a new page for the form. 
+         Dim formPage As FormPage = New FormPage(1, 150, 150)
+         Dim omrField As OmrFormField = New OmrFormField()
+         omrField.Name = "Single"
+         omrField.Bounds = New LogicalRectangle(196, 327, 1402, 40, LogicalUnit.Pixel)
+         formPage.Add(omrField)
+         'Add the page to the engine 
+         processingEngine.Pages.Add(formPage)
+      End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      ///This example shows how to create an OmrFormField.
+      public void AddOmrFormField(FormProcessingEngine processingEngine)
+      {
+         //Create a new page for the form. 
+         FormPage formPage = new FormPage(1, 150, 150);
+         OmrFormField omrField = new OmrFormField();
+         omrField.Name = "Single";
+         omrField.Bounds = new LogicalRectangle(196, 327, 1402, 40, LogicalUnit.Pixel);
+         formPage.Add(omrField);
+         //Add the page to the engine 
+         processingEngine.Pages.Add(formPage);
+      }</code>
+        <!--OmrFormField-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.OmrFormField.ReadXmlValues(System.Xml.XPath.IXPathNavigable,System.Collections.Generic.IList{System.String})">
+      <summary>
+            Fills this <see cref="T:Leadtools.Forms.Processing.OmrFormField" /> from the XML string stored in <paramref name="values" />.
+            </summary>
+      <keywords>Forms|Processing|Fields|OCR|Recognition|OMR</keywords>
+      <param name="navigator">
+            Provides an accessor to the <see cref="T:System.Xml.XPath.XPathNavigator" /> class.
+            </param>
+      <param name="values">
+            A list of XML strings containing this <see cref="T:Leadtools.Forms.Processing.OmrFormField" /> data.
+            </param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.OmrFormField.WriteXmlValues(System.Xml.XPath.IXPathNavigable,System.Xml.XPath.IXPathNavigable)">
+      <summary>
+            Writes this <see cref="T:Leadtools.Forms.Processing.OmrFormField" /> class data into the specified XML  <paramref name="valuesElement" /></summary>
+      <keywords>Forms|Processing|Fields|OCR|Recognition|OMR</keywords>
+      <param name="document">
+            Provides an accessor to the <see cref="T:System.Xml.XPath.XPathNavigator" /> class.
+            </param>
+      <param name="valuesElement">
+            Provides an accessor to the <see cref="T:System.Xml.XPath.XPathNavigator" /> class.
+            </param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.OmrFormField.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.OmrFormField" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Fields|OCR|Recognition|OMR</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.OmrFormField.Process(Leadtools.Forms.Processing.FormProcessingEngine,Leadtools.RasterImage,Leadtools.Forms.PageAlignment)">
+      <summary>
+            Performs the processing of this field.
+            </summary>
+      <keywords>Forms|Processing|Fields|OCR|Recognition|OMR</keywords>
+      <param name="engine">
+            The processing engine that is initialized with OCR and barcode engines (as needed).
+            </param>
+      <param name="form">
+            The image on which the processing should be performed.
+            </param>
+      <param name="pageAlignment">
+            A value that indicates how to align the page in order to align the field to this form image.
+            </param>
+      <remarks>
+            This method is designed to be called through <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.ProcessPage(Leadtools.RasterImage,Leadtools.Forms.PageAlignment,System.Int32)" /> method, it cannot be called directly.
+            </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.OmrFormField.Result">
+      <summary>
+            Gets the results of processing this field.
+            </summary>
+      <keywords>Forms|Processing|Fields|OCR|Recognition|OMR</keywords>
+      <value>The results of field processing.</value>
+      <noremarks />
+      <example>
+            For example, refer to the <see cref="T:Leadtools.Forms.Processing.FormFieldResult" /> example.
+            </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.OmrFormField.FrameMethod">
+      <summary>
+            Gets or sets the OMR frame detection mode of the field.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields</keywords>
+      <value>An <see cref="T:Leadtools.Forms.Ocr.OcrOmrFrameDetectionMethod" /> enumeration member that indicates the OMR frame detection mode of the field.</value>
+      <remarks>
+        <para>Frames stand for the check boxes that can exist around OMR fields. You can set the LEADTOOLS OCR engine to automatically detect such frames and take them into consideration when recognizing OMR fields. If you know the OMR fields contain frames, set the IOcrOmrOptions.FrameDetectionMethod accordingly to increase recognition performance and accuracy.</para>
+      </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.OmrFormField.Sensitivity">
+      <summary>
+            Gets or sets the OMR sensitivity mode of the field.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields</keywords>
+      <value>An <see cref="T:Leadtools.Forms.Ocr.OcrOmrSensitivity" /> enumeration member that indicates the OMR sensitivity mode of the field.</value>
+      <remarks>
+        <para>You can set the LEADTOOLS OCR engine OMR recognition sensitivity to be as high or low as desired. High sensitivity results in higher confidence in the recognized mark, but could prove to be slower.</para>
+      </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.OmrFormField.UseFieldSettings">
+      <summary>
+            Gets or sets the use of the field settings for its OMR recognition.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Fields</keywords>
+      <value> true use the OMR settings saved inside this OMR field, otherwise, use the settings inside the used <see cref="T:Leadtools.Forms.Ocr.IOcrEngine" />.</value>
+      <remarks>
+        <para>The default value of <see cref="P:Leadtools.Forms.Processing.OmrFormField.UseFieldSettings" /> is false.</para>
+      </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.OmrFormFieldResult">
+      <summary>
+             Provides the results of processing the OMR field.
+             </summary>
+      <keywords>Forms|Processing|Fields|OCR|Recognition|OMR</keywords>
+      <remarks>
+        <para>Fields are defined for each page in the processing engine. All fields require you fill in the Property specifying where the field is located, and a Name Property.</para>
+        <para>Fields can be added or retrieved through the <see cref="P:Leadtools.Forms.Processing.FormProcessingEngine.Pages" /> property. Once fields are defined, they can be loaded/saved from disk using the <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.LoadFields(System.String)" /> and <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.SaveFields(System.String)" /> methods, allowing you to define MasterForm fields just once and save them to disk.
+            LEADTOOLS supports <see cref="T:Leadtools.Forms.Processing.TextFormField" />, <see cref="T:Leadtools.Forms.Processing.OmrFormField" />, <see cref="T:Leadtools.Forms.Processing.BarcodeFormField" />, <see cref="T:Leadtools.Forms.Processing.ImageFormField" />, and custom user-defined fields derived from <see cref="T:Leadtools.Forms.Processing.FormField" />. When obtaining processing results, you should check for the type of each field, and cast it to the appropriate type in order to obtain the field specific results (barcode, image, etc).</para>
+      </remarks>
+      <example>
+             For example, refer to the <see cref="T:Leadtools.Forms.Processing.FormFieldResult" /> example.
+             </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.OmrFormFieldResult.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.OmrFormFieldResult" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Fields|OCR|Recognition|OMR</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.BarcodeFieldData">
+      <summary>
+            This class contains barcode data information that have been read inside the field. 
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.BarcodeFieldData.#ctor(Leadtools.Barcode.BarcodeSymbology,System.Byte[])">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.BarcodeFieldData" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Fields|Barcodes|Recognition</keywords>
+      <param name="symbology">
+            Barcode symbology.
+            </param>
+      <param name="data">
+            Barcode data.
+            </param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.BarcodeFieldData.GetData">
+      <summary>
+            Gets the barcode data.
+            </summary>
+      <keywords>Forms|Processing|Fields|Barcodes|Recognition</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.BarcodeFieldData.SetData(System.Byte[])">
+      <summary>
+            Sets the barcode data.
+            </summary>
+      <keywords>Forms|Processing|Fields|Barcodes|Recognition</keywords>
+      <param name="data">
+            The data to be set.
+            </param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.BarcodeFieldData.Symbology">
+      <summary>
+            Gets or sets the barcode symbology.
+            </summary>
+      <keywords>Forms|Processing|Fields|Barcodes|Recognition</keywords>
+      <value>A value that represents the barcode symbgology.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.TextFormField">
+      <summary>
+             A single rectangular region on a form that defines a text area on a blank (not filled-in) form so a text reading process can be performed on the filled form during form processing.
+             </summary>
+      <keywords>Forms|Processing|Fields|Recognition|OCR</keywords>
+      <remarks>
+        <para>Fields are defined for each page in the processing engine. All fields require you fill in the Property specifying where the field is located, and a Name Property.</para>
+        <para>Fields can be added or retrieved through the <see cref="P:Leadtools.Forms.Processing.FormProcessingEngine.Pages" /> property. Once fields are defined, they can be loaded/saved from disk using the <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.LoadFields(System.String)" /> and <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.SaveFields(System.String)" /> methods, allowing you to define MasterForm fields just once and save them to disk.
+            LEADTOOLS supports <see cref="T:Leadtools.Forms.Processing.TextFormField" />, <see cref="T:Leadtools.Forms.Processing.OmrFormField" />, <see cref="T:Leadtools.Forms.Processing.BarcodeFormField" />, <see cref="T:Leadtools.Forms.Processing.ImageFormField" />, and custom user-defined fields derived from <see cref="T:Leadtools.Forms.Processing.FormField" />. When obtaining processing results, you should check for the type of each field, and cast it to the appropriate type in order to obtain the field specific results (barcode, image, etc).</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      '''This example shows how to create a TextFormField.
+      Public Sub AddTextFormField(ByVal processingEngine As FormProcessingEngine)
+         'Create a new page for the form. 
+         Dim formPage As FormPage = New FormPage(1, 150, 150)
+         Dim textField As TextFormField = New TextFormField()
+         textField.Name = "Business Name"
+         textField.Bounds = New LogicalRectangle(196, 327, 1402, 40, LogicalUnit.Pixel)
+         formPage.Add(textField)
+         'Add the page to the engine 
+         processingEngine.Pages.Add(formPage)
+      End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      ///This example shows how to create a TextFormField.
+      public void AddTextFormField(FormProcessingEngine processingEngine)
+      {
+         //Create a new page for the form. 
+         FormPage formPage = new FormPage(1, 150, 150);
+         TextFormField textField = new TextFormField();
+         textField.Name = "Business Name";
+         textField.Bounds = new LogicalRectangle(196, 327, 1402, 40, LogicalUnit.Pixel);
+         formPage.Add(textField);
+         //Add the page to the engine 
+         processingEngine.Pages.Add(formPage);
+      }</code>
+        <!--TextFormField-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.TextFormField.ReadXmlValues(System.Xml.XPath.IXPathNavigable,System.Collections.Generic.IList{System.String})">
+      <summary>
+            Fills this <see cref="T:Leadtools.Forms.Processing.TextFormField" /> from the XML string stored in <paramref name="values" />.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|Text|XML</keywords>
+      <param name="navigator">
+            Provides an accessor to the <see cref="T:System.Xml.XPath.XPathNavigator" /> class.
+            </param>
+      <param name="values">
+            A list of XML strings containing this <see cref="T:Leadtools.Forms.Processing.TextFormField" /> data.
+            </param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.TextFormField.WriteXmlValues(System.Xml.XPath.IXPathNavigable,System.Xml.XPath.IXPathNavigable)">
+      <summary>
+            Writes this <see cref="T:Leadtools.Forms.Processing.TextFormField" /> class data into the specified XML  <paramref name="valuesElement" /></summary>
+      <keywords>Forms|Processing|Fields|Recognition|Text|XML</keywords>
+      <param name="document">
+            Provides an accessor to the <see cref="T:System.Xml.XPath.XPathNavigator" /> class.
+            </param>
+      <param name="valuesElement">
+            Provides an accessor to the <see cref="T:System.Xml.XPath.XPathNavigator" /> class.
+            </param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.TextFormField.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.TextFormField" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|Text</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.TextFormField.Process(Leadtools.Forms.Processing.FormProcessingEngine,Leadtools.RasterImage,Leadtools.Forms.PageAlignment)">
+      <summary>
+            Performs the processing of this field.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|Engines|OCR</keywords>
+      <param name="engine">
+            The processing engine that is initialized with OCR and barcode engines (as needed).
+            </param>
+      <param name="form">
+            The image on which the processing should be performed.
+            </param>
+      <param name="pageAlignment">
+            The page alignment that is needed to align the field to this form image.
+            </param>
+      <remarks>
+            This method is designed to be called through <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.ProcessPage(Leadtools.RasterImage,Leadtools.Forms.PageAlignment,System.Int32)" /> method, it cannot be called directly.
+            </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      '''This example shows how to create a TextFormField.
+      Public Sub AddTextFormField(ByVal processingEngine As FormProcessingEngine)
+         'Create a new page for the form. 
+         Dim formPage As FormPage = New FormPage(1, 150, 150)
+         Dim textField As TextFormField = New TextFormField()
+         textField.Name = "Business Name"
+         textField.Bounds = New LogicalRectangle(196, 327, 1402, 40, LogicalUnit.Pixel)
+         formPage.Add(textField)
+         'Add the page to the engine 
+         processingEngine.Pages.Add(formPage)
+      End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      ///This example shows how to create a TextFormField.
+      public void AddTextFormField(FormProcessingEngine processingEngine)
+      {
+         //Create a new page for the form. 
+         FormPage formPage = new FormPage(1, 150, 150);
+         TextFormField textField = new TextFormField();
+         textField.Name = "Business Name";
+         textField.Bounds = new LogicalRectangle(196, 327, 1402, 40, LogicalUnit.Pixel);
+         formPage.Add(textField);
+         //Add the page to the engine 
+         processingEngine.Pages.Add(formPage);
+      }</code>
+        <!--TextFormField-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TextFormField.Result">
+      <summary>
+            Gets the results of processing this field.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition</keywords>
+      <value>The results of field processing.</value>
+      <remarks>
+            This will contain the result of combining the ICR and the Default results by having the characters of maximum confidence of both. Characters with confidence less than <see cref="P:Leadtools.Forms.Processing.TextFormField.MinimumCharacterConfidence" /> will be filtered out. The user has the access to ICR and Default results through <see cref="P:Leadtools.Forms.Processing.TextFormField.ResultIcr" /> and <see cref="P:Leadtools.Forms.Processing.TextFormField.ResultDefault" />.
+            </remarks>
+      <example>
+            For example, refer to the <see cref="T:Leadtools.Forms.Processing.FormFieldResult" /> example.
+            </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TextFormField.ResultIcr">
+      <summary>
+            Gets the ICR results of processing this field.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition</keywords>
+      <value>The ICR results of field processing.</value>
+      <remarks>
+            This will contain the result of reading the field using the ICR engine only.
+            </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TextFormField.ResultDefault">
+      <summary>
+            Gets the default results of processing this field.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition</keywords>
+      <value>The default results of field processing.</value>
+      <remarks>
+            This will contain the result of reading the field using the default fill method of the Ocr engine.
+            </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TextFormField.MinimumCharacterConfidence">
+      <summary>
+            Specifies the minimum character confidence in <see cref="P:Leadtools.Forms.Processing.TextFormField.Result" />.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|Text|Confidence|Character</keywords>
+      <value>The minimum character confidence in <see cref="P:Leadtools.Forms.Processing.TextFormField.Result" />.</value>
+      <remarks>
+            This value is used to filter out false detected characters and symbols from the <see cref="P:Leadtools.Forms.Processing.TextFormField.Result" /> .Its default value is 25.
+            </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TextFormField.EnableOcr">
+      <summary>
+            Enables/disables the using of Ocr module in reading this text field.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|Text|Ocr</keywords>
+      <value>true if the Ocr module is enabled, otherwise, false. Its default value is true.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TextFormField.EnableIcr">
+      <summary>
+            Enables/disables the using of the ICR module in reading this text field.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|Text|Icr</keywords>
+      <value>true if the ICR module is enabled, otherwise, false. Its default value is true.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TextFormField.OcrTextType">
+      <summary>
+            Specifies the text type inside the text field.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|Text</keywords>
+      <value>The type of the text field.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TextFormField.Type">
+      <summary>
+            Gets or sets the text type of the text field.
+            </summary>
+      <value>The type of the text of the text field.</value>
+      <keywords>Forms|Processing|Fields|Recognition|Text</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TextFormField.RegexPattern">
+      <summary>
+            Gets or sets an optional regular expression which defines the string to read.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|Text</keywords>
+      <value>The string containing the regular expression used to filter the text field string. A value of null
+            (Nothing in <strong>Visual Basic</strong>) means no regular expression pattern matching will be performed on this field.</value>
+      <remarks>
+        <para>Using regular expression does not change the results of the processing. However the value of the
+            <see cref="P:Leadtools.Forms.Processing.TextFormFieldResult.IsValidated">TextFormFieldResult.IsValidated</see> of the
+            <see cref="T:Leadtools.Forms.Processing.TextFormFieldResult" /> object will determine whether the text read matches the specified regular expression.</para>
+        <para>For example, if you set <see cref="P:Leadtools.Forms.Processing.TextFormField.RegexPattern">TextFormField.RegexPattern</see> to a date expression such
+            as "MM-DD-YYYY" and the value of the result text in <see cref="P:Leadtools.Forms.Processing.OcrFormFieldResult.Text">OcrFormFieldResult.Text</see> is
+            "9 12 09", then the regular expression is not matched and the value of
+            <see cref="P:Leadtools.Forms.Processing.TextFormFieldResult.IsValidated">TextFormFieldResult.IsValidated</see> will be <strong>false</strong>. If
+            however the value of the result text is "09-12-2009", then the regular expression is matched and the value of
+            <see cref="P:Leadtools.Forms.Processing.TextFormFieldResult.IsValidated">TextFormFieldResult.IsValidated</see> will be <strong>true</strong>.</para>
+      </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Processing.TextFormFieldResult">
+      <summary>
+             Provides the results of processing the text field.
+             </summary>
+      <keywords>Forms|Processing|Fields|Recognition|Text|OCR</keywords>
+      <remarks>
+        <para>Fields are defined for each page in the processing engine. All fields require you fill in the Property specifying where the field is located, and a Name Property.</para>
+        <para>Fields can be added or retrieved through the <see cref="P:Leadtools.Forms.Processing.FormProcessingEngine.Pages" /> property. Once fields are defined, they can be loaded/saved from disk using the <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.LoadFields(System.String)" /> and <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.SaveFields(System.String)" /> methods, allowing you to define MasterForm fields just once and save them to disk.
+            LEADTOOLS supports <see cref="T:Leadtools.Forms.Processing.TextFormField" />, <see cref="T:Leadtools.Forms.Processing.OmrFormField" />, <see cref="T:Leadtools.Forms.Processing.BarcodeFormField" />, <see cref="T:Leadtools.Forms.Processing.ImageFormField" />, and custom user-defined fields derived from <see cref="T:Leadtools.Forms.Processing.FormField" />. When obtaining processing results, you should check for the type of each field, and cast it to the appropriate type in order to obtain the field specific results (barcode, image, etc).</para>
+      </remarks>
+      <example>
+             For example, refer to the <see cref="T:Leadtools.Forms.Processing.FormFieldResult" /> example.
+             </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Processing.TextFormFieldResult.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Processing.TextFormFieldResult" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|Text|OCR</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TextFormFieldResult.IsValidated">
+      <summary>
+            Specifies whether the read text matches the specified regular expression in the text field.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|Text|OCR</keywords>
+      <value>true if text string matches the specified regular expression, otherwise, false.</value>
+      <remarks>
+        <para>The value of <see cref="P:Leadtools.Forms.Processing.TextFormFieldResult.IsValidated" /> is only used when the value of
+            <see cref="P:Leadtools.Forms.Processing.TextFormField.RegexPattern">TextFormField.RegexPattern</see> is not a null reference (Nothing in
+            <strong>Visual Basic</strong>).</para>
+        <para>Using regular expression does not change the results of the processing. However the value of the
+            <see cref="P:Leadtools.Forms.Processing.TextFormFieldResult.IsValidated">TextFormFieldResult.IsValidated</see> of the
+            <see cref="T:Leadtools.Forms.Processing.TextFormFieldResult" /> object will determine whether the text read matches the specified regular expression.</para>
+        <para>For example, if you set <see cref="P:Leadtools.Forms.Processing.TextFormField.RegexPattern">TextFormField.RegexPattern</see> to a date expression such
+            as "MM-DD-YYYY" and the value of the result text in <see cref="P:Leadtools.Forms.Processing.OcrFormFieldResult.Text">OcrFormFieldResult.Text</see> is
+            "9 12 09", then the regular expression is not matched and the value of
+            <see cref="P:Leadtools.Forms.Processing.TextFormFieldResult.IsValidated">TextFormFieldResult.IsValidated</see> will be <strong>false</strong>. If
+            however the value of the result text is "09-12-2009", then the regular expression is matched and the value of
+            <see cref="P:Leadtools.Forms.Processing.TextFormFieldResult.IsValidated">TextFormFieldResult.IsValidated</see> will be <strong>true</strong>.</para>
+      </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Processing.TextFormFieldResult.Matches">
+      <summary>
+            Contains all occurrences of the successful matches in the results text <see cref="P:Leadtools.Forms.Processing.OcrFormFieldResult.Text" /> for the <see cref="P:Leadtools.Forms.Processing.TextFormField.RegexPattern" />.
+            </summary>
+      <keywords>Forms|Processing|Fields|Recognition|Text|OCR</keywords>
+      <value>The <see cref="T:System.Text.RegularExpressions.MatchCollection" /> of the <see cref="T:System.Text.RegularExpressions.Match" />  objects found by <see cref="P:Leadtools.Forms.Processing.OcrFormFieldResult.Text" /> search.</value>
+      <remarks>
+        <para>The collection includes only successful matches and terminates at the first unsuccessful match.</para>
+        <para>Using regular expression does not change the results of the processing.</para>
+      </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+  </members>
+</doc>

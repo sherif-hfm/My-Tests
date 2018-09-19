@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Tests\TransactionScopeTest\TransactionScopeTest\bin\Debug\TransactionScopeTest.exe.config
+D:\Dropbox\My Tests\My Tests\TransactionScopeTest\TransactionScopeTest\bin\Debug\TransactionScopeTest.exe
+D:\Dropbox\My Tests\My Tests\TransactionScopeTest\TransactionScopeTest\bin\Debug\TransactionScopeTest.pdb
+D:\Dropbox\My Tests\My Tests\TransactionScopeTest\TransactionScopeTest\obj\Debug\TransactionScopeTest.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\TransactionScopeTest\TransactionScopeTest\obj\Debug\TransactionScopeTest.exe
+D:\Dropbox\My Tests\My Tests\TransactionScopeTest\TransactionScopeTest\obj\Debug\TransactionScopeTest.pdb

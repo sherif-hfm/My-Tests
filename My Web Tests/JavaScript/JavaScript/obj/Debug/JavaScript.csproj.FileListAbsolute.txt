@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\JavaScript\JavaScript\bin\JavaScript.dll.config
+D:\Dropbox\My Tests\My Web Tests\JavaScript\JavaScript\bin\JavaScript.dll
+D:\Dropbox\My Tests\My Web Tests\JavaScript\JavaScript\bin\JavaScript.pdb
+D:\Dropbox\My Tests\My Web Tests\JavaScript\JavaScript\obj\Debug\JavaScript.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\JavaScript\JavaScript\obj\Debug\JavaScript.dll
+D:\Dropbox\My Tests\My Web Tests\JavaScript\JavaScript\obj\Debug\JavaScript.pdb

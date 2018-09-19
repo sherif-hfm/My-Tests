@@ -1,0 +1,9 @@
+D:\Dropbox\My Tests\My Tests\DocToImageTest\OpenMsWordHost\bin\Debug\OpenMsWordHost.exe.config
+D:\Dropbox\My Tests\My Tests\DocToImageTest\OpenMsWordHost\bin\Debug\ApplicationInsights.config
+D:\Dropbox\My Tests\My Tests\DocToImageTest\OpenMsWordHost\bin\Debug\OpenMsWordHost.exe
+D:\Dropbox\My Tests\My Tests\DocToImageTest\OpenMsWordHost\bin\Debug\OpenMsWordHost.pdb
+D:\Dropbox\My Tests\My Tests\DocToImageTest\OpenMsWordHost\obj\Debug\OpenMsWordHost.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\DocToImageTest\OpenMsWordHost\obj\Debug\OpenMsWordHost.exe
+D:\Dropbox\My Tests\My Tests\DocToImageTest\OpenMsWordHost\obj\Debug\OpenMsWordHost.pdb
+D:\Dropbox\My Tests\My Tests\DocToImageTest\OpenMsWordHost\bin\Debug\FileConvertService.dll
+D:\Dropbox\My Tests\My Tests\DocToImageTest\OpenMsWordHost\bin\Debug\FileConvertService.pdb

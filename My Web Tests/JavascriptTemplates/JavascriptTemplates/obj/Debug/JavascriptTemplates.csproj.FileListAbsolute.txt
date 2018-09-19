@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\JavascriptTemplates\JavascriptTemplates\bin\JavascriptTemplates.dll.config
+D:\Dropbox\My Tests\My Web Tests\JavascriptTemplates\JavascriptTemplates\bin\JavascriptTemplates.dll
+D:\Dropbox\My Tests\My Web Tests\JavascriptTemplates\JavascriptTemplates\bin\JavascriptTemplates.pdb
+D:\Dropbox\My Tests\My Web Tests\JavascriptTemplates\JavascriptTemplates\obj\Debug\JavascriptTemplates.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\JavascriptTemplates\JavascriptTemplates\obj\Debug\JavascriptTemplates.dll
+D:\Dropbox\My Tests\My Web Tests\JavascriptTemplates\JavascriptTemplates\obj\Debug\JavascriptTemplates.pdb

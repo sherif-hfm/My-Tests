@@ -1,0 +1,28 @@
+﻿@model List<MVCBasics.Models.Person>
+
+@{
+    ViewBag.Title = "PersonStatus";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h2>PersonStatus</h2>
+<br /><br />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    for (int index = 0; index < Model.Count; index++)
+    {
+        @Html.CheckBoxFor(m => m[index].Status)
+        @Model[index].PersonName 
+    <br />
+    }
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+<script src="~/Scripts/App/CustomValidators.js"></script>
+
+

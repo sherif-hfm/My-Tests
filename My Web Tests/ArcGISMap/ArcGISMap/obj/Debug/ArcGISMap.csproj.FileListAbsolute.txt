@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\ArcGISMap\ArcGISMap\bin\ArcGISMap.dll.config
+D:\Dropbox\My Tests\My Web Tests\ArcGISMap\ArcGISMap\bin\ArcGISMap.dll
+D:\Dropbox\My Tests\My Web Tests\ArcGISMap\ArcGISMap\bin\ArcGISMap.pdb
+D:\Dropbox\My Tests\My Web Tests\ArcGISMap\ArcGISMap\obj\Debug\ArcGISMap.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\ArcGISMap\ArcGISMap\obj\Debug\ArcGISMap.dll
+D:\Dropbox\My Tests\My Web Tests\ArcGISMap\ArcGISMap\obj\Debug\ArcGISMap.pdb

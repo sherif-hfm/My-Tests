@@ -1,0 +1,22 @@
+<h1>
+    Test
+</h1>
+<button id='btn' (click)="btn_ckick()">Add Button</button>
+
+<ng-container *ngTemplateOutlet="temp1"></ng-container>
+
+<ng-template #template>
+   foo
+</ng-template>
+
+
+<div>
+    <ng-container *ngTemplateOutlet="template"></ng-container>
+</div>
+<div>
+  <ng-container *ngTemplateOutlet="temp1"></ng-container>
+</div>
+
+<ng-template #temp1>
+My temp1    
+</ng-template>

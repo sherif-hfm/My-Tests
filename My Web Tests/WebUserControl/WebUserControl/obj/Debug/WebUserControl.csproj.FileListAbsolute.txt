@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\WebUserControl\WebUserControl\bin\WebUserControl.dll.config
+D:\Dropbox\My Tests\My Web Tests\WebUserControl\WebUserControl\bin\WebUserControl.dll
+D:\Dropbox\My Tests\My Web Tests\WebUserControl\WebUserControl\bin\WebUserControl.pdb
+D:\Dropbox\My Tests\My Web Tests\WebUserControl\WebUserControl\obj\Debug\WebUserControl.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\WebUserControl\WebUserControl\obj\Debug\WebUserControl.dll
+D:\Dropbox\My Tests\My Web Tests\WebUserControl\WebUserControl\obj\Debug\WebUserControl.pdb

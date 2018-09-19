@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionScopeTest", "TransactionScopeTest\TransactionScopeTest.csproj", "{FBC4D35E-4D3F-4B5A-8BC3-A1798C13BE82}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBC4D35E-4D3F-4B5A-8BC3-A1798C13BE82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBC4D35E-4D3F-4B5A-8BC3-A1798C13BE82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBC4D35E-4D3F-4B5A-8BC3-A1798C13BE82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBC4D35E-4D3F-4B5A-8BC3-A1798C13BE82}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

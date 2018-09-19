@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\EncodingTest\EncodingTest\bin\EncodingTest.dll.config
+D:\Dropbox\My Tests\My Web Tests\EncodingTest\EncodingTest\bin\EncodingTest.dll
+D:\Dropbox\My Tests\My Web Tests\EncodingTest\EncodingTest\bin\EncodingTest.pdb
+D:\Dropbox\My Tests\My Web Tests\EncodingTest\EncodingTest\obj\Debug\EncodingTest.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\EncodingTest\EncodingTest\obj\Debug\EncodingTest.dll
+D:\Dropbox\My Tests\My Web Tests\EncodingTest\EncodingTest\obj\Debug\EncodingTest.pdb

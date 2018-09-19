@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Basics2";
+}
+
+<h2>Basics2</h2>
+
+<div class="panel" >
+    <div class="page-header">
+        <h3>AngularJS App</h3>
+    </div>
+    
+    <h4 ng-controller="dayCtrl" highlight="Thursday" >
+        <span ngBind="(day || " (unknown)" | dayName)"></span>
+        Today is {{day || "(unknown)" | dayName}}
+    </h4>
+    <h4 ng-controller="tomorrowCtrl">
+        Tomorrow is {{day || "(unknown)" | dayName}}
+    </h4>
+    <form name="FormTest" ng-controller="FormTestCtrl as FormTestCtrl" ng-submit="FormTestCtrl.GetData()" novalidate>
+        <select ng-model="SelectedValue" >
+            <option value="1">Select1</option>
+            <option value="2">Select2</option>
+            <option value="3">Select3</option>
+            <option value="4">Select4</option>
+        </select>
+        <input type="submit" value="Send"  />
+    </form>
+</div>
+
+
+
+    @section Scripts
+{
+        <script src="~/Scripts/MyScripts/Basics2Ctrls.js"></script>
+    }

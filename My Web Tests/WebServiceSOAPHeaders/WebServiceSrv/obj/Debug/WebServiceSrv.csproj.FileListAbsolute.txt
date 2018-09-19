@@ -1,0 +1,5 @@
+D:\Dropbox\My Tests\My Web Tests\WebServiceSOAPHeaders\WebServiceSrv\bin\WebServiceSrv.dll.config
+D:\Dropbox\My Tests\My Web Tests\WebServiceSOAPHeaders\WebServiceSrv\bin\WebServiceSrv.dll
+D:\Dropbox\My Tests\My Web Tests\WebServiceSOAPHeaders\WebServiceSrv\bin\WebServiceSrv.pdb
+D:\Dropbox\My Tests\My Web Tests\WebServiceSOAPHeaders\WebServiceSrv\obj\Debug\WebServiceSrv.dll
+D:\Dropbox\My Tests\My Web Tests\WebServiceSOAPHeaders\WebServiceSrv\obj\Debug\WebServiceSrv.pdb

@@ -1,0 +1,1412 @@
+<?xml version="1.0"?>
+<doc processed="true">
+  <assembly>
+    <name>Leadtools.Forms.DocumentReaders</name>
+  </assembly>
+  <members>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">
+      <summary>
+            Indicates the document reader type.
+            </summary>
+      <remarks>
+        <para>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType" /> enumeration is used by the following members:</para>
+        <list type="bullet">
+          <item>
+            <description>
+              <para>As the type of the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.ReaderType">DocumentReader.ReaderType</see> property that specifies the type of the
+            document reader</para>
+            </description>
+          </item>
+        </list>
+        <para>The various document readers will parse text differently. Currently, LEADTOOLS ships with the following document readers:</para>
+        <list type="bullet">
+          <item>
+            <description>
+              <para>
+                <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">DocumentReaderType.Pdf</see>: This the document reader responsible for parsing PDF documents. PDF document
+            text is parsed without the need of an OCR engine. PDF support is provided through the <strong>Leadtools.Forms.DocumentReaders.Pdf</strong> assembly.</para>
+            </description>
+          </item>
+          <item>
+            <description>
+              <para>
+                <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">DocumentReaderType.Xps</see>: This the document reader responsible for parsing XPS documents. XPS document
+            text is parsed without the need of an OCR engine. XPS support is provided through the <strong>Leadtools.Forms.DocumentReaders.Xps</strong> assembly.</para>
+            </description>
+          </item>
+          <item>
+            <description>
+              <para>
+                <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">DocumentReaderType.Raster</see>: This the document reader responsible for parsing everything else, such as TIFF and JPEG documents An OCR engine
+            is required to parse the text of the document (by passing a started object of type <see cref="T:Leadtools.Forms.Ocr.IOcrEngine" /> to <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.BeginParse(System.Object)" />.
+            Raster support is provided through the <strong>Leadtools.Forms.DocumentReaders.Raster</strong> assembly.</para>
+            </description>
+          </item>
+        </list>
+        <para>LEADTOOLS will add more document readers and functionality in the near future for documents such as DICOM, DOC/DOCX(2007/2010), XLS/XLSX(2007/2010) and RTF.</para>
+        <para>More objects types such as images, bookmarks, hyperlinks and annotations will also be added in the near future.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" />.</para>
+      </example>
+    </member>
+    <member name="F:Leadtools.Forms.DocumentReaders.DocumentReaderType.Raster">
+      <summary>
+        <para>Default document reader responsible for parsing any type of document not supported by the other types.</para>
+      </summary>
+    </member>
+    <member name="F:Leadtools.Forms.DocumentReaders.DocumentReaderType.Pdf">
+      <summary>
+        <para>Document reader responsible for parsing Adobe Acrobat Format (PDF) documents.</para>
+      </summary>
+    </member>
+    <member name="F:Leadtools.Forms.DocumentReaders.DocumentReaderType.Xps">
+      <summary>
+        <para>Document reader responsible for parsing Microsoft Open XML Paper Specification (XPS) documents.</para>
+      </summary>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentReaderGetPasswordCallback">
+      <summary>
+            Prompts the user for a password if the document is encrypted.
+            </summary>
+      <param name="fileName">The same file name passed to <see cref="M:Leadtools.Forms.DocumentReaders.DocumentReader.Create(System.String,Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions)">DocumentReader.Create</see>.</param>
+      <returns>The password to use if this document is encrypted.</returns>
+      <remarks>
+        <para>Some documents such as PDF can be protected and cannot be read without the user supplying a password. The readers will automatically detect if a document is encrypted, and will
+            call the <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderGetPasswordCallback" /> delegate set in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.GetPasswordCallback">DocumentReaderLoadOptions.GetPasswordCallback</see>
+            property. The application can then show a dialog box to prompt the user for the password (or set a fixed value if the password is known in advance).</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions" />.</para>
+      </example>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions">
+      <summary>
+            Provides options to use when reading a document.
+            </summary>
+      <remarks>
+        <para>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions" /> class is used as the type for the <i>options</i> optional parameter passed to
+            <see cref="M:Leadtools.Forms.DocumentReaders.DocumentReader.Create(System.String,Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions)">DocumentReader.Create</see>.</para>
+        <para>
+          <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions" /> contain the following:</para>
+        <list type="bullet">
+          <item>
+            <description>
+              <para>
+                <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.RasterCodecsInstance" />: Optional instance of a <see cref="T:Leadtools.Codecs.RasterCodecs" /> object to be used when rendering or creating
+            thumbnails for the pages. You can pass your own initialized instance of <see cref="T:Leadtools.Codecs.RasterCodecs" /> to be used. The same object will then be used internally by the document reader.
+            Otherwise, pass <strong>null</strong> (<strong>Nothing</strong> in Visual Basic) and the document reader will create and use its own version of <see cref="T:Leadtools.Codecs.RasterCodecs" /> when needed.
+            Refer to <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.RasterCodecsInstance">DocumentReader.RasterCodecsInstance</see> for more information on how this parameter is used by the document reader during
+            its lifetime.</para>
+            </description>
+          </item>
+          <item>
+            <description>
+              <para>
+                <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.Resolution" />: The resolution value in dots per inch to use when loading a document that does not have a native
+            resolution such as PDF, XPS or DOC.</para>
+            </description>
+          </item>
+          <item>
+            <description>
+              <para>
+                <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.Password" />: The password to use if the document is encrypted.</para>
+            </description>
+          </item>
+          <item>
+            <description>
+              <para>
+                <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.GetPasswordCallback" />: The password to use if the document is encrypted and no password was supplied in
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.Password" />.</para>
+            </description>
+          </item>
+        </list>
+      </remarks>
+      <example>
+        <para>This example will load an encrypted PDF document file and prompt the user for a password.</para>
+        <!--DocumentReaderLoadOptions-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions" /> with default parameters.
+            </summary>
+      <remarks>
+        <para>This constructor will initialize this class as follows:</para>
+        <list type="bullet">
+          <item>
+            <description>
+              <para>
+                <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.RasterCodecsInstance" />: <strong>null</strong> reference</para>
+            </description>
+          </item>
+          <item>
+            <description>
+              <para>
+                <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.Resolution" />: 200</para>
+            </description>
+          </item>
+          <item>
+            <description>
+              <para>
+                <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.Password" />: a <strong>null</strong> reference</para>
+            </description>
+          </item>
+          <item>
+            <description>
+              <para>
+                <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.GetPasswordCallback" />: a <strong>null</strong> reference</para>
+            </description>
+          </item>
+        </list>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.RasterCodecsInstance">
+      <summary>
+            Gets or sets the <see cref="T:Leadtools.Codecs.RasterCodecs" /> object to use when rendering or creating thumbnails of the document pages.
+            </summary>
+      <value>A <see cref="T:Leadtools.Codecs.RasterCodecs" /> instance that indicates the object to use when rendering or creating thumbnails of the document pages. The default value is <strong>null</strong>.</value>
+      <remarks>
+        <para>You can pass your own instance of a <see cref="T:Leadtools.Codecs.RasterCodecs" /> to <see cref="M:Leadtools.Forms.DocumentReaders.DocumentReader.Create(System.String,Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions)">DocumentReader.Create</see> through this method. The
+            <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> object will then set this same <see cref="T:Leadtools.Codecs.RasterCodecs" /> into its <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.RasterCodecsInstance">DocumentReader.RasterCodecsInstance</see>
+            property and use it when rendering or creating thumbnails of the document pages. If you pass a valid object, then you must make sure the instance stays alive for the entire lifespan
+            of the <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> object.</para>
+        <para>If you leave this value to the default of <strong>null</strong>, then the <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> will create its own default <see cref="T:Leadtools.Codecs.RasterCodecs" /> object
+            and set it in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.RasterCodecsInstance">DocumentReader.RasterCodecsInstance</see> property.</para>
+        <para>You can use your own instance to control the load options or subscribe to the various events of <see cref="T:Leadtools.Codecs.RasterCodecs" />.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.Resolution">
+      <summary>
+            Gets or sets the resolution to use when loading document types that do not have a native resolution.
+            </summary>
+      <value>A <see cref="T:System.Int32" /> that specifies the resolution to use when loading document types that do not have a native resolution such as PDF or XPS. Must be a value
+            greater than or equal to 0. The default value is 200.</value>
+      <remarks>
+        <para>A value of 0 means use the current screen resolution, usually 96.</para>
+        <para>If the document type does not have a native resolution, such as PDF or XPS, then the value of <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.Resolution" /> will be used. This value will be set in
+            the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DpiX">DocumentReaderPage.DpiX</see> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DpiY">DocumentReaderPage.DpiY</see> properties.</para>
+        <para>If the document type does have a native resolution, such as TIFF or JPEG, then the value of <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.Resolution" /> will not be used. Instead the resolution will be read
+            from the document.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.Password">
+      <summary>
+            Gets or sets the password used to open encrypted documents.
+            </summary>
+      <value>A <see cref="T:System.String" /> that specifies the password to use when opening encrypted documents. The default value is <strong>null</strong>.</value>
+      <remarks>
+        <para>Some of the documents opened by the reader such as PDF might be encrypted with a password. To open these documents, you must use one of the following:</para>
+        <list type="bullet">
+          <item>
+            <description>
+              <para>If the password is known in advance, then simply set it in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.Password" /> property of the <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions" />
+            instance passed to <see cref="M:Leadtools.Forms.DocumentReaders.DocumentReader.Create(System.String,Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions)">DocumentReader.Create</see>.</para>
+            </description>
+          </item>
+          <item>
+            <description>
+              <para>If the password is unknown before loading, then set a callback in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.GetPasswordCallback" /> property. The reader will invoke this
+            callback when an encrypted document is encountered. You can then prompt the user for the password using a dialog box.</para>
+            </description>
+          </item>
+        </list>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.GetPasswordCallback">
+      <summary>
+            Gets or sets the password callback to use when openning encrypted documents.
+            </summary>
+      <value>A <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderGetPasswordCallback" /> object that specifies the password callback to use when opening encrypted documents. The default value is <strong>null</strong>.</value>
+      <remarks>
+        <para>Some of the documents opened by the reader such as PDF might be encrypted with a password. To open these documents, you must use one of the following:</para>
+        <list type="bullet">
+          <item>
+            <description>
+              <para>If the password is known in advance, then simply set it in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.Password" /> property of the <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions" />
+            instance passed to <see cref="M:Leadtools.Forms.DocumentReaders.DocumentReader.Create(System.String,Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions)">DocumentReader.Create</see>.</para>
+            </description>
+          </item>
+          <item>
+            <description>
+              <para>If the password is unknown before loading, then set a callback in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.GetPasswordCallback" /> property. The reader will invoke this
+            callback when an encrypted document is encountered. You can then prompt the user for the password using a dialog box.</para>
+            </description>
+          </item>
+        </list>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions" />.</para>
+      </example>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentReader">
+      <summary>
+            Provides the main class for reading documents.
+            </summary>
+      <remarks>
+        <para>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> class allows reading images, thumbnails, text data and metadata from any of the supported types using a uniform set of methods and properties,
+            regardless of the document type.</para>
+        <para>The current implementation of the LEADTOOLS Document Readers support reading the following document types:</para>
+        <list type="bullet">
+          <item>
+            <description>
+              <para>
+                <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">DocumentReaderType.Pdf</see>: This is the document reader responsible for parsing PDF documents. PDF document
+            text is parsed without the need of an OCR engine. PDF support is provided through the <strong>Leadtools.Forms.DocumentReaders.Pdf</strong> assembly.</para>
+            </description>
+          </item>
+          <item>
+            <description>
+              <para>
+                <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">DocumentReaderType.Xps</see>: This is the document reader responsible for parsing XPS documents. XPS document
+            text is parsed without the need of an OCR engine. XPS support is provided through the <strong>Leadtools.Forms.DocumentReaders.Xps</strong> assembly.</para>
+            </description>
+          </item>
+          <item>
+            <description>
+              <para>
+                <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">DocumentReaderType.Raster</see>: This is the document reader responsible for parsing everything else, such as TIFF and JPEG documents. An OCR engine
+            is required to parse the text of the document (by passing a started object of type <see cref="T:Leadtools.Forms.Ocr.IOcrEngine" /> to <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.BeginParse(System.Object)" />.
+            Raster support is provided through the <strong>Leadtools.Forms.DocumentReaders.Raster</strong> assembly.</para>
+            </description>
+          </item>
+        </list>
+        <para>LEADTOOLS will add more document readers and functionality in the near future for documents such as DICOM, DOC/DOCX(2007/2010), XLS/XLSX(2007/2010) and RTF. More objects types such as images,
+            bookmarks, hyperlinks and annotations will also be added in the near future. Currently, support for these formats is provided by the Raster document reader (with text parsing
+            supported by an external OCR engine).</para>
+        <para>
+          <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> is an abstract class and cannot be initialized directly. The derived classes to support PDF, XPS and the various other formats are internal to
+            LEADTOOLS. Instead, get a <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> object by using the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentReader.Create(System.String,Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions)">DocumentReader.Create</see> static (Shared in Visual Basic) method. This method
+            will try to load the document in the supported readers and if successful, will return an instance of <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> ready to use.</para>
+        <para>Once you obtain a valid instance of a <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> object with a document loaded into it, you can use the following features:</para>
+        <list type="bullet">
+          <item>
+            <description>
+              <para>Use the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.Pages" /> property to access the pages of the document.</para>
+            </description>
+          </item>
+          <item>
+            <description>
+              <para>The <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.MimeType" /> property and <see cref="M:Leadtools.Forms.DocumentReaders.DocumentReader.GetProperties" /> method can be used to obtain the metadata of the
+            document.</para>
+            </description>
+          </item>
+          <item>
+            <description>
+              <para>The methods of the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.ImageManager" /> property can be used get a raster image render or a thumbnail of any page in the document.</para>
+            </description>
+          </item>
+          <item>
+            <description>
+              <para>The methods of the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.ObjectManager" /> property can be used to parse the objects found in any page in the document such as text items and font properties.</para>
+            </description>
+          </item>
+        </list>
+        <para>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> class implements the <see cref="T:System.IDisposable" /> interface. You must call the <see cref="M:System.IDisposable.Dispose" /> method when the 
+            reader is no longer used.</para>
+      </remarks>
+      <example>
+        <para>This example will load a document into a <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> and show its properties, pages and text</para>
+        <!--DocumentReader-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentReader.Create(System.String,Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions)">
+      <summary>
+            Creates a document reader from a file name.
+            </summary>
+      <param name="fileName">The name of the document file. Must not be <strong>null</strong>.</param>
+      <param name="options">Optional document loading options. If this parameter is <strong>null</strong>, then default options are used.</param>
+      <returns>An instance of <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> ready to use.</returns>
+      <remarks>
+        <para>If the document in <paramref name="fileName" /> cannot be loaded with any LEADTOOLS Document Readers, an exception will be thrown.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> and <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions" />.</para>
+      </example>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentReader.#ctor">
+      <summary>
+            Initializes a new instance of <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /></summary>
+      <remarks>
+        <para>You cannot create an instance of <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> directly, instead, use <see cref="M:Leadtools.Forms.DocumentReaders.DocumentReader.Create(System.String,Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions)">DocumentReader.Create</see>.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentReader.Finalize">
+      <summary>
+            This member overrides <see cref="M:System.Object.Finalize" />.
+            </summary>
+      <remarks>
+        <para>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> class implements the <see cref="T:System.IDisposable" /> interface, it is recommended that you follow the standard .NET dispose pattern when using the
+            <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> class. For more information, refer to the <see cref="T:System.IDisposable" /> interface documentation in MSD.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentReader.Dispose">
+      <summary>
+            Releases all resources used by this <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" />.
+            </summary>
+      <remarks>
+        <para>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> class implements the <see cref="T:System.IDisposable" /> interface, it is recommended that you follow the standard .NET dispose pattern when using the
+            <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> class. For more information, refer to the <see cref="T:System.IDisposable" /> interface documentation in MSD.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" />.</para>
+      </example>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentReader.Dispose(System.Boolean)">
+      <summary>
+            Releases all resources used by this <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" />.
+            </summary>
+      <param name="disposing">
+        <strong>true</strong> to release both managed and unmanaged resources; <strong>false</strong> to release only unmanaged resources.</param>
+      <remarks>
+        <para>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> class implements the <see cref="T:System.IDisposable" /> interface, it is recommended that you follow the standard .NET dispose pattern when using the
+            <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> class. For more information, refer to the <see cref="T:System.IDisposable" /> interface documentation in MSD.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentReader.GetProperties">
+      <summary>
+            Gets the properties (or metadata) of the current document.
+            </summary>
+      <value>A dictionary that contains the properties (or metadata) of the current document.
+            Default value is <strong>null</strong> (<strong>Nothing</strong> in Visual Basic).</value>
+      <remarks>
+        <para>The metadata of the document depends on the format. For PDF and XPS files, the metadata is loaded directly from the file and you will get information
+            such as Author, Subject and Keywords. For raster files such as JPEG, EXIF and TIFF, the toolkit will try to load any comments stored in the file such as
+            Author and Copyright.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReader.RasterCodecsInstance">
+      <summary>
+            Gets the <see cref="T:Leadtools.Codecs.RasterCodecs" /> instance used by this document reader.
+            </summary>
+      <value>An instance of <see cref="T:Leadtools.Codecs.RasterCodecs" /> that specifies the object used by this document reader to render and create thumbnails for the pages.</value>
+      <remarks>
+        <para>If you pass a valid instance of <see cref="T:Leadtools.Codecs.RasterCodecs" /> in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.RasterCodecsInstance">DocumentReaderLoadOptions.RasterCodecsInstance</see>
+            property of the object passed to the <i>options</i> parameter to <see cref="M:Leadtools.Forms.DocumentReaders.DocumentReader.Create(System.String,Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions)">DocumentReader.Create</see>, then the same object be saved internally and 
+            used by the document reader and accessed here. In this mode, you must ensure that the original <see cref="T:Leadtools.Codecs.RasterCodecs" /> must be alive for the whole lifespan of this
+            <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" />.</para>
+        <para>If the value of <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.RasterCodecsInstance">DocumentReaderLoadOptions.RasterCodecsInstance</see> is <strong>null</strong>, then a new
+            instance of <see cref="T:Leadtools.Codecs.RasterCodecs" /> will be created during <see cref="M:Leadtools.Forms.DocumentReaders.DocumentReader.Create(System.String,Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions)">DocumentReader.Create</see> and assigned to this property. When the
+            <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> object is disposed, this <see cref="T:Leadtools.Codecs.RasterCodecs" /> instance is disposed as well. You can access this created <see cref="T:Leadtools.Codecs.RasterCodecs" /> object through
+            this property as well.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReader.ReaderType">
+      <summary>
+            Gets the document reader type.
+            </summary>
+      <value>An <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType" /> enumeration member that specifies the type of this document reader.</value>
+      <remarks>
+        <para>The type of the reader depends on the document file name passed to <see cref="M:Leadtools.Forms.DocumentReaders.DocumentReader.Create(System.String,Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions)">DocumentReader.Create</see>.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReader.Pages">
+      <summary>
+            Gets the collection of pages in this document reader.
+            </summary>
+      <value>A collection of type <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderPage" /> that contain an item for each page in the file associated with this <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> object. Default
+            value is <strong>null</strong> (<strong>Nothing</strong> in Visual Basic).</value>
+      <remarks>
+        <para>The value of <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.Pages" /> will be automatically populated with the pages collection after a <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> is created.</para>
+        <para>Each item in the collection corresponds to a page in the PDF file. To the number of pages in the document is <see cref="P:System.Collections.Generic.ICollection`1.Count">Pages.Count</see> and
+            the item at index 0 contains the properties of page 1, item at index 1 contains the properties of page 2 and so on.</para>
+        <para>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderPage" /> class contains the physical and logical size of the page as well as its resolution and bits per pixel value.</para>
+        <para>
+          <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderPageCollection" /> is a read-only collection of <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderPage" /> objects. The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> class is a read-only view of a
+            document, you cannot insert or delete pages into this object.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReader.FileName">
+      <summary>
+            Gets the name of the file associated with this <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" />.
+            </summary>
+      <value>A <see cref="T:System.String" /> that contains the name of the file associated with this <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" />.
+            The default value is <strong>null</strong> (<strong>Nothing</strong> in Visual Basic).</value>
+      <remarks>
+        <para>
+          <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.FileName" /> will contain the same exact values passed to the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentReader.Create(System.String,Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions)" />.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReader.MimeType">
+      <summary>
+            Gets the MIME type of the current document.
+            </summary>
+      <value>A <see cref="T:System.String" /> that specifies the MIME type of the current document.
+            Default value is <strong>null</strong> (<strong>Nothing</strong> in Visual Basic).</value>
+      <remarks>
+        <para>The MIME type for PDF documents is "application/pdf", for XPS documents is "application/vnd.ms-xpsdocument", etc.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReader.ImageManager">
+      <summary>
+            Gets the object to use for obtaining a raster image render or a thumbnail of any page in the document.
+            </summary>
+      <value>A <see cref="T:Leadtools.Forms.DocumentReaders.DocumentImageManager" /> object that can be used to obtain a raster image render or a thumbnail of any page in the document.
+            The default value is <strong>null</strong> (<strong>Nothing</strong> in Visual Basic).</value>
+      <remarks>
+        <para>Instances of the <see cref="T:Leadtools.Forms.DocumentReaders.DocumentImageManager" /> are not created directly. Instead access the
+            instance automatically created inside a <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> using the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.ImageManager" /> property.</para>
+        <para>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentImageManager" /> contains the following functionality:</para>
+        <list type="bullet">
+          <item>
+            <description>The <para><see cref="M:Leadtools.Forms.DocumentReaders.DocumentImageManager.GetPageImage(Leadtools.Forms.DocumentReaders.DocumentReaderPage)" /> method: Allows you to get a raster image rendering of a page
+            in this document.</para></description>
+          </item>
+          <item>
+            <description>The <para><see cref="M:Leadtools.Forms.DocumentReaders.DocumentImageManager.GetThumbnail(Leadtools.Forms.DocumentReaders.DocumentReaderPage,System.Int32,System.Int32)" /> method: Allows you to get a thumbnail of a page
+            in this document.</para></description>
+          </item>
+        </list>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentImageManager" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReader.ObjectManager">
+      <summary>
+            Gets the object to use for parsing the document pages objects such as text items.
+            </summary>
+      <value>A <see cref="T:Leadtools.Forms.DocumentReaders.DocumentObjectManager" /> object that can be used to parse the document pages objects such as the text items.
+            The default value is <strong>null</strong> (<strong>Nothing</strong> in Visual Basic).</value>
+      <remarks>
+        <para>Instances of the <see cref="T:Leadtools.Forms.DocumentReaders.DocumentObjectManager" />are not created directly. Instead access the
+            instance automatically created inside a <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> using the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.ObjectManager" /> property.</para>
+        <para>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentObjectManager" /> contains the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)" /> method that allows you to parse
+            the text of the document. You can use <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)" /> to parse the text of all the pages in a document by using it in a loop.
+            However, you must call <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.BeginParse(System.Object)" /> before parsing starts and <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.EndParse" /> when
+            parsing is done.</para>
+        <para>The various document readers will parse text differently, currently, LEADTOOLS ships with the following document readers:</para>
+        <list type="bullet">
+          <item>
+            <description>
+              <para>
+                <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">DocumentReaderType.Pdf</see>: This the document reader responsible for parsing PDF documents. The PDF documents
+            text is parsed without the need of an OCR engine</para>
+            </description>
+          </item>
+          <item>
+            <description>
+              <para>
+                <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">DocumentReaderType.Xps</see>: This the document reader responsible for parsing XPS documents. The XPS documents
+            text is parsed without the need of an OCR engine</para>
+            </description>
+          </item>
+          <item>
+            <description>
+              <para>
+                <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">DocumentReaderType.Raster</see>: This the document reader responsible for parsing everything else, such as TIFF and JPEG documents. An OCR engine
+            is required to parse the text of the document (by passing a started object of type <see cref="T:Leadtools.Forms.Ocr.IOcrEngine" /> to <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.BeginParse(System.Object)" /></para>
+            </description>
+          </item>
+        </list>
+        <para>LEADTOOLS will add more document readers and functionality in the near future for document such as DICOM, DOC/DOCX(2007/2010), XLS/XLSX(2007/2010) and RTF.</para>
+        <para>More objects types such as images, bookmarks, hyperlinks and annotations will also be added in the near future.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentObjectManager" />.</para>
+      </example>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentImageManager">
+      <summary>
+            Contains the image functionality associated with a <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" />.
+            </summary>
+      <remarks>
+        <para>An instance of the <see cref="T:Leadtools.Forms.DocumentReaders.DocumentImageManager" /> isn't created directly, instead access the
+            instance automatically created inside a <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> using the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.ImageManager" /> property.</para>
+        <para>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentImageManager" /> contains the following functionality:</para>
+        <list type="bullet">
+          <item>
+            <description>The <see cref="M:Leadtools.Forms.DocumentReaders.DocumentImageManager.GetPageImage(Leadtools.Forms.DocumentReaders.DocumentReaderPage)" /> method: Gets a raster image rendering of a page
+            in this document.</description>
+          </item>
+          <item>
+            <description>The <see cref="M:Leadtools.Forms.DocumentReaders.DocumentImageManager.GetThumbnail(Leadtools.Forms.DocumentReaders.DocumentReaderPage,System.Int32,System.Int32)" /> method: Gets a thumbnail of a page
+            in this document.</description>
+          </item>
+        </list>
+      </remarks>
+      <example>
+        <para>This example will load a document then convert it to a multi-page TIFF file.</para>
+        <!--DocumentImageManager-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentImageManager.GetPageImage(Leadtools.Forms.DocumentReaders.DocumentReaderPage)">
+      <summary>
+            Gets a raster image rendering of a specific page in the document.
+            </summary>
+      <param name="page">The requested page. Must be an existing page in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.Pages">DocumentReader.Pages</see> list and cannot
+            be a a <strong>null</strong> reference.</param>
+      <returns>A <see cref="T:Leadtools.RasterImage" /> that represents the rendering of the requested page.</returns>
+      <remarks>
+        <para>The size of the resulting <see cref="T:Leadtools.RasterImage" /> depends on the size of the page (<see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.PixelWidth">DocumentReaderPage.PixelWidth</see>
+            and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.PixelHeight">DocumentReaderPage.PixelHeight</see>). The image will also contain the same bits/pixel and resolution set
+            in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.BitsPerPixel">DocumentReaderPage.BitsPerPixel</see>, <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DpiX">DocumentReaderPage.DpiX</see>
+            and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DpiY">DocumentReaderPage.DpiY</see>.</para>
+        <para>Once the page is rendered as a <see cref="T:Leadtools.RasterImage" /> object, you can use this object to perform any other image functionality with LEADTOOLS, such
+            as setting it into a viewer control, image processing, saving to other formats, etc.</para>
+        <para>To get a thumbnail of any page in a PDF document, use <see cref="M:Leadtools.Forms.DocumentReaders.DocumentImageManager.GetThumbnail(Leadtools.Forms.DocumentReaders.DocumentReaderPage,System.Int32,System.Int32)" />.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentImageManager" />.</para>
+      </example>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentImageManager.GetThumbnail(Leadtools.Forms.DocumentReaders.DocumentReaderPage,System.Int32,System.Int32)">
+      <summary>
+            Gets a thumbnail of a page in the document.
+            </summary>
+      <param name="page">The requested page. Must be an existing page in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.Pages">DocumentReader.Pages</see> list and cannot
+            be a a <strong>null</strong> reference.</param>
+      <param name="thumbnailWidth">The desired maximum width of the thumbnail image in pixels. Must be greater than or equal to 32.</param>
+      <param name="thumbnailHeight">The desired maximum height of the thumbnail image in pixels. Must be greater than or equal to 32.</param>
+      <returns>A new <see cref="T:Leadtools.RasterImage" /> that is the thumbnail image.</returns>
+      <remarks>
+        <para>If the page width and height is less than <paramref name="thumbnailWidth" /> and <paramref name="thumbnailHeight" />, then this method returns a <see cref="T:Leadtools.RasterImage" /> in the original
+            size.</para>
+        <para>If the page width or height is greater than <paramref name="thumbnailWidth" /> and <paramref name="thumbnailHeight" />, then this method will return the biggest thumbnail it can
+            fit into the dimensions specified by <paramref name="thumbnailWidth" /> and <paramref name="thumbnailHeight" />, keeping the original image aspect ratio. </para>
+        <para>The result image will always have 24 bits per pixel and a resolution of 96 by 96 regardless of the value of
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DpiX" /> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DpiY" /> and will never return a
+            thumbnail bigger than the original page size in pixels.</para>
+        <para>To get a render of the full size of any page in a PDF document, use <see cref="M:Leadtools.Forms.DocumentReaders.DocumentImageManager.GetPageImage(Leadtools.Forms.DocumentReaders.DocumentReaderPage)" />.</para>
+      </remarks>
+      <example>
+        <para>This example will get thumbnails of a document and add them to a LEADTOOLS Raster Image List control.</para>
+        <!--DocumentImageManager.GetThumbnail-->
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentImageManager.DocumentReaderInstance">
+      <summary>
+            Gets the owner <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" />.
+            </summary>
+      <value>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> that owns this <see cref="T:Leadtools.Forms.DocumentReaders.DocumentImageManager" />.</value>
+      <remarks>
+        <para>An instance of the <see cref="T:Leadtools.Forms.DocumentReaders.DocumentImageManager" /> isn't created directly, instead access the
+            instance automatically created inside a <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> using the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.ImageManager" /> property.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentImageManager" />.</para>
+      </example>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentReaderPageCollection">
+      <summary>
+            Represents a read-only collection of <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderPage" /> objects.
+            </summary>
+      <remarks>
+        <para>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderPageCollection" /> class is used as the type for the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.Pages">DocumentReader.Pages</see>
+            property.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderPageCollection.DocumentReaderInstance">
+      <summary>
+            Gets the owner <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" />.
+            </summary>
+      <value>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> that owns this <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderPageCollection" />.</value>
+      <remarks>
+        <para>You do not directly create an instance of <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderPageCollection" />, instead the pages of a document are automatically created and set in the
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.Pages">DocumentReader.Pages</see> property when a document is created or loaded.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentReaderPage">
+      <summary>
+             Contains information about a page in the document.
+             </summary>
+      <remarks>
+        <para>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderPage" /> class is used as the type of the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.Pages">DocumentReader.Pages</see> collection.</para>
+        <para>The <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.Pages">DocumentReader.Pages</see> collection is automatically created when a new <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> object is
+             created with the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentReader.Create(System.String,Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions)">DocumentReader.Create</see> method. This collection is read-only and cannot be modified since the
+             <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> object is a read-only view of a document. Each item in the collection corresponding to a page in
+             the document.</para>
+        <para>Each item in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.Pages" /> collection corresponds to a page in the document. So the item at index 0 contains the properties of page 1, the item at index 1 contains the
+             properties of page 2 and so on. Even though the <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderPage" /> class contains the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.PageNumber" /> property that specifies the
+             number of the page, this information is for convenience only, the <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> creator or load method will always populate the collection in
+             the correct order from the first page to the last page.</para>
+        <para>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderPage" /> class contains the size of the page in logical units stored in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.Size" />
+             property, in inches. The size is read from the document directly. The page resolution is stored in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DpiX" /> and
+             <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DpiY" />. The physical size of the page is stored in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.PixelWidth" /> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.PixelHeight" />
+             and the bits per pixel is stored in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.BitsPerPixel" />.</para>
+        <para>The total number of pages in the document is <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.Pages">DocumentReader.Pages.Count</see>.</para>
+        <para>You can get a raster image render of a page or its thumbnail by using the
+             <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.ImageManager">DocumentReader.ImageManager</see> property.</para>
+        <para>You can get the text properties of a page such the characters, words, fonts and location information using the
+             <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.ObjectManager">DocumentReader.ObjectManager</see> property.</para>
+      </remarks>
+      <example>
+        <para>This example will load a document and parse its text.</para>
+        <!--DocumentReaderPage-->
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DocumentReaderInstance">
+      <summary>
+            Gets the owner <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /></summary>
+      <value>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> that owns this <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderPage" />.</value>
+      <remarks>
+        <para>Instances of <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderPage" /> aren't directly created, instead the pages of a document are automatically created and set in the
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.Pages">DocumentReader.Pages</see> property when a document is created or loaded.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderPage" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.PageNumber">
+      <summary>
+            Gets the number of this page.
+            </summary>
+      <value>A <see cref="T:System.Int32" /> that specifies the number of this page.</value>
+      <remarks>
+        <para>Each item in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.Pages" /> collection corresponds to a page in the document. So the item at index 0 contains the properties of page 1, the item at index 1 contains the
+            properties of page 2 and so on. Even though the <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderPage" /> class contains the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.PageNumber" /> property that specifies the
+            number of the page, this information is for convenience only. When a new document is loaded, the <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> will always populate the
+            collection in the correct order from the first page to the last page.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderPage" /></para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.Size">
+      <summary>
+            Gets the size of this page in logical units.
+            </summary>
+      <value>A <see cref="T:Leadtools.Forms.LogicalSize" /> that contains the size of this page in logical units (inches).</value>
+      <remarks>
+        <para>The resolution of the page is set in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DpiX" /> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DpiY" /> properties and the physical size is set in the
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.PixelWidth" /> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.PixelHeight" /> properties.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderPage" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DpiX">
+      <summary>
+            Gets the horizontal resolution of this page in dots per inch.
+            </summary>
+      <value>A <see cref="T:System.Double" /> that specifies the horizontal resolution of this page in dots per inch.</value>
+      <remarks>
+        <para>If the document does not contain a resolution, such as a PDF or XPS document, then the <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> will use the value
+            set in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.Resolution">DocumentReaderLoadOptions.Resolution</see> in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DpiX" /> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DpiY" />.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderPage" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DpiY">
+      <summary>
+            Gets the vertical resolution of this page in dots per inch.
+            </summary>
+      <value>A <see cref="T:System.Double" /> that specifies the vertical resolution of this page in dots per inch.</value>
+      <remarks>
+        <para>If the document does not contain a resolution, such as a PDF or XPS document, then the <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> will use the value
+            set in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.Resolution">DocumentReaderLoadOptions.Resolution</see> in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DpiX" /> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DpiY" />.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderPage" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.PixelWidth">
+      <summary>
+            Gets the physical width this page in pixels.
+            </summary>
+      <value>A <see cref="T:System.Int32" /> that specifies the physical width of this page in pixels.</value>
+      <remarks>
+        <para>The logical size of the page is set in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.Size" /> property and the resolution is set in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DpiX" /> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DpiY" />
+            properties. The physical size is calculated as the following and set in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.PixelWidth" /> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.PixelHeight" />:</para>
+        <para>
+          <pre>
+            <code inline="true">
+            PixelWidth = page.Size.Width * page.DpiX
+            PixelHeight = page.Size.Height * page.DpiY
+            </code>
+          </pre>
+        </para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderPage" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.PixelHeight">
+      <summary>
+            Gets the physical height this page in pixels.
+            </summary>
+      <value>A <see cref="T:System.Int32" /> that specifies the physical height of this page in pixels.</value>
+      <remarks>
+        <para>The logical size of the page is set in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.Size" /> property. The resolution is set in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DpiX" /> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DpiY" />
+            properties. The physical size is calculated as the following and set in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.PixelWidth" /> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.PixelHeight" />:</para>
+        <para>
+          <pre>
+            <code inline="true">
+            PixelWidth = page.Size.Width * page.DpiX
+            PixelHeight = page.Size.Height * page.DpiY
+            </code>
+          </pre>
+        </para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderPage" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.BitsPerPixel">
+      <summary>
+            Gets the number of bits per pixel of this page.
+            </summary>
+      <value>A <see cref="T:System.Int32" /> that represents the number of bits per pixel of this page.</value>
+      <remarks>
+        <para>This value is read from the document directly. If the document is not a raster image, for example, a PDF or XPS file, then this value is calculated
+            as the lowest number of bits per pixel required to render the page as a raster image based on the objects contained in the page.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderPage" />.</para>
+      </example>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentCharacter">
+      <summary>
+            Contains the properties of a text character found in the document.
+            </summary>
+      <remarks>
+        <para>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentCharacter" /> structure is used as the type for the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Characters">DocumentPageText.Characters</see> list.</para>
+        <para>The text of a document page is read by using the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)">DocumentObjectManager.ParsePageText</see> method.
+            The text characters found in the page will be set in the in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Characters" /> property of the returned <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" /> object.</para>
+        <para>The text words are created from the characters found in the document based on the
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfWord">DocumentCharacter.IsEndOfWord</see> returned by document reader engine. Whenever an "end of word" is found, the last
+            set of characters are grouped together and stored as an item in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Words">DocumentPageText.Words</see> list.</para>
+        <para>The overall text string (withou any extra properties) can be obtained using the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentPageText.BuildText">DocumentPageText.BuildText</see>
+            method.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.Code">
+      <summary>
+            Gets or sets the character code value of this <see cref="T:Leadtools.Forms.DocumentReaders.DocumentCharacter" /> item.
+            </summary>
+      <value>A <see cref="T:System.Char" /> that contain the UNICODE character code of this <see cref="T:Leadtools.Forms.DocumentReaders.DocumentCharacter" /> item. The default value is 0.</value>
+      <remarks>
+        <para>White space characters such as a space or a tab are not parsed by the LEADTOOLS Document Readers.</para>
+        <para>The text words are created from the characters found in the document based on the
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfWord">DocumentCharacter.IsEndOfWord</see> returned by document reader engine. Whenever an "end of word" is found, the last
+            set of characters are grouped together and stored as an item in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Words">DocumentPageText.Words</see> list.</para>
+        <para>The overall text string (with no extra properties) can be obtained using the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentPageText.BuildText">DocumentPageText.BuildText</see>
+            method.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.Bounds">
+      <summary>
+            Gets or sets the bounding rectangle of the character.
+            </summary>
+      <value>A <see cref="T:Leadtools.Forms.LogicalRectangle" /> structure that contain the bounding rectangle of the character in logical units.
+            Default value is an empty <see cref="T:Leadtools.Forms.LogicalRectangle" /> with all values initialized to 0.</value>
+      <remarks>
+        <para>The <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.Bounds" /> property contains the exact bounding box of the character in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.Code" />. This box
+            does not include the internal or external leading spaces adding by the font used.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.RotationAngle">
+      <summary>
+            Gets or sets the rotation angle of this character.
+            </summary>
+      <value>The rotation angle of this character in degrees. Default value is 0.</value>
+      <remarks>
+        <para>The LEADTOOLS Document Readers can detect if a character is rotated at a right angle (90, -90, 180, -180, 270, -270) and will return the
+            angle of the rotation in this property.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.FontIndex">
+      <summary>
+            Gets or sets the index of the font used by this character.
+            </summary>
+      <value>The 0-based index of the font used by this character. The default value is 0.</value>
+      <remarks>
+        <para>To read the text objects from a document, you use the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)" /> method. The fonts found in the page will be set in
+            the in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Fonts" /> property of the returned <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" /> object.</para>
+        <para>Each text character will have its <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.FontIndex" /> property set to an index in this fonts array.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.FontSize">
+      <summary>
+            Gets or sets the font size of the character in points.
+            </summary>
+      <value>The font size of the character in points. The default value is 0.</value>
+      <remarks>
+        <para>To read the text objects from a document, use the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)" /> method. The fonts found in the page will be set in
+            the in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Fonts" /> property of the returned <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" /> object.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfWord">
+      <summary>
+            Gets or sets a value that indicates if this the last character in a word.
+            </summary>
+      <value>
+        <strong>true</strong> if this is the last character in a word; otherwise, it is <strong>false</strong>. The default value is <strong>false</strong>.</value>
+      <remarks>
+        <para>You can use the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfWord" />, <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfLine" />, <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfParagraph" /> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfPage" /> properties to
+            construct the words, lines, paragraphs and pages of the text found in a document.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfLine">
+      <summary>
+            Gets or sets a value that indicates if this the last character in a line.
+            </summary>
+      <value>
+        <strong>true</strong> if this is the last character in a line; otherwise, it is <strong>false</strong>. The default value is <strong>false</strong>.</value>
+      <remarks>
+        <para>You can use the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfWord" />, <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfLine" />, <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfParagraph" /> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfPage" /> properties to
+            construct the words, lines, paragraphs and pages of the text found in a document.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfParagraph">
+      <summary>
+            Gets or sets a value that indicates if this the last character in a paragraph.
+            </summary>
+      <value>
+        <strong>true</strong> if this is the last character in a paragraph; otherwise, it is <strong>false</strong>. The default value is <strong>false</strong>.</value>
+      <remarks>
+        <para>You can use the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfWord" />, <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfLine" />, <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfParagraph" /> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfPage" /> properties to
+            construct the words, lines, paragraphs and pages of the text found in a document.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfPage">
+      <summary>
+            Gets or sets a value that indicates if this the last character in a page.
+            </summary>
+      <value>
+        <strong>true</strong> if this is the last character in a page; otherwise, it is <strong>false</strong>. The default value is <strong>false</strong>.</value>
+      <remarks>
+        <para>You can use the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfWord" />, <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfLine" />, <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfParagraph" /> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfPage" /> properties to
+            construct the words, lines, paragraphs and pages of the text found in a document.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentFont">
+      <summary>
+            Contains the information for a document font.
+            </summary>
+      <remarks>
+        <para>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentFont" /> structure is used as the type for the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Fonts">DocumentPageText.Fonts</see> collection.</para>
+        <para>You can read the fonts of a document page by using the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)">DocumentObjectManager.ParsePageText</see> method.
+            The fonts found in the page will be set in the in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Fonts" /> property of the returned <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" /> object.</para>
+        <para>The font size is not stored in the <see cref="T:Leadtools.Forms.DocumentReaders.DocumentFont" /> structure. Instead, it is stored in the
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.FontSize">DocumentCharacter.FontSize</see> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.FontSize">DocumentWord.FontSize</see>
+            properties of each item in the returned <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" /> object's <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Characters" /> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Words" /> properties.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentFont.FaceName">
+      <summary>
+            Gets or sets the face name of this font.
+            </summary>
+      <value>A <see cref="T:System.String" /> that contain the face name of this font. Default value is <strong>null</strong> (<strong>Nothing</strong> in Visual Basic).</value>
+      <remarks>
+        <para>The face name of a font can be "Arial" or "Times New Roman".</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentFont.FontStyle">
+      <summary>
+            Gets or sets the style of this font.
+            </summary>
+      <value>One or more <see cref="T:Leadtools.Forms.DocumentReaders.DocumentFontStyle" /> enumeration member values that specify the style of this font. The default value is
+            <see cref="T:Leadtools.Forms.DocumentReaders.DocumentFontStyle">DocumentFontStyle.Normal</see>.</value>
+      <noremarks />
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentFontStyle">
+      <summary>
+            Indicates the styles of the fonts in a document.
+            </summary>
+      <remarks>
+        <para>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentFontStyle" /> is used as the type for the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentFont.FontStyle">DocumentFont.FontStyle</see> property.</para>
+        <para>The members of <see cref="T:Leadtools.Forms.DocumentReaders.DocumentFontStyle" /> can be OR'ed together.</para>
+        <para>You can read the fonts of a document page by using the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)">DocumentObjectManager.ParsePageText</see> method. The fonts
+            found in the page will be set in the in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Fonts" /> property of the returned <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" /> object.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="F:Leadtools.Forms.DocumentReaders.DocumentFontStyle.Normal">
+      <summary>
+        <para>Normal font</para>
+      </summary>
+    </member>
+    <member name="F:Leadtools.Forms.DocumentReaders.DocumentFontStyle.Bold">
+      <summary>
+        <para>Bold font</para>
+      </summary>
+    </member>
+    <member name="F:Leadtools.Forms.DocumentReaders.DocumentFontStyle.Italic">
+      <summary>
+        <para>Italic font</para>
+      </summary>
+    </member>
+    <member name="F:Leadtools.Forms.DocumentReaders.DocumentFontStyle.Underline">
+      <summary>
+        <para>Underline font</para>
+      </summary>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentPageText">
+      <summary>
+            Contains the text characters and words found in a document page.
+            </summary>
+      <remarks>
+        <para>The text of a document page can be read by using the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)">DocumentObjectManager.ParsePageText</see> method.
+            The text characters found in the page will be set in the in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Characters" /> property of the returned
+            <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" /> object.</para>
+        <para>The text words are created from the characters found in the document based on the
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfWord">DocumentCharacter.IsEndOfWord</see> returned by document reader engine. Whenever an "end of word" is found, the last
+            set of characters are grouped together and stored as an item in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Words">DocumentPageText.Words</see> list.</para>
+        <para>The overall text string (with no extra properties) can be obtained using the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentPageText.BuildText">DocumentPageText.BuildText</see>
+            method.</para>
+      </remarks>
+      <example>
+        <para>This example will load a document and read the text found in the first page.</para>
+        <!--DocumentPageText-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentPageText.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" /> class.
+            </summary>
+      <remarks>
+        <para>Generally, instances of <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" /> are not created directly. Instead, use the returned object created by
+            the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)">DocumentObjectManager.ParsePageText</see> method.</para>
+        <para>This constructor initializes <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Fonts" />, <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Characters" /> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Words" /> to <strong>null</strong>.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentPageText.BuildText">
+      <summary>
+            Constructs the text of this document page.
+            </summary>
+      <returns>A <see cref="T:System.String" /> that represents the overall text of this document page.</returns>
+      <remarks>
+        <para>This method uses the words found in this page (in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Words" /> property) to construct the overall text of the document page by combining
+            all the words (<see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.Value">DocumentWord.Value</see>) to form the text and adding a space between consecutive words in the same line.</para>
+        <para>When a word item <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.IsEndOfLine" /> or <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.IsEndOfParagraph" /> is set to <strong>true</strong>, then a new line
+            character is inserted in te text to separate the lines of the page.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Fonts">
+      <summary>
+            Gets a list of the fonts found in this document page.
+            </summary>
+      <value>A <see cref="T:System.Collections.Generic.IList`1">IList</see> of <see cref="T:Leadtools.Forms.DocumentReaders.DocumentFont" /> objects for each font found in the page. The default value is <strong>null</strong>.</value>
+      <remarks>
+        <para>To read the text objects from a document, you use the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)" /> method. The fonts found in the page will be set in
+            the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Fonts" /> property of the returned <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" /> object.</para>
+        <para>The text characters found in the page will be returned in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Characters" /> property. Each <see cref="T:Leadtools.Forms.DocumentReaders.DocumentCharacter" /> object
+            in the list will have its <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.FontIndex">DocumentCharacter.FontIndex</see> property set to an index to an item in the
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Fonts" /> list.</para>
+        <para>The text words found in the page will be returned in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Words" /> property. Each <see cref="T:Leadtools.Forms.DocumentReaders.DocumentWord" /> object
+            in the list will have its <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.FontIndex">DocumentWord.FontIndex</see> property set to the index of an item in the
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Fonts" /> list. Also, the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.FirstCharacterIndex">DocumentWord.FirstCharacterIndex</see> and
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.LastCharacterIndex">DocumentWord.LastCharacterIndex</see> will contain the indices of the characters of the word in
+            the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Characters" /> list.</para>
+        <para>The overall text string (with no extra properties) can be obtained using the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentPageText.BuildText">DocumentPageText.BuildText</see>
+            method.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Characters">
+      <summary>
+            Gets a list of the text characters found in this document page.
+            </summary>
+      <value>A <see cref="T:System.Collections.Generic.IList`1">IList</see> of <see cref="T:Leadtools.Forms.DocumentReaders.DocumentCharacter" /> objects for each text character found in the page. The default value is <strong>null</strong>.</value>
+      <remarks>
+        <para>To read the text objects from a document, use the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)" /> method. The fonts found in the page will be set in
+            the in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Fonts" /> property of the returned <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" /> object.</para>
+        <para>The text characters found in the page will be returned in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Characters" /> property. Each <see cref="T:Leadtools.Forms.DocumentReaders.DocumentCharacter" /> object
+            in the list will have its <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.FontIndex">DocumentCharacter.FontIndex</see> property set to an index to an item in the
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Fonts" /> list.</para>
+        <para>The text words found in the page will be returned in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Words" /> property. Each <see cref="T:Leadtools.Forms.DocumentReaders.DocumentWord" /> object
+            in the list will have its <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.FontIndex">DocumentWord.FontIndex</see> property set to the index of an item in the
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Fonts" /> list. Also, the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.FirstCharacterIndex">DocumentWord.FirstCharacterIndex</see> and
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.LastCharacterIndex">DocumentWord.LastCharacterIndex</see> will contain the indices of the characters of the word into
+            the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Characters" /> list.</para>
+        <para>The overall text string (without any extra properties) can be obtained using the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentPageText.BuildText">DocumentPageText.BuildText</see>
+            method.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Words">
+      <summary>
+            Gets a list of the text words found in this document page
+            </summary>
+      <value>A <see cref="T:System.Collections.Generic.IList`1">IList</see> of <see cref="T:Leadtools.Forms.DocumentReaders.DocumentWord" /> objects for each text word found in the page. Default value is <strong>null</strong>.</value>
+      <remarks>
+        <para>To read the text objects from a document, use the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)" /> method. The fonts found in the page will be set in
+            the in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Fonts" /> property of the returned <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" /> object.</para>
+        <para>The text characters found in the page will be returned in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Characters" /> property. Each <see cref="T:Leadtools.Forms.DocumentReaders.DocumentCharacter" /> object
+            in the list will have its <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.FontIndex">DocumentCharacter.FontIndex</see> property set to the index of an item in the
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Fonts" /> list.</para>
+        <para>The text words found in the page will be returned in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Words" /> property. Each <see cref="T:Leadtools.Forms.DocumentReaders.DocumentWord" /> object
+            in the list will have its <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.FontIndex">DocumentWord.FontIndex</see> property set to an index to an item in the
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Fonts" /> list. Also, the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.FirstCharacterIndex">DocumentWord.FirstCharacterIndex</see> and
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.LastCharacterIndex">DocumentWord.LastCharacterIndex</see> will contain the indices of the characters of the word in
+            the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Characters" /> list.</para>
+        <para>The overall text string (without any extra properties) can be obtained using the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentPageText.BuildText">DocumentPageText.BuildText</see>
+            method.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentObjectManager">
+      <summary>
+            Contains the object parsing functionality such as text associated with a <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" />.
+            </summary>
+      <remarks>
+        <para>Instances of the <see cref="T:Leadtools.Forms.DocumentReaders.DocumentObjectManager" /> aren't created directly. Instead, access the
+            instance that is automatically created inside a <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> using the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.ObjectManager" /> property.</para>
+        <para>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentObjectManager" /> contains the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)" /> method that parses
+            the text of the document. Use the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)" /> in a loop to parse the text of all the pages in a document.
+            However, you must call <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.BeginParse(System.Object)" /> before parsing starts and <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.EndParse" /> when
+            parsing is finished.</para>
+        <para>The various document readers will parse text differently. Currently, LEADTOOLS ships with the following document readers:</para>
+        <list type="bullet">
+          <item>
+            <description>
+              <para>
+                <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">DocumentReaderType.Pdf</see>: This the document reader responsible for parsing PDF documents. PDF document
+            text is parsed without the need of an OCR engine.</para>
+            </description>
+          </item>
+          <item>
+            <description>
+              <para>
+                <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">DocumentReaderType.Xps</see>: This the document reader responsible for parsing XPS documents. XPS document
+            text is parsed without the need of an OCR engine.</para>
+            </description>
+          </item>
+          <item>
+            <description>
+              <para>
+                <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">DocumentReaderType.Raster</see>: This the document reader responsible for parsing everything else. An OCR engine
+            is required to parse the text of the document (by passing a started object of type <see cref="T:Leadtools.Forms.Ocr.IOcrEngine" /> to <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.BeginParse(System.Object)" />.</para>
+            </description>
+          </item>
+        </list>
+        <para>LEADTOOLS will add more document readers and functionality in the near future for document types such as DICOM, DOC/DOCX(2007/2010), XLS/XLSX(2007/2010) and RTF.</para>
+        <para>More objects types such as images, bookmarks, hyperlinks and annotations will also be added in the near future.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" />.</para>
+      </example>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.BeginParse(System.Object)">
+      <summary>
+            Begins parsing this document.
+            </summary>
+      <param name="args">Either a <see cref="T:Leadtools.Forms.Ocr.IOcrEngine" /> object or <strong>null</strong>.</param>
+      <remarks>
+        <para>You must call <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.BeginParse(System.Object)" /> before making any calls to <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)" /> in this document; otherwise, an exception will be thrown. When parsing is finished,
+            you must call <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.EndParse" />.</para>
+        <para>If this document is a raster document reader (the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.ReaderType">DocumentReader.ReaderType</see> is
+            <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">DocumentReaderType.Raster</see>), then parsing text will be performed using LEADTOOLS OCR. A valid <see cref="T:Leadtools.Forms.Ocr.IOcrEngine" /> object needs to be initialized, started 
+            and passed to the <paramref name="args" /> parameter of <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.BeginParse(System.Object)" />.</para>
+        <para>If this document is a PDF or XPS reader (the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.ReaderType">DocumentReader.ReaderType</see> is
+            <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">DocumentReaderType.Pdf</see> or <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">DocumentReaderType.Xps</see>), then OCR is not required to parse the document text
+            and any object passed in the parameter <paramref name="args" /> will not be used.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentObjectManager" />.</para>
+      </example>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.EndParse">
+      <summary>
+            Ends parsing this document.
+            </summary>
+      <remarks>
+        <para>You must call <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.BeginParse(System.Object)" /> before making any calls to <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)" /> in this document, otherwise, an exception will be thrown. When parsing is finished,
+            you must call <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.EndParse" />.</para>
+        <para>If this document is a raster document reader (<see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.ReaderType">DocumentReader.ReaderType</see> is
+            <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">DocumentReaderType.Raster</see>), then parsing text will be performed using LEADTOOLS OCR. A valid <see cref="T:Leadtools.Forms.Ocr.IOcrEngine" /> object needs to be initialized, started 
+            and passed to the <strong>args</strong> parameter of the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.BeginParse(System.Object)" /> method.</para>
+        <para>If this document is a PDF or XPS reader (<see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.ReaderType">DocumentReader.ReaderType</see> is
+            <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">DocumentReaderType.Pdf</see> or <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">DocumentReaderType.Xps</see>), then OCR is not required to parse the document text
+            and any object passed in the parameter <strong>args</strong> will not be used.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentObjectManager" />.</para>
+      </example>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)">
+      <summary>
+            Parses the text of the given page in the document.
+            </summary>
+      <param name="page">The requested page. Must be an existing page in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.Pages">DocumentReader.Pages</see> list and cannot
+            be a a <strong>null</strong> reference.</param>
+      <returns>An <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" /> object contains the text items of the page.</returns>
+      <remarks>
+        <para>You must call <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.BeginParse(System.Object)" /> before making any calls to <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)" /> in this document, otherwise, an exception will be thrown. When parsing is finished,
+            the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.EndParse" />method needs to be called.</para>
+        <para>If this document is a raster document reader (the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.ReaderType">DocumentReader.ReaderType</see> is
+            <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">DocumentReaderType.Raster</see>), then parsing text will be performed using LEADTOOLS OCR. A valid <see cref="T:Leadtools.Forms.Ocr.IOcrEngine" /> object needs to be initialized, started 
+            and passed to the <strong>args</strong> parameter of the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.BeginParse(System.Object)" /> method.</para>
+        <para>If this document is a PDF or XPS reader (<see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.ReaderType">DocumentReader.ReaderType</see> is
+            <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">DocumentReaderType.Pdf</see> or <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">DocumentReaderType.Xps</see>), then OCR is not required to parse the document text
+            and any object passed in the parameter <strong>args</strong> will not be used.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentObjectManager" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentObjectManager.DocumentReaderInstance">
+      <summary>
+            Gets the owner <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" />.
+            </summary>
+      <value>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> that owns this <see cref="T:Leadtools.Forms.DocumentReaders.DocumentObjectManager" />.</value>
+      <remarks>
+        <para>Instances of the <see cref="T:Leadtools.Forms.DocumentReaders.DocumentObjectManager" /> aren't created directly. Instead, access the
+            instance that is automatically created inside a <see cref="T:Leadtools.Forms.DocumentReaders.DocumentReader" /> using the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentReader.ObjectManager" /> property.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentObjectManager" />.</para>
+      </example>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentWord">
+      <summary>
+            Contains the properties of a text word found in the document.
+            </summary>
+      <remarks>
+        <para>The <see cref="T:Leadtools.Forms.DocumentReaders.DocumentWord" /> structure is used as the type for the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Words">DocumentPageText.Words</see> list.</para>
+        <para>Read the text of a document page by using the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)">DocumentObjectManager.ParsePageText</see> method.
+            The text characters found in the page will be set in the in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Characters" /> property of the returned <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" /> object.</para>
+        <para>The text words are created from the characters found in the document based on the
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfWord">DocumentCharacter.IsEndOfWord</see> returned by the document reader engine. Whenever an "end of word" is found, the last
+            set of characters are grouped together and stored as an item in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Words">DocumentPageText.Words</see> list.</para>
+        <para>The overall text string (without any extra properties) can be obtained using the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentPageText.BuildText">DocumentPageText.BuildText</see>
+            method.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentWord.Value">
+      <summary>
+            Gets or sets the word value. 
+            </summary>
+      <value>A <see cref="T:System.String" /> that contains the word value. The default value is <strong>null</strong> (<strong>Nothing</strong> in Visual Basic).</value>
+      <remarks>
+        <para>The text words are created from the characters found in the document based on the
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfWord">DocumentCharacter.IsEndOfWord</see> returned by the document reader engine. Whenever an "end of word" is found, the last
+            set of characters are grouped together and stored as an item in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Words">DocumentPageText.Words</see> list.</para>
+        <para>The overall text string (without any extra properties) can be obtained using the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentPageText.BuildText">DocumentPageText.BuildText</see>
+            method.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentWord.Bounds">
+      <summary>
+            Gets or sets the bounding rectangle of the word.
+            </summary>
+      <value>A <see cref="T:Leadtools.Forms.LogicalRectangle" /> structure that contains the bounding rectangle of the word in logical units.
+            The default value is an empty <see cref="T:Leadtools.Forms.LogicalRectangle" /> with all values initialized to 0.</value>
+      <remarks>
+        <para>The <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.Bounds" /> property contains a combination of all the characters items of this word. The text words are created from the characters
+            found in the document based on the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfWord">DocumentCharacter.IsEndOfWord</see> returned by the document reader engine.
+            Whenever an "end of word" is found, the last set of characters are grouped together and stored as an item in the
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Words">DocumentPageText.Words</see> list.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentWord.RotationAngle">
+      <summary>
+            Gets or sets the rotation angle of this word.
+            </summary>
+      <value>The rotation angle of this word in degrees. The default value is 0.</value>
+      <remarks>
+        <para>The LEADTOOLS Document Readers can detect if a word is rotated at a right angle (90, -90, 180, -180, 270, -270) and will return the
+            angle of the rotation in this property.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentWord.FontIndex">
+      <summary>
+            Gets or sets the index of the font used by this word.
+            </summary>
+      <value>The 0-based index of font used by this word. The default value is 0.</value>
+      <remarks>
+        <para>To read the text objects from a document, use the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)" /> method. The fonts found in the page will be set in
+            the in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Fonts" /> property of the returned <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" /> object.</para>
+        <para>Each text word will have its <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.FontIndex" /> property set to an index in this fonts array.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentWord.FontSize">
+      <summary>
+            Gets or sets the font size of the word in points.
+            </summary>
+      <value>The font size of the word in points. The default value is 0.</value>
+      <remarks>
+        <para>To read the text objects from a document, use the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)" /> method. The fonts found in the page will be set in
+            the in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Fonts" /> property of the returned <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" /> object.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentWord.IsEndOfLine">
+      <summary>
+            Gets or sets a value that indicates if this the last word in a line.
+            </summary>
+      <value>
+        <strong>true</strong> if this is the last word in a line; otherwise, it is <strong>false</strong>. The default value is <strong>false</strong>.</value>
+      <remarks>
+        <para>You can use the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.IsEndOfLine" />, <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.IsEndOfParagraph" /> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.IsEndOfPage" /> properties to
+            construct the lines, paragraphs and pages of the text found in a document.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentWord.IsEndOfParagraph">
+      <summary>
+            Gets or sets a value that indicates if this the last word in a paragraph.
+            </summary>
+      <value>
+        <strong>true</strong> if this is the last word in a paragraph; otherwise, it is <strong>false</strong>. The default value is <strong>false</strong>.</value>
+      <remarks>
+        <para>You can use the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.IsEndOfLine" />, <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.IsEndOfParagraph" /> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.IsEndOfPage" /> properties to
+            construct the lines, paragraphs and pages of the text found in a document.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentWord.IsEndOfPage">
+      <summary>
+            Gets or sets a value that indicates if this the last word in a page.
+            </summary>
+      <value>
+        <strong>true</strong> if this is the last word in a page; otherwise, it is <strong>false</strong>. The default value is <strong>false</strong>.</value>
+      <remarks>
+        <para>You can use the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.IsEndOfLine" />, <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.IsEndOfParagraph" /> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.IsEndOfPage" /> properties to
+            construct the lines, paragraphs and pages of the text found in a document.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentWord.FirstCharacterIndex">
+      <summary>
+            Gets or sets the index of the first character that forms this word value in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Characters">DocumentPageText.Characters</see> list.
+            </summary>
+      <value>A <see cref="T:System.Int32" /> that specifies the index of first character that forms this word value in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Characters">DocumentPageText.Characters</see> list.
+            The default value is 0.</value>
+      <remarks>
+        <para>The text of a document page is read by using the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)">DocumentObjectManager.ParsePageText</see> method.
+            The text characters found in the page will be set in the in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Characters" /> property of the returned <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" /> object.</para>
+        <para>The text words are created from the characters found in the document based on the
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfWord">DocumentCharacter.IsEndOfWord</see> returned by the document reader engine. Whenever an "end of word" is found, the last
+            set of characters are grouped together and stored as an item in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Words">DocumentPageText.Words</see> list.</para>
+        <para>The index of the first and last character of each word found into the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Characters">DocumentPageText.Characters</see> list
+            are stored in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.FirstCharacterIndex" /> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.LastCharacterIndex" /> properties.</para>
+        <para>The overall text string (without any extra properties) can be obtained using the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentPageText.BuildText">DocumentPageText.BuildText</see>
+            method.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentWord.LastCharacterIndex">
+      <summary>
+            Gets or sets the index of the last character that forms this word value in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Characters">DocumentPageText.Characters</see> list.
+            </summary>
+      <value>A <see cref="T:System.Int32" /> that specifies the index of last character that forms this word value in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Characters">DocumentPageText.Characters</see> list.
+            The default value is 0.</value>
+      <remarks>
+        <para>The text of a document page is read by using the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)">DocumentObjectManager.ParsePageText</see> method.
+            The text characters found in the page will be set in the in <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Characters" /> property of the returned <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" /> object.</para>
+        <para>The text words are created from the characters found in the document based on the
+            <see cref="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfWord">DocumentCharacter.IsEndOfWord</see> returned by document reader engine. Whenever an "end of word" is found, the last
+            set of characters are grouped together and stored as an item in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Words">DocumentPageText.Words</see> list.</para>
+        <para>The index of the first and last character of each word found into the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Characters">DocumentPageText.Characters</see> list
+            are stored in the <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.FirstCharacterIndex" /> and <see cref="P:Leadtools.Forms.DocumentReaders.DocumentWord.LastCharacterIndex" /> properties.</para>
+        <para>The overall text string (with no extra properties) can be obtained using the <see cref="M:Leadtools.Forms.DocumentReaders.DocumentPageText.BuildText">DocumentPageText.BuildText</see>
+            method.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Forms.DocumentReaders.DocumentPageText" />.</para>
+      </example>
+    </member>
+  </members>
+</doc>

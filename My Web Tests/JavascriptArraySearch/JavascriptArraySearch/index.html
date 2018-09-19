@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script type="text/javascript">
+        var inventory = [
+                           { name: 'apples', quantity: 2 },
+                           { name: 'bananas', quantity: 0 },
+                           { name: 'cherries', quantity: 5 }
+        ];
+
+        function find3()
+        {
+            var result = inventory.filter(o=> o.name.includes('a'));
+            console.log(result);
+        }
+
+        function find2()
+        {
+            var result = inventory.filter(function (obj) {
+                return obj.name.includes('a');
+            });
+            console.log(result);
+        }
+
+        function find1()
+        {
+            function findCherries(fruit) {
+                return fruit.name === 'cherries';
+            }
+
+            console.log(inventory.find(findCherries))
+        }
+
+        find3();
+       
+    </script>
+</body>
+</html>

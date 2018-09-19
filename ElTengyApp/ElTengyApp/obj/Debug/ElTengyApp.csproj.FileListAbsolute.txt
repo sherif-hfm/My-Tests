@@ -1,0 +1,15 @@
+C:\OneDrive\My Tests\ElTengyApp\ElTengyApp\bin\Debug\ElTengyApp.exe.config
+C:\OneDrive\My Tests\ElTengyApp\ElTengyApp\bin\Debug\ElTengyApp.exe
+C:\OneDrive\My Tests\ElTengyApp\ElTengyApp\bin\Debug\ElTengyApp.pdb
+C:\OneDrive\My Tests\ElTengyApp\ElTengyApp\bin\Debug\LiteDB.dll
+C:\OneDrive\My Tests\ElTengyApp\ElTengyApp\bin\Debug\LiteDB.xml
+C:\OneDrive\My Tests\ElTengyApp\ElTengyApp\obj\Debug\ElTengyApp.csprojResolveAssemblyReference.cache
+C:\OneDrive\My Tests\ElTengyApp\ElTengyApp\obj\Debug\ElTengyApp.frmMenu.resources
+C:\OneDrive\My Tests\ElTengyApp\ElTengyApp\obj\Debug\ElTengyApp.Properties.Resources.resources
+C:\OneDrive\My Tests\ElTengyApp\ElTengyApp\obj\Debug\ElTengyApp.csproj.GenerateResource.Cache
+C:\OneDrive\My Tests\ElTengyApp\ElTengyApp\obj\Debug\ElTengyApp.exe
+C:\OneDrive\My Tests\ElTengyApp\ElTengyApp\obj\Debug\ElTengyApp.pdb
+C:\OneDrive\My Tests\ElTengyApp\ElTengyApp\bin\Debug\Newtonsoft.Json.dll
+C:\OneDrive\My Tests\ElTengyApp\ElTengyApp\bin\Debug\Newtonsoft.Json.xml
+C:\OneDrive\My Tests\ElTengyApp\ElTengyApp\obj\Debug\ElTengyApp.frmSaveData.resources
+C:\OneDrive\My Tests\ElTengyApp\ElTengyApp\obj\Debug\ElTengyApp.frmGetData.resources

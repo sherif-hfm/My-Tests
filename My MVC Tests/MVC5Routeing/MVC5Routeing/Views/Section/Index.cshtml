@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Section Controller";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<br />
+
+
+
+@Html.RouteLink("to Default", new { controller = "Section", action = "Report", year = 2008, month = 08, day = 23 })
+<br /><br />
+@Html.RouteLink("to Test", new { controller = "section", action = "Index", id = 123 })
+<br /><br />
+@Html.RouteLink("to Default", new { controller = "Home", action = "Index", id = 123 })
+
+<br /><br />
+Named Route :
+<br /><br />
+@Html.RouteLink(linkText: "route: blog",
+                    routeName: "blog",
+                            routeValues: new { controller = "section", action = "Report", year = 2008, month = 08, day = 23 }
+                )   
+<br /><br />
+@Html.RouteLink(linkText: "route: Default",
+                    routeName: "Default",
+                        routeValues: new { controller = "Home", action = "Report", year = 2008, month = 08, day = 23 }
+                )
+<br /><br />
+@Html.RouteLink(linkText: "route: Warehouses_default",
+                        routeName: "Warehouses_default",
+                        routeValues: new { controller = "Home", action = "Index", id = "" }
+                )
+   
+
+

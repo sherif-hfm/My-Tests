@@ -1,0 +1,1477 @@
+<?xml version="1.0"?>
+<doc processed="true">
+  <assembly>
+    <name>Leadtools.Services.DataContracts</name>
+  </assembly>
+  <members>
+    <member name="T:Leadtools.Services.DataContracts.DbBinaryDataParameterDictionary">
+      <summary>
+            Defines a collection of objects, used to hold a collection of DbParameter objects.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.DbBinaryDataParameterDictionary.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.DataContracts.DbBinaryDataParameterDictionary" /> class.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="T:Leadtools.Services.DataContracts.DbBinaryData">
+      <summary>
+            Loads and saves files to and from a database.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <remarks>
+            Calls the <see cref="M:Leadtools.Services.DataContracts.DbBinaryData.LoadData" /> and <see cref="M:Leadtools.Services.DataContracts.DbBinaryData.SaveData(System.Byte[])" /> methods internally to load and save data to and from a database field specified by <see cref="P:Leadtools.Services.DataContracts.UrlBinaryData.Url">UrlBinaryData.Url</see>.
+            </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools.Services
+      Imports Leadtools.Services.Raster.ServiceContracts
+      Imports Leadtools.Services.Raster.ServiceImplementations
+      Imports leadtools.services.datacontracts._2009._01
+      Imports leadtools.services.raster.datacontracts._2009._01
+
+      Public Sub DbBinaryDataExample()
+         Dim client As RasterServiceClient = New RasterServiceClient()
+         Dim sourceBinaryData As FileBinaryData = New FileBinaryData()
+         sourceBinaryData.FileName = Path.Combine(LEAD_VARS.ImagesDir, "clean.tif")
+
+         Dim destinationBinaryData As DbBinaryData = New DbBinaryData()
+         destinationBinaryData.Provider = DbBinaryDataProvider.SqlServer
+         destinationBinaryData.CommandType = DbBinaryDataCommandType.Text
+         destinationBinaryData.CommandText = "insert into ImagesTable (Image) values (@Image);"
+         destinationBinaryData.ConnectionString = "server=sp2007ep;" &amp; "Trusted_Connection=yes;" &amp; "database=Images;" &amp; "connection timeout=30"
+         destinationBinaryData.Parameters = New DbBinaryDataParameter()
+         destinationBinaryData.Parameters.Add("Image", Nothing)
+         destinationBinaryData.DataFieldType = DbBinaryDataFieldType.Raw
+         destinationBinaryData.DataFieldName = "Image"
+
+         Dim convertOptions As RasterConvertOptions = New RasterConvertOptions()
+
+         convertOptions.Source = sourceBinaryData
+         convertOptions.Destination = destinationBinaryData
+         convertOptions.Format = RasterImageFormat.Cmp
+         convertOptions.FirstPage = 1
+         convertOptions.LastPage = 1
+         convertOptions.BitsPerPixel = 24
+         convertOptions.QualityFactor = 2
+
+         Dim request As ConvertRequest = New ConvertRequest()
+         request.ConvertOptions = convertOptions
+
+         client.Convert(request)
+
+         client.Close()
+      End Sub
+
+      Public NotInheritable Class LEAD_VARS
+      Public Const ImagesDir As String = "C:\Users\Public\Documents\LEADTOOLS Images"
+      End Class
+</code>
+        <code lang="CS">      using Leadtools.Services;
+      using Leadtools.Services.Raster.ServiceContracts;
+      using Leadtools.Services.Raster.ServiceImplementations;
+      using leadtools.services.datacontracts._2009._01;
+      using leadtools.services.raster.datacontracts._2009._01;
+
+      public void DbBinaryDataExample()
+      {
+         RasterServiceClient client = new RasterServiceClient();
+         FileBinaryData sourceBinaryData = new FileBinaryData();
+         sourceBinaryData.FileName = Path.Combine(LEAD_VARS.ImagesDir,"clean.tif");
+
+         DbBinaryData destinationBinaryData = new DbBinaryData();
+         destinationBinaryData.Provider = DbBinaryDataProvider.SqlServer;
+         destinationBinaryData.CommandType = DbBinaryDataCommandType.Text;
+         destinationBinaryData.CommandText = "insert into ImagesTable (Image) values (@Image);";
+         destinationBinaryData.ConnectionString = "server=sp2007ep;" + "Trusted_Connection=yes;" + "database=Images;" + "connection timeout=30";
+         destinationBinaryData.Parameters = new DbBinaryDataParameter();
+         destinationBinaryData.Parameters.Add("Image", null);
+         destinationBinaryData.DataFieldType = DbBinaryDataFieldType.Raw;
+         destinationBinaryData.DataFieldName = "Image";
+
+         RasterConvertOptions convertOptions = new RasterConvertOptions();
+
+         convertOptions.Source = sourceBinaryData;
+         convertOptions.Destination = destinationBinaryData;
+         convertOptions.Format = RasterImageFormat.Cmp;
+         convertOptions.FirstPage = 1;
+         convertOptions.LastPage = 1;
+         convertOptions.BitsPerPixel = 24;
+         convertOptions.QualityFactor = 2;
+
+         ConvertRequest request = new ConvertRequest();
+         request.ConvertOptions = convertOptions;
+
+         client.Convert(request);
+
+         client.Close();
+      }
+
+      static class LEAD_VARS
+      {
+      public const string ImagesDir = @"C:\Users\Public\Documents\LEADTOOLS Images";
+      }
+</code>
+        <!--DbBinaryData-->
+      </example>
+    </member>
+    <member name="T:Leadtools.Services.DataContracts.BinaryData">
+      <summary>
+            Base class for the <see cref="T:Leadtools.Services.DataContracts.RawBinaryData" />, <see cref="T:Leadtools.Services.DataContracts.FileBinaryData" />, <see cref="T:Leadtools.Services.DataContracts.UrlBinaryData" /> and <see cref="T:Leadtools.Services.DataContracts.DbBinaryData" /> classes.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <remarks>
+            This class has abstract methods to be overridden in inherited classes. You can derive from this class and override these methods
+             to support your own upload and save.
+            </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools.Services
+      Imports Leadtools.Services.Raster.ServiceContracts
+      Imports Leadtools.Services.Raster.ServiceImplementations
+      Imports leadtools.services.datacontracts._2009._01
+      Imports leadtools.services.raster.datacontracts._2009._01
+
+      Public Sub BinaryDataExample()
+         Dim client As RasterServiceClient = New RasterServiceClient()
+         Dim sourceBinaryData As RawBinaryData = New RawBinaryData()
+         sourceBinaryData.Data = File.ReadAllBytes(Path.Combine(LEAD_VARS.ImagesDir, "clean.tif"))
+
+
+         Dim convertOptions As RasterConvertOptions = New RasterConvertOptions()
+
+         convertOptions.Source = sourceBinaryData
+         convertOptions.Destination = Nothing
+         convertOptions.Format = RasterImageFormat.Cmp
+         convertOptions.FirstPage = 1
+         convertOptions.LastPage = 1
+         convertOptions.BitsPerPixel = 24
+         convertOptions.QualityFactor = 2
+
+         Dim request As ConvertRequest = New ConvertRequest()
+         request.ConvertOptions = convertOptions
+
+
+         Dim response As ConvertResponse = client.Convert(request)
+         If Not response.Destination Is Nothing Then
+            If TypeOf response.Destination Is RawBinaryData Then
+               File.WriteAllBytes(Path.Combine(LEAD_VARS.ImagesDir, "clean.cmp"), (TryCast(response.Destination, RawBinaryData)).Data)
+            End If
+         End If
+
+         client.Close()
+      End Sub
+
+      Public NotInheritable Class LEAD_VARS
+      Public Const ImagesDir As String = "C:\Users\Public\Documents\LEADTOOLS Images"
+      End Class
+</code>
+        <code lang="CS">      using Leadtools.Services;
+      using Leadtools.Services.Raster.ServiceContracts;
+      using Leadtools.Services.Raster.ServiceImplementations;
+      using leadtools.services.datacontracts._2009._01;
+      using leadtools.services.raster.datacontracts._2009._01;
+
+      public void BinaryDataExample()
+      {
+         RasterServiceClient client = new RasterServiceClient();
+         RawBinaryData sourceBinaryData = new RawBinaryData();
+         sourceBinaryData.Data = File.ReadAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"clean.tif"));
+
+
+         RasterConvertOptions convertOptions = new RasterConvertOptions(); 
+
+         convertOptions.Source = sourceBinaryData;
+         convertOptions.Destination = null;
+         convertOptions.Format = RasterImageFormat.Cmp;
+         convertOptions.FirstPage = 1;
+         convertOptions.LastPage = 1;
+         convertOptions.BitsPerPixel = 24;
+         convertOptions.QualityFactor = 2;
+
+         ConvertRequest request = new ConvertRequest();
+         request.ConvertOptions = convertOptions;
+
+
+         ConvertResponse response = client.Convert(request);
+         if (response.Destination != null)
+         {
+            if(response.Destination is RawBinaryData)
+               File.WriteAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"clean.cmp"), (response.Destination as RawBinaryData).Data);
+         }
+
+         client.Close();
+      }
+
+      static class LEAD_VARS
+      {
+      public const string ImagesDir = @"C:\Users\Public\Documents\LEADTOOLS Images";
+      }
+</code>
+        <!--BinaryData-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.BinaryData.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.DataContracts.BinaryData" /> class.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.BinaryData.LoadData">
+      <summary>
+            Loads a byte[] array representing binary data to be used.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <remarks>
+            Derived class objects must implement this method. 
+            </remarks>
+      <noexample>
+      </noexample>
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.BinaryData.SaveData(System.Byte[])">
+      <summary>
+            Saves binary data.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="data">
+            The buffer containing the data to be saved.
+            </param>
+      <remarks>
+            Derived class objects must implement this method. 
+            </remarks>
+      <noexample>
+      </noexample>
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.DbBinaryData.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.DataContracts.DbBinaryData" /> class.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.DbBinaryData.#ctor(Leadtools.Services.DataContracts.DbBinaryDataProvider,System.String,Leadtools.Services.DataContracts.DbBinaryDataCommandType,System.String,System.String,Leadtools.Services.DataContracts.DbBinaryDataFieldType,System.String)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.DataContracts.DbBinaryData" /> class with explicit parameters.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="provider">
+            The type of <see cref="T:System.Data.Common.DbConnection" /> to be used.
+            </param>
+      <param name="connectionString">
+            The connection used to open the data source.
+            </param>
+      <param name="commandType">
+            The command type which specifies how to parse the <paramref name="commandText" /> property.
+            </param>
+      <param name="commandText">
+            The command text to execute.
+            </param>
+      <param name="dataFieldName">
+            The file name.
+            </param>
+      <param name="dataFieldType">
+            The field type.
+            </param>
+      <param name="dataFieldPathBase">
+            The directory to which to load or save the file.
+            </param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.DbBinaryData.FieldFileName">
+      <summary>
+            Gets the full path for the file stored in the field.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+      <returns>Returns the full path for the file stored in the field.</returns>
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.DbBinaryData.LoadData">
+      <summary>
+            Gets a buffer from a database field.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <returns>An output buffer representing the data of a database field.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.DbBinaryData.SaveData(System.Byte[])">
+      <summary>
+            Saves a buffer to database field.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="data">
+            The input buffer to be saved into a database field.
+            </param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.DataContracts.DbBinaryData.CommandType">
+      <summary>
+            Gets or sets the command type which specifies how to parse the <see cref="P:Leadtools.Services.DataContracts.DbBinaryData.CommandText" /> property.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+            A <see cref="T:Leadtools.Services.DataContracts.DbBinaryDataCommandType" /> enumeration value that specifies how to parse the <see cref="P:Leadtools.Services.DataContracts.DbBinaryData.CommandText" /> property.
+            </value>
+      <remarks>
+        <ul>
+          <li>
+              For more information refer to <see cref="P:System.Data.Odbc.OdbcCommand.CommandType">OdbcCommand.CommandType</see> if <see cref="P:Leadtools.Services.DataContracts.DbBinaryData.Provider" /> is set to <see cref="T:Leadtools.Services.DataContracts.DbBinaryDataProvider">DbBinaryDataProvider.Odbc</see>.
+              </li>
+          <li>
+              For more information refer to <see cref="P:System.Data.OleDb.OleDbCommand.CommandType">OleDbCommand.CommandType</see> if <see cref="P:Leadtools.Services.DataContracts.DbBinaryData.Provider" /> is set to <see cref="T:Leadtools.Services.DataContracts.DbBinaryDataProvider">DbBinaryDataProvider.OleDb</see>.
+              </li>
+          <li>
+              For more information refer to <see cref="P:System.Data.SqlClient.SqlCommand.CommandType">SqlCommand.CommandType</see> if <see cref="P:Leadtools.Services.DataContracts.DbBinaryData.Provider" /> is set to <see cref="T:Leadtools.Services.DataContracts.DbBinaryDataProvider">DbBinaryDataProvider.Sql</see>.
+              </li>
+        </ul>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.DataContracts.DbBinaryData.DataFieldType">
+      <summary>
+            Gets or sets the field type.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>A <see cref="T:Leadtools.Services.DataContracts.DbBinaryDataFieldType" /> enumeration value that specifies the field type.</value>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.DataContracts.DbBinaryData.Parameters">
+      <summary>
+            Gets or sets the collection of <see cref="T:System.Data.Common.DbParameter" /> objects.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>A <see cref="T:Leadtools.Services.DataContracts.DbBinaryDataParameterDictionary" /> collection of <see cref="T:System.Data.Common.DbParameter" /> objects.</value>
+      <remarks>
+        <ul>
+          <li>
+              For more information refer to <see cref="P:System.Data.Odbc.OdbcCommand.Parameters">OdbcCommand.Parameters</see> if <see cref="P:Leadtools.Services.DataContracts.DbBinaryData.Provider" /> is set to <see cref="T:Leadtools.Services.DataContracts.DbBinaryDataProvider" />.Odbc.
+              </li>
+          <li>
+              For more information refer to <see cref="P:System.Data.OleDb.OleDbCommand.Parameters">OleDbCommand.Parameters</see> if <see cref="P:Leadtools.Services.DataContracts.DbBinaryData.Provider" /> is set to <see cref="T:Leadtools.Services.DataContracts.DbBinaryDataProvider" />.OleDb.
+              </li>
+          <li>
+              For more information refer to <see cref="P:System.Data.SqlClient.SqlCommand.Parameters">SqlCommand.Parameters</see> if <see cref="P:Leadtools.Services.DataContracts.DbBinaryData.Provider" /> is set to <see cref="T:Leadtools.Services.DataContracts.DbBinaryDataProvider" />.Sql.
+              </li>
+        </ul>n refer to <see cref="P:System.Data.SqlClient.SqlCommand.CommandType">SqlCommand.CommandType</see> if <see cref="P:Leadtools.Services.DataContracts.DbBinaryData.Provider" /> is set to <see cref="T:Leadtools.Services.DataContracts.DbBinaryDataProvider" />.Sql.
+            </remarks>
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.DataContracts.DbBinaryData.Provider">
+      <summary>
+            Gets or sets the type of <see cref="T:System.Data.Common.DbConnection" /> to be used.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+            A <see cref="T:Leadtools.Services.DataContracts.DbBinaryDataProvider" /> enumeration value that specifies the type of <see cref="T:System.Data.Common.DbConnection" /> to be used.
+            </value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.DataContracts.DbBinaryData" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.DataContracts.DbBinaryData.CommandText">
+      <summary>
+            Gets or sets the command text to execute.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+            A <see cref="T:System.String" /> value expresses the command.
+            </value>
+      <remarks>
+        <ul>
+          <li>
+              For more information refer to <see cref="P:System.Data.Odbc.OdbcCommand.CommandText">OdbcCommand.CommandText</see> if <see cref="P:Leadtools.Services.DataContracts.DbBinaryData.Provider" /> is set to <see cref="T:Leadtools.Services.DataContracts.DbBinaryDataProvider">DbBinaryDataProvider.Odbc</see>.
+              </li>
+          <li>
+              For more information refer to <see cref="P:System.Data.OleDb.OleDbCommand.CommandText">OleDbCommand.CommandText</see> if <see cref="P:Leadtools.Services.DataContracts.DbBinaryData.Provider" /> is set to <see cref="T:Leadtools.Services.DataContracts.DbBinaryDataProvider">DbBinaryDataProvider.OleDb</see>.
+              </li>
+          <li>
+              For more information refer to <see cref="P:System.Data.SqlClient.SqlCommand.CommandText">SqlCommand.CommandText</see> if <see cref="P:Leadtools.Services.DataContracts.DbBinaryData.Provider" /> is set to <see cref="T:Leadtools.Services.DataContracts.DbBinaryDataProvider">DbBinaryDataProvider.Sql</see>.
+              </li>
+        </ul>
+      </remarks>
+      <example>For an example, refer to <see cref="T:Leadtools.Services.DataContracts.DbBinaryData" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.DataContracts.DbBinaryData.ConnectionString">
+      <summary>
+             Gets or sets the connection used to open the data source.
+             </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+             A <see cref="T:System.String" /> that specifies the connection used to open the data source.
+             </value>
+      <remarks>
+        <ul>
+          <li>
+               For more information refer to <see cref="P:Leadtools.Services.DataContracts.DbBinaryData.ConnectionString">ConnectionString.OdbcCommand</see> if <see cref="P:Leadtools.Services.DataContracts.DbBinaryData.Provider" /> is set to <see cref="T:Leadtools.Services.DataContracts.DbBinaryDataProvider">DbBinaryDataProvider.Odbc</see>.
+               </li>
+          <li>
+               For more information refer to <see cref="P:Leadtools.Services.DataContracts.DbBinaryData.ConnectionString">ConnectionString.OleDbCommand</see> if <see cref="P:Leadtools.Services.DataContracts.DbBinaryData.Provider" /> is set to <see cref="T:Leadtools.Services.DataContracts.DbBinaryDataProvider">DbBinaryDataProvider.OleDb</see>.
+               </li>
+          <li>
+               For more information refer to <see cref="P:Leadtools.Services.DataContracts.DbBinaryData.ConnectionString">ConnectionString.SqlCommand</see> if <see cref="P:Leadtools.Services.DataContracts.DbBinaryData.Provider" /> is set to <see cref="T:Leadtools.Services.DataContracts.DbBinaryDataProvider">DbBinaryDataProvider.Sql</see>.
+               </li>
+        </ul>
+      </remarks>
+      <example>For an example, refer to <see cref="T:Leadtools.Services.DataContracts.DbBinaryData" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.DataContracts.DbBinaryData.DataFieldName">
+      <summary>
+            Gets or sets a value that specifies the file name.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+            A <see cref="T:System.String" /> that specifies the file name.
+            </value>
+      <remarks>
+            This property is used only when the <see cref="P:Leadtools.Services.DataContracts.DbBinaryData.DataFieldType" /> is set to <see cref="T:Leadtools.Services.DataContracts.DbBinaryDataFieldType" />.File.
+            </remarks>
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.DataContracts.DbBinaryData.DataFieldPathBase">
+      <summary>
+            Gets or sets a value that specifies the directory to which to load or save the file.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+            A value that specifies the directory for the file.
+            </value>
+      <remarks>
+            This property is used only when the <see cref="P:Leadtools.Services.DataContracts.DbBinaryData.DataFieldType" /> is set to <see cref="T:Leadtools.Services.DataContracts.DbBinaryDataFieldType" />.File.
+            </remarks>
+      <noexample />
+    </member>
+    <member name="T:Leadtools.Services.DataContracts.LeadPoint">
+      <summary>
+            Represents an ordered pair of integers (x- and y- coordinates) that defines a point on a two-dimensional plane.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <example>
+        <code lang="VB">      Imports Leadtools.Services
+      Imports Leadtools.Services.Raster.ServiceContracts
+      Imports Leadtools.Services.Raster.ServiceImplementations
+      Imports leadtools.services.datacontracts._2009._01
+      Imports leadtools.services.raster.datacontracts._2009._01
+      Imports leadtools.services.ImageProcessing.datacontracts._2009._01
+
+      Public Sub LeadPointExample()
+         Dim client As EffectsProcessingServiceClient = New EffectsProcessingServiceClient()
+         Dim sourceBinaryData As RawBinaryData = New RawBinaryData()
+         sourceBinaryData.Data = File.ReadAllBytes(Path.Combine(LEAD_VARS.ImagesDir, "image1.cmp"))
+
+         Dim convertOptions As RasterConvertOptions = New RasterConvertOptions()
+
+         convertOptions.Source = sourceBinaryData
+         convertOptions.Destination = Nothing
+         convertOptions.Format = RasterImageFormat.Bmp
+         convertOptions.FirstPage = 1
+         convertOptions.LastPage = 1
+         convertOptions.BitsPerPixel = 24
+         convertOptions.QualityFactor = 2
+
+         Dim region As MagicWandRasterRegionData = New MagicWandRasterRegionData()
+         region.CombineMode = RasterRegionCombineMode.Set
+
+         ' Specify a pixel in the upper left of the displayed image
+         Dim pt As LeadPoint = New LeadPoint()
+         pt.X = 100
+         pt.Y = 100
+
+         region.Location = pt
+
+         ' Create a magic wand region at this point
+         region.LowerToleranceColor = "#00141E96"
+         region.UpperToleranceColor = "#000F1E0A"
+
+         Dim request As SharpenRequest = New SharpenRequest()
+
+         request.ConvertOptions = convertOptions
+         request.RegionData = region
+         request.Sharpness = 1000
+
+         Dim response As CommandResponse = client.Sharpen(request)
+         If Not response.Destination Is Nothing Then
+            File.WriteAllBytes(Path.Combine(LEAD_VARS.ImagesDir, "magicwandregion.bmp"), (TryCast(response.Destination, RawBinaryData)).Data)
+         End If
+
+         client.Close()
+      End Sub
+
+      Public NotInheritable Class LEAD_VARS
+      Public Const ImagesDir As String = "C:\Users\Public\Documents\LEADTOOLS Images"
+      End Class
+</code>
+        <code lang="CS">      using Leadtools.Services;
+      using Leadtools.Services.Raster.ServiceContracts;
+      using Leadtools.Services.Raster.ServiceImplementations;
+      using leadtools.services.datacontracts._2009._01;
+      using leadtools.services.raster.datacontracts._2009._01;
+      using leadtools.services.imageprocessing.datacontracts._2009._01;
+
+      public void LeadPointExample()
+      {
+         EffectsProcessingServiceClient client = new EffectsProcessingServiceClient();
+         RawBinaryData sourceBinaryData = new RawBinaryData();
+         sourceBinaryData.Data = File.ReadAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"image1.cmp"));
+
+         RasterConvertOptions convertOptions = new RasterConvertOptions();
+
+         convertOptions.Source = sourceBinaryData;
+         convertOptions.Destination = null;
+         convertOptions.Format = RasterImageFormat.Bmp;
+         convertOptions.FirstPage = 1;
+         convertOptions.LastPage = 1;
+         convertOptions.BitsPerPixel = 24;
+         convertOptions.QualityFactor = 2;
+
+         MagicWandRasterRegionData region = new MagicWandRasterRegionData();
+         region.CombineMode = RasterRegionCombineMode.Set;
+
+         // Specify a pixel in the upper left of the displayed image
+         LeadPoint pt = new LeadPoint();
+         pt.X = 100;
+         pt.Y = 100;
+
+         region.Location = pt;
+
+         // Create a magic wand region at this point
+         region.LowerToleranceColor = "#00141E96";
+         region.UpperToleranceColor= "#000F1E0A";
+
+         SharpenRequest request = new SharpenRequest();
+         request.ConvertOptions = convertOptions;
+         request.RegionData = region;
+         request.Sharpness = 1000;
+
+         CommandResponse response = client.Sharpen(request);
+         if (response.Destination != null)
+         {
+            if(response.Destination is RawBinaryData)
+               File.WriteAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"magicwandregion.bmp"), (response.Destination as RawBinaryData).Data);
+         }
+
+         client.Close();
+      }
+
+      static class LEAD_VARS
+      {
+      public const string ImagesDir = @"C:\Users\Public\Documents\LEADTOOLS Images";
+      }
+</code>
+        <!--LeadPoint-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.LeadPoint.ToPoint">
+      <summary>
+            Converts this <see cref="T:Leadtools.Services.DataContracts.LeadPoint" /> to LEADTOOLS <see cref="T:Leadtools.LeadPoint" />.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <returns>A Point containing the converted <see cref="T:Leadtools.LeadPoint" />.</returns>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.LeadPoint.#ctor(System.Int32,System.Int32)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.DataContracts.LeadPoint" /> structure with the specified coordinates.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="x">The horizontal position of the point.</param>
+      <param name="y">The vertical position of the point.</param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.LeadPoint.#ctor(Leadtools.LeadPoint)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.DataContracts.LeadPoint" /> structure from a LEADTOOLS <see cref="T:Leadtools.LeadPoint" />.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="point">A Point that specifies the coordinates for the new <see cref="T:Leadtools.Services.DataContracts.LeadPoint" />.</param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.LeadPoint.FromPoint(Leadtools.LeadPoint)">
+      <summary>
+            Creates a new <see cref="T:Leadtools.Services.DataContracts.LeadPoint" /> class object from explicit LEADTOOLS <see cref="T:Leadtools.Services.DataContracts.LeadPoint" /> parameters.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="point">
+            Specifies the <see cref="T:Leadtools.Services.DataContracts.LeadPoint" /> coordinates.
+            </param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.DataContracts.LeadPoint.X">
+      <summary>
+            Gets or sets the x-coordinate of this <see cref="T:Leadtools.Services.DataContracts.LeadPoint" />.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The x-coordinate of this <see cref="T:Leadtools.Services.DataContracts.LeadPoint" />.</value>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.DataContracts.LeadPoint.Y">
+      <summary>
+            Gets or sets the y-coordinate of this <see cref="T:Leadtools.Services.DataContracts.LeadPoint" />.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The y-coordinate of this <see cref="T:Leadtools.Services.DataContracts.LeadPoint" />.</value>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="T:Leadtools.Services.DataContracts.LeadRect">
+      <summary>
+            Stores a set of four integer points that represents the location and size of a rectangle.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <example>
+        <code lang="VB">      Imports Leadtools.Services
+      Imports Leadtools.Services.Raster.ServiceContracts
+      Imports Leadtools.Services.Raster.ServiceImplementations
+      Imports leadtools.services.datacontracts._2009._01
+      Imports leadtools.services.raster.datacontracts._2009._01
+      Imports leadtools.services.ImageProcessing.datacontracts._2009._01
+
+      Public Sub LeadRectangleExample()
+         Dim client As EffectsProcessingServiceClient = New EffectsProcessingServiceClient()
+         Dim sourceBinaryData As RawBinaryData = New RawBinaryData()
+         sourceBinaryData.Data = File.ReadAllBytes(Path.Combine(LEAD_VARS.ImagesDir, "image1.cmp"))
+
+         Dim convertOptions As RasterConvertOptions = New RasterConvertOptions()
+
+         convertOptions.Source = sourceBinaryData
+         convertOptions.Destination = Nothing
+         convertOptions.Format = RasterImageFormat.Bmp
+         convertOptions.FirstPage = 1
+         convertOptions.LastPage = 1
+         convertOptions.BitsPerPixel = 24
+         convertOptions.QualityFactor = 2
+
+         Dim region As RectangleRasterRegionData = New RectangleRasterRegionData()
+         region.CombineMode = RasterRegionCombineMode.Set
+
+         Dim rect As LeadRect = New LeadRect()
+         rect.Width = 200
+         rect.Height = 200
+
+         region.Bounds = rect
+
+         Dim request As SharpenRequest = New SharpenRequest()
+
+         request.ConvertOptions = convertOptions
+         request.RegionData = region
+         request.Sharpness = 1000
+
+         Dim response As CommandResponse = client.Sharpen(request)
+         If Not response.Destination Is Nothing Then
+            File.WriteAllBytes(Path.Combine(LEAD_VARS.ImagesDir, "rectregion.bmp"), (TryCast(response.Destination, RawBinaryData)).Data)
+         End If
+
+         client.Close()
+      End Sub
+
+      Public NotInheritable Class LEAD_VARS
+      Public Const ImagesDir As String = "C:\Users\Public\Documents\LEADTOOLS Images"
+      End Class
+</code>
+        <code lang="CS">      using Leadtools.Services;
+      using Leadtools.Services.Raster.ServiceContracts;
+      using Leadtools.Services.Raster.ServiceImplementations;
+      using leadtools.services.datacontracts._2009._01;
+      using leadtools.services.raster.datacontracts._2009._01;
+      using leadtools.services.imageprocessing.datacontracts._2009._01;
+
+      public void LeadRectangleExample()
+      {
+         EffectsProcessingServiceClient client = new EffectsProcessingServiceClient();
+         RawBinaryData sourceBinaryData = new RawBinaryData();
+         sourceBinaryData.Data = File.ReadAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"image1.cmp"));
+
+         RasterConvertOptions convertOptions = new RasterConvertOptions();
+
+         convertOptions.Source = sourceBinaryData;
+         convertOptions.Destination = null;
+         convertOptions.Format = RasterImageFormat.Bmp;
+         convertOptions.FirstPage = 1;
+         convertOptions.LastPage = 1;
+         convertOptions.BitsPerPixel = 24;
+         convertOptions.QualityFactor = 2;
+
+         RectangleRasterRegionData region = new RectangleRasterRegionData();
+         region.CombineMode = RasterRegionCombineMode.Set;
+
+         LeadRect rect = new LeadRect();
+         rect.Width = 200;
+         rect.Height = 200;
+
+         region.Bounds = rect;
+
+         SharpenRequest request = new SharpenRequest();
+         request.ConvertOptions = convertOptions;
+         request.RegionData = region;
+         request.Sharpness = 1000;
+
+         CommandResponse response = client.Sharpen(request);
+         if (response.Destination != null)
+         {
+            if (response.Destination is RawBinaryData)
+               File.WriteAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"rectregion.bmp"), (response.Destination as RawBinaryData).Data);
+         }
+
+         client.Close();
+      }
+
+      static class LEAD_VARS
+      {
+      public const string ImagesDir = @"C:\Users\Public\Documents\LEADTOOLS Images";
+      }
+</code>
+        <!--LeadRect-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.LeadRect.ToRectangle">
+      <summary>
+            Converts this <see cref="T:Leadtools.Services.DataContracts.LeadRect" /> structure to a LEADTOOLS <see cref="T:Leadtools.LeadRect" /> structure.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <returns>A Rectangle structure containing the converted <see cref="T:Leadtools.LeadRect" /> structure.</returns>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.LeadRect.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.DataContracts.LeadRect" /> structure at a specific location using specified dimensions.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="x">The x-coordinate of the upper-left corner of the rectangle.</param>
+      <param name="y">The y-coordinate of the upper-left corner of the rectangle.</param>
+      <param name="width">The width of the rectangle in pixels.</param>
+      <param name="height">The height of the rectangle in pixels.</param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.LeadRect.#ctor(Leadtools.LeadRect)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.DataContracts.LeadRect" /> structure from a LEADTOOLS <see cref="T:Leadtools.LeadRect" />.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="rect">A Rectangle structure that uses integer points that represents the location and size of the new <see cref="T:Leadtools.Services.DataContracts.LeadRect" />.</param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.LeadRect.FromRectangle(Leadtools.LeadRect)">
+      <summary>
+            Returns a <see cref="T:Leadtools.Services.DataContracts.LeadRect" /> structure with the 
+            specified LEADTOOLS <see cref="T:Leadtools.LeadRect" />.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="rect">
+            A <see cref="T:Leadtools.LeadRect" /> that specifies the location and size of the <see cref="T:Leadtools.Services.DataContracts.LeadRect" />.
+            </param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.DataContracts.LeadRect.X">
+      <summary>
+            Gets or sets the x-coordinate of the upper-left-hand corner of this <see cref="T:Leadtools.Services.DataContracts.LeadRect" /> structure.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The x-coordinate of the upper-left-hand corner of this <see cref="T:Leadtools.Services.DataContracts.LeadRect" /> structure.</value>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.DataContracts.LeadRect.Y">
+      <summary>
+            Gets or sets the y-coordinate of the upper-left-hand corner of this <see cref="T:Leadtools.Services.DataContracts.LeadRect" /> structure.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The y-coordinate of the upper-left-hand corner of this <see cref="T:Leadtools.Services.DataContracts.LeadRect" /> structure.</value>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.DataContracts.LeadRect.Width">
+      <summary>
+            Gets or sets the width of this <see cref="T:Leadtools.Services.DataContracts.LeadRect" /> structure.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The width of this <see cref="T:Leadtools.Services.DataContracts.LeadRect" /> structure in pixels.</value>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.DataContracts.LeadRect.Height">
+      <summary>
+            Gets or sets the height of this <see cref="T:Leadtools.Services.DataContracts.LeadRect" /> structure.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The height of this <see cref="T:Leadtools.Services.DataContracts.LeadRect" /> structure in pixels.</value>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="T:Leadtools.Services.DataContracts.LeadSize">
+      <summary>
+            Stores an ordered pair of integer points, typically the width and height of a rectangle.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.LeadSize.ToSize">
+      <summary>
+            Converts this <see cref="T:Leadtools.Services.DataContracts.LeadSize" /> structure to a LEADTOOLS <see cref="T:Leadtools.LeadSize" /> structure.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <returns>A Size structure containing the converted <see cref="T:Leadtools.LeadSize" /> structure.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.LeadSize.#ctor(System.Int32,System.Int32)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.DataContracts.LeadSize" /> structure from the specified dimension.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="width">The width component of the new <see cref="T:Leadtools.Services.DataContracts.LeadSize" /> structure in pixels.</param>
+      <param name="height">The height component of the new <see cref="T:Leadtools.Services.DataContracts.LeadSize" /> structure in pixels.</param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.LeadSize.#ctor(Leadtools.LeadSize)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.DataContracts.LeadSize" /> structure from a LEADTOOLS <see cref="T:Leadtools.LeadSize" /> structure.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="size">A Size structure that specifies the dimensions for the new <see cref="T:Leadtools.Services.DataContracts.LeadSize" /> structure.</param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.LeadSize.FromSize(Leadtools.LeadSize)">
+      <summary>
+            Creates a new <see cref="T:Leadtools.Services.DataContracts.LeadSize" /> class object from explicit LEADTOOLS <see cref="T:Leadtools.LeadSize" /> parameters.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="size">
+            Specifies the <see cref="T:Leadtools.Services.DataContracts.LeadSize" /> coordinates.
+            </param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.DataContracts.LeadSize.Width">
+      <summary>
+            Gets or sets the width or horizontal component this <see cref="T:Leadtools.Services.DataContracts.LeadSize" /> structure in pixels.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The width or horizontal component of this <see cref="T:Leadtools.Services.DataContracts.LeadSize" /> structure in pixels.</value>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.DataContracts.LeadSize.Height">
+      <summary>
+            Gets or sets the height or vertical component of this <see cref="T:Leadtools.Services.DataContracts.LeadSize" /> structure in pixels.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>The height or vertical component of this <see cref="T:Leadtools.Services.DataContracts.LeadSize" /> structure.</value>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="T:Leadtools.Services.DataContracts.DbBinaryDataProvider">
+      <summary>
+            Specifies the type of connection to a database. 
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="F:Leadtools.Services.DataContracts.DbBinaryDataProvider.Odbc">
+      <summary>(0x00000000)Creates an <see cref="T:System.Data.Odbc.OdbcConnection" /></summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.DataContracts.DbBinaryDataProvider.OleDb">
+      <summary>(0x00000001)Creates an <see cref="T:System.Data.OleDb.OleDbConnection" /></summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.DataContracts.DbBinaryDataProvider.SqlServer">
+      <summary>(0x00000002)Creates an <see cref="T:System.Data.SqlClient.SqlConnection" /></summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="T:Leadtools.Services.DataContracts.DbBinaryDataCommandType">
+      <summary>
+            Specifies the type of command string.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="F:Leadtools.Services.DataContracts.DbBinaryDataCommandType.Text">
+      <summary>(0x00000000)SQL text command.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.DataContracts.DbBinaryDataCommandType.StoredProcedure">
+      <summary>(0x00000001)Stored procedure command.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.DataContracts.DbBinaryDataCommandType.TableDirect">
+      <summary>(0x00000002)Table command.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="T:Leadtools.Services.DataContracts.DbBinaryDataFieldType">
+      <summary>
+            Specifies the field type.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="F:Leadtools.Services.DataContracts.DbBinaryDataFieldType.Raw">
+      <summary>(0x00000000)The field contains the actual image data.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="F:Leadtools.Services.DataContracts.DbBinaryDataFieldType.File">
+      <summary>(0x00000001)The field contains the file name containing the image data.</summary>
+      <isnew>2/28/2009</isnew>
+    </member>
+    <member name="T:Leadtools.Services.DataContracts.FileBinaryData">
+      <summary>
+            Loads a file from or saves a file to a disk.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <remarks>
+            The <see cref="M:Leadtools.Services.DataContracts.FileBinaryData.LoadData" /> and <see cref="M:Leadtools.Services.DataContracts.FileBinaryData.SaveData(System.Byte[])" /> methods are called internally to load or save a file specified by <see cref="P:Leadtools.Services.DataContracts.FileBinaryData.FileName" /> 
+            from or to a disk.
+            </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools.Services
+      Imports Leadtools.Services.Raster.ServiceContracts
+      Imports Leadtools.Services.Raster.ServiceImplementations
+      Imports leadtools.services.datacontracts._2009._01
+      Imports leadtools.services.raster.datacontracts._2009._01
+
+      Public Sub FileBinaryDataExample()
+         Dim client As RasterServiceClient = New RasterServiceClient()
+         Dim sourceBinaryData As FileBinaryData = New FileBinaryData()
+         sourceBinaryData.FileName = Path.Combine(LEAD_VARS.ImagesDir, "clean.tif")
+
+         Dim destinationBinaryData As FileBinaryData = New FileBinaryData()
+         destinationBinaryData.FileName = Path.Combine(LEAD_VARS.ImagesDir, "clean.cmp")
+
+         Dim convertOptions As RasterConvertOptions = New RasterConvertOptions()
+
+         convertOptions.Source = sourceBinaryData
+         convertOptions.Destination = destinationBinaryData
+         convertOptions.Format = RasterImageFormat.Cmp
+         convertOptions.FirstPage = 1
+         convertOptions.LastPage = 1
+         convertOptions.BitsPerPixel = 24
+         convertOptions.QualityFactor = 2
+
+         Dim request As ConvertRequest = New ConvertRequest()
+         request.ConvertOptions = convertOptions
+
+         client.Convert(request)
+
+         client.Close()
+      End Sub
+
+      Public NotInheritable Class LEAD_VARS
+      Public Const ImagesDir As String = "C:\Users\Public\Documents\LEADTOOLS Images"
+      End Class
+</code>
+        <code lang="CS">      using Leadtools.Services;
+      using Leadtools.Services.Raster.ServiceContracts;
+      using Leadtools.Services.Raster.ServiceImplementations;
+      using leadtools.services.datacontracts._2009._01;
+      using leadtools.services.raster.datacontracts._2009._01;
+
+      public void FileBinaryDataExample()
+      {
+         RasterServiceClient client = new RasterServiceClient();
+         FileBinaryData sourceBinaryData = new FileBinaryData();
+         sourceBinaryData.FileName = Path.Combine(LEAD_VARS.ImagesDir, "clean.tif");
+
+         FileBinaryData destinationBinaryData = new FileBinaryData();
+         destinationBinaryData.FileName = Path.Combine(LEAD_VARS.ImagesDir,"clean.cmp");
+
+         RasterConvertOptions convertOptions = new RasterConvertOptions();
+
+         convertOptions.Source = sourceBinaryData;
+         convertOptions.Destination = destinationBinaryData;
+         convertOptions.Format = RasterImageFormat.Cmp;
+         convertOptions.FirstPage = 1;
+         convertOptions.LastPage = 1;
+         convertOptions.BitsPerPixel = 24;
+         convertOptions.QualityFactor = 2;
+
+         ConvertRequest request = new ConvertRequest();
+         request.ConvertOptions = convertOptions;
+
+         client.Convert(request);
+
+         client.Close();
+      }
+
+      static class LEAD_VARS
+      {
+      public const string ImagesDir = @"C:\Users\Public\Documents\LEADTOOLS Images";
+      }
+</code>
+        <!--FileBinaryData-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.FileBinaryData.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.DataContracts.FileBinaryData" /> class.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.FileBinaryData.#ctor(System.String)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.DataContracts.FileBinaryData" /> class with explicit parameters.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="fileName">
+            Name of the file to be used for loading and saving.
+            </param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.FileBinaryData.LoadData">
+      <summary>
+            Loads a buffer representing a file located on a disk.
+             </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <returns>An output buffer representing the file.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.FileBinaryData.SaveData(System.Byte[])">
+      <summary>
+            Saves a buffer to a file located on a disk.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="data">
+            The input buffer to be saved to a file.
+            </param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.DataContracts.FileBinaryData.FileName">
+      <summary>
+            Gets or sets the file name used to load a file from or save a file to disk.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+            A <see cref="T:System.String" /> that specifies the file name used in loading and saving.
+            </value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.DataContracts.FileBinaryData" />.</example>
+    </member>
+    <member name="T:Leadtools.Services.DataContracts.RawBinaryData">
+      <summary>
+            This class is responsible for loading and saving raw data to and from a buffer.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <remarks>
+            The <see cref="M:Leadtools.Services.DataContracts.RawBinaryData.LoadData" /> and <see cref="M:Leadtools.Services.DataContracts.RawBinaryData.SaveData(System.Byte[])" /> methods are called internally to load or save data to or from buffer.
+            </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools.Services
+      Imports Leadtools.Services.Raster.ServiceContracts
+      Imports Leadtools.Services.Raster.ServiceImplementations
+      Imports leadtools.services.datacontracts._2009._01
+      Imports leadtools.services.raster.datacontracts._2009._01
+
+      Public Sub BinaryDataExample()
+         Dim client As RasterServiceClient = New RasterServiceClient()
+         Dim sourceBinaryData As RawBinaryData = New RawBinaryData()
+         sourceBinaryData.Data = File.ReadAllBytes(Path.Combine(LEAD_VARS.ImagesDir, "clean.tif"))
+
+
+         Dim convertOptions As RasterConvertOptions = New RasterConvertOptions()
+
+         convertOptions.Source = sourceBinaryData
+         convertOptions.Destination = Nothing
+         convertOptions.Format = RasterImageFormat.Cmp
+         convertOptions.FirstPage = 1
+         convertOptions.LastPage = 1
+         convertOptions.BitsPerPixel = 24
+         convertOptions.QualityFactor = 2
+
+         Dim request As ConvertRequest = New ConvertRequest()
+         request.ConvertOptions = convertOptions
+
+
+         Dim response As ConvertResponse = client.Convert(request)
+         If Not response.Destination Is Nothing Then
+            If TypeOf response.Destination Is RawBinaryData Then
+               File.WriteAllBytes(Path.Combine(LEAD_VARS.ImagesDir, "clean.cmp"), (TryCast(response.Destination, RawBinaryData)).Data)
+            End If
+         End If
+
+         client.Close()
+      End Sub
+
+      Public NotInheritable Class LEAD_VARS
+      Public Const ImagesDir As String = "C:\Users\Public\Documents\LEADTOOLS Images"
+      End Class
+</code>
+        <code lang="CS">      using Leadtools.Services;
+      using Leadtools.Services.Raster.ServiceContracts;
+      using Leadtools.Services.Raster.ServiceImplementations;
+      using leadtools.services.datacontracts._2009._01;
+      using leadtools.services.raster.datacontracts._2009._01;
+
+      public void BinaryDataExample()
+      {
+         RasterServiceClient client = new RasterServiceClient();
+         RawBinaryData sourceBinaryData = new RawBinaryData();
+         sourceBinaryData.Data = File.ReadAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"clean.tif"));
+
+
+         RasterConvertOptions convertOptions = new RasterConvertOptions(); 
+
+         convertOptions.Source = sourceBinaryData;
+         convertOptions.Destination = null;
+         convertOptions.Format = RasterImageFormat.Cmp;
+         convertOptions.FirstPage = 1;
+         convertOptions.LastPage = 1;
+         convertOptions.BitsPerPixel = 24;
+         convertOptions.QualityFactor = 2;
+
+         ConvertRequest request = new ConvertRequest();
+         request.ConvertOptions = convertOptions;
+
+
+         ConvertResponse response = client.Convert(request);
+         if (response.Destination != null)
+         {
+            if(response.Destination is RawBinaryData)
+               File.WriteAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"clean.cmp"), (response.Destination as RawBinaryData).Data);
+         }
+
+         client.Close();
+      }
+
+      static class LEAD_VARS
+      {
+      public const string ImagesDir = @"C:\Users\Public\Documents\LEADTOOLS Images";
+      }
+</code>
+        <!--BinaryData-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.RawBinaryData.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.DataContracts.RawBinaryData" /> class.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.RawBinaryData.#ctor(System.Byte[])">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.DataContracts.RawBinaryData" /> class with explicit parameters.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="data">
+            Byte array of the data to be used for loading or saving.
+            </param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.RawBinaryData.LoadData">
+      <summary>
+            Loads raw data from a buffer into a byte array.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <returns>An output buffer representing the data in the buffer.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.RawBinaryData.SaveData(System.Byte[])">
+      <summary>
+            Saves a byte array of raw data into a buffer.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="data">
+            The input array to be saved into a buffer.
+            </param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.DataContracts.RawBinaryData.Data">
+      <summary>
+            Gets or sets the data used to load and save to and from a buffer.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+            Array that specifies the data used in loading or saving.
+            </value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.DataContracts.RawBinaryData" />.</example>
+    </member>
+    <member name="T:Leadtools.Services.DataContracts.UrlBinaryData">
+      <summary>
+            Loads and saves files to and from Files, as well as HTTP, HTTPS and FTP servers.
+             </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <remarks>
+             Calls the <see cref="M:Leadtools.Services.DataContracts.UrlBinaryData.LoadData" /> and <see cref="M:Leadtools.Services.DataContracts.UrlBinaryData.SaveData(System.Byte[])" /> methods internally to load and save data to and from a URL specified by <see cref="P:Leadtools.Services.DataContracts.UrlBinaryData.Url" />.
+             </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools.Services
+      Imports Leadtools.Services.Raster.ServiceContracts
+      Imports Leadtools.Services.Raster.ServiceImplementations
+      Imports leadtools.services.datacontracts._2009._01
+      Imports leadtools.services.raster.datacontracts._2009._01
+
+      Public Sub UrlBinaryDataExample()
+         Dim client As RasterServiceClient = New RasterServiceClient()
+         Dim sourceBinaryData As FileBinaryData = New FileBinaryData()
+         sourceBinaryData.FileName = Path.Combine(LEAD_VARS.ImagesDir, "clean.tif")
+
+         Dim destinationBinaryData As UrlBinaryData = New UrlBinaryData()
+         destinationBinaryData.Url = "http://machine/Ocr/Shared%20Documents/Test.cmp"
+         destinationBinaryData.Domain = "domain"
+         destinationBinaryData.UserName = "username"
+         destinationBinaryData.Password = "password"
+
+         Dim convertOptions As RasterConvertOptions = New RasterConvertOptions()
+
+         convertOptions.Source = sourceBinaryData
+         convertOptions.Destination = destinationBinaryData
+         convertOptions.Format = RasterImageFormat.Cmp
+         convertOptions.FirstPage = 1
+         convertOptions.LastPage = 1
+         convertOptions.BitsPerPixel = 24
+         convertOptions.QualityFactor = 2
+
+         Dim request As ConvertRequest = New ConvertRequest()
+         request.ConvertOptions = convertOptions
+
+         client.Convert(request)
+
+
+         client.Close()
+      End Sub
+
+      Public NotInheritable Class LEAD_VARS
+      Public Const ImagesDir As String = "C:\Users\Public\Documents\LEADTOOLS Images"
+      End Class
+</code>
+        <code lang="CS">      using Leadtools.Services;
+      using Leadtools.Services.Raster.ServiceContracts;
+      using Leadtools.Services.Raster.ServiceImplementations;
+      using leadtools.services.datacontracts._2009._01;
+      using leadtools.services.raster.datacontracts._2009._01;
+
+      public void UrlBinaryDataExample()
+      {
+         RasterServiceClient client = new RasterServiceClient();
+         FileBinaryData sourceBinaryData = new FileBinaryData();
+         sourceBinaryData.FileName = Path.Combine(LEAD_VARS.ImagesDir,"clean.tif");
+
+         UrlBinaryData destinationBinaryData = new UrlBinaryData();
+         destinationBinaryData.Url = "http://machine/Ocr/Shared%20Documents/Test.cmp";
+         destinationBinaryData.Domain = "domain";
+         destinationBinaryData.UserName = "username";
+         destinationBinaryData.Password = "password";
+
+         RasterConvertOptions convertOptions = new RasterConvertOptions();
+
+         convertOptions.Source = sourceBinaryData;
+         convertOptions.Destination = destinationBinaryData;
+         convertOptions.Format = RasterImageFormat.Cmp;
+         convertOptions.FirstPage = 1;
+         convertOptions.LastPage = 1;
+         convertOptions.BitsPerPixel = 24;
+         convertOptions.QualityFactor = 2;
+
+         ConvertRequest request = new ConvertRequest();
+         request.ConvertOptions = convertOptions;
+
+         client.Convert(request);
+
+
+         client.Close();
+      }
+
+      static class LEAD_VARS
+      {
+      public const string ImagesDir = @"C:\Users\Public\Documents\LEADTOOLS Images";
+      }
+</code>
+        <!--UrlBinaryData-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.UrlBinaryData.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.DataContracts.UrlBinaryData" /> class.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.UrlBinaryData.#ctor(System.String,System.String,System.String,System.String)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Leadtools.Services.DataContracts.UrlBinaryData" /> class with explicit parameters.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="url">
+            A <see cref="T:System.String" /> that contains the URL to be used for loading and saving data.
+            </param>
+      <param name="userName">
+            The username who has privileges on the specified URL.
+            </param>
+      <param name="password">
+            The password for the specified user.
+            </param>
+      <param name="domain">
+            The domain that verifies the credentials.
+            </param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.UrlBinaryData.LoadData">
+      <summary>
+            Loads data into a buffer from a URL.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <returns>An output buffer representing the data from the URL.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.DataContracts.UrlBinaryData.SaveData(System.Byte[])">
+      <summary>
+            Saves a data buffer to a URL.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="data">
+            The input buffer representing the data to be saved into a URL.
+            </param>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Services.DataContracts.UrlBinaryData.Domain">
+      <summary>
+            Gets or sets the domain used to verify the credentials.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+            A <see cref="T:System.String" /> that specifies the name of the domain.
+            </value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.DataContracts.UrlBinaryData" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.DataContracts.UrlBinaryData.Password">
+      <summary>
+            Gets or sets the password for the user name associated with the credentials.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+            A <see cref="T:System.String" /> that specifies the password for the credentials.
+            </value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.DataContracts.UrlBinaryData" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.DataContracts.UrlBinaryData.Url">
+      <summary>
+            Gets or sets the URL to be used for download or upload.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+            A <see cref="T:System.String" /> that specifies the URL uploading and downloading data.
+            </value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.DataContracts.UrlBinaryData" />.</example>
+    </member>
+    <member name="P:Leadtools.Services.DataContracts.UrlBinaryData.UserName">
+      <summary>
+            Gets or sets the user name associated with the credentials.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <value>
+            A <see cref="T:System.String" /> that specifies the user name.
+            </value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Services.DataContracts.UrlBinaryData" />.</example>
+    </member>
+  </members>
+</doc>

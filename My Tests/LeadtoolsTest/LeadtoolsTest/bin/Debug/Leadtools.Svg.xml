@@ -1,0 +1,2506 @@
+<?xml version="1.0"?>
+<doc processed="true">
+  <assembly>
+    <name>Leadtools.Svg</name>
+  </assembly>
+  <members>
+    <member name="T:Leadtools.Svg.SvgElementType">
+      <summary>SVG element types <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>For more information, refer to <see href="http://www.w3schools.com/svg/svg_reference.asp">http://www.w3schools.com/svg/svg_reference.asp</see></para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Unknown">
+      <summary>(0x00000000)Unknown element that does not belong to the SVG standard <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Doc">
+      <summary>(0x00000001)&lt;doc&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Svg">
+      <summary>(0x00000002)&lt;svg&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.G">
+      <summary>(0x00000003)&lt;g&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Defs">
+      <summary>(0x00000004)&lt;defs&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Desc">
+      <summary>(0x00000005)&lt;desc&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Title">
+      <summary>(0x00000006)&lt;title&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Symbol">
+      <summary>(0x00000007)&lt;symbol&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Use">
+      <summary>(0x00000008)&lt;use&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Image">
+      <summary>(0x00000009)&lt;image&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Switch">
+      <summary>(0x0000000A)&lt;switch&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Style">
+      <summary>(0x0000000B)&lt;style&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Path">
+      <summary>(0x0000000C)&lt;path&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Rect">
+      <summary>(0x0000000D)&lt;rect&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Circle">
+      <summary>(0x0000000E)&lt;circle&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Ellipse">
+      <summary>(0x0000000F)&lt;ellipse&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Line">
+      <summary>(0x00000010)&lt;line&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Polyline">
+      <summary>(0x00000011)&lt;polyline&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Polygon">
+      <summary>(0x00000012)&lt;polygon&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Text">
+      <summary>(0x00000013)&lt;text&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.TSpan">
+      <summary>(0x00000014)&lt;tspan&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.TRef">
+      <summary>(0x00000015)&lt;tref&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.TextPath">
+      <summary>(0x00000016)&lt;textpath&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.AltGlyph">
+      <summary>(0x00000017)&lt;altglyph&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.AltGlyphDef">
+      <summary>(0x00000018)&lt;altglyphdef&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.AltGlyphItem">
+      <summary>(0x00000019)&lt;altglyphitem&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.GlyphRef">
+      <summary>(0x0000001A)&lt;glyphref&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Marker">
+      <summary>(0x0000001B)&lt;marker&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.ColorProfile">
+      <summary>(0x0000001C)&lt;colorprofile&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.LinearGradient">
+      <summary>(0x0000001D)&lt;lineargradient&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.RadialGradient">
+      <summary>(0x0000001E)&lt;radialgradient&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Stop">
+      <summary>(0x0000001F)&lt;stop&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Pattern">
+      <summary>(0x00000020)&lt;pattern&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.ClipPath">
+      <summary>(0x00000021)&lt;clippath&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Font">
+      <summary>(0x00000022)&lt;font&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Glyph">
+      <summary>(0x00000024)&lt;glyph&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.MissingGlyph">
+      <summary>(0x00000024)&lt;missingglyph&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.HKern">
+      <summary>(0x00000025)&lt;hkern&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.VKern">
+      <summary>(0x00000026)&lt;vkern&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.FontFace">
+      <summary>(0x00000027)&lt;fontface&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.FontFaceSrc">
+      <summary>(0x00000028)&lt;fontfacesrc&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.FontFaceUri">
+      <summary>(0x00000029)&lt;fontfaceuri&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.FontFaceFormat">
+      <summary>(0x0000002A)&lt;fontfaceformat&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.FontFaceName">
+      <summary>(0x0000002B)&lt;fontfacename&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.DefinitionSrc">
+      <summary>(0x0000002C)&lt;definitionsrc&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgElementType.Anchor">
+      <summary>(0x0000002D)&lt;anchor&gt; element <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="T:Leadtools.Svg.SvgVersion">
+      <summary>SVG document version <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>For more information, refer to <see href="http://www.w3schools.com/svg/svg_reference.asp">http://www.w3schools.com/svg/svg_reference.asp</see></para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="F:Leadtools.Svg.SvgVersion.Unspecified">
+      <summary>(0x00000000)Version is not found in the document. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgVersion.v10">
+      <summary>(0x00000001)Version 1.0 <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgVersion.v11">
+      <summary>(0x00000002)Version 1.1 <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="T:Leadtools.Svg.SvgEncoding">
+      <summary>Encoding to use when saving SVG documents <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>Value for <see cref="P:Leadtools.Svg.SvgSaveOptions.Encoding">SvgSaveOptions.Encoding</see>.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="F:Leadtools.Svg.SvgEncoding.UTF8">
+      <summary>(0x00000000)UTF8 encoding (default) <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgEncoding.UTF16">
+      <summary>(0x00000001)UTF16 encoding <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="T:Leadtools.Svg.SvgTextCharacterFlags">
+      <summary>Text character position flags <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>Value for <see cref="P:Leadtools.Svg.SvgTextData.CharacterFlags">SvgTextData.CharacterFlags</see>.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="F:Leadtools.Svg.SvgTextCharacterFlags.None">
+      <summary>(0x00000000)None. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgTextCharacterFlags.EndOfWord">
+      <summary>(0x00000001)This is the last character in a word. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgTextCharacterFlags.EndOfLine">
+      <summary>(0x00000002)This is the last character in a line. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="T:Leadtools.Svg.SvgSortFlags">
+      <summary>Sorting flags used when enumerating the elements of an SVG <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>Value for <see cref="P:Leadtools.Svg.SvgSortOptions.SortFlags">SvgSortOptions.SortFlags</see>.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="F:Leadtools.Svg.SvgSortFlags.Default">
+      <summary>(0x00000000)Default (left to right and top to bottom) <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgSortFlags.LeftToRight">
+      <summary>(0x00000000)Left to right <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgSortFlags.RightToLeft">
+      <summary>(0x00000001)Right to left <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgSortFlags.TopToBottom">
+      <summary>(0x00000000)Top to bottom <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgSortFlags.BottomToTop">
+      <summary>(0x00000002)Bottom to top <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="T:Leadtools.Svg.SvgExtractText">
+      <summary>Text extraction mode <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>Value for <see cref="P:Leadtools.Svg.SvgSortOptions.ExtractText">SvgSortOptions.ExtractText</see>.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="F:Leadtools.Svg.SvgExtractText.Character">
+      <summary>(0x00000000)Default. Extract the text one character at a time. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgExtractText.Word">
+      <summary>(0x00000001)Extract the text one word at a time. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgExtractText.Line">
+      <summary>(0x00000002)Extract the text one line at a time. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="T:Leadtools.Svg.SvgCharacterDirection">
+      <summary>Character direction <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>Value for <see cref="P:Leadtools.Svg.SvgTextData.Directions">SvgTextData.Directions</see></para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="F:Leadtools.Svg.SvgCharacterDirection.LeftToRight">
+      <summary>(0x00000000)Character is left to right <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgCharacterDirection.RightToLeft">
+      <summary>(0x00000001)Character is right to left <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="T:Leadtools.Svg.SvgLoadFlags">
+      <summary>Options to use when loading SVG documents. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>Value for <see cref="P:Leadtools.Svg.SvgLoadOptions.LoadFlags">SvgLoadOptions.LoadFlags</see>.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="F:Leadtools.Svg.SvgLoadFlags.Default">
+      <summary>(0x00000000)<para>Default, load all elements.</para><a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgLoadFlags.DropShapes">
+      <summary>(0x00000001)<para>Drop all elements that is not image or text during load.</para><a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgLoadFlags.DropImages">
+      <summary>(0x00000002)<para>Drop all image elements during load.</para><a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="F:Leadtools.Svg.SvgLoadFlags.DropText">
+      <summary>(0x00000004)<para>Drop all text elements during load.</para><a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+    </member>
+    <member name="T:Leadtools.Svg.SvgSaveOptions">
+      <summary>SVG write options <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>Used with <see cref="M:Leadtools.Svg.SvgDocument.SaveToFile(System.String,Leadtools.Svg.SvgSaveOptions)">SvgDocument.SaveToFile</see> and <see cref="M:Leadtools.Svg.SvgDocument.SaveToStream(System.IO.Stream,Leadtools.Svg.SvgSaveOptions)" /> to set the text options
+            of the final SVG document.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Svg.SvgDocument" />.</para>
+      </example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgSaveOptions.#ctor">
+      <summary>Initializes a new instance of <see cref="T:Leadtools.Svg.SvgSaveOptions" />. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>This constructor will initialize the members as follows:</para>
+        <list type="table">
+          <listheader>
+            <term>Member</term>
+            <description>Value</description>
+          </listheader>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgSaveOptions.Formatted" />
+            </term>
+            <description>
+              <para>
+                <strong>true</strong>
+              </para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgSaveOptions.Indent" />
+            </term>
+            <description>
+              <para>Two spaces "  "</para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgSaveOptions.Encoding" />
+            </term>
+            <description>
+              <para>
+                <see cref="T:Leadtools.Svg.SvgEncoding">SvgEncoding.UTF8</see>
+              </para>
+            </description>
+          </item>
+        </list>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Svg.SvgDocument" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgSaveOptions.Formatted">
+      <summary>Gets or sets a value that indicates whether the final SVG document is formatted for human reading. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>
+        <strong>true</strong> the final SVG document is formatted for human reading, otherwise; <strong>false</strong>.</value>
+      <remarks>
+        <para>When the value of <see cref="P:Leadtools.Svg.SvgSaveOptions.Formatted" /> is <strong>true</strong> each element of the SVG will be in its own line. The value of
+            <see cref="P:Leadtools.Svg.SvgSaveOptions.Indent" /> will be used to indent the elements in the hierarchy.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Svg.SvgDocument" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgSaveOptions.Indent">
+      <summary>Gets or sets the string to use for indentation when saving the SVG document. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The string to use for indentation when saving the SVG document. Default value is two spaces "  ".</value>
+      <remarks>
+        <para>The value of <see cref="P:Leadtools.Svg.SvgSaveOptions.Formatted" /> must be <strong>true</strong> to use this property.</para>
+        <para>To use a standard Tab character, set the value of <see cref="P:Leadtools.Svg.SvgSaveOptions.Indent" /> to "\t".</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Svg.SvgDocument" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgSaveOptions.Encoding">
+      <summary>Gets or sets the text encoding to use when saving the SVG document. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The text encoding to use when saving the SVG document. Default value is <see cref="T:Leadtools.Svg.SvgEncoding">SvgEncoding.UTF8</see>.</value>
+      <noremarks />
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Svg.SvgDocument" />.</para>
+      </example>
+    </member>
+    <member name="T:Leadtools.Svg.SvgFlatOptions">
+      <summary>Options to use when flattening an SVG document. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>Used by the <see cref="M:Leadtools.Svg.SvgDocument.Flat(Leadtools.Svg.SvgFlatOptions)" /> and <see cref="M:Leadtools.Svg.SvgDocument.ToFlat(Leadtools.Svg.SvgFlatOptions)" /> method to set the options used when converting an SVG document
+            to flat. For more information on flat SVG documents and bounds and resolution, refer to
+            <see cref="T:SVG.Topics.SVGSizeBoundsAndFlat">SVG Size, Bounds and Flat</see>.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Svg.SvgDocument" />.</para>
+      </example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgFlatOptions.#ctor">
+      <summary>Initializes a new instance of <see cref="T:Leadtools.Svg.SvgFlatOptions" />. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>This constructor will initialize the members as follows:</para>
+        <list type="table">
+          <listheader>
+            <term>Member</term>
+            <description>Value</description>
+          </listheader>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgFlatOptions.Size" />
+            </term>
+            <description>
+              <para>
+                <see cref="P:Leadtools.LeadSizeD.Empty">LeadSizeD.Empty</see>
+              </para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgFlatOptions.TextOnly" />
+            </term>
+            <description>
+              <para>
+                <strong>false</strong>
+              </para>
+            </description>
+          </item>
+        </list>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Svg.SvgDocument" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgFlatOptions.Size">
+      <summary>Gets or sets a value that indicate the physical size in pixels to use when flattening an SVG document. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The physical size in pixels to use when flattening an SVG document. Default value is <see cref="P:Leadtools.LeadSizeD.Empty">LeadSizeD.Empty</see>.</value>
+      <remarks>
+        <para>An empty value (<see cref="P:Leadtools.LeadSizeD.Empty">LeadSizeD.Empty</see>) or a value with width and height equals to zero will automatically
+            calculates the size of the flattened SVG document from the position and size of the child elements.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Svg.SvgDocument" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgFlatOptions.TextOnly">
+      <summary>Gets or sets a value that indicate whether to leave only the text elements after the document is flattened. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>
+        <strong>true</strong> to leave only the text elements after the document is flattened, otherwise; <strong>false</strong>. Default value
+            is <strong>false</strong>.</value>
+      <remarks>
+        <para>This property can be used when the SVG document is used for the purpose of extracting the text strings. Set the value of this property
+            to <strong>true</strong> to speed up the flatten process.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see></para>
+      </example>
+    </member>
+    <member name="T:Leadtools.Svg.SvgBounds">
+      <summary>Represents the calculated bounds of an SVG document. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>Value of <see cref="P:Leadtools.Svg.SvgDocument.Bounds">SvgDocument.Bounds</see>.</para>
+        <para>The <see cref="T:Leadtools.Svg.SvgBounds" /> is usually calculated and set by the
+            <see cref="M:Leadtools.Svg.SvgDocument.CalculateBounds(System.Boolean)">SvgDocument.CalculateBounds</see> method as follows:</para>
+        <list type="table">
+          <listheader>
+            <term>Member</term>
+            <description>Value</description>
+          </listheader>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgBounds.IsValid" />
+            </term>
+            <description>
+              <para>
+                <strong>true</strong> to indicate the rest of the members of this structure are valid</para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgBounds.IsTrimmed" />
+            </term>
+            <description>
+              <para>The same value as the "trimmed" parameter passed to <see cref="M:Leadtools.Svg.SvgDocument.CalculateBounds(System.Boolean)" /></para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgBounds.Bounds" />
+            </term>
+            <description>
+              <para>The calculated bounds in physical units (pixels)</para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgBounds.Resolution" />
+            </term>
+            <description>
+              <para>The resolution of the document calculated in dots per inch (DPI)</para>
+            </description>
+          </item>
+        </list>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Svg.SvgDocument" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgBounds.IsValid">
+      <summary>Gets or sets a value that indicate whether the SVG document contains valid calculated bounds. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>
+        <strong>true</strong> if the SVG document contains valid calculated bounds, otherwise; <strong>false</strong>.</value>
+      <remarks>
+        <para>If the value of <see cref="P:Leadtools.Svg.SvgBounds.IsValid" /> is <strong>false</strong>, then the rest of the properties of this class do not contain valid values.</para>
+        <para>This value is set to <strong>true</strong> by <see cref="M:Leadtools.Svg.SvgDocument.CalculateBounds(System.Boolean)" />.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Svg.SvgDocument" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgBounds.IsTrimmed">
+      <summary>Gets or sets a value that indicates whether the bounds was calculated by cropping the child elements themselves and ignoring the SVG document size. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>
+        <strong>true</strong> if <see cref="P:Leadtools.Svg.SvgBounds.Bounds" /> was calculated by cropping the child elements themselves and ignoring the SVG document size,
+            otherwise, <strong>false</strong>.</value>
+      <para>This property is set to the same value passed as "trimmed" to <see cref="M:Leadtools.Svg.SvgDocument.CalculateBounds(System.Boolean)" />.</para>
+      <noreamrks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Svg.SvgBounds.Resolution">
+      <summary>Gets or sets the resolution (Dots per inch) of the SVG document. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The resolution (Dots per inch) of the SVG document.</value>
+      <remarks>
+        <para>The resolution is not part of the SVG standard. It is required by LEADTOOLS to convert pixel bounds to any logical units. Currently, LEADTOOLS
+            saves this value in custom <code>dpiX</code> and <code>dpiY</code> attributes in the root <code>svg</code> element.</para>
+        <para>This property is set to the calculated resolution (dots per inch) or the document by <see cref="M:Leadtools.Svg.SvgDocument.CalculateBounds(System.Boolean)" />.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Svg.SvgDocument" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgBounds.Bounds">
+      <summary>Gets or sets the physical bounds in pixels of this SVG document. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The physical bounds in pixels of this SVG document.</value>
+      <remarks>
+        <para>This property is set to the calculated bounds in physical units (pixels) by <see cref="M:Leadtools.Svg.SvgDocument.CalculateBounds(System.Boolean)" />.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Svg.SvgDocument" />.</para>
+      </example>
+    </member>
+    <member name="T:Leadtools.Svg.SvgRenderOptions">
+      <summary>Options for rendering an SVG document to a target device. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>Used with the <see cref="M:Leadtools.Svg.SvgDocument.Render(Leadtools.IRenderingEngine,Leadtools.Svg.SvgRenderOptions)">SvgDocument.Render</see> method to render an SVG document to a target device.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.Render(Leadtools.IRenderingEngine,Leadtools.Svg.SvgRenderOptions)">SvgDocument.Render</see>.</para>
+      </example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgRenderOptions.#ctor">
+      <summary>Initializes a new instance of <see cref="T:Leadtools.Svg.SvgRenderOptions" /><a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>This constructor initializes the members of <see cref="T:Leadtools.Svg.SvgRenderOptions" /> as follows:</para>
+        <list type="table">
+          <listheader>
+            <term>Member</term>
+            <description>Value</description>
+          </listheader>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgRenderOptions.Bounds" />
+            </term>
+            <description>
+              <para>An empty <see cref="T:Leadtools.LeadRectD" /> which means to use the current physical bounds of document (<see cref="P:Leadtools.Svg.SvgBounds.Bounds">Bounds.Bounds</see>)</para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgRenderOptions.ClipBounds" />
+            </term>
+            <description>
+              <para>Empty rectangle to render the whole of the document</para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgRenderOptions.Transform" />
+            </term>
+            <description>
+              <para>Identity <see cref="T:Leadtools.LeadMatrix" /></para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgRenderOptions.UseBackgroundColor" />
+            </term>
+            <description>
+              <para>
+                <strong>true</strong>
+              </para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgRenderOptions.BackgroundColor" />
+            </term>
+            <description>
+              <para>White color</para>
+            </description>
+          </item>
+        </list>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.Render(Leadtools.IRenderingEngine,Leadtools.Svg.SvgRenderOptions)">SvgDocument.Render</see>.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgRenderOptions.UseBackgroundColor">
+      <summary>Gets or sets a value that indicates whether to use <see cref="P:Leadtools.Svg.SvgRenderOptions.BackgroundColor" /> color to fill the background of the
+            transformed destination rectangle. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>
+        <strong>true</strong> to use <see cref="P:Leadtools.Svg.SvgRenderOptions.BackgroundColor" /> color to fill the background of the
+            transformed destination rectangle, otherwise; <strong>false</strong>.</value>
+      <noremarks />
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.Render(Leadtools.IRenderingEngine,Leadtools.Svg.SvgRenderOptions)">SvgDocument.Render</see>.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgRenderOptions.BackgroundColor">
+      <summary>Gets or sets the color used to the fill the background of the transformed destination rectangle. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The color used to the fill the background of the transformed destination rectangle. Default value is "white".</value>
+      <remarks>
+        <para>SVG document do not have a background color. Use this property to fill <see cref="P:Leadtools.Svg.SvgRenderOptions.Bounds">SvgRenderOptions.Bounds</see>
+            (final transformation applied) with a color. Will only be used if <see cref="P:Leadtools.Svg.SvgRenderOptions.UseBackgroundColor" /> is <strong>true</strong>.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.Render(Leadtools.IRenderingEngine,Leadtools.Svg.SvgRenderOptions)">SvgDocument.Render</see>.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgRenderOptions.Bounds">
+      <summary>Gets or sets the destination rectangle in pixel coordinates. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The destination rectangle in pixel coordinates.. Default value is <see cref="P:Leadtools.LeadRectD.Empty">LeadRectD.Empty</see>.</value>
+      <remarks>
+        <para>The SVG document will be rendered to fit and center inside this rectangle.
+            <see cref="P:Leadtools.Svg.SvgRenderOptions.Transform">SvgRenderOptions.Transform</see> will be applied to this rectangle.</para>
+        <para>If the value of <see cref="P:Leadtools.Svg.SvgRenderOptions.Bounds" /> is <see cref="P:Leadtools.LeadRectD.Empty">LeadRectD.Empty</see> or have 0 width and height, then the
+            current physical bounds of document (stored in <see cref="P:Leadtools.Svg.SvgBounds.Bounds">Bounds.Bounds</see>) will be used.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.Render(Leadtools.IRenderingEngine,Leadtools.Svg.SvgRenderOptions)">SvgDocument.Render</see>.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgRenderOptions.ClipBounds">
+      <summary>Gets or sets the clipping rectangle in pixel coordinates. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The clipping rectangle in pixel coordinates. Default value is <see cref="P:Leadtools.LeadRectD.Empty">LeadRectD.Empty</see>.</value>
+      <remarks>
+        <para> The engine will apply this clipping into <see cref="P:Leadtools.Svg.SvgRenderOptions.Bounds" /> to exclude
+            all or parts of the objects that do not fit. The transformation set in <see cref="P:Leadtools.Svg.SvgRenderOptions.Transform">SvgRenderOptions.Transform</see> will not be
+            applied to this rectangle. If this value is an empty <see cref="T:Leadtools.LeadRectD" /> or have 0 width and height then Empty rectangle to render then the
+            whole of the document will be rendered and no clipping performed.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.Render(Leadtools.IRenderingEngine,Leadtools.Svg.SvgRenderOptions)">SvgDocument.Render</see>.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgRenderOptions.Transform">
+      <summary>Gets or sets the transformation to be applied when rendering the document. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The transformation to be applied when rendering the document. Default value is <see cref="P:Leadtools.LeadMatrix.Identity">LeadMatrix.Identity</see>.</value>
+      <remarks>
+        <para>This is a <see cref="T:Leadtools.LeadMatrix" /> instance that you can use apply zooming, translation and rotation to the
+            final document. The value of <see cref="P:Leadtools.Svg.SvgRenderOptions.Transform" /> will be applied to <see cref="P:Leadtools.Svg.SvgRenderOptions.Bounds" /> to calculate the final destination rectangle in pixels.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.Render(Leadtools.IRenderingEngine,Leadtools.Svg.SvgRenderOptions)">SvgDocument.Render</see>.</para>
+      </example>
+    </member>
+    <member name="T:Leadtools.Svg.SvgSortOptions">
+      <summary>Options to control how to sort the elements in this SVG document. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>Used with the <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see> method to enumerate the elements of a
+            <see cref="T:Leadtools.Svg.SvgDocument" /> in a controlled sorted manner.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see>.</para>
+      </example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgSortOptions.#ctor">
+      <summary>Initializes a new instance of <see cref="T:Leadtools.Svg.SvgSortOptions" /><a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>This constructor initializes the members of this class as follows:</para>
+        <list type="table">
+          <listheader>
+            <term>Member</term>
+            <description>Value</description>
+          </listheader>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgSortOptions.SortFlags" />
+            </term>
+            <description>
+              <para>
+                <see cref="T:Leadtools.Svg.SvgSortFlags">SvgSortFlags.Default</see>
+              </para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgSortOptions.ExtractText" />
+            </term>
+            <description>
+              <para>
+                <see cref="T:Leadtools.Svg.SvgExtractText">SvgExtractText.Character</see>
+              </para>
+            </description>
+          </item>
+        </list>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see>.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgSortOptions.SortFlags">
+      <summary>Gets or sets the sorting flags used. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The sorting flags used used. Default value is <see cref="T:Leadtools.Svg.SvgSortFlags">SvgSortFlags.Default</see>.</value>
+      <noremarks />
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see>.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgSortOptions.ExtractText">
+      <summary>Gets or sets the text extraction mode used. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The text extraction mode used. Default value is <see cref="T:Leadtools.Svg.SvgExtractText">SvgExtractText.Character</see>.</value>
+      <noremarks />
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see>.</para>
+      </example>
+    </member>
+    <member name="T:Leadtools.Svg.SvgTextData">
+      <summary>Contains the data of a text element. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>Used as the value of <see cref="P:Leadtools.Svg.SvgElementInfo.TextData">SvgElementInfo.TextData</see>. This member is only valid if the SVG element
+            (<see cref="P:Leadtools.Svg.SvgElementInfo.ElementType">SvgElementInfo.ElementType</see> is a text SVG element.</para>
+        <para>
+          <see cref="T:Leadtools.Svg.SvgTextData" /> contains the following:</para>
+        <list type="table">
+          <listheader>
+            <term>Member</term>
+            <description>Value</description>
+          </listheader>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgTextData.Text" />
+            </term>
+            <description>
+              <para>The text as a string. The number of items in the arrays below is equivalent to the number of characters in this string (<see cref="P:System.String.Length" />).</para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgTextData.Bounds" />
+            </term>
+            <description>
+              <para>An array of <see cref="T:Leadtools.LeadRectD" /> that specifies the physical (pixel) bounds of each character in the text.</para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgTextData.CharacterFlags" />
+            </term>
+            <description>
+              <para>An array of <see cref="T:Leadtools.Svg.SvgTextCharacterFlags" /> that specifies the position flags of each character in the text.</para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgTextData.Directions" />
+            </term>
+            <description>
+              <para>An array of <see cref="T:Leadtools.Svg.SvgCharacterDirection" /> that specifies the direction of each character in the text.</para>
+            </description>
+          </item>
+        </list>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see>.</para>
+      </example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgTextData.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:Leadtools.Svg.SvgTextData" />. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Svg.SvgTextData.Text">
+      <summary>Gets or sets the text as a string. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The text as a string. Default value is <strong>null</strong>.</value>
+      <remarks>
+        <para>Refer to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see> and <see cref="T:Leadtools.Svg.SvgTextData" /> for more information.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see>.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgTextData.Bounds">
+      <summary>Gets or sets the bounding rectangles of each character in the text. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The bounding rectangles of each character in the text. Default value is <strong>null</strong>.</value>
+      <remarks>
+        <para>Refer to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see> and <see cref="T:Leadtools.Svg.SvgTextData" /> for more information.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see>.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgTextData.CharacterFlags">
+      <summary>Gets or sets position flags for each character in the text. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The position flags for each character in the text. Default value is <strong>null</strong>.</value>
+      <remarks>
+        <para>Refer to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see> and <see cref="T:Leadtools.Svg.SvgTextData" /> for more information.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see>.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgTextData.Directions">
+      <summary>Gets or sets the direction of each character in the text. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The the direction of each character in the text. Default value is <strong>null</strong>.</value>
+      <remarks>
+        <para>Refer to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see> and <see cref="T:Leadtools.Svg.SvgTextData" /> for more information.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see>.</para>
+      </example>
+    </member>
+    <member name="T:Leadtools.Svg.SvgElementInfo">
+      <summary>Holds the information of an SVG element. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>Used in the callback data of <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see> to store the information of an SVG elements.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see>.</para>
+      </example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgElementInfo.#ctor">
+      <summary>Initializes a new instance of <see cref="T:Leadtools.Svg.SvgElementInfo" />. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>This constructor initializes the members of this class as follows:</para>
+        <list type="table">
+          <listheader>
+            <term>Member</term>
+            <description>Value</description>
+          </listheader>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgElementInfo.ElementType" />
+            </term>
+            <description>
+              <para>
+                <see cref="T:Leadtools.Svg.SvgElementType">SvgElementType.Unknown</see>
+              </para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgElementInfo.Bounds" />
+            </term>
+            <description>
+              <para>
+                <see cref="T:Leadtools.LeadRectD" /> with all members initialized to 0.</para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgElementInfo.TextData" />
+            </term>
+            <description>
+              <para>
+                <strong>null</strong>
+              </para>
+            </description>
+          </item>
+        </list>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Svg.SvgElementInfo.ElementType">
+      <summary>Gets or sets the SVG element type. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The SVG element type. Default value is <see cref="T:Leadtools.Svg.SvgElementType">SvgElementType.Unknown</see>.</value>
+      <remarks>
+        <para>If this element is text, then <see cref="P:Leadtools.Svg.SvgElementInfo.TextData" /> will contain further details regarding the text of the element.</para>
+        <para>If this element is not text, then <see cref="P:Leadtools.Svg.SvgElementInfo.TextData" /> will be <strong>null</strong>.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see>.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgElementInfo.Bounds">
+      <summary>Gets or sets the physical (pixels) bounding rectangle of the SVG element. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The physical (pixels) bounding rectangle of the SVG element. Default value is an <see cref="T:Leadtools.LeadRectD" /> initialized to all 0's.</value>
+      <noremarks />
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see>.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgElementInfo.TextData">
+      <summary>Gets or sets the text data if this is a text SVG element. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The text data if this is a text SVG element or <strong>null</strong> otherwise. Default value is <strong>null</strong>.</value>
+      <remarks>
+        <para>Only valid if <see cref="P:Leadtools.Svg.SvgElementInfo.ElementType" /> is a text SVG element.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see>.</para>
+      </example>
+    </member>
+    <member name="T:Leadtools.Svg.SvgLoadOptions">
+      <summary>Options to use when loading SVG documents. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>
+          <see cref="T:Leadtools.Svg.SvgLoadOptions" /> contains the following:</para>
+        <list type="bullet">
+          <item>
+            <description>
+              <para>
+                <see cref="P:Leadtools.Svg.SvgLoadOptions.LoadFlags" />: Drop specific type of elements when loading the SVG document.</para>
+            </description>
+          </item>
+        </list>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see>.</para>
+      </example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgLoadOptions.#ctor">
+      <summary>Initializes a new instance of <see cref="T:Leadtools.Svg.SvgLoadOptions" />. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>This constructor will initialize the members as follows:</para>
+        <list type="table">
+          <listheader>
+            <term>Member</term>
+            <description>Value</description>
+          </listheader>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgLoadOptions.LoadFlags" />
+            </term>
+            <description>
+              <para>
+                <see cref="T:Leadtools.Svg.SvgLoadOptions">SvgLoadOptions.Default</see>
+              </para>
+            </description>
+          </item>
+        </list>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see>.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgLoadOptions.LoadFlags">
+      <summary>Gets or sets the options to use during loading of SVG documents. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The options to use during loading of SVG documents. Default value is <see cref="T:Leadtools.Svg.SvgLoadFlags">SvgLoadFlags.Default</see>.</value>
+      <remarks>
+        <para>This member allows you to drop certain elements when loading SVG documents. For example, if you are only interested in the text elements
+            of the SVG, then set <see cref="P:Leadtools.Svg.SvgLoadOptions.LoadFlags" /> to <see cref="T:Leadtools.Svg.SvgLoadFlags">SvgLoadFlags.DropImages</see> | <see cref="T:Leadtools.Svg.SvgLoadFlags">SvgLoadFlags.DropShapes</see>
+            and the engine will not load these types of elements to reserve memory and system resources.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see>.</para>
+      </example>
+    </member>
+    <member name="T:Leadtools.Svg.SvgDocument">
+      <summary>Represents a Scalable Vector Graphics (SVG) document. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>The <see cref="T:Leadtools.Svg.SvgDocument" /> class represents a Scalable Vector Graphics (SVG) object. LEADTOOLS supports versions 1.* to 2.0 of the SVG
+            specification.</para>
+        <para>The <see cref="T:Leadtools.Svg.SvgDocument" /> class implements <see cref="T:System.Runtime.Serialization.ISerializable" /> and fully supports .NET serialization.</para>
+        <para>The <see cref="T:Leadtools.Svg.SvgDocument" /> class implements <see cref="T:System.IDisposable" />. You must using the .NET dispose pattern or call
+            <see cref="M:System.IDisposable.Dispose">Dispose</see> on the object after using it.</para>
+        <para>The <see cref="T:Leadtools.Svg.SvgDocument" /> class implements <see cref="T:Leadtools.ISvgDocument" /> and can be casted directly from the other LEADTOOLS method that
+            return an instance of that interface.</para>
+        <para>For more information on using <see cref="T:Leadtools.Svg.SvgDocument" />, refer to <see cref="T:SVG.Topics.WorkingWithSVG">Working With SVG</see>.</para>
+      </remarks>
+      <seealso cref="T:SVG.Topics.WorkingWithSVG">Working With SVG</seealso>
+      <seealso cref="T:SVG.Topics.SVGSizeBoundsAndFlat">SVG Size, Bounds and Flat</seealso>
+      <seealso cref="T:SVG.Topics.SVGRendering">SVG Rendering</seealso>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Codecs
+      Imports Leadtools.Drawing
+      Imports Leadtools.Forms.DocumentWriters
+      Imports Leadtools.Svg
+
+      Public Shared Sub SvgDocumentExample()
+         ' input directory
+         Dim inDir As String = Common.ImagesPath.Path
+         ' output directory
+         Dim outDir As String = Path.Combine(Common.ImagesPath.Path, "svgpages")
+         If Not Directory.Exists(outDir) Then
+            Directory.CreateDirectory(outDir)
+         End If
+         Using codecs As New RasterCodecs()
+            ' Set 300 as the default value for loading document files
+            codecs.Options.RasterizeDocument.Load.Resolution = 300
+
+            codecs.ThrowExceptionsOnInvalidImages = False
+
+            ' Get all the files from input directory
+            For Each srcFileName As String In Directory.EnumerateFiles(inDir)
+               Console.WriteLine("Checking {0}", srcFileName)
+               Using info As CodecsImageInfo = codecs.GetInformation(srcFileName, False)
+                  ' We can load as SVG if its document or vector (skipping SVG files themselves)
+                  If info.Format &lt;&gt; RasterImageFormat.Unknown AndAlso _
+                     info.Format &lt;&gt; RasterImageFormat.Svg AndAlso _
+                     (info.Document.IsDocumentFile OrElse _
+                     info.Vector.IsVectorFile) Then
+                     ' try to load the first page as SVG
+                     Try
+                        Using svgDocument As SvgDocument = DirectCast(codecs.LoadSvg(srcFileName, 1, Nothing), SvgDocument)
+                           ' Save it to disk
+                           Dim name As String = Path.GetFileName(srcFileName).Replace(".", "-")
+                           name = Path.ChangeExtension(name, "svg")
+                           Dim dstFileName As String = Path.Combine(outDir, name)
+                           Console.WriteLine("Saving to {0}", dstFileName)
+                           svgDocument.SaveToFile(dstFileName, Nothing)
+                        End Using
+                     Catch ex As Exception
+                        Console.WriteLine(ex.Message)
+                     End Try
+                  End If
+               End Using
+            Next
+         End Using
+      End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Codecs;
+      using Leadtools.Drawing;
+      using Leadtools.Forms.DocumentWriters;
+      using Leadtools.Svg;
+
+      public static void SvgDocumentExample()
+      {
+         // input directory
+         string inDir = ImagesPath.Path;
+         // output directory
+         string outDir = Path.Combine(ImagesPath.Path, "svgpages");
+         if (!Directory.Exists(outDir))
+            Directory.CreateDirectory(outDir);
+         using (var codecs = new RasterCodecs())
+         {
+
+            // Set 300 as the default value for loading document files
+            codecs.Options.RasterizeDocument.Load.Resolution = 300;
+
+            codecs.ThrowExceptionsOnInvalidImages = false;
+
+            // Get all the files from input directory
+            foreach (var srcFileName in Directory.EnumerateFiles(inDir))
+            {
+               Console.WriteLine("Checking {0}", srcFileName);
+               using (var info = codecs.GetInformation(srcFileName, false))
+               {
+                  // We can load as SVG if its document or vector (skipping SVG files themselves)
+                  if (info.Format != RasterImageFormat.Unknown &amp;&amp; // valid format
+                     info.Format != RasterImageFormat.Svg &amp;&amp; // not svg
+                     (info.Document.IsDocumentFile || // a document
+                     info.Vector.IsVectorFile)) // or vector
+                  {
+                     // try to load the first page as SVG
+                     try
+                     {
+                        using (SvgDocument svgDocument = codecs.LoadSvg(srcFileName, 1, null) as SvgDocument)
+                        {
+                           // Save it to disk
+                           string name = Path.GetFileName(srcFileName).Replace(".", "-");
+                           name = Path.ChangeExtension(name, "svg");
+                           string dstFileName = Path.Combine(outDir, name);
+                           Console.WriteLine("Saving to {0}", dstFileName);
+                           svgDocument.SaveToFile(dstFileName, null);
+                        }
+                     }
+                     catch (Exception ex)
+                     {
+                        Console.WriteLine(ex.Message);
+                     }
+                  }
+               }
+            }
+         }
+      }</code>
+        <!--SvgDocument-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>This constructor is required by <see cref="T:System.Runtime.Serialization.ISerializable" /><a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="info">The data needed to serialize or deserialize an object.</param>
+      <param name="context">The source and destination of a given serialized stream.</param>
+      <remarks>
+        <para>The <see cref="T:Leadtools.Svg.SvgDocument" /> class supports standard .NET serialization. Serialization of a <see cref="T:Leadtools.Svg.SvgDocument" /> is the process of
+            converting the state of a <see cref="T:Leadtools.RasterImage" /> object into a form that can be persisted or transported. The complement of serialization is
+            deserialization, which converts a stream into an <see cref="T:Leadtools.RasterImage" /> object. Together, these processes allow the image data to be easily
+            stored and transferred.</para>
+        <para>When you serialize a <see cref="T:Leadtools.Svg.SvgDocument" /> object, all the data inside the object are saved. The <see cref="T:Leadtools.Svg.SvgDocument" /> can be
+            constructed back to its original state from the stream.</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Codecs
+      Imports Leadtools.Drawing
+      Imports Leadtools.Forms.DocumentWriters
+      Imports Leadtools.Svg
+
+      Public Shared Sub SvgDocumentSerializationExample()
+         Dim document As SvgDocument = Nothing
+         ' Load a page from a document file as SVG
+         Dim srcFileName As String = Path.Combine(Common.ImagesPath.Path, "Leadtools.pdf")
+         Using codecs As New RasterCodecs()
+            ' Set 300 as the default value for loading document files
+            codecs.Options.RasterizeDocument.Load.Resolution = 300
+
+            document = DirectCast(codecs.LoadSvg(srcFileName, 1, Nothing), SvgDocument)
+         End Using
+
+         ' Prepare it
+         If Not document.IsFlat Then
+            document.Flat(Nothing)
+         End If
+         If Not document.Bounds.IsValid Then
+            document.CalculateBounds(False)
+         End If
+
+         ' Show its properties
+         Console.WriteLine("Before serialization")
+         Console.WriteLine("Bounds: " + document.Bounds.Bounds.ToString())
+         Console.WriteLine("Resolution: " + document.Bounds.Resolution.ToString())
+
+         ' Serialize (save) it to a stream
+         Dim stream As New MemoryStream()
+         Dim formatter As New BinaryFormatter()
+         formatter.Serialize(stream, document)
+         stream.Position = 0
+
+         ' Get rid of the document
+         document.Dispose()
+
+         ' Now de-serailize (load) it back from the stream and show its properties
+         document = DirectCast(formatter.Deserialize(stream), SvgDocument)
+         Console.WriteLine("After de-serialization")
+         Console.WriteLine("Bounds: " + document.Bounds.Bounds.ToString())
+         Console.WriteLine("Resolution: " + document.Bounds.Resolution.ToString())
+
+         document.Dispose()
+      End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Codecs;
+      using Leadtools.Drawing;
+      using Leadtools.Forms.DocumentWriters;
+      using Leadtools.Svg;
+
+      public static void SvgDocumentSerializationExample()
+      {
+         SvgDocument document = null;
+         // Load a page from a document file as SVG
+         string srcFileName = Path.Combine(ImagesPath.Path, "Leadtools.pdf");
+
+         using (var codecs = new RasterCodecs())
+         {
+            // Set 300 as the default value for loading document files
+            codecs.Options.RasterizeDocument.Load.Resolution = 300;
+
+            document = codecs.LoadSvg(srcFileName, 1, null) as SvgDocument;
+         }
+
+         // Prepare it
+         if (!document.IsFlat)
+            document.Flat(null);
+         if (!document.Bounds.IsValid)
+            document.CalculateBounds(false);
+
+         // Show its properties
+         Console.WriteLine("Before serialization");
+         Console.WriteLine("Bounds: " + document.Bounds.Bounds);
+         Console.WriteLine("Resolution: " + document.Bounds.Resolution);
+
+         // Serialize (save) it to a stream
+         var stream = new MemoryStream();
+         var formatter = new BinaryFormatter();
+         formatter.Serialize(stream, document);
+         stream.Position = 0;
+
+         // Get rid of the document
+         document.Dispose();
+
+         // Now de-serailize (load) it back from the stream and show its properties
+         document = formatter.Deserialize(stream) as SvgDocument;
+         Console.WriteLine("After de-serialization");
+         Console.WriteLine("Bounds: " + document.Bounds.Bounds);
+         Console.WriteLine("Resolution: " + document.Bounds.Resolution);
+
+         document.Dispose();
+      }</code>
+        <!--SvgDocument.Serialization-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>Populates a specified <see cref="T:System.Runtime.Serialization.SerializationInfo" /> with the data needed to serialize this object. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> to populate with data.</param>
+      <param name="context">The contextual information about the source or destination of the serialization.</param>
+      <remarks>
+        <para>This method implements <see cref="M:System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" /></para>
+        <para>The <see cref="T:Leadtools.Svg.SvgDocument" /> class supports standard .NET serialization. Serialization of a <see cref="T:Leadtools.Svg.SvgDocument" /> is the process of
+            converting the state of a <see cref="T:Leadtools.RasterImage" /> object into a form that can be persisted or transported. The complement of serialization is
+            deserialization, which converts a stream into an <see cref="T:Leadtools.RasterImage" /> object. Together, these processes allow the image data to be easily
+            stored and transferred.</para>
+        <para>When you serialize a <see cref="T:Leadtools.Svg.SvgDocument" /> object, all the data inside the object are saved. The <see cref="T:Leadtools.Svg.SvgDocument" /> can be
+            constructed back to its original state from the stream.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" />.</para>
+      </example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.Dispose">
+      <summary>Releases all resources used by this <see cref="T:Leadtools.Svg.SvgDocument" />. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>The <see cref="T:Leadtools.Svg.SvgDocument" /> class implements the <see cref="T:System.IDisposable" /> interface, it is recommended that you follow the
+            standard .NET dispose pattern when using the <see cref="T:Leadtools.Svg.SvgDocument" /> class. For more information, refer to the <see cref="T:System.IDisposable" />
+            interface documentation in MSDN.
+            </para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Svg.SvgDocument" /></para>.</example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.Finalize">
+      <summary>This method overrides <see cref="M:System.Object.Finalize" /><a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>The <see cref="T:Leadtools.Svg.SvgDocument" /> class implements the <see cref="T:System.IDisposable" /> interface, it is recommended that you follow the
+            standard .NET dispose pattern when using the <see cref="T:Leadtools.Svg.SvgDocument" /> class. For more information, refer to the <see cref="T:System.IDisposable" />
+            interface documentation in MSDN.
+            </para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.Dispose(System.Boolean)">
+      <summary>Releases all resources used by this <see cref="T:Leadtools.Svg.SvgDocument" />. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="disposing">
+        <strong>true</strong> to release both managed and unmanaged resources; <strong>false</strong> to release only unmanaged resources.</param>
+      <remarks>
+        <para>The <see cref="T:Leadtools.Svg.SvgDocument" /> class implements the <see cref="T:System.IDisposable" /> interface, it is recommended that you follow the
+            standard .NET dispose pattern when using the <see cref="T:Leadtools.Svg.SvgDocument" /> class. For more information, refer to the <see cref="T:System.IDisposable" />
+            interface documentation in MSDN.
+            </para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Svg.SvgDocument" /></para>.</example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.Clone">
+      <summary>Creates an exact copy of this <see cref="T:Leadtools.Svg.SvgDocument" />. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <returns>The <see cref="T:Leadtools.Svg.SvgDocument" /> object this method creates.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.LoadFromFile(System.String,Leadtools.Svg.SvgLoadOptions)">
+      <summary>Creates a <see cref="T:Leadtools.Svg.SvgDocument" /> object from an SVG file on disk. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="fileName">Path to the SVG file on disk</param>
+      <param name="options">Options to use during load. If this parameter is <strong>null</strong>, then default a <see cref="T:Leadtools.Svg.SvgLoadOptions" /> will be used.</param>
+      <returns>The <see cref="T:Leadtools.Svg.SvgDocument" /> object this method creates.</returns>
+      <remarks>
+        <para>To get and set information on the document bounds and resolution refer to
+            <see cref="T:SVG.Topics.SVGSizeBoundsAndFlat">SVG Size, Bounds and Flat</see>.</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Codecs
+      Imports Leadtools.Drawing
+      Imports Leadtools.Forms.DocumentWriters
+      Imports Leadtools.Svg
+
+      Public Shared Sub SvgLoadFromFileExample()
+         ' Create the SVG pages we will be using
+         Dim srcFileName As String = Path.Combine(Common.ImagesPath.Path, "Leadtools.doc")
+         Dim dstFileName As String = Path.Combine(Common.ImagesPath.Path, "Example.pdf")
+         Dim outDir As String = Path.Combine(Common.ImagesPath.Path, "TempSvgPages")
+         If Not Directory.Exists(outDir) Then
+            Directory.CreateDirectory(outDir)
+         End If
+         Dim pageCount As Integer = CreateSvgPages(srcFileName, outDir)
+
+         ' Create a PDF document using Document Writer
+         Dim documentWriter As New DocumentWriter()
+         DocumentWriter.BeginDocument(dstFileName, DocumentFormat.Pdf)
+
+         Dim svgPageTemplateName As String = Path.Combine(outDir, "Page{0}.svg")
+         For pageNumber As Integer = 1 To pageCount
+            ' Load this SVG
+            Dim pageFileName As String = String.Format(svgPageTemplateName, pageNumber)
+            Console.WriteLine("Loading {0}", pageFileName)
+            Using svgDocument As SvgDocument = svgDocument.LoadFromFile(pageFileName, Nothing)
+               ' Check if we need to flat it
+               If Not svgDocument.IsFlat Then
+                  svgDocument.Flat(Nothing)
+               End If
+               If Not svgDocument.Bounds.IsValid Then
+                  svgDocument.CalculateBounds(False)
+               End If
+
+               ' Add it to the document writer
+               Console.WriteLine("Adding ...")
+               Dim svgPage As New DocumentSvgPage()
+               svgPage.SvgDocument = svgDocument
+               documentWriter.AddPage(svgPage)
+            End Using
+         Next
+
+         ' Finish up
+         Console.WriteLine("Finishing ...")
+         documentWriter.EndDocument()
+      End Sub
+
+      Private Shared Function CreateSvgPages(srcFileName As String, outDir As String) As Integer
+         ' Extract all the pages from the source file as SVG
+         Using codecs As New RasterCodecs()
+            ' Set 300 as the default value for loading document files
+            codecs.Options.RasterizeDocument.Load.Resolution = 300
+
+            ' Get all the files from input directory
+            Dim pageCount As Integer = codecs.GetTotalPages(srcFileName)
+            For pageNumber As Integer = 1 To pageCount
+               Using svgDocument As SvgDocument = DirectCast(codecs.LoadSvg(srcFileName, pageNumber, Nothing), SvgDocument)
+                  ' Save it to disk
+                  Dim dstFileName As String = Path.Combine(outDir, Path.Combine(String.Format("Page{0}.svg", pageNumber)))
+                  Console.WriteLine("Saving to {0}", dstFileName)
+                  svgDocument.SaveToFile(dstFileName, Nothing)
+               End Using
+            Next
+
+            Return pageCount
+         End Using
+      End Function</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Codecs;
+      using Leadtools.Drawing;
+      using Leadtools.Forms.DocumentWriters;
+      using Leadtools.Svg;
+
+      public static void SvgLoadFromFileExample()
+      {
+         // Create the SVG pages we will be using
+         string srcFileName = Path.Combine(ImagesPath.Path, "Leadtools.doc");
+         string dstFileName = Path.Combine(ImagesPath.Path, "Example.pdf");
+         string outDir = Path.Combine(ImagesPath.Path, "TempSvgPages");
+         if (!Directory.Exists(outDir))
+            Directory.CreateDirectory(outDir);
+         int pageCount = CreateSvgPages(srcFileName, outDir);
+
+         // Create a PDF document using Document Writer
+         var documentWriter = new DocumentWriter();
+         documentWriter.BeginDocument(dstFileName, DocumentFormat.Pdf);
+
+         string svgPageTemplateName = Path.Combine(outDir, "Page{0}.svg");
+         for (int pageNumber = 1; pageNumber &lt;= pageCount; pageNumber++)
+         {
+            // Load this SVG
+            string pageFileName = string.Format(svgPageTemplateName, pageNumber);
+            Console.WriteLine("Loading {0}", pageFileName);
+            using (SvgDocument svgDocument = SvgDocument.LoadFromFile(pageFileName, null))
+            {
+               // Check if we need to flat it
+               if (!svgDocument.IsFlat)
+                  svgDocument.Flat(null);
+               if (!svgDocument.Bounds.IsValid)
+                  svgDocument.CalculateBounds(false);
+
+               // Add it to the document writer
+               Console.WriteLine("Adding ...");
+               DocumentSvgPage svgPage = new DocumentSvgPage();
+               svgPage.SvgDocument = svgDocument;
+               documentWriter.AddPage(svgPage);
+            }
+         }
+
+         // Finish up
+         Console.WriteLine("Finishing ...");
+         documentWriter.EndDocument();
+      }
+
+      private static int CreateSvgPages(string srcFileName, string outDir)
+      {
+         // Extract all the pages from the source file as SVG
+         using (var codecs = new RasterCodecs())
+         {
+            // Set 300 as the default value for loading document files
+            codecs.Options.RasterizeDocument.Load.Resolution = 300;
+
+            // Get all the files from input directory
+            int pageCount = codecs.GetTotalPages(srcFileName);
+            for (int pageNumber = 1; pageNumber &lt;= pageCount; pageNumber++)
+            {
+               using (SvgDocument svgDocument = codecs.LoadSvg(srcFileName, pageNumber, null) as SvgDocument)
+               {
+                  // Save it to disk
+                  string dstFileName = Path.Combine(outDir, Path.Combine(string.Format("Page{0}.svg", pageNumber)));
+                  Console.WriteLine("Saving to {0}", dstFileName);
+                  svgDocument.SaveToFile(dstFileName, null);
+               }
+            }
+
+            return pageCount;
+         }
+      }</code>
+        <!--SvgDocument.LoadFromFile-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.LoadFromStream(System.IO.Stream,Leadtools.Svg.SvgLoadOptions)">
+      <summary>Creates a <see cref="T:Leadtools.Svg.SvgDocument" /> object from a stream containing SVG data. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="stream">The stream containing SVG data</param>
+      <param name="options">Options to use during load. If this parameter is <strong>null</strong>, then default a <see cref="T:Leadtools.Svg.SvgLoadOptions" /> will be used.</param>
+      <returns>The <see cref="T:Leadtools.Svg.SvgDocument" /> object this method creates.</returns>
+      <remarks>
+        <para>To get and set information on the document bounds and resolution refer to
+            <see cref="T:SVG.Topics.SVGSizeBoundsAndFlat">SVG Size, Bounds and Flat</see>.</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Codecs
+      Imports Leadtools.Drawing
+      Imports Leadtools.Forms.DocumentWriters
+      Imports Leadtools.Svg
+
+      Public Shared Sub SvgLoadFromStreamExample()
+         ' Assume the SVG files are located here
+         Dim addressTemplate As String = "http://localhost/images/examples/page1.svg"
+         ' Get a stream to it
+         Dim request As WebRequest = WebRequest.Create(New Uri(addressTemplate))
+         Using response As WebResponse = request.GetResponse()
+            Dim stream As Stream = response.GetResponseStream()
+
+            ' Load it
+            Using document As SvgDocument = SvgDocument.LoadFromStream(stream, Nothing)
+               ' Prepare it
+               If Not document.IsFlat Then
+                  document.Flat(Nothing)
+               End If
+               If Not document.Bounds.IsValid Then
+                  document.CalculateBounds(False)
+               End If
+
+               ' Show its properties
+               Console.WriteLine("Bounds: " + document.Bounds.Bounds.ToString())
+               Console.WriteLine("Resolution: " + document.Bounds.Resolution.ToString())
+            End Using
+         End Using
+      End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Codecs;
+      using Leadtools.Drawing;
+      using Leadtools.Forms.DocumentWriters;
+      using Leadtools.Svg;
+
+      public static void SvgLoadFromStreamExample()
+      {
+         // Assume the SVG files are located here
+         string addressTemplate = @"http://localhost/images/examples/page1.svg";
+         // Get a stream to it
+         WebRequest request = WebRequest.Create(new Uri(addressTemplate));
+         using (WebResponse response = request.GetResponse())
+         {
+            Stream stream = response.GetResponseStream();
+
+            // Load it
+            using (SvgDocument document = SvgDocument.LoadFromStream(stream, null))
+            {
+               // Prepare it
+               if (!document.IsFlat)
+                  document.Flat(null);
+               if (!document.Bounds.IsValid)
+                  document.CalculateBounds(false);
+
+               // Show its properties
+               Console.WriteLine("Bounds: " + document.Bounds.Bounds);
+               Console.WriteLine("Resolution: " + document.Bounds.Resolution);
+            }
+         }
+      }</code>
+        <!--SvgDocument.LoadFromStream-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.LoadFromMemory(System.Byte[],System.Int32,System.Int32,Leadtools.Svg.SvgLoadOptions)">
+      <summary>Creates a <see cref="T:Leadtools.Svg.SvgDocument" /> object from data saved in a memory buffer. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="buffer">Buffer containing the SVG data.</param>
+      <param name="offset">0-based offset into <paramref name="buffer" /> where the data begins.</param>
+      <param name="length">number of bytes to read.</param>
+      <param name="options">Options to use during load. If this parameter is <strong>null</strong>, then default a <see cref="T:Leadtools.Svg.SvgLoadOptions" /> will be used.</param>
+      <returns>The <see cref="T:Leadtools.Svg.SvgDocument" /> object this method creates.</returns>
+      <remarks>
+        <para>To get and set information on the document bounds and resolution refer to
+            <see cref="T:SVG.Topics.SVGSizeBoundsAndFlat">SVG Size, Bounds and Flat</see>.</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Codecs
+      Imports Leadtools.Drawing
+      Imports Leadtools.Forms.DocumentWriters
+      Imports Leadtools.Svg
+
+      Public Shared Sub SvgLoadFromMemoryExample()
+         ' Assume the SVG file is located here
+         Dim srcFileName As String = Path.Combine(Common.ImagesPath.Path, "Page1.svg")
+         ' Load the file into memory
+         Dim data() As Byte = File.ReadAllBytes(srcFileName)
+
+         ' Load the SVG
+         Using document As SvgDocument = SvgDocument.LoadFromMemory(data, 0, data.Length, Nothing)
+            ' Prepare it
+            If Not document.IsFlat Then
+               document.Flat(Nothing)
+            End If
+            If Not document.Bounds.IsValid Then
+               document.CalculateBounds(False)
+            End If
+
+            ' Show its properties
+            Console.WriteLine("Bounds: " + document.Bounds.Bounds.ToString())
+            Console.WriteLine("Resolution: " + document.Bounds.Resolution.ToString())
+         End Using
+      End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Codecs;
+      using Leadtools.Drawing;
+      using Leadtools.Forms.DocumentWriters;
+      using Leadtools.Svg;
+
+      public static void SvgLoadFromMemoryExample()
+      {
+         // Assume the SVG file is located here
+         string srcFileName = Path.Combine(ImagesPath.Path, "Page1.svg");
+         // Load the file into memory
+         byte[] data = File.ReadAllBytes(srcFileName);
+
+         // Load the SVG
+         using (SvgDocument document = SvgDocument.LoadFromMemory(data, 0, data.Length, null))
+         {
+            // Prepare it
+            if (!document.IsFlat)
+               document.Flat(null);
+            if (!document.Bounds.IsValid)
+               document.CalculateBounds(false);
+
+            // Show its properties
+            Console.WriteLine("Bounds: " + document.Bounds.Bounds);
+            Console.WriteLine("Resolution: " + document.Bounds.Resolution);
+         }
+      }</code>
+        <!--SvgDocument.LoadFromMemory-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.SaveToFile(System.String,Leadtools.Svg.SvgSaveOptions)">
+      <summary>Save this <see cref="T:Leadtools.Svg.SvgDocument" /> to a disk file. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="fileName">Output file name.</param>
+      <param name="options">Save option. Can be <strong>null</strong>.</param>
+      <remarks>
+        <para>This method will save this <see cref="T:Leadtools.Svg.SvgDocument" /> to the output file as a standard SVG document. Use <see cref="P:Leadtools.Svg.SvgDocument.Version" /> to control
+            the SVG version used.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Svg.SvgDocument" />.</para>
+      </example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.SaveToStream(System.IO.Stream,Leadtools.Svg.SvgSaveOptions)">
+      <summary>Save this <see cref="T:Leadtools.Svg.SvgDocument" /> to a stream. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="stream">Output stream.</param>
+      <param name="options">Save option. Can be <strong>null</strong>.</param>
+      <remarks>
+        <para>This method will save this <see cref="T:Leadtools.Svg.SvgDocument" /> to the output stream as a standard SVG document. Use <see cref="P:Leadtools.Svg.SvgDocument.Version" /> to control
+            the SVG version used.</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Codecs
+      Imports Leadtools.Drawing
+      Imports Leadtools.Forms.DocumentWriters
+      Imports Leadtools.Svg
+
+      Public Shared Sub SvgToStreamExample()
+         ' Assume the SVG file is located here
+         Dim srcFileName As String = Path.Combine(Common.ImagesPath.Path, "Page1.svg")
+         Dim stream As New MemoryStream()
+
+         ' Load the SVG from file
+         Using document As SvgDocument = SvgDocument.LoadFromFile(srcFileName, Nothing)
+            ShowSvgProperties("Original", document)
+
+            ' Set the version and save it to a stream
+            document.Version = SvgVersion.v10
+            document.SaveToStream(stream, Nothing)
+            stream.Position = 0
+         End Using
+
+         ' Load the SVG from stream and show its properties
+         Using document As SvgDocument = SvgDocument.LoadFromStream(stream, Nothing)
+            ShowSvgProperties("Loaded from stream", document)
+         End Using
+
+         stream.Dispose()
+      End Sub
+
+      Private Shared Sub ShowSvgProperties(message As String, document As SvgDocument)
+         ' Prepare it
+         If Not document.IsFlat Then
+            document.Flat(Nothing)
+         End If
+         If Not document.Bounds.IsValid Then
+            document.CalculateBounds(False)
+         End If
+
+         ' Show its properties
+         Console.WriteLine(message)
+         Console.WriteLine(" Version: " + document.Version.ToString())
+         Console.WriteLine(" Bounds: " + document.Bounds.Bounds.ToString())
+         Console.WriteLine(" Resolution: " + document.Bounds.Resolution.ToString())
+      End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Codecs;
+      using Leadtools.Drawing;
+      using Leadtools.Forms.DocumentWriters;
+      using Leadtools.Svg;
+
+      public static void SvgToStreamExample()
+      {
+         // Assume the SVG file is located here
+         string srcFileName = Path.Combine(ImagesPath.Path, "Page1.svg");
+         Stream stream = new MemoryStream();
+
+         // Load the SVG from file
+         using (SvgDocument document = SvgDocument.LoadFromFile(srcFileName, null))
+         {
+            ShowSvgProperties("Original", document);
+
+            // Set the version and save it to a stream
+            document.Version = SvgVersion.v10;
+            document.SaveToStream(stream, null);
+            stream.Position = 0;
+         }
+
+         // Load the SVG from stream and show its properties
+         using (SvgDocument document = SvgDocument.LoadFromStream(stream, null))
+         {
+            ShowSvgProperties("Loaded from stream", document);
+         }
+
+         stream.Dispose();
+      }
+
+      private static void ShowSvgProperties(string message, SvgDocument document)
+      {
+         // Prepare it
+         if (!document.IsFlat)
+            document.Flat(null);
+         if (!document.Bounds.IsValid)
+            document.CalculateBounds(false);
+
+         // Show its properties
+         Console.WriteLine(message);
+         Console.WriteLine(" Version: " + document.Version);
+         Console.WriteLine(" Bounds: " + document.Bounds.Bounds);
+         Console.WriteLine(" Resolution: " + document.Bounds.Resolution);
+      }</code>
+        <!--SvgDocument.SaveToStream-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.Flat(Leadtools.Svg.SvgFlatOptions)">
+      <summary>Flats this <see cref="T:Leadtools.Svg.SvgDocument" />. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="options">The flat options to use. This can be <strong>null</strong>.</param>
+      <remarks>
+        <para>For more information on flat SVG documents and bounds and resolution, refer to
+            <see cref="T:SVG.Topics.SVGSizeBoundsAndFlat">SVG Size, Bounds and Flat</see>.</para>
+        <para>If the value of <paramref name="options" /> is <strong>null</strong>, then this method will use default
+            options as follows:</para>
+        <list type="table">
+          <listheader>
+            <term>Member</term>
+            <description>Value</description>
+          </listheader>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgFlatOptions.Size">SvgFlatOptions.Size</see>
+            </term>
+            <description>
+              <para>
+                <see cref="P:Leadtools.LeadSizeD.Empty" />LeadSizeD.Empty</para>
+            </description>
+          </item>
+        </list>
+        <para>Use <see cref="P:Leadtools.Svg.SvgDocument.IsFlat" /> to check if this <see cref="T:Leadtools.Svg.SvgDocument" /> is flat. Use <see cref="M:Leadtools.Svg.SvgDocument.SetFlat(System.Boolean)" /> to set or clear the internal flat flag
+            manually.</para>
+        <para>Use <see cref="M:Leadtools.Svg.SvgDocument.CalculateBounds(System.Boolean)" /> to calculate the physical (pixel) bounds and resolution of this document and <see cref="P:Leadtools.Svg.SvgDocument.Bounds" /> to obtain
+            these values.</para>
+        <para>This method flats the document in place. To obtain a copy flat document, use <see cref="M:Leadtools.Svg.SvgDocument.ToFlat(Leadtools.Svg.SvgFlatOptions)" />.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Svg.SvgDocument" />.</para>
+      </example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.ToFlat(Leadtools.Svg.SvgFlatOptions)">
+      <summary>Gets a flat version of this <see cref="T:Leadtools.Svg.SvgDocument" />. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="options">The flat options to use. This can be <strong>null</strong>.</param>
+      <returns>The flat version of this document.</returns>
+      <remarks>
+        <para>For more information on flat SVG documents and bounds and resolution, refer to
+            <see cref="T:SVG.Topics.SVGSizeBoundsAndFlat">SVG Size, Bounds and Flat</see>.</para>
+        <para>If the value of <paramref name="options" /> is <strong>null</strong>, then this method will use default
+            options as follows:</para>
+        <list type="table">
+          <listheader>
+            <term>Member</term>
+            <description>Value</description>
+          </listheader>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgFlatOptions.Size">SvgFlatOptions.Size</see>
+            </term>
+            <description>
+              <para>
+                <see cref="P:Leadtools.LeadSizeD.Empty" />LeadSizeD.Empty</para>
+            </description>
+          </item>
+        </list>
+        <para>Use <see cref="P:Leadtools.Svg.SvgDocument.IsFlat" /> to check if this <see cref="T:Leadtools.Svg.SvgDocument" /> is flat. Use <see cref="M:Leadtools.Svg.SvgDocument.SetFlat(System.Boolean)" /> to set or clear the internal flat flag
+            manually.</para>
+        <para>Use <see cref="M:Leadtools.Svg.SvgDocument.CalculateBounds(System.Boolean)" /> to calculate the physical (pixel) bounds and resolution of this document and <see cref="P:Leadtools.Svg.SvgDocument.Bounds" /> to obtain
+            these values.</para>
+        <para>This method returns a copy of the document. To flat an <see cref="T:Leadtools.Svg.SvgDocument" /> in place, use <see cref="M:Leadtools.Svg.SvgDocument.Flat(Leadtools.Svg.SvgFlatOptions)" />.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.SetFlat(System.Boolean)">
+      <summary>Sets the flat flag of this document. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="value">
+        <strong>true</strong> to force the flat-state of this document, <strong>false</strong>; to clear it.</param>
+      <remarks>
+        <para>For more information on flat SVG documents and bounds and resolution, refer to
+            <see cref="T:SVG.Topics.SVGSizeBoundsAndFlat">SVG Size, Bounds and Flat</see>.</para>
+        <para>Use <see cref="P:Leadtools.Svg.SvgDocument.IsFlat" /> to obtain a value that indicates whether this document is flat.</para>
+        <para>Use <see cref="M:Leadtools.Svg.SvgDocument.Flat(Leadtools.Svg.SvgFlatOptions)" /> and <see cref="M:Leadtools.Svg.SvgDocument.ToFlat(Leadtools.Svg.SvgFlatOptions)" /> to flat a document in-place or return a flat copy of an <see cref="T:Leadtools.Svg.SvgDocument" />.</para>
+        <para>Use <see cref="M:Leadtools.Svg.SvgDocument.CalculateBounds(System.Boolean)" /> to calculate the physical (pixel) bounds and resolution of this document and <see cref="P:Leadtools.Svg.SvgDocument.Bounds" /> to obtain
+            these values.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Svg.SvgDocument" />.</para>
+      </example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.AddElementIDs">
+      <summary>Adds unique IDs to the elements of this <see cref="T:Leadtools.Svg.SvgDocument" />. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>SVG specifications does not require the use of unique IDs for the elements. This may be desirable when connecting SVG elements to external data
+            structures or to quickly perform search using XML methods such as XPATH.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.CalculateBounds(System.Boolean)">
+      <summary>Calculates the physical (pixel) bounds and resolution of this <see cref="T:Leadtools.Svg.SvgDocument" />. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="trimmed">
+        <strong>true</strong> to crop the result bounds using the actual object, otherwise; <strong>false</strong>.</param>
+      <remarks>
+        <para>For more information on flat SVG documents and bounds and resolution, refer to
+            <see cref="T:SVG.Topics.SVGSizeBoundsAndFlat">SVG Size, Bounds and Flat</see>.</para>
+        <para>This method will calculate the physical (pixel) bounds of the document by internally enumerating all the elements and resolving the transformation. When
+            this method returns, the members of <see cref="P:Leadtools.Svg.SvgDocument.Bounds" /> will be set as follows:</para>
+        <list type="table">
+          <listheader>
+            <term>Member</term>
+            <description>Description</description>
+          </listheader>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgBounds.IsValid">SvgBounds.IsValid</see>
+            </term>
+            <description>
+              <para>
+                <strong>true</strong>
+              </para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgBounds.IsTrimmed">SvgBounds.IsTrimmed</see>
+            </term>
+            <description>
+              <para>The value of <paramref name="trimmed" /></para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgBounds.Resolution">SvgBounds.Resolution</see>
+            </term>
+            <description>
+              <para>A value such as 96 or 300 DPI calculated automatically from the SVG elements. If this value cannot be calculated, it will be set to the default of 0.</para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgBounds.Bounds">SvgBounds.Bounds</see>
+            </term>
+            <description>
+              <para>The document physical boundaries in pixels.</para>
+            </description>
+          </item>
+        </list>
+        <para>Use <see cref="M:Leadtools.Svg.SvgDocument.Flat(Leadtools.Svg.SvgFlatOptions)" /> and <see cref="M:Leadtools.Svg.SvgDocument.ToFlat(Leadtools.Svg.SvgFlatOptions)" /> to flat a document in-place or return a flat copy of an <see cref="T:Leadtools.Svg.SvgDocument" />.</para>
+        <para>Use <see cref="P:Leadtools.Svg.SvgDocument.IsFlat" /> to check if this <see cref="T:Leadtools.Svg.SvgDocument" /> is flat. Use <see cref="M:Leadtools.Svg.SvgDocument.SetFlat(System.Boolean)" /> to set or clear the internal flat flag
+            without re-calculating the document bounds.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Svg.SvgDocument" />.</para>
+      </example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.SetBounds(Leadtools.Svg.SvgBounds)">
+      <summary>Set the physical (pixel) bounds of this <see cref="T:Leadtools.Svg.SvgDocument" /> manually <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="bounds">The bounds to use.</param>
+      <remarks>
+        <para>For more information on flat SVG documents and bounds and resolution, refer to
+            <see cref="T:SVG.Topics.SVGSizeBoundsAndFlat">SVG Size, Bounds and Flat</see>.</para>
+        <para>To calculate the physical bounds of a document based on the child elements, use <see cref="M:Leadtools.Svg.SvgDocument.CalculateBounds(System.Boolean)" />.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.BeginRenderOptimize">
+      <summary>Optimizes the document for rendering. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>For more information, refer to <see cref="T:SVG.Topics.SVGRendering">SVG Rendering</see>.</para>
+        <para>
+          <see cref="T:Leadtools.Svg.SvgDocument" /> will create internal data structures to speed up rendering. This data can be cached and re-used by using
+            <see cref="M:Leadtools.Svg.SvgDocument.BeginRenderOptimize">SvgDocument.BeginRenderOptimize</see> and <see cref="M:Leadtools.Svg.SvgDocument.EndRenderOptimize">SvgDocument.EndRenderOptimize</see>.</para>
+        <para>If the <see cref="T:Leadtools.Svg.SvgDocument" /> will be rendered once, it is recommended to leave the optimization as is. However, if the document will
+            be rendered many times (for example, it is being viewer in an <see cref="T:Leadtools.Controls.ImageViewer" /> control, then it is recommended to cache this data to enhance
+            the speed. This can easily be achieved by using <see cref="M:Leadtools.Svg.SvgDocument.BeginRenderOptimize" /> before setting the document in the viewer.</para>
+        <para>
+          <see cref="M:Leadtools.Svg.SvgDocument.BeginRenderOptimize" /> may use extra system resources stored in the internal data. The <see cref="M:Leadtools.Svg.SvgDocument.EndRenderOptimize" />
+            can be used to manually free this data at any time.</para>
+        <para>
+          <see cref="M:Leadtools.Svg.SvgDocument.BeginRenderOptimize" /> and <see cref="M:Leadtools.Svg.SvgDocument.EndRenderOptimize" /> use an internal counter to track the state of the optimization.
+            <see cref="M:Leadtools.Svg.SvgDocument.BeginRenderOptimize" /> increments this counter and <see cref="M:Leadtools.Svg.SvgDocument.EndRenderOptimize" /> decrements it, therefore the optimization is only performed
+            when needed and any number of <see cref="M:Leadtools.Svg.SvgDocument.BeginRenderOptimize" /> and <see cref="M:Leadtools.Svg.SvgDocument.EndRenderOptimize" /> can be chained together without affecting the document.</para>
+        <para>This internal data will automatically be freed when the document is disposed regardless of the value of the counter.</para>
+        <para>To determine if the document has optimized render data, use <see cref="P:Leadtools.Svg.SvgDocument.IsRenderOptimized">SvgDocument.IsRenderOptimized</see>.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.Render(Leadtools.IRenderingEngine,Leadtools.Svg.SvgRenderOptions)" />.</para>
+      </example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.EndRenderOptimize">
+      <summary>Clear the rendering optimization data. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <remarks>
+        <para>For more information, refer to <see cref="T:SVG.Topics.SVGRendering">SVG Rendering</see>.</para>
+        <para>
+          <see cref="T:Leadtools.Svg.SvgDocument" /> will create internal data structures to speed up rendering. This data can be cached and re-used by using
+            <see cref="M:Leadtools.Svg.SvgDocument.BeginRenderOptimize">SvgDocument.BeginRenderOptimize</see> and <see cref="M:Leadtools.Svg.SvgDocument.EndRenderOptimize">SvgDocument.EndRenderOptimize</see>.</para>
+        <para>If the <see cref="T:Leadtools.Svg.SvgDocument" /> will be rendered once, it is recommended to leave the optimization as is. However, if the document will
+            be rendered many times (for example, it is being viewer in an <see cref="T:Leadtools.Controls.ImageViewer" /> control, then it is recommended to cache this data to enhance
+            the speed. This can easily be achieved by using <see cref="M:Leadtools.Svg.SvgDocument.BeginRenderOptimize" /> before setting the document in the viewer.</para>
+        <para>
+          <see cref="M:Leadtools.Svg.SvgDocument.BeginRenderOptimize" /> may use extra system resources stored in the internal data. The <see cref="M:Leadtools.Svg.SvgDocument.EndRenderOptimize" />
+            can be used to manually free this data at any time.</para>
+        <para>
+          <see cref="M:Leadtools.Svg.SvgDocument.BeginRenderOptimize" /> and <see cref="M:Leadtools.Svg.SvgDocument.EndRenderOptimize" /> use an internal counter to track the state of the optimization.
+            <see cref="M:Leadtools.Svg.SvgDocument.BeginRenderOptimize" /> increments this counter and <see cref="M:Leadtools.Svg.SvgDocument.EndRenderOptimize" /> decrements it, therefore the optimization is only performed
+            when needed and any number of <see cref="M:Leadtools.Svg.SvgDocument.BeginRenderOptimize" /> and <see cref="M:Leadtools.Svg.SvgDocument.EndRenderOptimize" /> can be chained together without affecting the document.</para>
+        <para>This internal data will automatically be freed when the document is disposed regardless of the value of the counter.</para>
+        <para>To determine if the document has optimized render data, use <see cref="P:Leadtools.Svg.SvgDocument.IsRenderOptimized">SvgDocument.IsRenderOptimized</see>.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.Render(Leadtools.IRenderingEngine,Leadtools.Svg.SvgRenderOptions)" />.</para>
+      </example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.Render(Leadtools.IRenderingEngine,Leadtools.Svg.SvgRenderOptions)">
+      <summary>Renders this <see cref="T:Leadtools.Svg.SvgDocument" /><a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="engine">Rendering engine to use for the target device. Cannot be <strong>null</strong>.</param>
+      <param name="options">Options to use during rendering. Can be <strong>null</strong>.</param>
+      <remarks>
+        <para>For more information, refer to <see cref="T:SVG.Topics.SVGRendering">SVG Rendering</see>.</para>
+        <para>This method will throw an exception if this document is not flat (the value of <see cref="P:Leadtools.Svg.SvgDocument.IsFlat" /> is <strong>false</strong>) or if
+            it does not have valid physical (pixel) bounds (the value of <see cref="P:Leadtools.Svg.SvgBounds.IsValid">Bounds.IsValid</see> is <strong>false</strong>).</para>
+        <para>If the value of <paramref name="options" /> is <strong>null</strong>, then these default options will be used:</para>
+        <list type="table">
+          <listheader>
+            <term>Member</term>
+            <description>Value</description>
+          </listheader>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgRenderOptions.Bounds" />
+            </term>
+            <description>
+              <para>The current physical bounds of document (<see cref="P:Leadtools.Svg.SvgBounds.Bounds">Bounds.Bounds</see>)</para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgRenderOptions.ClipBounds" />
+            </term>
+            <description>
+              <para>Empty rectangle to render the whole of the document</para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgRenderOptions.Transform" />
+            </term>
+            <description>
+              <para>Identity <see cref="T:Leadtools.LeadMatrix" /></para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgRenderOptions.UseBackgroundColor" />
+            </term>
+            <description>
+              <para>
+                <strong>true</strong>
+              </para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgRenderOptions.BackgroundColor" />
+            </term>
+            <description>
+              <para>White color</para>
+            </description>
+          </item>
+        </list>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Codecs
+      Imports Leadtools.Drawing
+      Imports Leadtools.Forms.DocumentWriters
+      Imports Leadtools.Svg
+
+      Public Shared Sub SvgDocumentRenderExample()
+         ' Create a form with a picture box
+         Dim form As New Form()
+         Dim pictureBox As New PictureBox()
+         pictureBox.Dock = DockStyle.Fill
+         form.Controls.Add(pictureBox)
+         Dim document As SvgDocument = Nothing
+
+         ' Load a page from a document file as SVG
+         Dim srcFileName As String = Path.Combine(Common.ImagesPath.Path, "Leadtools.pdf")
+         Using codecs As New RasterCodecs()
+            ' Set 300 as the default value for loading document files
+            codecs.Options.RasterizeDocument.Load.Resolution = 300
+
+            document = DirectCast(codecs.LoadSvg(srcFileName, 1, Nothing), SvgDocument)
+         End Using
+
+         ' Make sure the document is valid for rendering
+         If Not document.IsFlat Then
+            document.Flat(Nothing)
+         End If
+         If Not document.Bounds.IsValid Then
+            document.CalculateBounds(False)
+         End If
+
+         ' Optimize it for rendering to increase the speed
+         document.BeginRenderOptimize()
+         Console.WriteLine("IsRenderOptimized is " + document.IsRenderOptimized.ToString())
+
+         ' This is our paint code
+         AddHandler pictureBox.Paint, _
+            Sub(sender As Object, e As PaintEventArgs)
+            Dim graphics As Graphics = e.Graphics
+
+            ' We will fit and center this SVG document in the client area of the picture box
+            Dim dstBounds As Rectangle = pictureBox.ClientRectangle
+            If dstBounds.Width &lt; 1 OrElse dstBounds.Height &lt; 1 Then
+               Return
+            End If
+
+            ' Create the transformation matrix
+            Dim transform As LeadMatrix = LeadMatrix.Identity
+            Dim srcBounds As LeadRectD = document.Bounds.Bounds
+
+            ' Calculate the zoom so we can fit
+            Dim zoom As Double = 1.0
+            If dstBounds.Width &gt; dstBounds.Height Then
+               zoom = dstBounds.Width / srcBounds.Width
+               If (zoom * srcBounds.Height) &gt; dstBounds.Height Then
+                  zoom = dstBounds.Height / srcBounds.Height
+               End If
+            Else
+               zoom = dstBounds.Height / srcBounds.Height
+               If (zoom * srcBounds.Width) &gt; dstBounds.Width Then
+                  zoom = dstBounds.Width / srcBounds.Width
+               End If
+            End If
+
+            ' We have the zoom factor, set it in the transform
+            transform.Scale(zoom, zoom)
+
+            ' Center
+            Dim xOffset As Double = (dstBounds.Width - (zoom * srcBounds.Width)) / 2.0
+            Dim yOffset As Double = (dstBounds.Height - (zoom * srcBounds.Height)) / 2.0
+            transform.Translate(xOffset, yOffset)
+
+            ' Now setup the rendering options
+            Dim options As New SvgRenderOptions()
+            ' All of the document
+            options.Bounds = srcBounds
+            ' Use our transform
+            options.Transform = transform
+            ' clipping (if any)
+            options.ClipBounds = LeadRectD.Create(e.ClipRectangle.X, e.ClipRectangle.Y, e.ClipRectangle.Width, e.ClipRectangle.Height)
+            ' Fill the background with a white color
+            options.UseBackgroundColor = True
+            options.BackgroundColor = RasterColor.FromKnownColor(RasterKnownColor.White)
+
+            ' Create a rendering engine
+            Using engine As IRenderingEngine = RenderingEngineFactory.Create(graphics)
+               ' Render the document
+               document.Render(engine, options)
+            End Using
+         End Sub
+
+         AddHandler form.SizeChanged, _
+            Sub(sender As Object, e As EventArgs)
+            pictureBox.Invalidate()
+         End Sub
+
+         form.ShowDialog()
+
+         document.Dispose()
+      End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Codecs;
+      using Leadtools.Drawing;
+      using Leadtools.Forms.DocumentWriters;
+      using Leadtools.Svg;
+
+      public static void SvgDocumentRenderExample()
+      {
+         // Create a form with a picture box
+         Form form = new Form();
+         PictureBox pictureBox = new PictureBox();
+         pictureBox.Dock = DockStyle.Fill;
+         form.Controls.Add(pictureBox);
+         SvgDocument document = null;
+
+         // Load a page from a document file as SVG
+         string srcFileName = Path.Combine(ImagesPath.Path, "Leadtools.pdf");
+         using (var codecs = new RasterCodecs())
+         {
+            // Set 300 as the default value for loading document files
+            codecs.Options.RasterizeDocument.Load.Resolution = 300;
+
+            document = codecs.LoadSvg(srcFileName, 1, null) as SvgDocument;
+         }
+
+         // Make sure the document is valid for rendering
+         if (!document.IsFlat)
+            document.Flat(null);
+         if (!document.Bounds.IsValid)
+            document.CalculateBounds(false);
+
+         // Optimize it for rendering to increase the speed
+         document.BeginRenderOptimize();
+         Console.WriteLine("IsRenderOptimized is " + document.IsRenderOptimized);
+
+         // This is our paint code
+         pictureBox.Paint += (sender, e) =&gt;
+         {
+            Graphics graphics = e.Graphics;
+
+            // We will fit and center this SVG document in the client area of the picture box
+            Rectangle dstBounds = pictureBox.ClientRectangle;
+            if (dstBounds.Width &lt; 1 || dstBounds.Height &lt; 1)
+               return;
+
+            // Create the transformation matrix
+            LeadMatrix transform = LeadMatrix.Identity;
+            LeadRectD srcBounds = document.Bounds.Bounds;
+
+            // Calculate the zoom so we can fit
+            double zoom = 1.0;
+            if (dstBounds.Width &gt; dstBounds.Height)
+            {
+               zoom = dstBounds.Width / srcBounds.Width;
+               if ((zoom * srcBounds.Height) &gt; dstBounds.Height)
+                  zoom = dstBounds.Height / srcBounds.Height;
+            }
+            else
+            {
+               zoom = dstBounds.Height / srcBounds.Height;
+               if ((zoom * srcBounds.Width) &gt; dstBounds.Width)
+                  zoom = dstBounds.Width / srcBounds.Width;
+            }
+
+            // We have the zoom factor, set it in the transform
+            transform.Scale(zoom, zoom);
+
+            // Center
+            double xOffset = (dstBounds.Width - (zoom * srcBounds.Width)) / 2.0;
+            double yOffset = (dstBounds.Height - (zoom * srcBounds.Height)) / 2.0;
+            transform.Translate(xOffset, yOffset);
+
+            // Now setup the rendering options
+            SvgRenderOptions options = new SvgRenderOptions();
+            // All of the document
+            options.Bounds = srcBounds;
+            // Use our transform
+            options.Transform = transform;
+            // clipping (if any)
+            options.ClipBounds = LeadRectD.Create(e.ClipRectangle.X, e.ClipRectangle.Y, e.ClipRectangle.Width, e.ClipRectangle.Height);
+            // Fill the background with a white color
+            options.UseBackgroundColor = true;
+            options.BackgroundColor = RasterColor.FromKnownColor(RasterKnownColor.White);
+
+            // Create a rendering engine
+            using (var engine = RenderingEngineFactory.Create(graphics))
+            {
+               // Render the document
+               document.Render(engine, options);
+            }
+         };
+
+         form.SizeChanged += (sender, e) =&gt; pictureBox.Invalidate();
+
+         form.ShowDialog();
+
+         document.Dispose();
+      }</code>
+        <!--SvgDocument.Render-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">
+      <summary>Enumerates the elements of this <see cref="T:Leadtools.Svg.SvgDocument" /> in a sorted manner. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="options">Options to use. Can be <strong>null</strong>.</param>
+      <param name="callback">Callback to receive the sorted elements. Cannot be <strong>null</strong>.</param>
+      <param name="userData">Optional user data that will be passed to the callback.</param>
+      <remarks>
+        <para>Use this method to enumerate the elements of this <see cref="T:Leadtools.Svg.SvgDocument" /> in a controlled sorted manner.</para>
+        <para>This method will throw an exception if this document is not flat (the value of <see cref="P:Leadtools.Svg.SvgDocument.IsFlat" /> is <strong>false</strong>) or if
+            it does not have valid physical (pixel) bounds (the value of <see cref="P:Leadtools.Svg.SvgBounds.IsValid">Bounds.IsValid</see> is <strong>false</strong>).</para>
+        <para>If the value of <paramref name="options" /> is <strong>null</strong>, then default options will be used as follows:</para>
+        <list type="table">
+          <listheader>
+            <term>Member</term>
+            <description>Value</description>
+          </listheader>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgSortOptions.SortFlags" />
+            </term>
+            <description>
+              <para>
+                <see cref="T:Leadtools.Svg.SvgSortFlags">SvgSortFlags.Default</see>
+              </para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgSortOptions.ExtractText" />
+            </term>
+            <description>
+              <para>
+                <see cref="T:Leadtools.Svg.SvgExtractText">SvgExtractText.Character</see>
+              </para>
+            </description>
+          </item>
+        </list>
+        <para>The value of <see cref="P:Leadtools.Svg.SvgSortOptions.ExtractText">SvgSortOptions.ExtractText</see> controls how the engine parses the text of the document as follows:</para>
+        <list type="table">
+          <listheader>
+            <term>Value</term>
+            <description>Description</description>
+          </listheader>
+          <item>
+            <term>
+              <see cref="T:Leadtools.Svg.SvgExtractText">SvgExtractText.Character</see>
+            </term>
+            <description>
+              <para>Extract the text one character at a time: <paramref name="callback" /> will be called for each character. <see cref="P:Leadtools.Svg.SvgTextData.Text">SvgTextData.Text</see>
+            will contain a single character.</para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="T:Leadtools.Svg.SvgExtractText">SvgExtractText.Word</see>
+            </term>
+            <description>
+              <para>Extract the text one word at a time: <paramref name="callback" /> will be called for each word. <see cref="P:Leadtools.Svg.SvgTextData.Text">SvgTextData.Text</see>
+            will contain a word of one or more characters.</para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="T:Leadtools.Svg.SvgExtractText">SvgExtractText.Line</see>
+            </term>
+            <description>
+              <para>Extract the text one line at a time: <paramref name="callback" /> will be called for each line. <see cref="P:Leadtools.Svg.SvgTextData.Text">SvgTextData.Text</see>
+            will contain a line of one or more words (and one or more characters).</para>
+            </description>
+          </item>
+        </list>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Codecs
+      Imports Leadtools.Drawing
+      Imports Leadtools.Forms.DocumentWriters
+      Imports Leadtools.Svg
+
+      Public Shared Sub SortElementsExample()
+         ' The source PDF file
+         Dim srcFileName As String = Path.Combine(Common.ImagesPath.Path, "Leadtools.pdf")
+         Dim dstFileName As String = Path.Combine(Common.ImagesPath.Path, "Example.txt")
+         ' SVG sort callback handler
+         Dim sortCallback As SvgSortElementsCallback = _
+            Function(document As SvgDocument, info As SvgElementInfo, userData As Object) As Boolean
+            Dim writer As StreamWriter = DirectCast(userData, StreamWriter)
+            ' Is it text?
+            Dim textData As SvgTextData = info.TextData
+            If Not IsNothing(textData) Then
+               ' Yes, print it to the console
+               writer.Write(textData.Text + " ")
+
+               ' See if its end of line
+               Dim len As Integer = textData.Text.Length
+               If (textData.CharacterFlags(len - 1) And SvgTextCharacterFlags.EndOfLine) = SvgTextCharacterFlags.EndOfLine Then
+                  writer.WriteLine()
+               End If
+            End If
+
+            Return True
+         End Function
+
+         Using codecs As New RasterCodecs()
+            ' Set 300 as the default value for loading document files
+            codecs.Options.RasterizeDocument.Load.Resolution = 300
+
+            ' get the number of pages
+            Dim pageCount As Integer = codecs.GetTotalPages(srcFileName)
+
+            ' Create a writer for the output text file
+            Using writer As StreamWriter = File.CreateText(dstFileName)
+               For pageNumber As Integer = 1 To pageCount
+                  ' Load this page as SVG, we are interested in the text only so
+                  ' we will ask LEADTOOLS to skip other elements
+                  Dim loadSvgOptions As New CodecsLoadSvgOptions()
+                  loadSvgOptions.DropText = False
+                  loadSvgOptions.DropImages = True
+                  loadSvgOptions.DropShapes = True
+                  Using svgDocument As SvgDocument = DirectCast(codecs.LoadSvg(srcFileName, pageNumber, loadSvgOptions), SvgDocument)
+                     ' Sort requires a flat document, so check for that
+                     If Not svgDocument.IsFlat Then
+                        svgDocument.Flat(Nothing)
+                     End If
+
+                     If Not svgDocument.Bounds.IsValid Then
+                        svgDocument.CalculateBounds(False)
+                     End If
+
+                     Dim sortOptions As New SvgSortOptions()
+                     sortOptions.ExtractText = SvgExtractText.Word
+                     sortOptions.SortFlags = SvgSortFlags.Default
+                     Console.WriteLine("Text for page {0}", pageNumber)
+                     svgDocument.SortElements(sortOptions, sortCallback, writer)
+                  End Using
+               Next
+
+               ' Show the text file
+               System.Diagnostics.Process.Start(dstFileName)
+            End Using
+         End Using
+      End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Codecs;
+      using Leadtools.Drawing;
+      using Leadtools.Forms.DocumentWriters;
+      using Leadtools.Svg;
+
+      public static void SortElementsExample()
+      {
+         // The source PDF file
+         string srcFileName = Path.Combine(ImagesPath.Path, "Leadtools.pdf");
+         string dstFileName = Path.Combine(ImagesPath.Path, "Example.txt");
+         // SVG sort callback handler
+         SvgSortElementsCallback sortCallback = (callabackDocument, info, userData) =&gt;
+         {
+            StreamWriter writer = userData as StreamWriter;
+            // Is it text?
+            SvgTextData textData = info.TextData;
+            if (textData != null)
+            {
+               // Yes, print it to the console
+               writer.Write(textData.Text + " ");
+
+               // See if its end of line
+               var len = textData.Text.Length;
+               if ((textData.CharacterFlags[len - 1] &amp; SvgTextCharacterFlags.EndOfLine) == SvgTextCharacterFlags.EndOfLine)
+                  writer.WriteLine();
+            }
+
+            return true;
+         };
+
+         using (var codecs = new RasterCodecs())
+         {
+            // Set 300 as the default value for loading document files
+            codecs.Options.RasterizeDocument.Load.Resolution = 300;
+
+            // get the number of pages
+            int pageCount = codecs.GetTotalPages(srcFileName);
+
+            // Create a writer for the output text file
+            using (StreamWriter writer = File.CreateText(dstFileName))
+            {
+               for (int pageNumber = 1; pageNumber &lt;= pageCount; pageNumber++)
+               {
+                  // Load this page as SVG, we are interested in the text only so
+                  // we will ask LEADTOOLS to skip other elements
+                  CodecsLoadSvgOptions loadSvgOptions = new CodecsLoadSvgOptions();
+                  loadSvgOptions.DropShapes = false;
+                  loadSvgOptions.DropImages = true;
+                  loadSvgOptions.DropShapes = true;
+                  using (SvgDocument svgDocument = codecs.LoadSvg(srcFileName, pageNumber, loadSvgOptions) as SvgDocument)
+                  {
+                     // Sort requires a flat document, so check for that
+                     if (!svgDocument.IsFlat)
+                        svgDocument.Flat(null);
+
+                     if (!svgDocument.Bounds.IsValid)
+                        svgDocument.CalculateBounds(false);
+
+                     SvgSortOptions sortOptions = new SvgSortOptions();
+                     sortOptions.ExtractText = SvgExtractText.Word;
+                     sortOptions.SortFlags = SvgSortFlags.Default;
+                     Console.WriteLine("Text for page {0}", pageNumber);
+                     svgDocument.SortElements(sortOptions, sortCallback, writer);
+                  }
+               }
+
+               // Show the text file
+               System.Diagnostics.Process.Start(dstFileName);
+            }
+         }
+      }</code>
+        <!--SvgDocument.SortElements-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.OptimizeView">
+      <summary>For internal use. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.HasElement(Leadtools.Svg.SvgElementType)">
+      <summary>Gets a value that indicate whether this SVG document contains any elements of the the specified type. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="elementType">Element type to search.</param>
+      <returns>
+        <strong>true</strong> if this SVG document contains any elements of the the specified type, otherwise; <strong>false</strong>.</returns>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Svg.SvgDocument.Resize(System.Double)">
+      <summary>Resizes this SVG document by the specified factor <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="scaleFactor">Factor to use. This value must not be 0.</param>
+      <remarks>
+        <para>This method works by updating the view box of the internal SVG document and will not resize each item physically. The <see cref="T:Leadtools.Svg.SvgDocument" />
+            must be flat. When this value returns, the value of <see cref="P:Leadtools.Svg.SvgDocument.Bounds" /> will be updated with the new size.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Svg.SvgDocument.Handle">
+      <summary>Returns the internal SVG document handle. Used internally by LEADTOOLS. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The internal SVG document handle. Used internally by LEADTOOLS.</value>
+      <noremarks />
+      <noexample />
+    </member>
+    <member name="P:Leadtools.Svg.SvgDocument.IsFlat">
+      <summary>Gets a value that indicate whether this <see cref="T:Leadtools.Svg.SvgDocument" /> is flat. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>
+        <strong>true</strong> if this document is flat, otherwise; <strong>false</strong>.</value>
+      <remarks>
+        <para>For more information on flat SVG documents and bounds and resolution, refer to
+            <see cref="T:SVG.Topics.SVGSizeBoundsAndFlat">SVG Size, Bounds and Flat</see>.</para>
+        <para>Use <see cref="M:Leadtools.Svg.SvgDocument.Flat(Leadtools.Svg.SvgFlatOptions)" /> and <see cref="M:Leadtools.Svg.SvgDocument.ToFlat(Leadtools.Svg.SvgFlatOptions)" /> to flat a document in-place or return a flat copy of an <see cref="T:Leadtools.Svg.SvgDocument" />. Use
+            <see cref="M:Leadtools.Svg.SvgDocument.SetFlat(System.Boolean)" /> to set or clear the internal flat flag manually.</para>
+        <para>Use <see cref="M:Leadtools.Svg.SvgDocument.CalculateBounds(System.Boolean)" /> to calculate the physical (pixel) bounds and resolution of this document and <see cref="P:Leadtools.Svg.SvgDocument.Bounds" /> to obtain
+            these values.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Svg.SvgDocument" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgDocument.Version">
+      <summary>Gets or sets the SVG version of the document. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The SVG version of the document</value>
+      <remarks>
+        <para>The initial version of <see cref="P:Leadtools.Svg.SvgDocument.Version" /> depends on the original data and read from the SVG data directly.</para>
+        <para>Setting the value to a different value will be used when saving the document using <see cref="M:Leadtools.Svg.SvgDocument.SaveToFile(System.String,Leadtools.Svg.SvgSaveOptions)" /> or to <see cref="M:Leadtools.Svg.SvgDocument.SaveToStream(System.IO.Stream,Leadtools.Svg.SvgSaveOptions)" />.</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Codecs
+      Imports Leadtools.Drawing
+      Imports Leadtools.Forms.DocumentWriters
+      Imports Leadtools.Svg
+
+      Public Shared Sub SvgVersionExample()
+         ' Assume the SVG file is located here
+         Dim srcFileName As String = Path.Combine(Common.ImagesPath.Path, "Page1.svg")
+         Dim dstFileName As String = Path.Combine(Common.ImagesPath.Path, "Page1Version11.svg")
+         ' Load the SVG from file
+         Using document As SvgDocument = SvgDocument.LoadFromFile(srcFileName, Nothing)
+            ' Show the version
+            Console.WriteLine("Original version is: " + document.Version.ToString())
+            If document.Version &lt;&gt; SvgVersion.v11 Then
+               ' Convert it
+               document.Version = SvgVersion.v11
+            End If
+
+            ' Save it
+            document.SaveToFile(dstFileName, Nothing)
+         End Using
+
+         ' Check it
+         Using document As SvgDocument = SvgDocument.LoadFromFile(dstFileName, Nothing)
+            Console.WriteLine("New version is: " + document.Version.ToString())
+         End Using
+      End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Codecs;
+      using Leadtools.Drawing;
+      using Leadtools.Forms.DocumentWriters;
+      using Leadtools.Svg;
+
+      public static void SvgVersionExample()
+      {
+         // Assume the SVG file is located here
+         string srcFileName = Path.Combine(ImagesPath.Path, "Page1.svg");
+         string dstFileName = Path.Combine(ImagesPath.Path, "Page1Version11.svg");
+         // Load the SVG from file
+         using (SvgDocument document = SvgDocument.LoadFromFile(srcFileName, null))
+         {
+            // Show the version
+            Console.WriteLine("Original version is: " + document.Version);
+            if (document.Version != SvgVersion.v11)
+            {
+               // Convert it
+               document.Version = SvgVersion.v11;
+            }
+
+            // Save it
+            document.SaveToFile(dstFileName, null);
+         }
+
+         // Check it
+         using (SvgDocument document = SvgDocument.LoadFromFile(dstFileName, null))
+         {
+            Console.WriteLine("New version is: " + document.Version);
+         }
+      }</code>
+        <!--SvgDocument.Version-->
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgDocument.Bounds">
+      <summary>Gets the physical (pixel) bounds and resolution of this <see cref="T:Leadtools.Svg.SvgDocument" />. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>The physical (pixel) bounds and resolution of this <see cref="T:Leadtools.Svg.SvgDocument" />.</value>
+      <remarks>
+        <para>For more information on flat SVG documents and bounds and resolution, refer to
+            <see cref="T:SVG.Topics.SVGSizeBoundsAndFlat">SVG Size, Bounds and Flat</see>.</para>
+        <para>Before calling <see cref="M:Leadtools.Svg.SvgDocument.CalculateBounds(System.Boolean)" />, the value of <see cref="P:Leadtools.Svg.SvgBounds.IsValid">Bounds.IsValid</see> will be <strong>false</strong> and
+            the document does not have its physical (pixel) bounds calculated. The rest of <see cref="T:Leadtools.Svg.SvgBounds" /> members should not be used.</para>
+        <para>The <see cref="M:Leadtools.Svg.SvgDocument.CalculateBounds(System.Boolean)" /> method will calculate the physical (pixel) bounds of the document by internally enumerating all the elements
+            and resolving the transformation. When this method returns, the members of <see cref="P:Leadtools.Svg.SvgDocument.Bounds" /> will be set as follows:</para>
+        <list type="table">
+          <listheader>
+            <term>Member</term>
+            <description>Description</description>
+          </listheader>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgBounds.IsValid">SvgBounds.IsValid</see>
+            </term>
+            <description>
+              <para>
+                <strong>true</strong>
+              </para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgBounds.IsTrimmed">SvgBounds.IsTrimmed</see>
+            </term>
+            <description>
+              <para>The value of 'trimmed' passed to <see cref="M:Leadtools.Svg.SvgDocument.CalculateBounds(System.Boolean)" /></para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgBounds.Resolution">SvgBounds.Resolution</see>
+            </term>
+            <description>
+              <para>A value such as 96 or 300 DPI calculated automatically from the SVG elements. If this value cannot be calculated, it will be set to the default of 0.</para>
+            </description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:Leadtools.Svg.SvgBounds.Bounds">SvgBounds.Bounds</see>
+            </term>
+            <description>
+              <para>The document physical boundaries in pixels.</para>
+            </description>
+          </item>
+        </list>
+        <para>Use <see cref="M:Leadtools.Svg.SvgDocument.SetBounds(Leadtools.Svg.SvgBounds)" /> to set the physical (pixel) bound of the document manually.</para>
+        <para>Use <see cref="M:Leadtools.Svg.SvgDocument.Flat(Leadtools.Svg.SvgFlatOptions)" /> and <see cref="M:Leadtools.Svg.SvgDocument.ToFlat(Leadtools.Svg.SvgFlatOptions)" /> to flat a document in-place or return a flat copy of an <see cref="T:Leadtools.Svg.SvgDocument" />.</para>
+        <para>Use <see cref="P:Leadtools.Svg.SvgDocument.IsFlat" /> to check if this <see cref="T:Leadtools.Svg.SvgDocument" /> is flat. Use <see cref="M:Leadtools.Svg.SvgDocument.SetFlat(System.Boolean)" /> to set or clear the internal flat flag
+            without re-calculating the document bounds.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="T:Leadtools.Svg.SvgDocument" />.</para>
+      </example>
+    </member>
+    <member name="P:Leadtools.Svg.SvgDocument.IsRenderOptimized">
+      <summary>Gets a value that indicate if this document has optimized render data. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <value>
+        <strong>true</strong> if this document has optimized render data, otherwise; <strong>false</strong>.</value>
+      <remarks>
+        <para>For more information, refer to <see cref="T:SVG.Topics.SVGRendering">SVG Rendering</see>.</para>
+      </remarks>
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.Render(Leadtools.IRenderingEngine,Leadtools.Svg.SvgRenderOptions)" />.</para>
+      </example>
+    </member>
+    <member name="T:Leadtools.Svg.SvgSortElementsCallback">
+      <summary>Callback to received the sorted SVG elements. <a href="../TO/Leadtools.Topics~Leadtools.Topics.LEADTOOLSDocumentation.html"><img src="dotnet.png" class="NETIconTag" name="NETIconTag" title=".NET support" border="0" /></a></summary>
+      <param name="document">The source <see cref="T:Leadtools.Svg.SvgDocument" />.</param>
+      <param name="info">Element information.</param>
+      <param name="userData">Optional user data. This is the same parameter passed to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)" />.</param>
+      <returns>
+        <strong>true</strong> to continue to the next element if any, <strong>false</strong> to stop enumerating.</returns>
+      <noremarks />
+      <example>
+        <para>For an example, refer to <see cref="M:Leadtools.Svg.SvgDocument.SortElements(Leadtools.Svg.SvgSortOptions,Leadtools.Svg.SvgSortElementsCallback,System.Object)">SvgDocument.SortElements</see>.</para>
+      </example>
+    </member>
+  </members>
+</doc>

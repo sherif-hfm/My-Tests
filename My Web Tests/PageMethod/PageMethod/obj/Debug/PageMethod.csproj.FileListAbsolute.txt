@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\PageMethod\PageMethod\bin\PageMethod.dll.config
+D:\Dropbox\My Tests\My Web Tests\PageMethod\PageMethod\bin\PageMethod.dll
+D:\Dropbox\My Tests\My Web Tests\PageMethod\PageMethod\bin\PageMethod.pdb
+D:\Dropbox\My Tests\My Web Tests\PageMethod\PageMethod\obj\Debug\PageMethod.dll
+D:\Dropbox\My Tests\My Web Tests\PageMethod\PageMethod\obj\Debug\PageMethod.pdb
+D:\Dropbox\My Tests\My Web Tests\PageMethod\PageMethod\obj\Debug\PageMethod.csprojResolveAssemblyReference.cache

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UserData" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="UserData_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://sherifhamdy.itamana.net:8020/Common/User.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://sherifhamdy.itamana.net:8020/Common/User.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://sherifhamdy.itamana.net:8020/Common/User.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUser_GetEmployeeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeList" />
+  </wsdl:message>
+  <wsdl:message name="IUser_GetEmployeeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_GetCmnUserData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmnUserData" />
+  </wsdl:message>
+  <wsdl:message name="IUser_GetCmnUserData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmnUserDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_CheckAmanaHasOverdue_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAmanaHasOverdue" />
+  </wsdl:message>
+  <wsdl:message name="IUser_CheckAmanaHasOverdue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAmanaHasOverdueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_GetAmanaOverdue_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAmanaOverdue" />
+  </wsdl:message>
+  <wsdl:message name="IUser_GetAmanaOverdue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAmanaOverdueResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUser">
+    <wsdl:operation name="GetEmployeeList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/GetEmployeeList" message="tns:IUser_GetEmployeeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/GetEmployeeListResponse" message="tns:IUser_GetEmployeeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCmnUserData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/GetCmnUserData" message="tns:IUser_GetCmnUserData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/GetCmnUserDataResponse" message="tns:IUser_GetCmnUserData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAmanaHasOverdue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/CheckAmanaHasOverdue" message="tns:IUser_CheckAmanaHasOverdue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/CheckAmanaHasOverdueResponse" message="tns:IUser_CheckAmanaHasOverdue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAmanaOverdue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/GetAmanaOverdue" message="tns:IUser_GetAmanaOverdue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/GetAmanaOverdueResponse" message="tns:IUser_GetAmanaOverdue_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserData" type="tns:IUser">
+    <wsp:PolicyReference URI="#UserData_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetEmployeeList">
+      <soap12:operation soapAction="http://tempuri.org/IUser/GetEmployeeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCmnUserData">
+      <soap12:operation soapAction="http://tempuri.org/IUser/GetCmnUserData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAmanaHasOverdue">
+      <soap12:operation soapAction="http://tempuri.org/IUser/CheckAmanaHasOverdue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAmanaOverdue">
+      <soap12:operation soapAction="http://tempuri.org/IUser/GetAmanaOverdue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserData">
+    <wsdl:port name="UserData" binding="tns:UserData">
+      <soap12:address location="http://sherifhamdy.itamana.net:8020/Common/User.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://sherifhamdy.itamana.net:8020/Common/User.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

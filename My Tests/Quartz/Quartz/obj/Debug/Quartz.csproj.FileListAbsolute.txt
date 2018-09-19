@@ -1,0 +1,16 @@
+D:\Dropbox\My Tests\My Tests\Quartz\Quartz\bin\Debug\Quartz.exe.config
+D:\Dropbox\My Tests\My Tests\Quartz\Quartz\bin\Debug\Quartz.exe
+D:\Dropbox\My Tests\My Tests\Quartz\Quartz\bin\Debug\Quartz.pdb
+D:\Dropbox\My Tests\My Tests\Quartz\Quartz\bin\Debug\Common.Logging.Core.dll
+D:\Dropbox\My Tests\My Tests\Quartz\Quartz\bin\Debug\Common.Logging.dll
+D:\Dropbox\My Tests\My Tests\Quartz\Quartz\bin\Debug\Quartz.dll
+D:\Dropbox\My Tests\My Tests\Quartz\Quartz\bin\Debug\Common.Logging.pdb
+D:\Dropbox\My Tests\My Tests\Quartz\Quartz\bin\Debug\Common.Logging.xml
+D:\Dropbox\My Tests\My Tests\Quartz\Quartz\bin\Debug\Common.Logging.Core.pdb
+D:\Dropbox\My Tests\My Tests\Quartz\Quartz\bin\Debug\Common.Logging.Core.xml
+D:\Dropbox\My Tests\My Tests\Quartz\Quartz\bin\Debug\Quartz.xml
+D:\Dropbox\My Tests\My Tests\Quartz\Quartz\obj\Debug\Quartz.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\Quartz\Quartz\obj\Debug\Quartz.exe
+D:\Dropbox\My Tests\My Tests\Quartz\Quartz\obj\Debug\Quartz.pdb
+D:\Dropbox\My Tests\My Tests\Quartz\Quartz\bin\Debug\log4net.dll
+D:\Dropbox\My Tests\My Tests\Quartz\Quartz\bin\Debug\log4net.xml

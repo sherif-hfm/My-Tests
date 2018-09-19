@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\FontsTest\FontsTest\bin\FontsTest.dll.config
+D:\Dropbox\My Tests\My Web Tests\FontsTest\FontsTest\bin\FontsTest.dll
+D:\Dropbox\My Tests\My Web Tests\FontsTest\FontsTest\bin\FontsTest.pdb
+D:\Dropbox\My Tests\My Web Tests\FontsTest\FontsTest\obj\Debug\FontsTest.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\FontsTest\FontsTest\obj\Debug\FontsTest.dll
+D:\Dropbox\My Tests\My Web Tests\FontsTest\FontsTest\obj\Debug\FontsTest.pdb

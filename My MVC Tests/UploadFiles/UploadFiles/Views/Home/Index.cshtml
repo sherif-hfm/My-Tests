@@ -1,0 +1,21 @@
+﻿@model UploadFiles.Models.PersonInfo
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Upload Images</h2>
+
+@using (Html.BeginForm("Index","Home",FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.DisplayName("PersonName:")
+    @Html.EditorFor(model => model.PersonName)
+    <br /><br />
+    @Html.DisplayName("Image1:")
+    <input type="file" name="Image1" />
+    <br /><br />
+    @Html.DisplayName("Image2:")
+    <input type="file" name="Image2" />
+    <br /><br />
+    <input type="submit" value="Save" class="btn btn-default" />
+}
+

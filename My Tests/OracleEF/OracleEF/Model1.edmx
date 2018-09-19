@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WEB_SCHEDULER.APPOINTMENTS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="APPOINTMENTS">
+          <Key>
+            <PropertyRef Name="OU_ID" />
+            <PropertyRef Name="RESOURCE_ID" />
+            <PropertyRef Name="APPOINTMENTTIME" />
+          </Key>
+          <Property Name="OU_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RESOURCE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="APPOINTMENTTIME" Type="date" Nullable="false" />
+          <Property Name="WEB_USER_CODE" Type="number" Precision="38" Scale="0" />
+          <Property Name="CREATE_BY" Type="varchar2" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="ORGANIZATIONAL_UNITS">
+          <Key>
+            <PropertyRef Name="OU_ID" />
+          </Key>
+          <Property Name="OU_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="OU_NAME" Type="varchar2" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="OU_RESOURCES">
+          <Key>
+            <PropertyRef Name="RESOURCE_ID" />
+            <PropertyRef Name="OU_ID" />
+            <PropertyRef Name="SERVICE_ID" />
+          </Key>
+          <Property Name="RESOURCE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="OU_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SERVICE_ID" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="RESOURCE_TYPE_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="RESOURCE_NAME" Type="varchar2" MaxLength="100" />
+          <Property Name="RESOURCE_COUNT" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="OU_SERVICES">
+          <Key>
+            <PropertyRef Name="OU_ID" />
+            <PropertyRef Name="SERVICE_ID" />
+          </Key>
+          <Property Name="OU_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SERVICE_ID" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="SERVICE_DURATION" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="RESOURCES_TYPE">
+          <Key>
+            <PropertyRef Name="RESOURCES_TYPE_ID" />
+          </Key>
+          <Property Name="RESOURCES_TYPE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RESOURCES_TYPE_NAME" Type="varchar2" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SERVICES">
+          <Key>
+            <PropertyRef Name="SERVICE_ID" />
+          </Key>
+          <Property Name="SERVICE_ID" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="SERVICE_NAME" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="SERVICE_TYPE" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="ORGANIZATIONAL_UNITS" EntityType="Self.ORGANIZATIONAL_UNITS" Schema="WEB_SCHEDULER" store:Type="Tables" />
+          <EntitySet Name="OU_RESOURCES" EntityType="Self.OU_RESOURCES" Schema="WEB_SCHEDULER" store:Type="Tables" />
+          <EntitySet Name="OU_SERVICES" EntityType="Self.OU_SERVICES" Schema="WEB_SCHEDULER" store:Type="Tables" />
+          <EntitySet Name="RESOURCES_TYPE" EntityType="Self.RESOURCES_TYPE" Schema="WEB_SCHEDULER" store:Type="Tables" />
+          <EntitySet Name="SERVICES" EntityType="Self.SERVICES" Schema="WEB_SCHEDULER" store:Type="Tables" />
+          <EntitySet Name="APPOINTMENTS" EntityType="Self.APPOINTMENTS" store:Type="Tables" store:Schema="WEB_SCHEDULER">
+            <DefiningQuery>SELECT 
+"APPOINTMENTS"."OU_ID" AS "OU_ID", 
+"APPOINTMENTS"."RESOURCE_ID" AS "RESOURCE_ID", 
+"APPOINTMENTS"."APPOINTMENTTIME" AS "APPOINTMENTTIME", 
+"APPOINTMENTS"."WEB_USER_CODE" AS "WEB_USER_CODE", 
+"APPOINTMENTS"."CREATE_BY" AS "CREATE_BY"
+FROM "WEB_SCHEDULER"."APPOINTMENTS" "APPOINTMENTS"</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ORGANIZATIONAL_UNITS">
+          <Key>
+            <PropertyRef Name="OU_ID" />
+          </Key>
+          <Property Name="OU_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="OU_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="OU_RESOURCES">
+          <Key>
+            <PropertyRef Name="RESOURCE_ID" />
+            <PropertyRef Name="OU_ID" />
+            <PropertyRef Name="SERVICE_ID" />
+          </Key>
+          <Property Name="RESOURCE_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="OU_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SERVICE_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RESOURCE_TYPE_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="RESOURCE_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RESOURCE_COUNT" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="OU_SERVICES">
+          <Key>
+            <PropertyRef Name="OU_ID" />
+            <PropertyRef Name="SERVICE_ID" />
+          </Key>
+          <Property Name="OU_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SERVICE_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SERVICE_DURATION" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="RESOURCES_TYPE">
+          <Key>
+            <PropertyRef Name="RESOURCES_TYPE_ID" />
+          </Key>
+          <Property Name="RESOURCES_TYPE_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RESOURCES_TYPE_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SERVICES">
+          <Key>
+            <PropertyRef Name="SERVICE_ID" />
+          </Key>
+          <Property Name="SERVICE_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SERVICE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SERVICE_TYPE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="APPOINTMENTS">
+          <Key>
+            <PropertyRef Name="OU_ID" />
+            <PropertyRef Name="RESOURCE_ID" />
+            <PropertyRef Name="APPOINTMENTTIME" />
+          </Key>
+          <Property Name="OU_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RESOURCE_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="APPOINTMENTTIME" Type="DateTime" Nullable="false" />
+          <Property Name="WEB_USER_CODE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="CREATE_BY" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="OraCnn" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ORGANIZATIONAL_UNITS" EntityType="Self.ORGANIZATIONAL_UNITS" />
+          <EntitySet Name="OU_RESOURCES" EntityType="Self.OU_RESOURCES" />
+          <EntitySet Name="OU_SERVICES" EntityType="Self.OU_SERVICES" />
+          <EntitySet Name="RESOURCES_TYPE" EntityType="Self.RESOURCES_TYPE" />
+          <EntitySet Name="SERVICES" EntityType="Self.SERVICES" />
+          <EntitySet Name="APPOINTMENTS" EntityType="Self.APPOINTMENTS" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="OraCnn">
+          <EntitySetMapping Name="ORGANIZATIONAL_UNITS">
+            <EntityTypeMapping TypeName="Model.ORGANIZATIONAL_UNITS">
+              <MappingFragment StoreEntitySet="ORGANIZATIONAL_UNITS">
+                <ScalarProperty Name="OU_ID" ColumnName="OU_ID" />
+                <ScalarProperty Name="OU_NAME" ColumnName="OU_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OU_RESOURCES">
+            <EntityTypeMapping TypeName="Model.OU_RESOURCES">
+              <MappingFragment StoreEntitySet="OU_RESOURCES">
+                <ScalarProperty Name="RESOURCE_ID" ColumnName="RESOURCE_ID" />
+                <ScalarProperty Name="OU_ID" ColumnName="OU_ID" />
+                <ScalarProperty Name="SERVICE_ID" ColumnName="SERVICE_ID" />
+                <ScalarProperty Name="RESOURCE_TYPE_ID" ColumnName="RESOURCE_TYPE_ID" />
+                <ScalarProperty Name="RESOURCE_NAME" ColumnName="RESOURCE_NAME" />
+                <ScalarProperty Name="RESOURCE_COUNT" ColumnName="RESOURCE_COUNT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OU_SERVICES">
+            <EntityTypeMapping TypeName="Model.OU_SERVICES">
+              <MappingFragment StoreEntitySet="OU_SERVICES">
+                <ScalarProperty Name="OU_ID" ColumnName="OU_ID" />
+                <ScalarProperty Name="SERVICE_ID" ColumnName="SERVICE_ID" />
+                <ScalarProperty Name="SERVICE_DURATION" ColumnName="SERVICE_DURATION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RESOURCES_TYPE">
+            <EntityTypeMapping TypeName="Model.RESOURCES_TYPE">
+              <MappingFragment StoreEntitySet="RESOURCES_TYPE">
+                <ScalarProperty Name="RESOURCES_TYPE_ID" ColumnName="RESOURCES_TYPE_ID" />
+                <ScalarProperty Name="RESOURCES_TYPE_NAME" ColumnName="RESOURCES_TYPE_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SERVICES">
+            <EntityTypeMapping TypeName="Model.SERVICES">
+              <MappingFragment StoreEntitySet="SERVICES">
+                <ScalarProperty Name="SERVICE_ID" ColumnName="SERVICE_ID" />
+                <ScalarProperty Name="SERVICE_NAME" ColumnName="SERVICE_NAME" />
+                <ScalarProperty Name="SERVICE_TYPE" ColumnName="SERVICE_TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APPOINTMENTS">
+            <EntityTypeMapping TypeName="Model.APPOINTMENTS">
+              <MappingFragment StoreEntitySet="APPOINTMENTS">
+                <ScalarProperty Name="OU_ID" ColumnName="OU_ID" />
+                <ScalarProperty Name="RESOURCE_ID" ColumnName="RESOURCE_ID" />
+                <ScalarProperty Name="APPOINTMENTTIME" ColumnName="APPOINTMENTTIME" />
+                <ScalarProperty Name="WEB_USER_CODE" ColumnName="WEB_USER_CODE" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

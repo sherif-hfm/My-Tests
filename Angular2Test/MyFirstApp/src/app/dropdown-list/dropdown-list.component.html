@@ -1,0 +1,38 @@
+
+<div class="container"  >
+    <div [ngClass]="{'dropdown': true  ,'open':openDropDown}">
+        <button (click)="OpenDropDown_click()" class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" 
+        style="min-width: 160px">
+            <span style="min-width: 160px"> <ng-container *ngIf="SelectedItem != null">
+                {{SelectedItem[dataTextField]}}</ng-container>
+                <ng-container *ngIf="SelectedItem == null">
+                        ----------- Select -----------
+                    </ng-container>
+            </span>
+                <span class="caret" > </span>
+            </button>
+            <ul class="dropdown-menu" style="overflow-x: auto; max-height: 450px">
+                <li role="presentation" class="dropdown-filter">
+                    <input type="search" #dropFilter (keyup)="filter_keypress(dropFilter)" (blur)="mouseleave()"  class="form-control" placeholder="Filter:" style="width:96%; margin:0 auto"  >
+                </li>
+                <div *ngIf="template!= null">
+                    <div *ngFor="let item of mDataSource;let i=index" (mousedown)="item_click(item)" >
+                        <ng-container  [ngTemplateOutlet]="template" [ngOutletContext]="{ $implicit: item, index: i}"></ng-container>
+                    </div>
+                </div>
+                <ng-container *ngIf="template== null">
+                    <ng-container *ngFor="let item of mDataSource;let i=index" >
+                        <li role="presentation" style="display: list-item;" (mousedown)="item_click(item)">
+                            <a role="menuitem" tabindex="-1" >{{item[dataTextField]}}</a>
+                        </li>    
+                    </ng-container>
+                </ng-container> 
+            </ul>
+          </div>
+      </div>
+  
+  
+
+  
+
+    

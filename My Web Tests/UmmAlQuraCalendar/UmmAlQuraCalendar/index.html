@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <link href="Calendar/jquery.calendars.picker.css" rel="stylesheet" />
+    <link href="Calendar/ui.calendars.picker.css" rel="stylesheet" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="Calendar/jquery.calendars.js"></script>
+    <script src="Calendar/jquery.calendars.plus.js"></script>
+    <script src="Calendar/jquery.plugin.js"></script>
+    <script src="Calendar/jquery.calendars.picker.js"></script>
+    <script src="Calendar/jquery.calendars.ummalqura.js"></script>
+    <script src="Calendar/jquery.calendars.ummalqura-ar.js"></script>
+   
+</head>
+<body>
+    <input id="buttonPicker" type="text" size="10" class="is-datepick" />
+    <div  style="display:none">
+        <input id="btnshow" type="button" value="button" />
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            
+            var myCalendar = $.calendars.instance('ummalqura', 'ar');
+            $('#buttonPicker').calendarsPicker({
+                calendar: myCalendar,
+                showTrigger: '#btnshow'
+            });
+            
+        });
+
+    </script>
+
+</body>
+</html>

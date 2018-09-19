@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" dir="rtl" lang="hi" >
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    
+    <style>
+       
+    </style>
+    
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"> </script>
+    <script type="text/javascript">
+        
+        function PrintDoc() {
+            w = window.open();
+            w.onbeforeprint = function () { console.log('beforePrint1'); };
+            w.onafterprint = function () { console.log('afterPrint1'); };
+            if (w.matchMedia) {
+                var mediaQueryList = w.matchMedia('print');
+                mediaQueryList.addListener(function (mql) {
+                    if (mql.matches) {
+                        console.log('beforePrint');
+                    } else {
+                        console.log('afterPrint');
+                    }
+                });
+            };
+            w.document.write('<html moznomarginboxes mozdisallowselectionprint lang="ar-sa" dir="rtl">');
+            w.document.write('<head>');
+            w.document.write('<title>Print it!</title>');
+            w.do.write('<meta charset="UTF-8" />');
+            var style = '@media print{@page{width:54mm;height : 85mm;margin: 3mm;padding:0px}html{}body{margin: 0px;width: 40mm;height: 80mm;border:2px;border-style:solid;padding:0px;border-radius: 0px;box-shadow: 0px;direction:rtl}.Card{width: 40mm;height: 80mm;border: 1px;border-style: solid;font-size:12px}.part{font-size: 11px}}';
+            w.document.write('<style type="text/css" media="print">' + style + '</style>');
+            //w.document.write('<link rel="stylesheet" type="text/css" media="print" href="styles.css" />');
+            w.document.write('</head><body dir="rtl"  style="direction: rtl;" lang="ar-sa">');
+            w.document.write($('#divPrint').html());
+            w.document.write('</body></html>');
+            w.document.close();
+            w.print();
+            //w.close();
+        }
+    </script>
+</head>
+<body>
+    <br />
+    <div id="div">
+        <div id="divPrint" dir="rtl" lang="ar-sa">
+            <div style="width: 40mm; height: 80mm; border: 1px; border-style: solid;font-size:12px;direction:rtl" dir="rtl" lang="ar-sa" >
+                <div>
+                    <table class="part">
+                        <tr>
+                            <td>
+                                <label>امانة منطقة الرياض</label> <br />
+                                <label>وكالة الخدمات</label> <br />
+                                <label>الادارة العامة لصحة البيئة</label> <br />
+                                <label>رقم الشهادة الصحية</label> <br />
+                                <label>12345</label>
+                                <input id="Text1" type="text" style="font-family: 'AL-MohanadBold'; direction: rtl;" />
+                            </td>
+                            <td>
+                                <img src="img.jpg" alt="" style="width:17mm;height:20mm" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <label>هذه الشهادة ليست اثبات هوية</label>
+
+                <div style="border:1px;border-style:solid">
+                    <table class="part">
+                        <tr>
+                            <td>
+                                <label>المهنة : </label>
+                            </td>
+                            <td>
+                                <label>عامل</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>تاريخ الاصدار</label>
+                            </td>
+                            <td>
+                                <label>1429-09-02 هـ</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>تاريخ الانتهاء : </label>
+                            </td>
+                            <td>
+                                <label>1430-09-02 هـ</label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <br />
+
+                <div style="border:1px;border-style:solid">
+                    <table class="part">
+                        <tr>
+                            <td>
+                                <label>الاسم : </label>
+                            </td>
+                            <td>
+                                <label>سراج الدين</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>الجنسية</label>
+                            </td>
+                            <td>
+                                <label>بنغالي</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>رقم الهوية</label>
+                            </td>
+                            <td>
+                                <label>2109066817</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>تاريخ انتهائها</label>
+                            </td>
+                            <td>
+                                <label>1430-01-05 هـ</label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <table class="part">
+                        <tr>
+                            <td>
+                                <label>رقم المسجل</label>
+                            </td>
+                            <td>
+                                <label>مدير إدارة التراخيص</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>129908</label>
+                            </td>
+                            <td>
+                                <label>محمد بن عبد العزيز العمار</label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input id="Button1" type="button" value="Print" onclick="javascript: PrintDoc();" />
+</body>
+</html>

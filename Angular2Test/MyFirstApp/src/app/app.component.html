@@ -1,0 +1,51 @@
+﻿
+<br/>
+<hr/>
+<br />
+<div>
+    <span [class]="mySwitch==8?'tabHeaderSelected':'tabHeader'" (click)="mySwitch=8">Data Share</span>
+    <span [class]="mySwitch==7?'tabHeaderSelected':'tabHeader'" (click)="mySwitch=7">Dropdown List</span>
+    <span [class]="mySwitch==0?'tabHeaderSelected':'tabHeader'" (click)="mySwitch=0">Test</span>
+    <span [class]="mySwitch==1?'tabHeaderSelected':'tabHeader'" (click)="mySwitch=1">Data Binding & Style</span>
+    <span [class]="mySwitch==2?'tabHeaderSelected':'tabHeader'" (click)="mySwitch=2">ItemsList</span>
+    <span [class]="mySwitch==3?'tabHeaderSelected':'tabHeader'" (click)="mySwitch=3">QueryTest</span>
+    <span [class]="mySwitch==4?'tabHeaderSelected':'tabHeader'" (click)="mySwitch=4">DOM Control</span>
+    <span [class]="mySwitch==5?'tabHeaderSelected':'tabHeader'" (click)="mySwitch=5">Directive Test</span>
+    <span [class]="mySwitch==6?'tabHeaderSelected':'tabHeader'" (click)="mySwitch=6">Forms Test</span>
+    <div class="tabPage" [ngSwitch]="mySwitch">            
+        <div *ngSwitchCase="8">
+                <app-data-share></app-data-share>
+        </div>
+        <div *ngSwitchCase="7">
+                <dropdown-list-test></dropdown-list-test>
+        </div>
+        <div *ngSwitchCase="0">
+            <test1></test1>
+        </div>
+        <div *ngSwitchCase="1">
+            <DataBinding></DataBinding>
+        </div>
+        <div *ngSwitchCase="2">
+            <ItemsList></ItemsList>
+        </div>
+        <div *ngSwitchCase="3">
+            <h1>Child and content Query</h1>
+            <QueryTest>
+                <ChildTest #ChildTest3 CtrlName="Child3"></ChildTest>
+            </QueryTest>
+        </div>
+        <div *ngSwitchCase="4">
+            <button #button>Button2</button>
+            <DomControl></DomControl>
+        </div>
+        <div *ngSwitchCase="5">
+           <app-directive-test></app-directive-test>
+        </div>
+        <div *ngSwitchCase="6">
+            <form1></form1>
+        </div>
+    </div>
+</div>
+
+
+

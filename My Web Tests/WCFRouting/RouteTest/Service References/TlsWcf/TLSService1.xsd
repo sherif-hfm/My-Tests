@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8020/TLS/TLSService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" />
+  <xs:element name="GetLicenseInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="baladyaId" type="xs:int" />
+        <xs:element minOccurs="0" name="licensesNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="computerNo" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLicenseInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="GetLicenseInfoResult" nillable="true" type="q1:LicenseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLicenseStoreInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ownerId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ownerIdType" type="xs:int" />
+        <xs:element minOccurs="0" name="licenseNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="directorateNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="computerNo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLicenseStoreInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="GetLicenseStoreInfoResult" nillable="true" type="q2:ArrayOfLicenseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LicenseAllowedRenew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="chargeCount" type="xs:int" />
+        <xs:element minOccurs="0" name="licenseNo" type="xs:int" />
+        <xs:element minOccurs="0" name="sadadType" type="xs:int" />
+        <xs:element minOccurs="0" name="userCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="webUser" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LicenseAllowedRenewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="LicenseAllowedRenewResult" nillable="true" type="q3:LicenseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendInspectorReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="reportParmsXml" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendInspectorReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SendInspectorReportResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddImageData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="computerNo" type="xs:int" />
+        <xs:element minOccurs="0" name="inspectionNo" type="xs:int" />
+        <xs:element minOccurs="0" name="userCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddImageDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddImageDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLicenseMapPath">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="licenseNo" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLicenseMapPathResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetLicenseMapPathResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMalls">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_quarterNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="_streetNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="_realestateTypeCode" type="xs:int" />
+        <xs:element minOccurs="0" name="_realestateClassification" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMallsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="GetMallsResult" nillable="true" type="q4:ArrayOfMallInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveTLSIssueRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="_issueRequest" nillable="true" type="q5:TLSRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveTLSIssueRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="SaveTLSIssueRequestResult" nillable="true" type="q6:TlsRequestSaveResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserTradingLicenses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userIdType" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserTradingLicensesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="GetUserTradingLicensesResult" nillable="true" type="q7:ArrayOfLicenseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveRenewRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="_renewRequest" nillable="true" type="q8:TLSRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveRenewRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="SaveRenewRequestResult" nillable="true" type="q9:TlsRequestSaveResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllowServiceLicenses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userIdType" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllowServiceLicensesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="GetAllowServiceLicensesResult" nillable="true" type="q10:ArrayOfLicenseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveTlsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="_tlsRequest" nillable="true" type="q11:TLSRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveTlsRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="SaveTlsRequestResult" nillable="true" type="q12:TlsRequestSaveResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLicenseActivities">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_licenseNumber" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLicenseActivitiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="GetLicenseActivitiesResult" nillable="true" type="q13:ArrayOfLicenseActivity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGlobalActivities">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGlobalActivitiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="GetGlobalActivitiesResult" nillable="true" type="q14:ArrayOfLicenseActivityNode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMainActivities">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_globalCode" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMainActivitiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="GetMainActivitiesResult" nillable="true" type="q15:ArrayOfLicenseActivityNode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSubActivities">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_globalCode" type="xs:int" />
+        <xs:element minOccurs="0" name="_subCode" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSubActivitiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="GetSubActivitiesResult" nillable="true" type="q16:ArrayOfLicenseActivityNode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBoardsTypes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBoardsTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="GetBoardsTypesResult" nillable="true" type="q17:ArrayOfLicenseBoard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLicenseBoards">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_licenseNumber" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLicenseBoardsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="GetLicenseBoardsResult" nillable="true" type="q18:ArrayOfLicenseBoard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActivitiesConditions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="globalCode" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="mainCode" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="subCode" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="conditionTypeCode" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActivitiesConditionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="GetActivitiesConditionsResult" nillable="true" type="q19:ArrayOfActivitiesConditionsInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActivitiesConditionsNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="globalCode" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="mainCode" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="subCode" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="conditionTypeCode" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="issueRequired" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="renewRequired" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="cancelRequired" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActivitiesConditionsNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="GetActivitiesConditionsNewResult" nillable="true" type="q20:ArrayOfActivitiesConditionsInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMainType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="globalCode" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="mainCode" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMainTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="GetMainTypeResult" nillable="true" type="q21:LicenseActivityNode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActivitiesApprovals">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="globalCode" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="mainCode" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="subCode" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="issueRequired" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="renewRequired" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="cancelRequired" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActivitiesApprovalsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="GetActivitiesApprovalsResult" nillable="true" type="q22:ArrayOfActivitiesApprovals" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAcivitiesDocuments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="globalCode" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="mainCode" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="subCode" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="issueRequired" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="renewRequired" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="cancelRequired" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAcivitiesDocumentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="GetAcivitiesDocumentsResult" nillable="true" type="q23:ArrayOfAcivitiesDocuments" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTlsAuthorities">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTlsAuthoritiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="GetTlsAuthoritiesResult" nillable="true" type="q24:ArrayOfBaseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRenewDisableReason">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="licenceNo" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRenewDisableReasonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Riyadh.EServices.Model" minOccurs="0" name="GetRenewDisableReasonResult" nillable="true" type="q25:ServicesSatatusInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="467bc0c6-8206-429e-bcd4-b271aeaca28c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8020/DocFlow/DocFlow.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DocFlow.xsd" MetadataType="Schema" ID="bc5f76e1-cdf7-4cee-a9fa-b4af8219689c" SourceId="1" SourceUrl="http://localhost:8020/DocFlow/DocFlow.svc?xsd=xsd2" />
+    <MetadataFile FileName="DocFlow.disco" MetadataType="Disco" ID="057aea06-ab10-4ccf-8307-2e2147b44c99" SourceId="1" SourceUrl="http://localhost:8020/DocFlow/DocFlow.svc?disco" />
+    <MetadataFile FileName="DocFlow1.xsd" MetadataType="Schema" ID="073b6ebf-75e9-4999-a243-7108cd8ed2d0" SourceId="1" SourceUrl="http://localhost:8020/DocFlow/DocFlow.svc?xsd=xsd0" />
+    <MetadataFile FileName="DocFlow2.xsd" MetadataType="Schema" ID="5e4eeb53-88f2-45bb-a28b-ab4df7ab83c2" SourceId="1" SourceUrl="http://localhost:8020/DocFlow/DocFlow.svc?xsd=xsd1" />
+    <MetadataFile FileName="DocFlow.wsdl" MetadataType="Wsdl" ID="e94bccda-64e8-4a14-9f38-2a7e74cc9e9e" SourceId="1" SourceUrl="http://localhost:8020/DocFlow/DocFlow.svc?wsdl" />
+    <MetadataFile FileName="DocFlow3.xsd" MetadataType="Schema" ID="c9fe2f39-f727-4c95-bb39-95d788f43392" SourceId="1" SourceUrl="http://localhost:8020/DocFlow/DocFlow.svc?xsd=xsd3" />
+    <MetadataFile FileName="DocFlow4.xsd" MetadataType="Schema" ID="5d9c4790-cbbd-46de-b179-e39080a8a1b9" SourceId="1" SourceUrl="http://localhost:8020/DocFlow/DocFlow.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

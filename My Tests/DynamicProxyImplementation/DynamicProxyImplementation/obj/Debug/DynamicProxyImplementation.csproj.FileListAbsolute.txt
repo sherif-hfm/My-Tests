@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Tests\DynamicProxyImplementation\DynamicProxyImplementation\bin\Debug\DynamicProxyImplementation.dll.config
+D:\Dropbox\My Tests\My Tests\DynamicProxyImplementation\DynamicProxyImplementation\bin\Debug\DynamicProxyImplementation.dll
+D:\Dropbox\My Tests\My Tests\DynamicProxyImplementation\DynamicProxyImplementation\bin\Debug\DynamicProxyImplementation.pdb
+D:\Dropbox\My Tests\My Tests\DynamicProxyImplementation\DynamicProxyImplementation\obj\Debug\DynamicProxyImplementation.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\DynamicProxyImplementation\DynamicProxyImplementation\obj\Debug\DynamicProxyImplementation.dll
+D:\Dropbox\My Tests\My Tests\DynamicProxyImplementation\DynamicProxyImplementation\obj\Debug\DynamicProxyImplementation.pdb

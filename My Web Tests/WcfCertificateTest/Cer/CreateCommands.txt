@@ -1,0 +1,12 @@
+https://msdn.microsoft.com/en-us/library/ff648498.aspx
+makecert -n "CN=RootCATest" -r -sv RootCATest.pvk RootCATest.cer
+makecert -sk RootCATest1 -iv RootCATest.pvk -n "CN=SherifHamdy" -ic RootCATest.cer -sr localmachine -ss my -sky exchange -pe
+makecert -sk MyKeyName -iv RootCATest.pvk -n "CN=tempCert" -ic RootCATest.cer -sr localmachine -ss my -sky signature -pe tempCert.cer
+*************************************************
+makecert -n "CN=RootCATest" -r -sv RootCATest.pvk RootCATest.cer
+makecert -sk MyKeyName100 -iv RootCATest.pvk -n "CN=tempCertServer" -ic RootCATest.cer -sr localmachine -ss My -sky exchange -pe tempCertServer.cer
+makecert -sk MyKeyName300 -iv RootCATest.pvk -n "CN=tempCertClient" -ic RootCATest.cer -sr localmachine -ss My -sky signature -pe tempCertClient.cer
+
+
+
+*************************************************

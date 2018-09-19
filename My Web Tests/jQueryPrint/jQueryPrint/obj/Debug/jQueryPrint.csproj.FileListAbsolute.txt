@@ -1,0 +1,5 @@
+D:\Dropbox\My Tests\My Web Tests\jQueryPrint\jQueryPrint\bin\jQueryPrint.dll.config
+D:\Dropbox\My Tests\My Web Tests\jQueryPrint\jQueryPrint\bin\jQueryPrint.dll
+D:\Dropbox\My Tests\My Web Tests\jQueryPrint\jQueryPrint\bin\jQueryPrint.pdb
+D:\Dropbox\My Tests\My Web Tests\jQueryPrint\jQueryPrint\obj\Debug\jQueryPrint.dll
+D:\Dropbox\My Tests\My Web Tests\jQueryPrint\jQueryPrint\obj\Debug\jQueryPrint.pdb

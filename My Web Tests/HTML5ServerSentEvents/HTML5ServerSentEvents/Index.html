@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+   
+</head>
+<body>
+
+    <div id="txt1">
+
+    </div>
+
+    <script type="text/javascript">
+        var source = new EventSource('Handler.ashx');
+        source.onmessage = function (event) {
+            document.getElementById("txt1").innerHTML += event.data + "<br>";
+        };
+    </script>
+</body>
+
+
+</html>

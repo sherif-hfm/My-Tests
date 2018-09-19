@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Tests\SqlFileTableTest\SqlFileTableTest\bin\Debug\SqlFileTableTest.exe.config
+D:\Dropbox\My Tests\My Tests\SqlFileTableTest\SqlFileTableTest\bin\Debug\SqlFileTableTest.exe
+D:\Dropbox\My Tests\My Tests\SqlFileTableTest\SqlFileTableTest\bin\Debug\SqlFileTableTest.pdb
+D:\Dropbox\My Tests\My Tests\SqlFileTableTest\SqlFileTableTest\obj\Debug\SqlFileTableTest.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\SqlFileTableTest\SqlFileTableTest\obj\Debug\SqlFileTableTest.exe
+D:\Dropbox\My Tests\My Tests\SqlFileTableTest\SqlFileTableTest\obj\Debug\SqlFileTableTest.pdb

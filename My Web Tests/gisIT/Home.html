@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+ <link rel="stylesheet" href="http://js.arcgis.com/3.10/js/esri/css/esri.css">
+      <link rel="stylesheet" href="http://js.arcgis.com/3.10/js/dojo/dijit/themes/claro/claro.css">
+    
+
+        
+        <script src="http://js.arcgis.com/3.14/"></script>
+
+      <script type="text/javascript">
+          djConfig = {
+              parseOnLoad: true
+          };
+        </script>
+<!--      <script type="text/javascript" src="Js/init.js"></script>-->
+            <script type="text/javascript">
+                dojo.require("dijit.form.ComboBox");
+                dojo.require("dojo.data.ItemFileReadStore");
+                dojo.require("dijit.form.FilteringSelect");
+                dojo.require("dojo.store.Memory");
+</script>
+  
+    <script>
+        var map;
+        var graphicsLayer;
+        require(["esri/map", "esri/layers/ArcGISTiledMapServiceLayer", "esri/tasks/query", "esri/tasks/QueryTask","dojo/data/ItemFileReadStore","dijit/form/FilteringSelect","esri/layers/GraphicsLayer",
+            "esri/symbols/SimpleFillSymbol", "esri/graphic",
+        "dojo/dom", "dojo/on", "dojo/domReady!"],
+          function init(Map, Tiled, Query, QueryTask, itemFileReadStore, FilteringSelect, GraphicsLayer, SimpleFillSymbol, Graphic, dom, on) {
+              map = new Map("map");
+
+              var tiled = new Tiled("http://eservices.alriyadh.gov.sa:7070/wariyadhgeomap/rest/services/riyadhgeomap/RiyadhBaseMap/MapServer");
+
+              map.addLayer(tiled);
+              graphicsLayer = new GraphicsLayer({ id: "myGraphicsLayer" });
+              map.addLayer(graphicsLayer);
+              GetMunicipalities();
+           
+              on(dom.byId("execute"), "click", execute);
+
+          
+
+              function GetMunicipalities() {
+                  var queryTask2 = new QueryTask("http://eservices.alriyadh.gov.sa:7070/wariyadhgeomap/rest/services/riyadhgeomap/RiyadhBaseMap/MapServer/19");
+
+                  var query2 = new Query();
+                  query2.returnGeometry = true;
+                  query2.outFields = ["MUNICIPALITYANAME ", "MUNICIPALITYCODE"];
+                  query2.where = "1=1";
+                  queryTask2.execute(query2, populateMunicipalityList);
+              }
+
+              function GetNeighborhood(muniID) {
+                  var queryTask = new QueryTask("http://eservices.alriyadh.gov.sa:7070/wariyadhgeomap/rest/services/riyadhgeomap/RiyadhBaseMap/MapServer/17");
+
+                  var query = new Query();
+                  query.returnGeometry = true;
+                  query.outFields = ["NEIGHBORHANAME","NEIGHBORHCODE"];
+                  //if (muniID==-1) {
+                  //    query.where = "1=1";
+                  //}
+                  //else
+                  {
+                      query.where = "MUNICIPALITYCODE  = " + muniID;
+                  }
+               
+                  queryTask.execute(query, populateList);
+              }
+              function populateMunicipalityList(results) {
+                  //Populate the ComboBox with unique values
+                  var municipality;
+                  var idCode;
+                  var values = [];
+                  var testVals = {};
+
+                  //Add option to display all zoning types to the ComboBox
+                  values.push({ name: "ALL", id: "-1", geometry: null })
+
+                  //Loop through the QueryTask results and populate an array
+                  //with the unique values
+                  var features = results.features;
+                  //     alert(features.length);
+                  dojo.forEach(features, function (feature) {
+                      municipality = feature.attributes.MUNICIPALITYANAME;
+                      idCode = feature.attributes.MUNICIPALITYCODE;
+                      geom = feature.geometry
+                      if (!testVals[municipality]) {
+                          testVals[municipality] = true;
+                          values.push({ name: municipality, id: idCode, geometry: geom });
+                      }
+                  });
+                  //Create a ItemFileReadStore and use it for the
+                  //ComboBox's data source
+                  var dataItems = {
+                      identifier: 'id',
+                      label: 'name',
+                      items: values
+                  };
+                  var store = itemFileReadStore({ data: dataItems });
+                  var fs = new FilteringSelect({
+                      id: "MuniBox",
+                      store: store,
+                      searchAttr: "name",
+                      name: "Municipalty",
+                      value: "-1",
+                      labelAttr: "name"
+                  }, dom.byId("MuniBox")).startup();
+                  dojo.connect(dijit.byId("MuniBox"), 'onChange', function (event) {
+                      graphicsLayer.clear();
+                      selectedItemGeometry = dijit.byId('MuniBox').item.geometry[0];
+                      if (selectedItemGeometry) {
+                          addGraphic(selectedItemGeometry);
+                      }
+
+                      GetNeighborhood(event);
+                  });
+              }
+              function showResults(results) {
+                  var resultItems = [];
+                  var resultCount = results.features.length;
+             //     alert(resultCount);
+                  for (var i = 0; i < resultCount; i++) {
+                      var featureAttributes = results.features[i].attributes;
+                      for (var attr in featureAttributes) {
+                          resultItems.push("<b>" + attr + ":</b>  " + featureAttributes[attr] + "<br>");
+                      }
+                      resultItems.push("<br>");
+                  }
+                  dom.byId("info").innerHTML = resultItems.join("");
+              }
+              function populateList(results) {
+                  //Populate the ComboBox with unique values
+                  var zone;
+                  var geom;
+                  var idCode;
+                  var values = [];
+                  var testVals = {};
+
+                  //Add option to display all zoning types to the ComboBox
+                  values.push({ name: "ALL000", id: "-1", geometry: null })
+
+                  //Loop through the QueryTask results and populate an array
+                  //with the unique values
+                  var features = results.features;
+             //     alert(features.length);
+                  dojo.forEach(features, function (feature) {
+                      zone = feature.attributes.NEIGHBORHANAME;
+                      idCode = feature.attributes.NEIGHBORHCODE
+                      geom = feature.geometry
+                      if (!testVals[zone]) {
+                          testVals[zone] = true;
+                          values.push({ name: zone, id: idCode, geometry: geom });
+                      }
+                  });
+                  //Create a ItemFileReadStore and use it for the
+                  //ComboBox's data source
+                  var dataItems = {
+                      identifier: 'id',
+                      label: 'name',
+                      items: values
+                  };
+                  var store = itemFileReadStore({ data: dataItems });
+                  var fs = new FilteringSelect({
+                      id: "dojoBox",
+                      store: store,
+                      searchAttr: "name",
+                      name: "ALL",
+                      value: "-1",
+                      labelAttr: "name"
+                  }, dom.byId("dojoBox")).startup();
+                  dojo.connect(dijit.byId("dojoBox"), 'onChange', function (v) {
+                      graphicsLayer.clear();
+                      selectedItemGeometry = dijit.byId('dojoBox').item.geometry[0];
+                      if (selectedItemGeometry) {
+                          addGraphic(selectedItemGeometry);
+                      }
+                  });
+              }
+              function addGraphic(geometry) {
+                  graphicsLayer.clear();
+                  var symbol = new SimpleFillSymbol();
+                  graphicsLayer.add(new Graphic(geometry, symbol));
+                  extent = geometry.getExtent();
+                  map.setExtent(extent.expand(2));
+              }
+
+          }
+        );
+    </script>
+      <style type="text/css">
+          #dojoBox{
+              width: 141px;
+          }
+          #MuniBox {
+              width: 135px;
+          }
+      </style>
+  </head>
+  <body>
+      
+   <select id="MuniBox"></select>
+       <br />
+   <select id="dojoBox"></select>
+
+        <br />
+    <div id="map">
+     </div>
+  </body>
+</html>

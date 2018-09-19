@@ -1,0 +1,71 @@
+﻿@model MVCBasics.Models.Home
+
+@{
+    Layout = "~/Views/_Layout.cshtml";
+    ViewBag.Title = "New Title";
+    string message = "<strong>This is bold!</strong>";
+    bool result = true;
+}
+<script type="text/javascript">
+    // to adoid xss attack
+    var msg = 'Hello @Ajax.JavaScriptStringEncode(ViewBag.UserName)';
+    //alert(msg);
+</script>
+<div>
+@if (result)
+{
+    <text>This is plain Text</text><br />
+    @:This is plain Text
+}
+</div>
+<br />
+<div>
+    <span>@Html.Raw(message)</span><br />
+    <span>@message</span><br />
+</div>
+<br />
+Index Date : @ViewBag.CrDate
+<br />
+<br />
+<div>
+    @Html.Action("CreateChildAction", new { prm1="my msg"})
+</div>
+<br />
+<br />
+<input id="btnViewPartial" type="button" value="Partial View" onclick="LoadPartialView()" />
+<div id="result"></div>
+
+<br />
+<br />
+
+<div>
+    @Html.ActionLink("Persons List", "Index", "Person")
+</div>
+
+<br /><br />
+
+<div>
+@Html.Partial("Message")
+</div>
+
+
+<div>
+    @Html.Partial("PartialView1")
+    @{Html.RenderPartial("PartialView2"); } @* writes directly to the response (which can bring a slight effi ciency gain). *@ 
+</div>
+
+<br />
+
+<script type="text/javascript">
+    function LoadPartialView() {
+        $('#result').load('/home/message');
+    }
+</script>
+
+
+@section Footer {
+    This is the <strong>footer</strong>.
+     User name is : @ViewBag.UserName
+}
+
+

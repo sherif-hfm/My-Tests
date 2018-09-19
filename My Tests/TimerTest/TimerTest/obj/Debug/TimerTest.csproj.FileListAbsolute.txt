@@ -1,0 +1,12 @@
+D:\Dropbox\My Tests\My Tests\TimerTest\TimerTest\bin\Debug\TimerTest.exe.config
+D:\Dropbox\My Tests\My Tests\TimerTest\TimerTest\bin\Debug\TimerTest.exe
+D:\Dropbox\My Tests\My Tests\TimerTest\TimerTest\bin\Debug\TimerTest.pdb
+D:\Dropbox\My Tests\My Tests\TimerTest\TimerTest\obj\Debug\TimerTest.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\TimerTest\TimerTest\obj\Debug\TimerTest.exe
+D:\Dropbox\My Tests\My Tests\TimerTest\TimerTest\obj\Debug\TimerTest.pdb
+C:\Users\Sherif\Dropbox\My Tests\My Tests\TimerTest\TimerTest\bin\Debug\TimerTest.exe.config
+C:\Users\Sherif\Dropbox\My Tests\My Tests\TimerTest\TimerTest\obj\Debug\TimerTest.exe
+C:\Users\Sherif\Dropbox\My Tests\My Tests\TimerTest\TimerTest\obj\Debug\TimerTest.pdb
+C:\Users\Sherif\Dropbox\My Tests\My Tests\TimerTest\TimerTest\bin\Debug\TimerTest.exe
+C:\Users\Sherif\Dropbox\My Tests\My Tests\TimerTest\TimerTest\bin\Debug\TimerTest.pdb
+C:\Users\Sherif\Dropbox\My Tests\My Tests\TimerTest\TimerTest\obj\Debug\TimerTest.csprojResolveAssemblyReference.cache

@@ -1,0 +1,20 @@
+﻿@model MVCExtending.Models.Person
+
+@{
+    ViewBag.Title = "CustomTemplates";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CustomTemplates</h2>
+<br />
+@Html.Label("welcome : ")
+@Html.EditorFor(m => m.BirthDate)
+
+
+@section Scripts
+{
+    @*<script src="~/Scripts/SpecialDateTime.js"></script>*@
+    
+}
+
+

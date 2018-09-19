@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="connect-src 'self' http://*  'unsafe-inline' 'unsafe-eval';default-src http://* 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval';script-src 'self' http://*  'unsafe-inline' 'unsafe-eval'; style-src 'self' http://* 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <link href="css/w3.css" rel="stylesheet" type="text/css" />
+        <link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/progress.css" rel="stylesheet" type="text/css" />
+        <title>RmAuthenticator</title>
+    </head>
+    <body>
+        <div id="divLogin" style="display:none">
+            <div class="w3-row">
+                <div class="w3-col w3-center m12 w3-panel">
+                    <img src="img/login-logo.png" class="login-logo" />
+                </div>
+            </div>
+            <div class="w3-row">
+                <div class="w3-col  m12 w3-center ">
+                    <label class="w3-text-teal w3-large">
+                        <b>
+                            أمانة منطقة الرياض<br />
+                            نظام التحقق الثنائي
+                        </b>
+                    </label>
+                </div>
+            </div>
+            <div class="w3-row">
+                <div class="w3-panel w3-col  m12 w3-right-align">
+                    <label class="w3-text-teal w3-right-align"><b>اسم المستخدم</b></label>
+                    <div class="field-has-validation">
+                        <input class="w3-input w3-border w3-white ripple" type="text" id="txtUserLogin" value="9004050" />
+                    </div>
+                </div>
+            </div>
+            <div class="w3-row">
+                <div class="w3-panel w3-col  m12 w3-right-align">
+                    <label class="w3-text-teal w3-right-align"><b>كلمة المرور</b></label>
+                    <div class="field-has-validation">
+                        <input type="password" id="txtPassword" class="w3-input w3-border w3-white ripple" value="111" />
+                    </div>
+                </div>
+            </div>
+            <div class="w3-row">
+                <div class="w3-panel w3-col m12">
+                    <button id="btnLogin" class="w3-btn w3-left w3-blue ripple invert-ripple">تسجيل الدخول </button>
+                </div>
+            </div>
+        </div>
+    
+        <div id="divCheckSms" class="w3-container w3-panel" style="display:none">
+            <div class="w3-row">
+                <div class="w3-col w3-center m12 w3-panel">
+                    <img src="img/login-logo.png" class="login-logo" />
+                </div>
+            </div>
+            <div class="w3-row">
+                <div class="w3-col  m12 w3-center ">
+                    <label class="w3-text-teal w3-large">
+                        <b>
+                            أمانة منطقة الرياض<br />
+                            نظام التحقق الثنائي
+                        </b>
+                    </label>
+                </div>
+            </div>
+            <div class="w3-row w3-center">
+                <div class="w3-panel w3-col  m12 ">
+                    <label class="w3-text-gray "><b>تم ارسال رمز التحقق الى الجوال المنتهي برقم</b></label>
+                    <label class="w3-text-gray " id="mobileNo">xxxxx</label>
+                </div>
+            </div>
+            <div class="w3-row">
+                <div class="w3-panel w3-col  m12 w3-right-align">
+                    <label class="w3-text-teal w3-right-align"><b>ادخل رمز التحقق</b></label>
+                    <div class="field-has-validation">
+                        <input class="w3-input w3-border w3-white ripple" type="text" id="txtSmsCode" value="1234" />
+                    </div>
+                </div>
+            </div>
+            <div class="w3-row">
+                <div class="w3-panel w3-col m6">
+                    <button id="btnCheckSms" class="w3-btn w3-left w3-blue ripple invert-ripple">التحقق </button>
+                </div>
+            </div>
+        </div>
+    
+        <div id="divAccountsList" class="w3-container w3-panel" style="display:none">
+                <div class="w3-row">
+                        <div class="w3-col w3-center m12 w3-panel">
+                            <img src="img/login-logo.png" class="login-logo" />
+                        </div>
+                    </div>
+                    <div class="w3-row">
+                        <div class="w3-col  m12 w3-center ">
+                            <label class="w3-text-teal w3-large">
+                                <b>
+                                    أمانة منطقة الرياض<br />
+                                    نظام التحقق الثنائي
+                                </b>
+                            </label>
+                        </div>
+                    </div>
+                    <div id="otpContainer" class="w3-row"></div>
+            <div  class="w3-row">
+                <div class="w3-panel w3-col m12 padding-0" >
+                    <button id="btnAddAccount" class="w3-btn w3-left w3-blue ripple invert-ripple" >اضافة حساب</button>
+                </div>
+            </div>
+            <div id="accountTemp" style="display:none" userPnl='#UserId#'>
+                <div class="w3-panle w3-blue" style="width:100%"  name="tfaPanle" data-Index='#Index#'>
+                    <span>#UserLogin# &nbsp; - &nbsp; #UserName#</span>                    
+                </div>
+                <div>
+                    <div class="circle w3-center w3-row" name="circle-a">
+                        <strong>
+                            <label name="updatingIn">00</label>
+                        </strong>
+                    </div>
+                    <div class="w3-row">
+                        <label class="w3-text-teal"><b>كود التحقق</b></label>
+                        <div class="w3-container">
+                            <label class="w3-text-red w3-wide w3-xxlarge" name="otpCode"><b>123</b></label>
+                        </div>
+                    </div>
+                    <div class="w3-row">
+                        <div class="w3-panel w3-col m12 padding-0" >
+                            <button id="btnRemoveAccount" class="w3-btn w3-left w3-red ripple invert-ripple" userId='#UserId#' >الغاء حساب</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/circle-progress.min.js"></script>
+        <script type="text/javascript" src="js/sha.js"></script>
+
+        <script type="text/javascript" src="js/app.js"></script>        
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/otp.js"></script>
+    </body>
+</html>

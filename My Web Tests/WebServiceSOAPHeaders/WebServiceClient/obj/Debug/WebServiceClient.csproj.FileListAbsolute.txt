@@ -1,0 +1,5 @@
+D:\Dropbox\My Tests\My Web Tests\WebServiceSOAPHeaders\WebServiceClient\bin\Debug\WebServiceClient.exe.config
+D:\Dropbox\My Tests\My Web Tests\WebServiceSOAPHeaders\WebServiceClient\bin\Debug\WebServiceClient.exe
+D:\Dropbox\My Tests\My Web Tests\WebServiceSOAPHeaders\WebServiceClient\bin\Debug\WebServiceClient.pdb
+D:\Dropbox\My Tests\My Web Tests\WebServiceSOAPHeaders\WebServiceClient\obj\Debug\WebServiceClient.exe
+D:\Dropbox\My Tests\My Web Tests\WebServiceSOAPHeaders\WebServiceClient\obj\Debug\WebServiceClient.pdb

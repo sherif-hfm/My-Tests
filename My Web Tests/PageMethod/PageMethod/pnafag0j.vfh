@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Services;
+
+namespace PageMethod
+{
+    /// <summary>
+    /// Summary description for Handler
+    /// </summary>
+    public class Handler : IHttpHandler
+    {
+
+        public void ProcessRequest(HttpContext context)
+        {
+            System.Web.VirtualPath path = context.Request.PathObject;
+            
+        }
+
+        public bool IsReusable
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+        [WebMethod]
+        public static string GetDate(string data)
+        {
+            return "Welcome to Page Method " + data + "  " + DateTime.Now.ToString();
+        }
+    }
+}

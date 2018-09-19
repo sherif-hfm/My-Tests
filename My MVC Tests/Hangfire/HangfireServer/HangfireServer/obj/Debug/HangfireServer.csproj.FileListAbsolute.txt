@@ -1,0 +1,55 @@
+D:\Dropbox\My Tests\My MVC Tests\HangfireServer\HangfireServer\bin\Debug\HangfireServer.exe.config
+D:\Dropbox\My Tests\My MVC Tests\HangfireServer\HangfireServer\bin\Debug\HangfireServer.exe
+D:\Dropbox\My Tests\My MVC Tests\HangfireServer\HangfireServer\bin\Debug\HangfireServer.pdb
+D:\Dropbox\My Tests\My MVC Tests\HangfireServer\HangfireServer\bin\Debug\Hangfire.Core.dll
+D:\Dropbox\My Tests\My MVC Tests\HangfireServer\HangfireServer\bin\Debug\Hangfire.SqlServer.dll
+D:\Dropbox\My Tests\My MVC Tests\HangfireServer\HangfireServer\bin\Debug\Microsoft.Owin.dll
+D:\Dropbox\My Tests\My MVC Tests\HangfireServer\HangfireServer\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+D:\Dropbox\My Tests\My MVC Tests\HangfireServer\HangfireServer\bin\Debug\Newtonsoft.Json.dll
+D:\Dropbox\My Tests\My MVC Tests\HangfireServer\HangfireServer\bin\Debug\Owin.dll
+D:\Dropbox\My Tests\My MVC Tests\HangfireServer\HangfireServer\bin\Debug\Hangfire.Core.xml
+D:\Dropbox\My Tests\My MVC Tests\HangfireServer\HangfireServer\bin\Debug\Hangfire.SqlServer.xml
+D:\Dropbox\My Tests\My MVC Tests\HangfireServer\HangfireServer\bin\Debug\Microsoft.Owin.xml
+D:\Dropbox\My Tests\My MVC Tests\HangfireServer\HangfireServer\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+D:\Dropbox\My Tests\My MVC Tests\HangfireServer\HangfireServer\bin\Debug\Newtonsoft.Json.xml
+D:\Dropbox\My Tests\My MVC Tests\HangfireServer\HangfireServer\obj\Debug\HangfireServer.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My MVC Tests\HangfireServer\HangfireServer\obj\Debug\HangfireServer.exe
+D:\Dropbox\My Tests\My MVC Tests\HangfireServer\HangfireServer\obj\Debug\HangfireServer.pdb
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireServer\HangfireServer\bin\Debug\HangfireServer.exe.config
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireServer\HangfireServer\obj\Debug\HangfireServer.exe
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireServer\HangfireServer\obj\Debug\HangfireServer.pdb
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireServer\HangfireServer\bin\Debug\HangfireServer.exe
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireServer\HangfireServer\bin\Debug\HangfireServer.pdb
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireServer\HangfireServer\bin\Debug\Hangfire.Core.dll
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireServer\HangfireServer\bin\Debug\Hangfire.SqlServer.dll
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireServer\HangfireServer\bin\Debug\Microsoft.Owin.dll
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireServer\HangfireServer\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireServer\HangfireServer\bin\Debug\Newtonsoft.Json.dll
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireServer\HangfireServer\bin\Debug\Owin.dll
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireServer\HangfireServer\bin\Debug\Hangfire.Core.xml
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireServer\HangfireServer\bin\Debug\Hangfire.SqlServer.xml
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireServer\HangfireServer\bin\Debug\Microsoft.Owin.xml
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireServer\HangfireServer\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireServer\HangfireServer\bin\Debug\Newtonsoft.Json.xml
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireServer\HangfireServer\obj\Debug\HangfireServer.csprojResolveAssemblyReference.cache
+D:\Hangfire\HangfireServer\HangfireServer\bin\Debug\HangfireServer.exe.config
+D:\Hangfire\HangfireServer\HangfireServer\obj\Debug\HangfireServer.exe
+D:\Hangfire\HangfireServer\HangfireServer\obj\Debug\HangfireServer.pdb
+D:\Hangfire\HangfireServer\HangfireServer\bin\Debug\HangfireServer.exe
+D:\Hangfire\HangfireServer\HangfireServer\bin\Debug\HangfireServer.pdb
+D:\Hangfire\HangfireServer\HangfireServer\bin\Debug\Hangfire.Core.dll
+D:\Hangfire\HangfireServer\HangfireServer\bin\Debug\Hangfire.SqlServer.dll
+D:\Hangfire\HangfireServer\HangfireServer\bin\Debug\Microsoft.Owin.dll
+D:\Hangfire\HangfireServer\HangfireServer\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+D:\Hangfire\HangfireServer\HangfireServer\bin\Debug\Newtonsoft.Json.dll
+D:\Hangfire\HangfireServer\HangfireServer\bin\Debug\Owin.dll
+D:\Hangfire\HangfireServer\HangfireServer\bin\Debug\Hangfire.Core.xml
+D:\Hangfire\HangfireServer\HangfireServer\bin\Debug\Hangfire.SqlServer.xml
+D:\Hangfire\HangfireServer\HangfireServer\bin\Debug\Microsoft.Owin.xml
+D:\Hangfire\HangfireServer\HangfireServer\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+D:\Hangfire\HangfireServer\HangfireServer\bin\Debug\Newtonsoft.Json.xml
+D:\Hangfire\HangfireServer\HangfireServer\obj\Debug\HangfireServer.csprojResolveAssemblyReference.cache
+D:\Hangfire\HangfireServer\HangfireServer\bin\Debug\HangfireClient.dll
+D:\Hangfire\HangfireServer\HangfireServer\bin\Debug\HangfireClient.pdb
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireServer\HangfireServer\bin\Debug\HangfireClient.dll
+D:\Dropbox\My Tests\My MVC Tests\Hangfire\HangfireServer\HangfireServer\bin\Debug\HangfireClient.pdb

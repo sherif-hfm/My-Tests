@@ -1,0 +1,35 @@
+<ng-content></ng-content>
+<div *ngIf="Opration == 'List'">
+    <h1>Items List</h1>
+    <button #btnAddItem (click)="btnAddItem_Click()">Add Item</button>
+    <br />
+    
+    <table class="ItemTable">
+        <thead>
+            <tr>
+                <th>Item Code</th>
+                <th>Item Name</th>
+                <th>Item Price</th>
+                <th>Item Quantity</th>
+                <th>Item Category</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let item of items" class="ItemTable">
+            <td>{{ item.ItemId }}</td>
+            <td>{{ item.ItemName }}</td>
+            <td>{{ item.ItemPrice }}</td>
+            <td>{{ item.ItemQuantity }}</td>
+            <td>{{ GetCategoryName(item.ItemCategoryId) }}</td>
+            <td><button #btnEditItem (click)="btnEditItem_Click(item)">Edit</button></td>
+        </tr>
+    </table>
+</div>
+<div *ngIf="Opration == 'Edit' || Opration == 'Add'">
+    <ItemEdit #ItemEdit1 [CrItem]="CrItem" [Opration]="Opration" (Saved)="SaveItem($event)">
+    </ItemEdit>                
+</div>
+
+
+
+

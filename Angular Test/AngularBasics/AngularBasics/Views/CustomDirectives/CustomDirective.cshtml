@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "CustomDirective";
+}
+
+<h2>Creating Custom Directives</h2>
+
+<div ng-controller="defaultCtrl">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>Products</h3>
+        </div>
+        <div class="panel-body">
+            <button class="btn btn-primary" ng-click="incrementPrices()">
+                Change Prices
+            </button>
+        </div>
+        <div class="panel-body">
+            @*<div unordered-list="products" list-property="name"></div>*@
+            <div unordered-list="products" list-property="price"></div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script src="~/Scripts/MyScripts/CustomDirectives/CustomDirective.js"></script>
+}
+

@@ -1,0 +1,12 @@
+D:\Dropbox\My Tests\My Tests\EF_CodeFirst\EF_CodeFirst\bin\Debug\EF_CodeFirst.exe.config
+D:\Dropbox\My Tests\My Tests\EF_CodeFirst\EF_CodeFirst\bin\Debug\EF_CodeFirst.exe
+D:\Dropbox\My Tests\My Tests\EF_CodeFirst\EF_CodeFirst\bin\Debug\EF_CodeFirst.pdb
+D:\Dropbox\My Tests\My Tests\EF_CodeFirst\EF_CodeFirst\bin\Debug\EntityFramework.dll
+D:\Dropbox\My Tests\My Tests\EF_CodeFirst\EF_CodeFirst\bin\Debug\EntityFramework.SqlServer.dll
+D:\Dropbox\My Tests\My Tests\EF_CodeFirst\EF_CodeFirst\bin\Debug\EntityFramework.xml
+D:\Dropbox\My Tests\My Tests\EF_CodeFirst\EF_CodeFirst\bin\Debug\EntityFramework.SqlServer.xml
+D:\Dropbox\My Tests\My Tests\EF_CodeFirst\EF_CodeFirst\obj\Debug\EF_CodeFirst.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\EF_CodeFirst\EF_CodeFirst\obj\Debug\EF_CodeFirst.exe
+D:\Dropbox\My Tests\My Tests\EF_CodeFirst\EF_CodeFirst\obj\Debug\EF_CodeFirst.pdb
+D:\Dropbox\My Tests\My Tests\EF_CodeFirst\EF_CodeFirst\bin\Debug\SqlDAL.dll
+D:\Dropbox\My Tests\My Tests\EF_CodeFirst\EF_CodeFirst\bin\Debug\SqlDAL.pdb

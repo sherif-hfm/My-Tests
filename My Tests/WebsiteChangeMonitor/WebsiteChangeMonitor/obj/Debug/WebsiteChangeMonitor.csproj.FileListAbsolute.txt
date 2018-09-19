@@ -1,0 +1,11 @@
+C:\Users\Sherif\Dropbox\My Tests\My Tests\WebsiteChangeMonitor\WebsiteChangeMonitor\bin\Debug\WebsiteChangeMonitor.exe.config
+C:\Users\Sherif\Dropbox\My Tests\My Tests\WebsiteChangeMonitor\WebsiteChangeMonitor\bin\Debug\WebsiteChangeMonitor.exe
+C:\Users\Sherif\Dropbox\My Tests\My Tests\WebsiteChangeMonitor\WebsiteChangeMonitor\bin\Debug\WebsiteChangeMonitor.pdb
+C:\Users\Sherif\Dropbox\My Tests\My Tests\WebsiteChangeMonitor\WebsiteChangeMonitor\bin\Debug\log4net.dll
+C:\Users\Sherif\Dropbox\My Tests\My Tests\WebsiteChangeMonitor\WebsiteChangeMonitor\bin\Debug\log4net.xml
+C:\Users\Sherif\Dropbox\My Tests\My Tests\WebsiteChangeMonitor\WebsiteChangeMonitor\obj\Debug\WebsiteChangeMonitor.csprojResolveAssemblyReference.cache
+C:\Users\Sherif\Dropbox\My Tests\My Tests\WebsiteChangeMonitor\WebsiteChangeMonitor\obj\Debug\WebsiteChangeMonitor.exe
+C:\Users\Sherif\Dropbox\My Tests\My Tests\WebsiteChangeMonitor\WebsiteChangeMonitor\obj\Debug\WebsiteChangeMonitor.pdb
+D:\Dropbox\My Tests\My Tests\WebsiteChangeMonitor\WebsiteChangeMonitor\bin\Debug\WebsiteChangeMonitor.exe.config
+D:\Dropbox\My Tests\My Tests\WebsiteChangeMonitor\WebsiteChangeMonitor\obj\Debug\WebsiteChangeMonitor.exe
+D:\Dropbox\My Tests\My Tests\WebsiteChangeMonitor\WebsiteChangeMonitor\obj\Debug\WebsiteChangeMonitor.pdb

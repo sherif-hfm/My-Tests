@@ -1,0 +1,3311 @@
+<?xml version="1.0"?>
+<doc processed="true">
+  <assembly>
+    <name>Leadtools.Forms.Recognition</name>
+  </assembly>
+  <members>
+    <member name="T:Leadtools.Forms.Recognition.DefaultObjectsManager">
+      <summary>
+             Creates a default form recognition objects manager. 
+            </summary>
+      <keywords>Forms|Processing|Recognition|Engines</keywords>
+      <remarks>
+            Objects of this class are added to <see cref="P:Leadtools.Forms.Recognition.FormRecognitionEngine.ObjectsManagers" /> in order to consider them as part of the form features. Default objects define the main form lines and inverted text areas as part of the form's features. 
+            </remarks>
+      <example>For an example, refer to <see cref="P:Leadtools.Forms.Recognition.FormRecognitionEngine.ObjectsManagers" />.</example>
+              /// 
+            <docaddon>yes</docaddon></member>
+    <member name="T:Leadtools.Forms.Recognition.RecognitionObjectsManager">
+      <summary>
+        <see cref="T:Leadtools.Forms.Recognition.RecognitionObjectsManager" /> is the base class for all recognition objects manager. Objects managers are used to extract and edit certain features in form images.
+            </summary>
+      <keywords>Forms|Processing|Recognition</keywords>
+      <noremarks />
+      <noexample />
+              /// 
+            <docaddon>yes</docaddon></member>
+    <member name="M:Leadtools.Forms.Recognition.RecognitionObjectsManager.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Recognition.RecognitionObjectsManager" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.RecognitionObjectsManager.RetrieveObjectNames">
+      <summary>
+            Gets a list of <see cref="T:System.String" /> containing the 
+            names of the features (objects) that this manager extracts.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Pages|Results</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.RecognitionObjectsManager.EnableObjects(System.Collections.Generic.IList{System.String},System.Boolean)">
+      <summary>
+            Enables/disables the extraction of the objects (features) of the specified type.
+            </summary>
+      <keywords>Forms|Processing|Recognition</keywords>
+      <param name="objectTypeNames">
+            The name of the object type.
+            </param>
+      <param name="enable">
+            true to enable object extraction; false to disable object extraction.
+            </param>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.DefaultObjectsManager.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Recognition.DefaultObjectsManager" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Engines</keywords>
+      <noremarks />
+      <example>For an example, refer to <see cref="P:Leadtools.Forms.Recognition.FormRecognitionEngine.ObjectsManagers" />.</example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Recognition.FormRecognitionReason">
+      <summary>
+            Represents the reason for the recognition results.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Master Forms</keywords>
+      <remarks>
+            It is used in <see cref="T:Leadtools.Forms.Recognition.FormRecognitionResult" /> that is returned by <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CompareForm(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.FormProgressCallback)" /> when comparing a Form with a Master Form. If the two 
+            forms do not have the same number of pages the comparison will report <see cref="P:Leadtools.Forms.Recognition.FormRecognitionResult.Confidence" /> equals to zero with <see cref="T:Leadtools.Forms.Recognition.FormRecognitionReason">Leadtools.Forms.Recognition.FormRecognitionReason.InvalidNumberOfPages</see>. 
+            To compare two different forms with different number of pages use <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.ComparePage(Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32,Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32)" />.
+            </remarks>
+      <noexample />
+              /// 
+            <docaddon>yes</docaddon></member>
+    <member name="F:Leadtools.Forms.Recognition.FormRecognitionReason.InvalidNumberOfPages">
+      <summary>(0x00000001)The form does not match the master form because it has a different number of pages.</summary>
+    </member>
+    <member name="F:Leadtools.Forms.Recognition.FormRecognitionReason.Success">
+      <summary>(0x00000000)The recognition process was successful.</summary>
+    </member>
+    <member name="T:Leadtools.Forms.Recognition.FormRecognitionAttributes">
+      <summary>
+            Describes the properties of a certain form. Attributes are encoded into an array of bytes.  
+            </summary>
+      <keywords>Forms|Processing|Recognition|Engines</keywords>
+      <remarks>
+            Attributes are encoded into array of bytes. If it is necessary to 
+            modify the attributes for the added or deleted pages of the form, 
+            the attributes object should be opened using either 
+            <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.OpenForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)" /> or 
+            <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.OpenMasterForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)" />.  
+            Then close the object by using either 
+            <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CloseForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)" /> 
+            or <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CloseMasterForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)" />.
+            </remarks>
+      <example>For an example, refer to <see cref="M:Leadtools.Forms.Recognition.FormRecognitionAttributes.SetData(System.Byte[])" />.</example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionAttributes.GetData">
+      <summary>
+            Gets the array of bytes containing the encoded attributes.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Engines</keywords>
+      <remarks>
+            Forms attributes that are generated by <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CreateMasterForm(System.String,System.Guid,Leadtools.Forms.Recognition.FormRecognitionOptions)" /> for Master Forms or <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CreateForm(Leadtools.Forms.Recognition.FormRecognitionOptions)" /> for Forms
+            will have the form's attributes that are specified in <see cref="P:Leadtools.Forms.Recognition.FormRecognitionEngine.ObjectsManagers" />.
+            <para>To start modifying the form's attributes you have to open it using <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.OpenMasterForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)" /> for Master Forms or <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.OpenForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)" /> for Forms, or create it using <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CreateMasterForm(System.String,System.Guid,Leadtools.Forms.Recognition.FormRecognitionOptions)" /> for Master Forms or <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CreateForm(Leadtools.Forms.Recognition.FormRecognitionOptions)" /> for Forms.</para><para>Forms attributes data will be updated with the changes you made to the form attributes such as addition of a page or deletion of a page once the attributes is closed using either <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CloseMasterForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)" /> for Master Form attributes or <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CloseForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)" /> for Form attributes.</para><para>Once you finish modifying the form's attributes close it to reflect your changes.</para><para><see cref="M:Leadtools.Forms.Recognition.FormRecognitionAttributes.GetData" /> is useful to save attributes data specially for Master forms on the disk or database.</para></remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Recognition
+
+      ''' This method saves a master form attributes object to the specified filename.
+        Public Sub SaveMasterFormAttributes(ByVal attributes As FormRecognitionAttributes, _
+                                            ByVal attributesFileName As String)
+            Dim formData As Byte() = attributes.GetData()
+            File.WriteAllBytes(attributesFileName, formData)
+        End Sub</code>
+        <code lang="CS">      using Leadtools.Forms;
+      using Leadtools.Forms.Recognition;
+
+      /// This method saves master form attributes to the specified file name.
+      public void SaveMasterFormAttributes(FormRecognitionAttributes attributes, string attributesFileName)
+      {
+         byte[] formData = attributes.GetData();
+         File.WriteAllBytes(attributesFileName, formData);
+      }</code>
+        <!--FormRecognitionAttributesSave-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionAttributes.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Recognition.FormRecognitionAttributes" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Engines</keywords>
+      <noremarks />
+      <example>For an example, refer to <see cref="M:Leadtools.Forms.Recognition.FormRecognitionAttributes.SetData(System.Byte[])" />.</example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionAttributes.SetData(System.Byte[])">
+      <summary>
+            Sets the array of bytes containing the encoded attributes.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Engines</keywords>
+      <param name="data">
+            Array of bytes containing the encoded attributes.
+            </param>
+      <remarks>
+            Forms attributes that are generated by <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CreateMasterForm(System.String,System.Guid,Leadtools.Forms.Recognition.FormRecognitionOptions)" /> for Master Forms or <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CreateForm(Leadtools.Forms.Recognition.FormRecognitionOptions)" /> for Forms
+            will have the form's attributes that are specified in <see cref="P:Leadtools.Forms.Recognition.FormRecognitionEngine.ObjectsManagers" />.
+            <para>To start modifying the form's attributes you have to open it using <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.OpenMasterForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)" /> for Master Forms or <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.OpenForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)" /> for Forms, or create it using <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CreateMasterForm(System.String,System.Guid,Leadtools.Forms.Recognition.FormRecognitionOptions)" /> for Master Forms or <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CreateForm(Leadtools.Forms.Recognition.FormRecognitionOptions)" /> for Forms.</para><para>Forms attributes data will be updated with the changes you made to the form attributes such as addition of a page or deletion of a page once the attributes is closed using either <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CloseMasterForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)" /> for Master Form attributes or <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CloseForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)" /> for Form attributes.</para><para>Once you finish modifying the form's attributes close it to reflect your changes.</para><para><see cref="M:Leadtools.Forms.Recognition.FormRecognitionAttributes.SetData(System.Byte[])" /> is useful to set the loaded attributes data.</para></remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Recognition
+
+      ''' This method loads the specified master form attributes.
+      Public Function LoadMasterFormAttributes(ByVal attributesFileName As String) As FormRecognitionAttributes
+         Dim formData As Byte()
+         formData = File.ReadAllBytes(attributesFileName)
+         Dim attributes As FormRecognitionAttributes = New FormRecognitionAttributes()
+         attributes.SetData(formData)
+         Return attributes
+      End Function</code>
+        <code lang="CS">      using Leadtools.Forms;
+      using Leadtools.Forms.Recognition;
+
+      /// This method loads the specified master form attributes.
+      public FormRecognitionAttributes LoadMasterFormAttributes(string attributesFileName)
+      {
+         byte[] formData;
+         formData = File.ReadAllBytes(attributesFileName);
+         FormRecognitionAttributes attributes = new FormRecognitionAttributes();
+         attributes.SetData(formData);
+         return attributes;
+      }</code>
+        <!--FormRecognitionAttributesLoad-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.FormRecognitionAttributes.Image">
+      <summary>
+            Gets or sets RasterImage Associated with <see cref="T:Leadtools.Forms.Recognition.FormRecognitionAttributes" /> object, this image should be set
+            before using <see cref="T:Leadtools.Forms.Recognition.FormRecognitionAttributes" /> with <see cref="T:Leadtools.Forms.Recognition.PageRecognitionOptions" /> with 
+            <see cref="F:Leadtools.Forms.FormsRecognitionMethod.Simple" />.
+            
+            </summary>
+      <keywords>Forms|Processing|Recognition|Engines</keywords>
+      <value>the value should be set by user when needed, otherwise, set it to null.</value>
+      <noremarks />
+      <example>
+        <code lang="VB"> Imports Leadtools
+ Imports Leadtools.Barcode
+ Imports Leadtools.Codecs
+ Imports Leadtools.Forms
+ Imports Leadtools.Forms.Ocr
+ Imports Leadtools.Forms.Processing
+ Imports Leadtools.Forms.Recognition
+ Imports Leadtools.Forms.Recognition.Barcode
+ Imports Leadtools.Forms.Recognition.Ocr
+
+'''This method compares a Form to a List of Master Form                                                                                                                                                                                                                                                                                                                                                         .
+Public Function CompareFormFast(page As RasterImage, formAttributes As FormRecognitionAttributes, mastersAttributes As List(Of FormRecognitionAttributes), engine As FormRecognitionEngine) As FormRecognitionResult
+   formAttributes.Image = page
+   Return engine.CompareFormFast(mastersAttributes, formAttributes, Nothing)
+End Function</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      ///This method compares a Form to a List of Master Form                                                                                                                                                                                                                                                                                                                                                         .
+      public FormRecognitionResult CompareFormFast(RasterImage page, FormRecognitionAttributes formAttributes, List&lt;FormRecognitionAttributes&gt; mastersAttributes, FormRecognitionEngine engine)
+      {
+         formAttributes.Image = page;
+         return engine.CompareFormFast(mastersAttributes, formAttributes, null);
+      }</code>
+        <!--FormRecognitionEngine.CompareFormFast-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Recognition.FormRecognitionEngine">
+      <summary>
+            This class contains the form recognition engine that creates, compares, and
+            aligns forms.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Engines|Master Forms</keywords>
+      <remarks>
+            This class is used to create Master Forms and Forms, to compare a form with a Master Form, 
+            and to calculate the alignment for a Form in relation to a specified Master Form.
+            <para><strong>Important:</strong> Different OCR engines might have slight differences in form alignment and recognition. Therefore, it is recommended to use the same <see cref="T:Leadtools.Forms.Ocr.OcrEngineType" /> when generating the master forms and when recognizing and processing forms.</para></remarks>
+      <example>
+        <code lang="VB">   Imports Leadtools
+   Imports Leadtools.Barcode
+   Imports Leadtools.Codecs
+   Imports Leadtools.Forms
+   Imports Leadtools.Forms.Ocr
+   Imports Leadtools.Forms.Processing
+   Imports Leadtools.Forms.Recognition
+   Imports Leadtools.Forms.Recognition.Barcode
+   Imports Leadtools.Forms.Recognition.Ocr
+
+   ''' This class contains all Master Form information.
+   Friend Class MasterForm
+      Public Image As RasterImage
+      Public Attributes As FormRecognitionAttributes
+      Public Properties As FormRecognitionProperties
+      Public ProcessingPages As FormPages
+      ''' This constructor initialize all MasterForm memebers to zero/null/Empty.
+      Public Sub New()
+         Image = Nothing
+         Attributes = Nothing
+         Properties = FormRecognitionProperties.Empty
+         ProcessingPages = Nothing
+      End Sub
+   End Class
+
+   ''' This class contains all my Form information. My Form is the filled form that is going to be identified and processed by the application.
+   Friend Class MyForm
+      Public FileName As String
+      Public Image As RasterImage
+      Public Attributes As FormRecognitionAttributes
+      Public Master As MasterForm
+      Public Result As FormRecognitionResult
+      Public Alignment As IList(Of PageAlignment)
+      Public ProcessingPages As FormPages
+
+      ''' This constructor initialize all MyForm memebers to zero/null/Empty.
+      Public Sub New()
+         FileName = Nothing
+         Image = Nothing
+         Attributes = Nothing
+         Master = Nothing
+         Result = Nothing
+         Alignment = Nothing
+      End Sub
+   End Class
+
+   ''' TestForms is a class that has all the needed methods to recognize and process unknown forms. Once an instance of it is created StartUp should be 
+   ''' called first to intialize Ocr and barcode engines, besides building the Master Forms set, then Run method should be called to recognize and 
+   ''' process a specific form, finally the ShutDown method should be called once the program is terminated.
+   Friend Class TestForms
+      Private RecognitionEngine As FormRecognitionEngine
+      Private ProcessingEngine As FormProcessingEngine
+      Private FormsBarcodeEngine As BarcodeEngine
+      Private FormsOcrEngine As IOcrEngine
+      Private FormSet As List(Of MasterForm)
+      Private RecognizeFirstPageOnly As Boolean
+      Private LoadFromScanner As Boolean
+      Private FormsCodec As RasterCodecs
+
+
+      '===========================================================================
+      ''' This method loads an image from scanner.
+      Public Function LoadImageScanner(ByVal count As Integer) As RasterImage
+         'TODO
+         Return Nothing
+      End Function
+
+      ''' This method loads an image from scanner for recognition purposes.
+      Public Function LoadRecognitionImageScanner() As RasterImage
+         'TODO
+         Return Nothing
+      End Function
+
+      ''' This method loads an image from a file.
+      Public Function LoadImageFile(ByVal fileName As String, ByVal firstPage As Integer, ByVal lastPage As Integer) As RasterImage
+         ' Load the image and verify that we loaded all the pages 
+         Dim image As RasterImage = FormsCodec.Load(fileName, 1, CodecsLoadByteOrder.Bgr, firstPage, lastPage)
+         Return image
+      End Function
+      '===========================================================================
+      ''' This method loads an image from a file for recognition purposes.
+      Public Function LoadRecognitionImageFile(ByVal fileName As String) As RasterImage
+         Dim image As RasterImage
+         If RecognizeFirstPageOnly Then
+            image = LoadImageFile(fileName, 1, 1)
+         Else
+            image = LoadImageFile(fileName, 1, -1)
+         End If
+         Return image
+      End Function
+
+      ''' This method loads an image for recognition purposes.
+      Public Function LoadRecognitionImage(ByVal fileName As String) As RasterImage
+         Dim image As RasterImage
+         If RecognizeFirstPageOnly Then
+            image = LoadRecognitionImageScanner()
+         Else
+            image = LoadRecognitionImageFile(fileName)
+         End If
+         Return image
+      End Function
+
+      '===========================================================================
+      ''' This method creates a form attributes for recognition.
+      Public Function CreateForm() As FormRecognitionAttributes
+         Dim attributes As FormRecognitionAttributes = RecognitionEngine.CreateForm(Nothing)
+         RecognitionEngine.CloseForm(attributes)
+         Return attributes
+      End Function
+
+      ''' This method adds a page to form attributes for recognition.
+      Public Sub AddPageToForm(ByVal image As RasterImage, ByVal attributes As FormRecognitionAttributes)
+         RecognitionEngine.OpenForm(attributes)
+         RecognitionEngine.AddFormPage(attributes, image, Nothing)
+         RecognitionEngine.CloseForm(attributes)
+      End Sub
+
+      ''' This method deletes a page from form attributes for recognition.
+      Public Sub DeletePageFromForm(ByVal pagenumber As Integer, ByVal form As FormRecognitionAttributes)
+         RecognitionEngine.OpenForm(form)
+         RecognitionEngine.DeleteFormPage(form, pagenumber)
+         RecognitionEngine.CloseForm(form)
+      End Sub
+
+      ''' This method creates a form with its pages for recognition.
+      Public Sub CreateFormForRecognition(ByVal form As MyForm)
+         form.Attributes = CreateForm()
+         Dim saveCurrentPageIndex As Integer = form.Image.Page
+         Dim i As Integer = 0
+         Do While i &lt; form.Image.PageCount
+            form.Image.Page = i + 1 'page index is a 1-based starts from 1 not zero
+            AddPageToForm(form.Image, form.Attributes)
+            i += 1
+         Loop
+         form.Image.Page = saveCurrentPageIndex
+      End Sub
+
+      '===========================================================================
+      ''' This method creates a Master Form recognition attributes.
+      Public Function CreateMasterForm(ByVal name As String) As FormRecognitionAttributes
+         Dim attributes As FormRecognitionAttributes = RecognitionEngine.CreateMasterForm(name, Guid.Empty, Nothing)
+         RecognitionEngine.CloseMasterForm(attributes)
+         Return attributes
+      End Function
+
+      ''' This method adds a page to a Master Form recognition attributes.
+      Public Sub AddPageToMasterForm(ByVal image As RasterImage, ByVal attributes As FormRecognitionAttributes)
+         RecognitionEngine.OpenMasterForm(attributes)
+         RecognitionEngine.AddMasterFormPage(attributes, image, Nothing)
+         RecognitionEngine.CloseMasterForm(attributes)
+      End Sub
+
+      ''' This method deletes a page from a Master Form recognition attributes.
+      Public Sub DeletePageFromMasterForm(ByVal pagenumber As Integer, ByVal form As FormRecognitionAttributes)
+         RecognitionEngine.OpenMasterForm(form)
+         RecognitionEngine.DeleteMasterFormPage(form, pagenumber)
+         RecognitionEngine.CloseMasterForm(form)
+      End Sub
+
+      ''' This method creates a Master Form with its pages for recognition purposes.
+      Public Sub CreateMasterFormForRecognition(ByVal name As String, ByVal form As MasterForm)
+         form.Attributes = CreateMasterForm(name)
+         Dim saveCurrentPageIndex As Integer = form.Image.Page
+         Dim i As Integer = 0
+         Do While i &lt; form.Image.PageCount
+            form.Image.Page = i + 1 'page index is a 1-based starts from 1 not zero
+            AddPageToMasterForm(form.Image, form.Attributes)
+            i += 1
+         Loop
+         form.Image.Page = saveCurrentPageIndex
+      End Sub
+
+      '===========================================================================
+      '''This method compares a Form to a Master Form using all pages.
+      Private Function CompareForm(ByVal master As FormRecognitionAttributes, ByVal form As FormRecognitionAttributes) As FormRecognitionResult
+         Return RecognitionEngine.CompareForm(master, form, Nothing)
+      End Function
+
+      '''This method compares the first page of a Form to the first page of a Master Form.
+      Private Function CompareFirstPage(ByVal master As FormRecognitionAttributes, ByVal form As FormRecognitionAttributes) As FormRecognitionResult
+         Dim resultPage As PageRecognitionResult = RecognitionEngine.ComparePage(master, 1, form, 1)
+         Dim result As FormRecognitionResult = New FormRecognitionResult()
+         result.Confidence = resultPage.Confidence
+         result.LargestConfidencePageNumber = 1
+         result.PageResults.Add(resultPage)
+         result.Reason = FormRecognitionReason.Success
+         Return result
+      End Function
+
+      '''This method identifies the type of the form based on the comparison results.
+      Public Function IdentefyForm(ByVal results As FormRecognitionResult()) As Integer
+         Dim maxIndex As Integer = 0
+         maxIndex = 0
+         Dim i As Integer = 1
+         Do While i &lt; results.Length
+            If results(maxIndex).Confidence &lt; results(i).Confidence Then
+               maxIndex = i
+            End If
+            i += 1
+         Loop
+         If results(maxIndex).Confidence &lt; 30 Then
+            maxIndex = -1 'no match
+         End If
+         Return maxIndex
+      End Function
+
+      '''This method recognizes the type of the unknown form
+      Public Sub RecognizeForm(ByVal form As MyForm)
+         CreateFormForRecognition(form)
+         Dim results As FormRecognitionResult() = New FormRecognitionResult(FormSet.Count - 1) {}
+         Dim i As Integer = 0
+         Do While i &lt; FormSet.Count
+            If RecognizeFirstPageOnly Then
+               results(i) = CompareFirstPage(FormSet(i).Attributes, form.Attributes)
+            Else
+               results(i) = CompareForm(FormSet(i).Attributes, form.Attributes)
+            End If
+            i += 1
+         Loop
+         Dim index As Integer = IdentefyForm(results)
+         If index &gt;= 0 Then
+            form.Master = FormSet(index)
+            form.Result = results(index)
+         Else
+            form.Master = Nothing
+            form.Result = Nothing
+         End If
+      End Sub
+      '===========================================================================
+      '''This method load images for processing purposes if needed.
+      Private Function LoadProcessingImage(ByVal form As MyForm) As Boolean
+         Dim count As Integer = form.Master.Properties.Pages - form.Image.PageCount
+         If count = 0 Then
+            Return False
+         End If
+
+         Dim image As RasterImage
+
+         If LoadFromScanner Then
+            image = LoadImageScanner(count)
+         Else
+            image = LoadImageFile(form.FileName, form.Image.PageCount + 1, form.Image.PageCount + count)
+         End If
+
+         form.Image.AddPages(image, 1, count)
+         Return True
+      End Function
+      '===========================================================================
+      '''This method calculates the aligmnet for the recognized form.
+      Public Sub AlignForm(ByVal form As MyForm, ByVal calculateAlignment As Boolean)
+         If calculateAlignment Then
+            CreateFormForRecognition(form)
+            form.Alignment = RecognitionEngine.GetFormAlignment(form.Master.Attributes, form.Attributes, Nothing)
+         Else
+            form.Alignment = New List(Of PageAlignment)()
+            Dim i As Integer = 0
+            Do While i &lt; form.Result.PageResults.Count
+               form.Alignment.Add(form.Result.PageResults(i).Alignment)
+               i += 1
+            Loop
+         End If
+      End Sub
+
+      '===========================================================================
+      '''This method processes the recognized form.
+      Public Sub ProcessForm(ByVal form As MyForm)
+         form.ProcessingPages = form.Master.ProcessingPages
+         ProcessingEngine.Pages.Clear()
+         ProcessingEngine.Pages.AddRange(form.ProcessingPages)
+         ProcessingEngine.Process(form.Image, form.Alignment)
+      End Sub
+
+      '===========================================================================
+      '''This method recognizes the unknown form then processes it.
+      Public Sub RunFormRecognitionAndProcessing(ByVal form As MyForm)
+         form.Image = LoadRecognitionImage(form.FileName)
+         RecognizeForm(form)
+         If form.Master Is Nothing Then
+            Console.WriteLine("Unknown form")
+            Return
+         End If
+         Dim calculateAlignment As Boolean = LoadProcessingImage(form)
+         AlignForm(form, calculateAlignment)
+         ProcessForm(form)
+         PrintOutResults(form)
+      End Sub
+
+      '===========================================================================
+      ''' This method loads the specified master form attributes, fields, and image.
+      Public Function LoadMasterForm(ByVal attributesFileName As String, ByVal fieldsFileName As String, ByVal imageFileName As String) As MasterForm
+         Dim formData As Byte()
+         Dim form As MasterForm = New MasterForm()
+         formData = File.ReadAllBytes(attributesFileName)
+         form.Attributes = New FormRecognitionAttributes
+         form.Attributes.SetData(formData)
+         form.Properties = RecognitionEngine.GetFormProperties(form.Attributes)
+         ProcessingEngine.LoadFields(fieldsFileName)
+         form.ProcessingPages = ProcessingEngine.Pages
+         form.Image = FormsCodec.Load(imageFileName, 1, CodecsLoadByteOrder.Bgr, 1, -1)
+         Return form
+      End Function
+
+      ''' This method saves master form attributes to the specified filename.
+      Public Sub SaveMasterFormAttributes(ByVal form As MasterForm, ByVal attributesFileName As String)
+         Dim formData As Byte() = form.Attributes.GetData()
+         File.WriteAllBytes(attributesFileName, formData)
+      End Sub
+
+      ''' This method saves master form fields to the specified filename.
+      Public Sub SaveMasterFormFields(ByVal form As MasterForm, ByVal fieldsFileName As String)
+         ProcessingEngine.Pages.Clear()
+         ProcessingEngine.Pages.AddRange(form.ProcessingPages)
+         ProcessingEngine.SaveFields(fieldsFileName)
+      End Sub
+
+      '===========================================================================
+      ''' This method builds the Form Set.
+      Public Sub BuildFormsSet()
+         FormSet = New List(Of MasterForm)()
+
+         Dim Form107 As MasterForm = LoadMasterForm(Path.Combine(LEAD_VARS.ImagesDir, "Forms\MasterForm Sets\OCR\FFC-107.bin"), _
+                                                    Path.Combine(LEAD_VARS.ImagesDir, "Forms\MasterForm Sets\OCR\FFC-107.xml"), _
+                                                    Path.Combine(LEAD_VARS.ImagesDir, "Forms\MasterForm Sets\OCR\FFC-107.tif"))
+         FormSet.Add(Form107)
+
+         Dim Form180 As MasterForm = LoadMasterForm(Path.Combine(LEAD_VARS.ImagesDir, "Forms\MasterForm Sets\OCR\SF-180.bin"), _
+                                                    Path.Combine(LEAD_VARS.ImagesDir, "Forms\MasterForm Sets\OCR\SF-180.xml"), _
+                                                    Path.Combine(LEAD_VARS.ImagesDir, "Forms\MasterForm Sets\OCR\SF-180.tif"))
+         FormSet.Add(Form180)
+
+         Dim Form3881 As MasterForm = LoadMasterForm(Path.Combine(LEAD_VARS.ImagesDir, "Forms\MasterForm Sets\OCR\SF-3881.bin"), _
+                                                     Path.Combine(LEAD_VARS.ImagesDir, "Forms\MasterForm Sets\OCR\SF-3881.xml"), _
+                                                     Path.Combine(LEAD_VARS.ImagesDir, "Forms\MasterForm Sets\OCR\SF-3881.tif"))
+         FormSet.Add(Form3881)
+      End Sub
+
+      '===========================================================================
+
+      ''' This method prints the image field results
+      Public Sub PrintOutImage(ByVal field As ImageFormField)
+         Console.WriteLine()
+         Console.WriteLine("*** Image Field")
+         Dim result As ImageFormFieldResult = TryCast(field.Result, ImageFormFieldResult)
+         FormsCodec.Save(result.Image, Path.Combine(LEAD_VARS.ImagesDir, "ImageField.tif"), RasterImageFormat.Tif, 1)
+      End Sub
+
+      ''' This method prints the barcode field results
+      Public Sub PrintOutBarcode(ByVal field As BarcodeFormField)
+         Console.WriteLine()
+         Console.WriteLine("*** Barcode Field")
+         Dim result As BarcodeFormFieldResult = TryCast(field.Result, BarcodeFormFieldResult)
+         For Each barcode As BarcodeFieldData In result.BarcodeData
+            Console.WriteLine(" *- Barcode Type: " &amp; barcode.Symbology)
+            Console.WriteLine("  - Barcode Data: ")
+            Console.WriteLine(barcode.GetData())
+         Next barcode
+      End Sub
+
+      ''' This method prints the Omr field results
+      Public Sub PrintOutOmr(ByVal field As OmrFormField)
+         Console.WriteLine()
+         Console.WriteLine("*** Omr Field")
+         Dim result As OmrFormFieldResult = TryCast(field.Result, OmrFormFieldResult)
+         Console.WriteLine(" Is Checked?[1 = yes, 0 = No] = " &amp; result.Text)
+      End Sub
+
+      ''' This method prints the text field results
+      Public Sub PrintOutText(ByVal field As TextFormField)
+         Console.WriteLine()
+         Console.WriteLine("*** Text Field")
+         Dim result As TextFormFieldResult = TryCast(field.Result, TextFormFieldResult)
+         Console.WriteLine("Text: " &amp; result.Text)
+      End Sub
+
+      ''' This method prints the processing results
+      Public Sub PrintOutResults(ByVal form As MyForm)
+         If form.Result.Confidence &lt; 30 Then
+            Console.WriteLine("No match found")
+            Return
+         End If
+         Console.WriteLine("=======================Type===========================")
+         Console.WriteLine("Form Type is: " &amp; form.Master.Properties.Name)
+         Console.WriteLine("Confidance = " &amp; form.Result.Confidence)
+         Console.WriteLine()
+         Console.WriteLine("====================Fieds Result=======================")
+
+         Dim pageIndex As Integer = 0
+         Do While pageIndex &lt; form.ProcessingPages.Count
+            Console.WriteLine()
+            Console.WriteLine("=====Page # " &amp; form.ProcessingPages(pageIndex).PageNumber &amp; "=====")
+            Console.WriteLine()
+            For Each field As FormField In form.ProcessingPages(pageIndex)
+               If TypeOf field Is ImageFormField Then
+                  PrintOutImage(TryCast(field, ImageFormField))
+               ElseIf TypeOf field Is BarcodeFormField Then
+                  PrintOutBarcode(TryCast(field, BarcodeFormField))
+               ElseIf TypeOf field Is OmrFormField Then
+                  PrintOutOmr(TryCast(field, OmrFormField))
+               ElseIf TypeOf field Is TextFormField Then
+                  PrintOutText(TryCast(field, TextFormField))
+               End If
+            Next field
+            pageIndex += 1
+         Loop
+      End Sub
+
+      '===========================================================================
+      '''This method starts up the Ocr engine
+      Private Sub StartUpOcrEngine()
+         Try
+            FormsOcrEngine = OcrEngineManager.CreateEngine(OcrEngineType.Advantage, False)
+            FormsOcrEngine.Startup(FormsCodec, Nothing, Nothing, LEAD_VARS.OcrAdvantageRuntimeDir)
+         Catch exp As Exception
+            Console.WriteLine(exp.Message)
+         End Try
+      End Sub
+
+      '''This method shuts down the Ocr engine
+      Private Sub ShutDownOcrEngine()
+         FormsOcrEngine.Shutdown()
+         FormsOcrEngine.Dispose()
+      End Sub
+
+      '''This method starts up the Barcode engine
+      Private Sub StartUpBarcodeEngine()
+         Try
+            FormsBarcodeEngine = New BarcodeEngine()
+         Catch exp As Exception
+            Console.WriteLine(exp.Message)
+         End Try
+      End Sub
+
+      '''This method sets the object managers.
+      Public Sub SetObjectManagers(ByVal enableDefault As Boolean, ByVal enableOcr As Boolean, ByVal enableBarcode As Boolean)
+         If RecognitionEngine Is Nothing Then
+            Return
+         End If
+         If enableDefault Then
+            Dim defaultObjectManager As DefaultObjectsManager = New DefaultObjectsManager()
+            RecognitionEngine.ObjectsManagers.Add(defaultObjectManager)
+         End If
+
+         If enableOcr Then
+            Dim ocrObejectManager As OcrObjectsManager = New OcrObjectsManager(FormsOcrEngine)
+            ocrObejectManager.Engine = FormsOcrEngine
+            RecognitionEngine.ObjectsManagers.Add(ocrObejectManager)
+         End If
+
+         If enableBarcode Then
+            Dim barcodeObjectManager As BarcodeObjectsManager = New BarcodeObjectsManager(FormsBarcodeEngine)
+            barcodeObjectManager.Engine = FormsBarcodeEngine
+            RecognitionEngine.ObjectsManagers.Add(barcodeObjectManager)
+         End If
+      End Sub
+
+      '''This method starts up all engines.
+      Public Sub StartUpEngines()
+         StartUpOcrEngine()
+         StartUpBarcodeEngine()
+         RecognitionEngine = New FormRecognitionEngine()
+         SetObjectManagers(False, True, False)
+         ProcessingEngine = New FormProcessingEngine()
+         ProcessingEngine.OcrEngine = FormsOcrEngine
+         ProcessingEngine.BarcodeEngine = FormsBarcodeEngine
+      End Sub
+
+      '''This method shuts down all engines.
+      Public Sub ShutDownEngines()
+         ShutDownOcrEngine()
+      End Sub
+
+      '''This method starts up RasterCodec, intialize Form Codec, starts up all engines, and Build the form set
+      Public Sub StartUp()
+         '1)
+         FormsCodec = New RasterCodecs()
+         '2)
+         StartUpEngines()
+         '3)
+         RecognizeFirstPageOnly = False
+         LoadFromScanner = False
+         '4)
+         BuildFormsSet()
+      End Sub
+
+      '''This method shuts down engines, dispose all images, and shut down the RasterCodec.
+      Public Sub ShutDown()
+         '1)
+         ShutDownEngines()
+         '2)
+         For Each master As MasterForm In FormSet
+            master.Image.Dispose()
+         Next master
+         '3)
+         FormsCodec.Dispose()
+      End Sub
+
+
+      ''' Here all starts for to recognize and process the unknown form that is stored in a fiel with passed fileName.
+      Public Sub Run(ByVal fileName As String)
+         Dim form As MyForm = New MyForm()
+         form.FileName = fileName
+         RunFormRecognitionAndProcessing(form)
+         If Not form.Image Is Nothing Then
+            form.Image.Dispose()
+         End If
+      End Sub
+   End Class
+
+   Friend Class Program
+      ''' The main entry to the program.
+      Shared Sub Main(ByVal args As String())
+         If args Is Nothing OrElse args.Length = 0 Then
+            Return
+         End If
+
+         Dim test As TestForms = New TestForms()
+
+         test.StartUp()
+
+         test.Run(args(0))
+
+         test.ShutDown()
+      End Sub
+   End Class
+
+   Public NotInheritable Class LEAD_VARS
+   Public Const ImagesDir As String = "C:\Users\Public\Documents\LEADTOOLS Images"
+   Public Const OcrAdvantageRuntimeDir As String = "C:\LEADTOOLS 19\Bin\Common\OcrAdvantageRuntime"
+   End Class
+</code>
+        <code lang="CS">   using Leadtools;
+   using Leadtools.Barcode;
+   using Leadtools.Codecs;
+   using Leadtools.Forms;
+   using Leadtools.Forms.Ocr;
+   using Leadtools.Forms.Processing;
+   using Leadtools.Forms.Recognition;
+   using Leadtools.Forms.Recognition.Barcode;
+   using Leadtools.Forms.Recognition.Ocr;
+
+   /// This class contains all Master Form information.
+   class MasterForm
+   {
+      public RasterImage Image;
+      public FormRecognitionAttributes Attributes;
+      public FormRecognitionProperties Properties;
+      public FormPages ProcessingPages;
+      /// This constructor initializes all MasterForm members to zero/null/Empty.
+      public MasterForm()
+      {
+         Image = null;
+         Attributes = null;
+         Properties = FormRecognitionProperties.Empty;
+         ProcessingPages = null;
+      }
+   }
+
+   /// This class contains all MyForm information. MyForm is the filled form that is going to be identified and processed by the application.
+   class MyForm
+   {
+      public string FileName;
+      public RasterImage Image;
+      public FormRecognitionAttributes Attributes;
+      public MasterForm Master;
+      public FormRecognitionResult Result;
+      public IList&lt;PageAlignment&gt; Alignment;
+      public FormPages ProcessingPages;
+
+      /// This constructor initializes all MyForm members to zero/null/Empty.
+      public MyForm()
+      {
+         FileName = null;
+         Image = null;
+         Attributes = null;
+         Master = null;
+         Result = null;
+         Alignment = null;
+      }
+   }
+
+   /// TestForms is a class that has all the needed methods to recognize and process unknown forms. Once an instance of it is created StartUp should be called first to initialize the 
+   /// OCR and barcode engines in addition to building the Master Forms set. Next, call the Run method to recognize and process a specific form. Finally, call the ShutDown method 
+   /// once the program is terminated.
+   class TestForms
+   {
+      FormRecognitionEngine RecognitionEngine;
+      FormProcessingEngine ProcessingEngine;
+      BarcodeEngine FormsBarcodeEngine;
+      IOcrEngine FormsOcrEngine;
+      List&lt;MasterForm&gt; FormSet;
+      bool RecognizeFirstPageOnly;
+      bool LoadFromScanner;
+      RasterCodecs FormsCodec;
+
+
+      //===========================================================================
+      /// This method loads an image from a scanner.
+      public RasterImage LoadImageScanner(int count)
+      {
+         //TODO
+         return null;
+      }
+
+      /// This method loads an image from a scanner for recognition.
+      public RasterImage LoadRecognitionImageScanner()
+      {
+         //TODO
+         return null;
+      }
+
+      /// This method loads an image from a file.
+      public RasterImage LoadImageFile(string fileName, int firstPage, int lastPage)
+      {
+         // This method loads an image and verifies that all pages have been loaded.
+         RasterImage image = FormsCodec.Load(fileName, 1, CodecsLoadByteOrder.Bgr, firstPage, lastPage);
+         return image;
+      }
+      //===========================================================================
+      /// This method loads an image from a file for recognition.
+      public RasterImage LoadRecognitionImageFile(string fileName)
+      {
+         RasterImage image;
+         if (RecognizeFirstPageOnly)
+            image = LoadImageFile(fileName, 1, 1);
+         else
+            image = LoadImageFile(fileName, 1, -1);
+         return image;
+      }
+
+      /// This method loads an image for recognition.
+      public RasterImage LoadRecognitionImage(string fileName)
+      {
+         RasterImage image;
+         if (RecognizeFirstPageOnly)
+            image = LoadRecognitionImageScanner();
+         else
+            image = LoadRecognitionImageFile(fileName);
+         return image;
+      }
+
+      //===========================================================================
+      /// This method creates a form attributes object for recognition.
+      public FormRecognitionAttributes CreateForm()
+      {
+         FormRecognitionAttributes attributes = RecognitionEngine.CreateForm(null);
+         RecognitionEngine.CloseForm(attributes);
+         return attributes;
+      }
+
+      /// This method adds a page to a form attributes object for recognition.
+      public void AddPageToForm(RasterImage image, FormRecognitionAttributes attributes)
+      {
+         RecognitionEngine.OpenForm(attributes);
+         RecognitionEngine.AddFormPage(attributes, image, null);
+         RecognitionEngine.CloseForm(attributes);
+      }
+
+      /// This method deletes a page from a form attributes object for recognition.
+      public void DeletePageFromForm(int pagenumber, FormRecognitionAttributes form)
+      {
+         RecognitionEngine.OpenForm(form);
+         RecognitionEngine.DeleteFormPage(form, pagenumber);
+         RecognitionEngine.CloseForm(form);
+      }
+
+      /// This method creates a form along with its pages for recognition.
+      public void CreateFormForRecognition(MyForm form)
+      {
+         form.Attributes = CreateForm();
+         int saveCurrentPageIndex = form.Image.Page;
+         for (int i = 0; i &lt; form.Image.PageCount; i++)
+         {
+            form.Image.Page = i + 1;//page index is a 1-based index that starts from 1 not zero
+            AddPageToForm(form.Image, form.Attributes);
+         }
+         form.Image.Page = saveCurrentPageIndex;
+      }
+
+      //===========================================================================
+      /// This method creates a Master Form recognition attributes object.
+      public FormRecognitionAttributes CreateMasterForm(string name)
+      {
+         FormRecognitionAttributes attributes = RecognitionEngine.CreateMasterForm(name, Guid.Empty, null);
+         RecognitionEngine.CloseMasterForm(attributes);
+         return attributes;
+      }
+
+      /// This method adds a page to a Master Form recognition attributes object.
+      public void AddPageToMasterForm(RasterImage image, FormRecognitionAttributes attributes)
+      {
+         RecognitionEngine.OpenMasterForm(attributes);
+         RecognitionEngine.AddMasterFormPage(attributes, image, null);
+         RecognitionEngine.CloseMasterForm(attributes);
+      }
+
+      /// This method deletes a page from a Master Form recognition attributes object.
+      public void DeletePageFromMasterForm(int pagenumber, FormRecognitionAttributes form)
+      {
+         RecognitionEngine.OpenMasterForm(form);
+         RecognitionEngine.DeleteMasterFormPage(form, pagenumber);
+         RecognitionEngine.CloseMasterForm(form);
+      }
+
+      /// This method creates a Master Form with its pages for recognition purposes.
+      public void CreateMasterFormForRecognition(string name, MasterForm form)
+      {
+         form.Attributes = CreateMasterForm(name);
+         int saveCurrentPageIndex = form.Image.Page;
+         for (int i = 0; i &lt; form.Image.PageCount; i++)
+         {
+            form.Image.Page = i + 1;//page index is a 1-based starts from 1 not zero
+            AddPageToMasterForm(form.Image, form.Attributes);
+         }
+         form.Image.Page = saveCurrentPageIndex;
+      }
+
+      //===========================================================================
+      ///This method compares a Form to a Master Form using all pages.
+      FormRecognitionResult CompareForm(FormRecognitionAttributes master, FormRecognitionAttributes form)
+      {
+         return RecognitionEngine.CompareForm(master, form, null);
+      }
+
+      ///This method compares the first page of a Form to the first page of a Master Form.
+      FormRecognitionResult CompareFirstPage(FormRecognitionAttributes master, FormRecognitionAttributes form)
+      {
+         PageRecognitionResult resultPage = RecognitionEngine.ComparePage(master, 1, form, 1);
+         FormRecognitionResult result = new FormRecognitionResult();
+         result.Confidence = resultPage.Confidence;
+         result.LargestConfidencePageNumber = 1;
+         result.PageResults.Add(resultPage);
+         result.Reason = FormRecognitionReason.Success;
+         return result;
+      }
+
+      ///This method identifies the type of the form based on the comparison results.
+      public int IdentefyForm(FormRecognitionResult[] results)
+      {
+         int maxIndex = 0;
+         maxIndex = 0;
+         for (int i = 1; i &lt; results.Length; i++)
+         {
+            if (results[maxIndex].Confidence &lt; results[i].Confidence)
+               maxIndex = i;
+         }
+         if (results[maxIndex].Confidence &lt; 30)
+            maxIndex = -1;//no match
+         return maxIndex;
+      }
+
+      ///This method recognizes the type of an unknown form.
+      public void RecognizeForm(MyForm form)
+      {
+         CreateFormForRecognition(form);
+         FormRecognitionResult[] results = new FormRecognitionResult[FormSet.Count];
+         for (int i = 0; i &lt; FormSet.Count; i++)
+         {
+            if (RecognizeFirstPageOnly)
+               results[i] = CompareFirstPage(FormSet[i].Attributes, form.Attributes);
+            else
+               results[i] = CompareForm(FormSet[i].Attributes, form.Attributes);
+         }
+         int index = IdentefyForm(results);
+         if (index &gt;= 0)
+         {
+            form.Master = FormSet[index];
+            form.Result = results[index];
+         }
+         else
+         {
+            form.Master = null;
+            form.Result = null;
+         }
+      }
+      //===========================================================================
+      ///This method loadd images for processing purposes if needed.
+      bool LoadProcessingImage(MyForm form)
+      {
+         int count = form.Master.Properties.Pages - form.Image.PageCount;
+         if (count == 0)
+            return false;
+
+         RasterImage image;
+
+         if (LoadFromScanner)
+            image = LoadImageScanner(count);
+         else
+            image = LoadImageFile(form.FileName, form.Image.PageCount + 1, form.Image.PageCount + count);
+
+         form.Image.AddPages(image, 1, count);
+         return true;
+      }
+      //===========================================================================
+      ///This method calculates the alignment for the recognized form.
+      public void AlignForm(MyForm form, bool calculateAlignment)
+      {
+         if (calculateAlignment)
+         {
+            CreateFormForRecognition(form);
+            form.Alignment = RecognitionEngine.GetFormAlignment(form.Master.Attributes, form.Attributes, null);
+         }
+         else
+         {
+            form.Alignment = new List&lt;PageAlignment&gt;();
+            for (int i = 0; i &lt; form.Result.PageResults.Count; i++)
+               form.Alignment.Add(form.Result.PageResults[i].Alignment);
+         }
+      }
+
+      //===========================================================================
+      ///This method processes the recognized form.
+      public void ProcessForm(MyForm form)
+      {
+         form.ProcessingPages = form.Master.ProcessingPages;
+         ProcessingEngine.Pages.Clear();
+         ProcessingEngine.Pages.AddRange(form.ProcessingPages);
+         ProcessingEngine.Process(form.Image, form.Alignment);
+      }
+
+      //===========================================================================
+      ///This method recognizes the unknown form then processes it.
+      public void RunFormRecognitionAndProcessing(MyForm form)
+      {
+         form.Image = LoadRecognitionImage(form.FileName);
+         RecognizeForm(form);
+         if (form.Master == null)
+         {
+            Console.WriteLine("Unknown form");
+            return;
+         }
+         bool calculateAlignment = LoadProcessingImage(form);
+         AlignForm(form, calculateAlignment);
+         ProcessForm(form);
+         PrintOutResults(form);
+      }
+
+      //===========================================================================
+      /// This method loads the specified master form attributes object, fields, and image.
+      public MasterForm LoadMasterForm(string attributesFileName, string fieldsFileName, string imageFileName)
+      {
+         byte[] formData;
+         MasterForm form = new MasterForm();
+         formData = File.ReadAllBytes(attributesFileName);
+         form.Attributes = new FormRecognitionAttributes();
+         form.Attributes.SetData(formData);
+         form.Properties = RecognitionEngine.GetFormProperties(form.Attributes);
+         ProcessingEngine.LoadFields(fieldsFileName);
+         form.ProcessingPages = ProcessingEngine.Pages;
+         form.Image = FormsCodec.Load(imageFileName, 1, CodecsLoadByteOrder.Bgr, 1, -1);
+         return form;
+      }
+
+      /// This method saves the master form attributes object to the specified filename.
+      public void SaveMasterFormAttributes(MasterForm form, string attributesFileName)
+      {
+         byte[] formData = form.Attributes.GetData();
+         File.WriteAllBytes(attributesFileName, formData);
+      }
+
+      /// This method saves master form fields to the specified filename.
+      public void SaveMasterFormFields(MasterForm form, string fieldsFileName)
+      {
+         ProcessingEngine.Pages.Clear();
+         ProcessingEngine.Pages.AddRange(form.ProcessingPages);
+         ProcessingEngine.SaveFields(fieldsFileName);
+      }
+
+      //===========================================================================
+      /// This method builds the Form Set.
+      public void BuildFormsSet()
+      {
+         FormSet = new List&lt;MasterForm&gt;();
+
+         MasterForm Form107 = LoadMasterForm(
+            Path.Combine(LEAD_VARS.ImagesDir, @"Forms\MasterForm Sets\OCR\FFC-107.bin"),
+            Path.Combine(LEAD_VARS.ImagesDir, @"Forms\MasterForm Sets\OCR\FFC-107.xml"),
+            Path.Combine(LEAD_VARS.ImagesDir, @"Forms\MasterForm Sets\OCR\FFC-107.tif"));
+         FormSet.Add(Form107);
+
+         MasterForm Form180 = LoadMasterForm(
+            Path.Combine(LEAD_VARS.ImagesDir, @"Forms\MasterForm Sets\OCR\SF-180.bin"),
+            Path.Combine(LEAD_VARS.ImagesDir, @"Forms\MasterForm Sets\OCR\SF-180.xml"),
+            Path.Combine(LEAD_VARS.ImagesDir, @"Forms\MasterForm Sets\OCR\SF-180.tif"));
+         FormSet.Add(Form180);
+
+         MasterForm Form3881 = LoadMasterForm(
+            Path.Combine(LEAD_VARS.ImagesDir, @"Forms\MasterForm Sets\OCR\SF-3881.bin"),
+            Path.Combine(LEAD_VARS.ImagesDir, @"Forms\MasterForm Sets\OCR\SF-3881.xml"),
+            Path.Combine(LEAD_VARS.ImagesDir, @"Forms\MasterForm Sets\OCR\SF-3881.tif"));
+         FormSet.Add(Form3881);
+      }
+
+      //===========================================================================
+
+      /// This method prints the image field results
+      public void PrintOutImage(ImageFormField field)
+      {
+         Console.WriteLine();
+         Console.WriteLine("*** Image Field");
+         ImageFormFieldResult result = field.Result as ImageFormFieldResult;
+         FormsCodec.Save(result.Image, Path.Combine(LEAD_VARS.ImagesDir, "ImageField.tif"), RasterImageFormat.Tif, 1);
+      }
+
+      /// This method prints the barcode field results.
+      public void PrintOutBarcode(BarcodeFormField field)
+      {
+         Console.WriteLine();
+         Console.WriteLine("*** Barcode Field");
+         BarcodeFormFieldResult result = field.Result as BarcodeFormFieldResult;
+         foreach (BarcodeFieldData barcode in result.BarcodeData)
+         {
+            Console.WriteLine(" *- Barcode Type: " + barcode.Symbology);
+            Console.WriteLine("  - Barcode Data: " + barcode.GetData());
+         }
+      }
+
+      /// This method prints the OMR field results.
+      public void PrintOutOmr(OmrFormField field)
+      {
+         Console.WriteLine();
+         Console.WriteLine("*** Omr Field");
+         OmrFormFieldResult result = field.Result as OmrFormFieldResult;
+         Console.WriteLine(" Is Checked?[1 = yes, 0 = No] = " + result.Text);
+      }
+
+      /// This method prints the text field results.
+      public void PrintOutText(TextFormField field)
+      {
+         Console.WriteLine();
+         Console.WriteLine("*** Text Field");
+         TextFormFieldResult result = field.Result as TextFormFieldResult;
+         Console.WriteLine("Text: " + result.Text);
+      }
+
+      /// This method prints the processing results.
+      public void PrintOutResults(MyForm form)
+      {
+         if (form.Result.Confidence &lt; 30)
+         {
+            Console.WriteLine("No match found");
+            return;
+         }
+         Console.WriteLine("=======================Type===========================");
+         Console.WriteLine("Form Type is: " + form.Master.Properties.Name);
+         Console.WriteLine("Confidance = " + form.Result.Confidence);
+         Console.WriteLine();
+         Console.WriteLine("====================Fieds Result=======================");
+
+         for (int pageIndex = 0; pageIndex &lt; form.ProcessingPages.Count; pageIndex++)
+         {
+            Console.WriteLine();
+            Console.WriteLine("=====Page # " + form.ProcessingPages[pageIndex].PageNumber + "=====");
+            Console.WriteLine();
+            foreach (FormField field in form.ProcessingPages[pageIndex])
+            {
+               if (field is ImageFormField)
+                  PrintOutImage(field as ImageFormField);
+               else if (field is BarcodeFormField)
+                  PrintOutBarcode(field as BarcodeFormField);
+               else if (field is OmrFormField)
+                  PrintOutOmr(field as OmrFormField);
+               else if (field is TextFormField)
+                  PrintOutText(field as TextFormField);
+            }
+         }
+      }
+
+      //===========================================================================
+      ///This method starts up the OCR engine.
+      private void StartUpOcrEngine()
+      {
+         try
+         {
+            FormsOcrEngine = OcrEngineManager.CreateEngine(OcrEngineType.Advantage, false);
+            FormsOcrEngine.Startup(FormsCodec, null, null, LEAD_VARS.OcrAdvantageRuntimeDir);
+         }
+         catch (Exception exp)
+         {
+            Console.WriteLine(exp.Message);
+         }
+      }
+
+      ///This method shuts down the OCR engine.
+      private void ShutDownOcrEngine()
+      {
+         FormsOcrEngine.Shutdown();
+         FormsOcrEngine.Dispose();
+      }
+
+      ///This method starts up the Barcode engine.
+      private void StartUpBarcodeEngine()
+      {
+         try
+         {
+            FormsBarcodeEngine = new BarcodeEngine();
+         }
+         catch (Exception exp)
+         {
+            Console.WriteLine(exp.Message);
+         }
+      }
+
+      ///This method sets the object managers.
+      public void SetObjectManagers(bool enableDefault, bool enableOcr, bool enableBarcode)
+      {
+         if (RecognitionEngine == null)
+            return;
+         if (enableDefault)
+         {
+            DefaultObjectsManager defaultObjectManager = new DefaultObjectsManager();
+            RecognitionEngine.ObjectsManagers.Add(defaultObjectManager);
+         }
+
+         if (enableOcr)
+         {
+            OcrObjectsManager ocrObejectManager = new OcrObjectsManager(FormsOcrEngine);
+            ocrObejectManager.Engine = FormsOcrEngine;
+            RecognitionEngine.ObjectsManagers.Add(ocrObejectManager);
+         }
+
+         if (enableBarcode)
+         {
+            BarcodeObjectsManager barcodeObjectManager = new BarcodeObjectsManager(FormsBarcodeEngine);
+            barcodeObjectManager.Engine = FormsBarcodeEngine;
+            RecognitionEngine.ObjectsManagers.Add(barcodeObjectManager);
+         }
+      }
+
+      ///This method starts up all engines.
+      public void StartUpEngines()
+      {
+         StartUpOcrEngine();
+         StartUpBarcodeEngine();
+         RecognitionEngine = new FormRecognitionEngine();
+         SetObjectManagers(false, true, false);
+         ProcessingEngine = new FormProcessingEngine();
+         ProcessingEngine.OcrEngine = FormsOcrEngine;
+         ProcessingEngine.BarcodeEngine = FormsBarcodeEngine;
+      }
+
+      ///This method shuts down all engines.
+      public void ShutDownEngines()
+      {
+         ShutDownOcrEngine();
+      }
+
+      ///This method starts up a RasterCodec object, initializes a Form Codec, starts up all engines, and builds the form set.
+      public void StartUp()
+      {
+         //1)
+         FormsCodec = new RasterCodecs();
+         //2)
+         StartUpEngines();
+         //3)
+         RecognizeFirstPageOnly = false;
+         LoadFromScanner = false;
+         //4)
+         BuildFormsSet();
+      }
+
+      ///This method shuts down all engines, dispose of all images, and shuts down the RasterCodec.
+      public void ShutDown()
+      {
+         //1)
+         ShutDownEngines();
+         //2)
+         foreach (MasterForm master in FormSet)
+            master.Image.Dispose();
+         //3)
+         FormsCodec.Dispose();
+      }
+
+
+      /// This method starts the recognition process on the unknown form that is stored in a file with the passed fileName.
+      public void Run(string fileName)
+      {
+         MyForm form = new MyForm();
+         form.FileName = fileName;
+         RunFormRecognitionAndProcessing(form);
+         if (form.Image != null)
+            form.Image.Dispose();
+      }
+   }
+
+   class Program
+   {
+      /// The main entry to the program.
+      static void Main(string[] args)
+      {
+         if (args == null || args.Length == 0)
+            return;
+
+         TestForms test = new TestForms();
+
+         test.StartUp();
+
+         test.Run(args[0]);
+
+         test.ShutDown();
+      }
+   }
+
+   static class LEAD_VARS
+   {
+   public const string ImagesDir = @"C:\Users\Public\Documents\LEADTOOLS Images";
+   public const string OcrAdvantageRuntimeDir = @"C:\LEADTOOLS 19\Bin\Common\OcrAdvantageRuntime";
+   }
+</code>
+        <!--FormsRecognitionAndProcessing-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CreateForm(Leadtools.Forms.Recognition.FormRecognitionOptions)">
+      <summary>
+                Creates a new form, with the specified options, for use in recognition It returns a
+                <see cref="T:Leadtools.Forms.Recognition.FormRecognitionEngine" /> object that
+                you can use for creating any Form.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Engines</keywords>
+      <remarks>
+            This methods is used to create form attributes to the Forms (filled form), the attributes that are generated using this method cannot be used as a Master Form attributes.
+            </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      ''' This method creates a form attributes object for recognition.
+      Public Function CreateForm(ByVal recognitionEngine As FormRecognitionEngine) As FormRecognitionAttributes
+         Dim attributes As FormRecognitionAttributes = recognitionEngine.CreateForm(Nothing)
+         recognitionEngine.CloseForm(attributes)
+         Return attributes
+      End Function</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      /// This method creates a form attributes for recognition.
+      public FormRecognitionAttributes CreateForm(FormRecognitionEngine recognitionEngine)
+      {
+         FormRecognitionAttributes attributes = recognitionEngine.CreateForm(null);
+         recognitionEngine.CloseForm(attributes);
+         return attributes;
+      }</code>
+        <!--FormRecognitionEngine.CreateForm-->
+      </example>
+      <docaddon>yes</docaddon>
+      <param name="formOptions">A structure which specifies the form options.</param>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.GetFormProperties(Leadtools.Forms.Recognition.FormRecognitionAttributes)">
+      <summary>
+            Returns a <see cref="T:Leadtools.Forms.Recognition.FormRecognitionProperties" /> object that provides information about the specified <see cref="T:Leadtools.Forms.Recognition.FormRecognitionAttributes" /> such as isMaster, name, ID, creation time, modification time, last access time, and the number of pages.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Engines</keywords>
+      <param name="attributes">
+            The <see cref="T:Leadtools.Forms.Recognition.FormRecognitionAttributes" /> object to get its information.
+            </param>
+      <noremarks />
+      <example>For an example, refer to <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.LoadFields(System.String)">FormProcessingEngine.LoadFields(string fileName)</see>.</example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.GetPageAlignment(Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32,Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32)">
+      <summary>
+                Returns a <see cref="T:Leadtools.Forms.PageAlignment" /> object which specifies
+                the amount of shift and scaling for a specific form page, according to the
+                specified Master Form.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Engines</keywords>
+      <param name="masterAttributes">
+            The attributes of the Master Form. 
+            </param>
+      <param name="masterPageNumber">
+            The reference Master Form page. The page number is a 1-based index.
+            </param>
+      <param name="formAttributes">
+            The Form attributes object.
+            </param>
+      <param name="formPageNumber">
+            The page of the form being aligned. The page number is a 1-based index.
+            </param>
+      <remarks>
+            Alignment is necessary when processing forms so that data can be extracted correctly. This function returns a <see cref="T:Leadtools.Forms.PageAlignment" /> object that aligns a <see cref="T:Leadtools.Forms.LogicalRectangle" /> located in the Master Form to its equivalent position in the Form.
+            </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.GetPageAlignment(Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32,Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32,Leadtools.Forms.PageProgressCallback)">
+      <summary>
+                Returns a <see cref="T:Leadtools.Forms.PageAlignment" /> object which specifies
+                the amount of shift and scaling for a specific form page, according to the
+                specified Master Form.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Engines</keywords>
+      <param name="masterAttributes">
+            The attributes of the Master Form. 
+            </param>
+      <param name="masterPageNumber">
+            The reference Master Form page. The page number is a 1-based index.
+            </param>
+      <param name="formAttributes">
+            The Form attributes object.
+            </param>
+      <param name="formPageNumber">
+            The page of the form being aligned. The page number is a 1-based index.
+            </param>
+      <param name="callback">
+            Optional callback to show operation progress.
+            </param>
+      <remarks>
+            Alignment is necessary when processing forms so that data can be extracted correctly. This function returns a <see cref="T:Leadtools.Forms.PageAlignment" /> object that aligns a <see cref="T:Leadtools.Forms.LogicalRectangle" /> located in the Master Form to its equivalent position in the Form.
+            </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.ComparePage(Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32,Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32)">
+      <summary>
+            Returns a <see cref="T:Leadtools.Forms.Recognition.PageRecognitionResult" /> object that describes how close the specified Form page is in comparison to the specified Master Form page.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Engines</keywords>
+      <param name="masterAttributes">
+            The attributes of the Master Form. 
+            </param>
+      <param name="masterPageNumber">
+            The reference Master Form page. The page number is a 1-based index.
+            </param>
+      <param name="formAttributes">
+            The Form attributes object.
+            </param>
+      <param name="formPageNumber">
+            The page of the form being aligned. The page number is a 1-based index.
+            </param>
+      <remarks>
+            Comparisons should be made between two attribute sets that have been generated using the Default Manager Objects. For example, if the Master Form attribute object was generated using the BarcodeManager and the Form attribute object was generated using the OcrManager, then the Form will not be recognized (the Master Form attribute object would not have the text features of the Form object).
+            </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      '''This method compares the first page of a Form to the first page of a Master Form.
+        Private Function CompareFirstPage(ByVal recognitionEngine As FormRecognitionEngine, _
+                                          ByVal master As FormRecognitionAttributes, _
+                                          ByVal form As FormRecognitionAttributes) As FormRecognitionResult
+            Dim resultPage As PageRecognitionResult = recognitionEngine.ComparePage(master, 1, form, 1)
+            Dim result As FormRecognitionResult = New FormRecognitionResult()
+            result.Confidence = resultPage.Confidence
+            result.LargestConfidencePageNumber = 1
+            result.PageResults.Add(resultPage)
+            result.Reason = FormRecognitionReason.Success
+            Return result
+        End Function</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      ///This method compares the first page of a Form to the first page of a Master Form.
+      FormRecognitionResult CompareFirstPage(FormRecognitionEngine recognitionEngine, 
+                                             FormRecognitionAttributes master, 
+                                             FormRecognitionAttributes form)
+      {
+         PageRecognitionResult resultPage = recognitionEngine.ComparePage(master, 1, form, 1);
+         FormRecognitionResult result = new FormRecognitionResult();
+         result.Confidence = resultPage.Confidence;
+         result.LargestConfidencePageNumber = 1;
+         result.PageResults.Add(resultPage);
+         result.Reason = FormRecognitionReason.Success;
+         return result;
+      }</code>
+        <!--FormRecognitionEngine.ComparePage-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.ComparePage(Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32,Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32,Leadtools.Forms.PageProgressCallback)">
+      <summary>
+            Returns a <see cref="T:Leadtools.Forms.Recognition.PageRecognitionResult" /> object 
+            that describes how close the specified Form page is in comparison to the specified Master Form page.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Engines</keywords>
+      <param name="masterAttributes">
+            The attributes of the Master Form. 
+            </param>
+      <param name="masterPageNumber">
+            The reference Master Form page. The page number is a 1-based index.
+            </param>
+      <param name="formAttributes">
+            The Form attributes object.
+            </param>
+      <param name="formPageNumber">
+            The page of the form being aligned. The page number is a 1-based index.
+            </param>
+      <param name="callback">
+            Optional callback to show operation progress.
+            </param>
+      <remarks>
+            Comparisons should be made between two attribute sets that have been generated using the Default Manager Objects. For example, if the Master Form attribute object was generated using the BarcodeManager and the Form attribute object was generated using the OcrManager, then the Form will not be recognized since the Master Form attribute object does not have the text features the Form has.
+            </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      '''This method compares the first page of a Form to the first page of a Master Form.
+        Private Function CompareFirstPage(ByVal recognitionEngine As FormRecognitionEngine, _
+                                          ByVal master As FormRecognitionAttributes, _
+                                          ByVal form As FormRecognitionAttributes) As FormRecognitionResult
+            Dim resultPage As PageRecognitionResult = recognitionEngine.ComparePage(master, 1, form, 1)
+            Dim result As FormRecognitionResult = New FormRecognitionResult()
+            result.Confidence = resultPage.Confidence
+            result.LargestConfidencePageNumber = 1
+            result.PageResults.Add(resultPage)
+            result.Reason = FormRecognitionReason.Success
+            Return result
+        End Function</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      ///This method compares the first page of a Form to the first page of a Master Form.
+      FormRecognitionResult CompareFirstPage(FormRecognitionEngine recognitionEngine, 
+                                             FormRecognitionAttributes master, 
+                                             FormRecognitionAttributes form)
+      {
+         PageRecognitionResult resultPage = recognitionEngine.ComparePage(master, 1, form, 1);
+         FormRecognitionResult result = new FormRecognitionResult();
+         result.Confidence = resultPage.Confidence;
+         result.LargestConfidencePageNumber = 1;
+         result.PageResults.Add(resultPage);
+         result.Reason = FormRecognitionReason.Success;
+         return result;
+      }</code>
+        <!--FormRecognitionEngine.ComparePage-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CloseForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)">
+      <summary>
+            Closes an open <see cref="T:Leadtools.Forms.Recognition.FormRecognitionAttributes" /> object associated with a Form.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Engines</keywords>
+      <param name="attributes">
+            An open <see cref="T:Leadtools.Forms.Recognition.FormRecognitionAttributes" /> object.
+            </param>
+      <remarks>
+            Call this method to update the Form attribute object with changes like page additions or deletions that have been made since this object was last opened or created.
+            <para>This method works only with a Form attributes object. To close a Master Form attribute object call the <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CloseMasterForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)" /> method.</para></remarks>
+      <example>For an example, refer to <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.AddFormPage(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.RasterImage,Leadtools.Forms.Recognition.PageRecognitionOptions)" />.</example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CloseMasterForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)">
+      <summary>
+            Closes an open <see cref="T:Leadtools.Forms.Recognition.FormRecognitionAttributes" /> object associated with a Master Form.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Master Forms</keywords>
+      <param name="attributes">
+            An open <see cref="T:Leadtools.Forms.Recognition.FormRecognitionAttributes" /> object.
+            </param>
+      <remarks>
+            Call this method to update a Master Form attribute object with changes like page additions or deletions that have been made since this object was last opened or created.
+            <para>This method works only with Master Form attribute objects. To close a Form attribute object call the <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CloseForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)" /> method.</para></remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.DeleteFormPage(Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32)">
+      <summary>
+            Deletes the specified page from the specified Form attribute object.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Pages</keywords>
+      <param name="attributes">
+            The Form attribute object.
+            </param>
+      <param name="pageNumber">
+            The page being deleted from the form. The page number is a 1-based index.
+            </param>
+      <remarks>
+        <para>The object should be a Form attribute object. To delete a page from a Master Form attribute object, call the <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.DeleteMasterFormPage(Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32)" />method.</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      ''' This method deletes a page from a form attributes object for recognition.
+        Public Sub DeletePageFromForm(ByVal recognitionEngine As FormRecognitionEngine, _
+                                      ByVal pagenumber As Integer, _
+                                      ByVal form As FormRecognitionAttributes)
+            recognitionEngine.OpenForm(form)
+            recognitionEngine.DeleteFormPage(form, pagenumber)
+            recognitionEngine.CloseForm(form)
+        End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      /// This method deletes a page from form attributes for recognition.
+      public void DeletePageFromForm(FormRecognitionEngine recognitionEngine, 
+                                     int pagenumber, 
+                                     FormRecognitionAttributes form)
+      {
+         recognitionEngine.OpenForm(form);
+         recognitionEngine.DeleteFormPage(form, pagenumber);
+         recognitionEngine.CloseForm(form);
+      }</code>
+        <!--FormRecognitionEngine.DeleteFormPage-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.DeleteMasterFormPage(Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32)">
+      <summary>
+            Deletes the specified page from the specified Master Form.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Master Forms</keywords>
+      <param name="attributes">
+            The Master Form attribute object.
+            </param>
+      <param name="pageNumber">
+            The page of the Master Form being deleted. The page number is a 1-based index.
+            </param>
+      <remarks>
+        <para>The object should be a Master Form attribute object. To delete a page from a Form attribute object, call the <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.DeleteFormPage(Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32)" /> method.</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      ''' This method deletes a page from a Master Form recognition attributes object.
+        Public Sub DeletePageFromMasterForm(ByVal recognitionEngine As FormRecognitionEngine, _
+                                            ByVal pagenumber As Integer, _
+                                            ByVal form As FormRecognitionAttributes)
+            recognitionEngine.OpenMasterForm(form)
+            recognitionEngine.DeleteMasterFormPage(form, pagenumber)
+            recognitionEngine.CloseMasterForm(form)
+        End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      /// This method deletes a page from a Master Form recognition attributes.
+      public void DeletePageFromMasterForm(FormRecognitionEngine recognitionEngine, 
+                                           int pagenumber, 
+                                           FormRecognitionAttributes form)
+      {
+         recognitionEngine.OpenMasterForm(form);
+         recognitionEngine.DeleteMasterFormPage(form, pagenumber);
+         recognitionEngine.CloseMasterForm(form);
+      }</code>
+        <!--FormRecognitionEngine.DeleteMasterFormPage-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.OpenForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)">
+      <summary>
+            Opens a closed Form attribute object for editing, or adding or deleting pages.
+            </summary>
+      <keywords>Forms|Processing|Recognition</keywords>
+      <param name="attributes">
+            The Form attribute object.
+            </param>
+      <remarks>
+        <para>The object should be a Form attribute object. To open a Master Form attribute object, call the <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.OpenMasterForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)" />method.</para>
+      </remarks>
+      <example>For an example, refer to <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.AddFormPage(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.RasterImage,Leadtools.Forms.Recognition.PageRecognitionOptions)" />.</example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.OpenMasterForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)">
+      <summary>
+            Opens a closed Master Form attribute object for editing, or adding or deleting pages.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Master Forms</keywords>
+      <param name="attributes">
+            The Master Form attribute object
+            </param>
+      <remarks>
+        <para>The object should be a Master Form attribute object. To open a Form attribute object, call the <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.OpenForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)" /> method.</para>
+      </remarks>
+      <example>For an example, refer to <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.AddMasterFormPage(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.RasterImage,Leadtools.Forms.Recognition.PageRecognitionOptions)" />.</example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CreateMasterForm(System.String,System.Guid,Leadtools.Forms.Recognition.FormRecognitionOptions)">
+      <summary>
+            Creates a new Master Form attribute object with the specified options. 
+            </summary>
+      <keywords>Forms|Processing|Recognition|Master Forms</keywords>
+      <param name="formName">
+            The name of the Master Form.
+            </param>
+      <param name="formGuid">
+            The Master Form's ID.
+            </param>
+      <param name="formOptions">
+            The options for the Master Form.
+            </param>
+      <remarks>
+            This method returns a <see cref="T:Leadtools.Forms.Recognition.FormRecognitionEngine" /> object that you can use when creating a Master Form (unfilled form). 
+            This method can only be used to create form attributes for a Master Form (unfilled form).
+            </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      ''' This method creates a Master Form recognition attributes object.
+        Public Function CreateMasterForm(ByVal recognitionEngine As FormRecognitionEngine, _
+                                         ByVal name As String) As FormRecognitionAttributes
+            Dim attributes As FormRecognitionAttributes = recognitionEngine.CreateMasterForm(name, _
+                                                                                             Guid.Empty, _
+                                                                                             Nothing)
+            recognitionEngine.CloseMasterForm(attributes)
+            Return attributes
+        End Function</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      /// This method creates a Master Form recognition attributes.
+      public FormRecognitionAttributes CreateMasterForm(FormRecognitionEngine recognitionEngine, string name)
+      {
+         FormRecognitionAttributes attributes = recognitionEngine.CreateMasterForm(name, Guid.Empty, null);
+         recognitionEngine.CloseMasterForm(attributes);
+         return attributes;
+      }</code>
+        <!--FormRecognitionEngine.CreateMasterForm-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Recognition.FormRecognitionEngine" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CompareForm(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.FormProgressCallback)">
+      <summary>
+            Returns a <see cref="T:Leadtools.Forms.Recognition.FormRecognitionResult" /> object that describes how close the specified Form is to the specified Master Form.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Master Forms</keywords>
+      <param name="masterAttributes">
+            The Master Form attribute object.
+            </param>
+      <param name="formAttributes">
+            The Form attribute object.
+            </param>
+      <param name="callback">
+            Status on the progress of the comparison. Set it to null to ignore progress.
+            </param>
+      <remarks>
+            The Master Form and the Form must have the same number of pages. 
+            If they do not, the result will be zero and the reason will be 
+            <see cref="T:Leadtools.Forms.Recognition.FormRecognitionReason" />.InvalidNumberOfPages.
+            <para>If the number of pages of the Form is unknown (such as when a scanner is loaded with different forms), use the <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.ComparePage(Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32,Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32)" /> method to compare it with the first page of each Master Form.  Then use the <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.GetFormProperties(Leadtools.Forms.Recognition.FormRecognitionAttributes)" /> method to get the number of pages in the Master Form. Next, update the Form attribute object with the required pages if needed for processing.</para><para>Comparisons should be made between two attribute sets that were generated using the same Default Manager Objects. For example if the Master Form attribute object was generated using the .BarcodeManager and the Form attribute object was generated using the OcrManager, then the Form will not be recognized since the Master Form attributes do not have the text features of the Form.</para><para>In order to recognize a Form, the Form attributes must be compared with all Master Forms attributes that represent the different types of form templates. The Form type is the type of the Master Form attribute object that has generated the highest confidence value. If the highest confidence value is very low that means the Form is not one the types of the Master Forms (i.e. the type of this Form is not defined in the Master Forms set)</para></remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      '''This method compares a Form to a Master Form using all pages.
+        Private Function CompareForm(ByVal recognitionEngine As FormRecognitionEngine, _
+                                     ByVal master As FormRecognitionAttributes, _
+                                     ByVal form As FormRecognitionAttributes) As FormRecognitionResult
+            Return recognitionEngine.CompareForm(master, form, Nothing)
+        End Function</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      ///This method compares a Form to a Master Form using all pages.
+      FormRecognitionResult CompareForm(FormRecognitionEngine recognitionEngine, 
+                                        FormRecognitionAttributes master, 
+                                        FormRecognitionAttributes form)
+      {
+         return recognitionEngine.CompareForm(master, form, null);
+      }</code>
+        <!--FormRecognitionEngine.CompareForm-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CompareForm(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.FormProgressCallback,Leadtools.Forms.PageProgressCallback)">
+      <summary>
+            Returns a <see cref="T:Leadtools.Forms.Recognition.FormRecognitionResult" /> object determines how close is the specified Form to the specified Master Form.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Master Forms</keywords>
+      <param name="masterAttributes">
+            The Master Form attribute object.
+            </param>
+      <param name="formAttributes">
+            The Form attribute object.
+            </param>
+      <param name="formCallback">
+            Status about the progress of the comparison at the form level (i.e. page by page). Set it to null to ignore the progress.
+            </param>
+      <param name="pageCallback">
+            Provides status on the progress of the comparison at the page level. Set it to null to ignore the progress.
+            </param>
+      <remarks>
+            The Master Form and the Form must have the same number of pages. 
+            If they do not, the result will be zero and the reason will be 
+            <see cref="T:Leadtools.Forms.Recognition.FormRecognitionReason" />.InvalidNumberOfPages.
+            <para>In a case that the number of pages in unKnown of the Form, such as scanner loaded with different forms, it is preferable to use <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.ComparePage(Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32,Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32)" /> to compare it with the first page of each Master Form then use <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.GetFormProperties(Leadtools.Forms.Recognition.FormRecognitionAttributes)" /> to get the number of pages of the Master Form then update your Form attributes with the required pages if needed for processing.</para>
+            Comparisons should be made between two attribute sets that have been generated using the Default Manager Objects. For example, if the Master Form attribute object was generated using the BarcodeManager and the Form attribute object was generated using the OcrManager, then the Form will not be recognized (the Master Form attribute object would not have the text features of the Form object).
+            <para>In order to recognize a Form, the Form attribute object must be compared with all of the Master Form attribute objects representing different types of form templates. The Form's type is that Master Form attribute object that generated the highest confidence value. If the highest confidence value is very low that means the Form is not one the types of the Master Forms (i.e. the type of this Form is not defined in the Master Form set)</para></remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      '''This method compares a Form to a Master Form using all pages.
+        Private Function CompareForm(ByVal recognitionEngine As FormRecognitionEngine, _
+                                     ByVal master As FormRecognitionAttributes, _
+                                     ByVal form As FormRecognitionAttributes) As FormRecognitionResult
+            Return recognitionEngine.CompareForm(master, form, Nothing)
+        End Function</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      ///This method compares a Form to a Master Form using all pages.
+      FormRecognitionResult CompareForm(FormRecognitionEngine recognitionEngine, 
+                                        FormRecognitionAttributes master, 
+                                        FormRecognitionAttributes form)
+      {
+         return recognitionEngine.CompareForm(master, form, null);
+      }</code>
+        <!--FormRecognitionEngine.CompareForm-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CompareFormFast(System.Collections.Generic.List{Leadtools.Forms.Recognition.FormRecognitionAttributes},Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.FormProgressCallback)">
+      <summary>
+            Returns a <see cref="T:Leadtools.Forms.Recognition.FormRecognitionResult" /> object determines how close is the specified Form to the specified Master Form.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Master Forms</keywords>
+      <param name="mastersAttributes">
+            List of all Master Forms attribute objects that you want to compare with.
+            </param>
+      <param name="formAttributes">
+            The Form attribute object.
+            </param>
+      <param name="formCallback">
+            Status about the progress of the comparison at the form level (i.e. page by page). Set it to null to ignore the progress.
+            </param>
+      <remarks>
+            The Master Forms and the Form must have the same number of pages. 
+            If they do not, the result will be zero and the reason will be 
+            <see cref="T:Leadtools.Forms.Recognition.FormRecognitionReason" />.InvalidNumberOfPages.
+            <para>In a case that the number of pages in unKnown of the Form, such as scanner loaded with different forms, it is preferable to use <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.ComparePage(Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32,Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32)" /> to compare it with the first page of each Master Form then use <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.GetFormProperties(Leadtools.Forms.Recognition.FormRecognitionAttributes)" /> to get the number of pages of the Master Form then update your Form attributes with the required pages if needed for processing.</para><para>In order to recognize a Form, the Form attribute object must be compared with all of the Master Form attribute objects (contained in the list passed to this function) representing different types of form templates. The Form's type is that Master Form attribute object that generated the highest confidence value. If the highest confidence value is very low that means the Form is not one the types of the Master Forms (i.e. the type of this Form is not defined in the Master Form set)</para></remarks>
+      <example>
+        <code lang="VB"> Imports Leadtools
+ Imports Leadtools.Barcode
+ Imports Leadtools.Codecs
+ Imports Leadtools.Forms
+ Imports Leadtools.Forms.Ocr
+ Imports Leadtools.Forms.Processing
+ Imports Leadtools.Forms.Recognition
+ Imports Leadtools.Forms.Recognition.Barcode
+ Imports Leadtools.Forms.Recognition.Ocr
+
+'''This method compares a Form to a List of Master Form                                                                                                                                                                                                                                                                                                                                                         .
+Public Function CompareFormFast(page As RasterImage, formAttributes As FormRecognitionAttributes, mastersAttributes As List(Of FormRecognitionAttributes), engine As FormRecognitionEngine) As FormRecognitionResult
+   formAttributes.Image = page
+   Return engine.CompareFormFast(mastersAttributes, formAttributes, Nothing)
+End Function</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      ///This method compares a Form to a List of Master Form                                                                                                                                                                                                                                                                                                                                                         .
+      public FormRecognitionResult CompareFormFast(RasterImage page, FormRecognitionAttributes formAttributes, List&lt;FormRecognitionAttributes&gt; mastersAttributes, FormRecognitionEngine engine)
+      {
+         formAttributes.Image = page;
+         return engine.CompareFormFast(mastersAttributes, formAttributes, null);
+      }</code>
+        <!--FormRecognitionEngine.CompareFormFast-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.GetPageOptions(Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32)">
+      <summary>
+            Returns a <see cref="T:Leadtools.Forms.Recognition.PageRecognitionOptions" /> object from specifc page number in <see cref="T:Leadtools.Forms.Recognition.FormRecognitionAttributes" />.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Master Forms|Page Options</keywords>
+      <param name="masterAttributes">
+            An attribute object conatins pages.
+            </param>
+      <param name="pageNumber">
+            Specific page index inside attributes.
+            </param>
+      <remarks>
+            Each page in Attribute has a page option or it could be null for that page. 
+            </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.SetPageOptions(Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32,Leadtools.Forms.Recognition.PageRecognitionOptions)">
+      <summary>
+            set a <see cref="T:Leadtools.Forms.Recognition.PageRecognitionOptions" /> object in page inside <see cref="T:Leadtools.Forms.Recognition.FormRecognitionAttributes" /> and return true if success.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Master Forms|Page Options</keywords>
+      <param name="masterAttributes">
+            An attribute object conatins pages.
+            </param>
+      <param name="pageNumber">
+            Specific page index inside attributes.
+            </param>
+      <param name="options">
+            The page Options that we want to set.
+            </param>
+      <remarks>
+            User should check return value to insure that function succeeded.
+            <para>If page already has option, old options will be removed and set new one (passed by function call).</para></remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CompareExtendedForm(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.FormProgressCallback,Leadtools.Forms.PageProgressCallback)">
+      <summary>
+            Returns a <see cref="T:Leadtools.Forms.Recognition.FormRecognitionResult" /> object determines how close is the specified Form to the specified Master Form.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Master Forms</keywords>
+      <param name="masterAttributes">
+            The Master Form attribute object.
+            </param>
+      <param name="formAttributes">
+            The Form attribute object.
+            </param>
+      <param name="formCallback">
+            Status about the progress of the comparison at the form level (i.e. page by page). Set it to null to ignore the progress.
+            </param>
+      <param name="pageCallback">
+            Provides status on the progress of the comparison at the page level. Set it to null to ignore the progress.
+            </param>
+      <remarks>
+            Form must have number of pages larger than or equal Master Form pages number. 
+            If they do not, the result will be zero and the reason will be 
+            <see cref="T:Leadtools.Forms.Recognition.FormRecognitionReason" />.InvalidNumberOfPages.
+            <para>This function should be used To Compare Form with Master forms that have invoice (TableFormField).</para><para>In order to recognize a Form, the Form attribute object must be compared with all of the Master Form attribute objects that have incoive (TableFormField),representing different types of form templates. The Form's type is that Master Form attribute object that generated the highest confidence value. If the highest confidence value is very low that means the Form is not one the types of the Master Forms (i.e. the type of this Form is not defined in the Master Form set)</para></remarks>
+      <example>
+        <code lang="VB"> Imports Leadtools
+ Imports Leadtools.Barcode
+ Imports Leadtools.Codecs
+ Imports Leadtools.Forms
+ Imports Leadtools.Forms.Ocr
+ Imports Leadtools.Forms.Processing
+ Imports Leadtools.Forms.Recognition
+ Imports Leadtools.Forms.Recognition.Barcode
+ Imports Leadtools.Forms.Recognition.Ocr
+
+'''This method will comapre form with Extended MasterForms (conatins Table Form Field).
+Public Function CompareExtendedForm(page As RasterImage, formAttributes As FormRecognitionAttributes, masterAttributes As FormRecognitionAttributes, engine As FormRecognitionEngine) As FormRecognitionResult
+   'Note that mastersAttributes is attributes for master form that contains Table Form Field. 
+   Return engine.CompareExtendedForm(mastersAttributes, formAttributes, Nothing)
+End Function</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      ///This method will comapre form with Extended MasterForms (conatins Table Form Field).
+      public FormRecognitionResult CompareExtendedForm(RasterImage page, FormRecognitionAttributes formAttributes, FormRecognitionAttributes masterAttributes, FormRecognitionEngine engine)
+      {
+         //Note that mastersAttributes is attributes for master form that contains Table Form Field. 
+         return engine.CompareExtendedForm(mastersAttributes, formAttributes, null);      
+      }</code>
+        <!--FormRecognitionEngine.CompareExtendedForm-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.FillFieldsInformation(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.Processing.FormPages,System.Collections.Generic.List{Leadtools.Forms.PageAlignment})">
+      <summary>
+            Udpate passed <see cref="T:Leadtools.Forms.Processing.FormPages" /> by filling Extra-information after recognition phase but before Processing phase.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Master Forms</keywords>
+      <param name="masterAttributes">
+            The Master Form attribute object.
+            </param>
+      <param name="formAttributes">
+            The Form attribute object.
+            </param>
+      <param name="pages">
+            The <see cref="T:Leadtools.Forms.Processing.FormPages" /> that needs to by updated with Recognition Information.
+            </param>
+      <param name="alignments">
+            List of Alignments for Each page in <see cref="T:Leadtools.Forms.Processing.FormPages" />.
+            </param>
+      <remarks>
+            User should call this function to update <see cref="T:Leadtools.Forms.Processing.FormPages" /> to get better results and fix alot of recognition problems that may occur.
+            </remarks>
+      <example>
+        <code lang="VB"> Imports Leadtools
+ Imports Leadtools.Barcode
+ Imports Leadtools.Codecs
+ Imports Leadtools.Forms
+ Imports Leadtools.Forms.Ocr
+ Imports Leadtools.Forms.Processing
+ Imports Leadtools.Forms.Recognition
+ Imports Leadtools.Forms.Recognition.Barcode
+ Imports Leadtools.Forms.Recognition.Ocr
+
+'''This method will comapre form Master Form and if they matched then update Form FormPages.
+Public Sub FillFieldsInformation(pages As FormPages, formAttributes As FormRecognitionAttributes, masterAttributes As FormRecognitionAttributes, engine As FormRecognitionEngine)
+   Dim result As FormRecognitionResult = engine.CompareForm(masterAttributes, formAttributes, Nothing)
+   'check if we have good results then update pages to used in Process stage
+   If result IsNot Nothing AndAlso result.Reason = FormRecognitionReason.Success AndAlso result.Confidence &gt; 50 Then
+      'save all pages alignment in List and pass them to FillFieldsInformation
+      Dim alignments As New List(Of PageAlignment)()
+      For i As Integer = 0 To result.PageResults.Count - 1
+         alignments.Add(result.PageResults(i).Alignment)
+      Next
+      'the pages will be updated
+      engine.FillFieldsInformation(masterAttributes, formAttributes, pages, alignments)
+   End If
+End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      ///This method will comapre form Master Form and if they matched then update Form FormPages.
+      public void FillFieldsInformation(FormPages pages, FormRecognitionAttributes formAttributes, FormRecognitionAttributes masterAttributes, FormRecognitionEngine engine)
+      {
+         FormRecognitionResult result = engine.CompareForm(masterAttributes, formAttributes, null);
+         //check if we have good results then update pages to used in Process stage
+         if (result != null &amp;&amp; result.Reason == FormRecognitionReason.Success &amp;&amp; result.Confidence &gt; 50)
+         {
+            //save all pages alignment in List and pass them to FillFieldsInformation
+            List&lt;PageAlignment&gt; alignments = new List&lt;PageAlignment&gt;();
+            for (int i = 0; i &lt; result.PageResults.Count; i++)
+               alignments.Add(result.PageResults[i].Alignment);
+            //the pages will be updated
+            engine.FillFieldsInformation(masterAttributes, formAttributes, pages, alignments);
+         }
+      }</code>
+        <!--FormRecognitionEngine.FillFieldsInformation-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.GetFormAlignment(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.FormProgressCallback)">
+      <summary>
+            Returns a list of <see cref="T:Leadtools.Forms.PageAlignment" /> objects that determines the amount of shift and scaling for each page of the Form with its corresponding page in the specified Master Form.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Master Forms</keywords>
+      <param name="masterAttributes">
+            The Master Form attributes object.
+            </param>
+      <param name="formAttributes">
+            The Form attributes object.
+            </param>
+      <param name="callback">
+            Provides status on the progress of the alignment calculations at the form level (i.e. page by page). 
+            Set it to null to ignore the progress.
+            </param>
+      <returns>
+            A list of <see cref="T:Leadtools.Forms.PageAlignment" /> objects that determines the amount of shift and scaling for each page of the Form with its corresponding page in the specified Master Form.
+            </returns>
+      <remarks>
+            Alignment is necessary when processing forms so that data can be extracted correctly. This function returns a <see cref="T:Leadtools.Forms.PageAlignment" /> object that aligns a <see cref="T:Leadtools.Forms.LogicalRectangle" /> located in the Master Form to its equivalent position in the Form.
+            </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.GetFormAlignment(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.FormProgressCallback,Leadtools.Forms.PageProgressCallback)">
+      <summary>
+            Returns a list of <see cref="T:Leadtools.Forms.PageAlignment" /> objects that determines the amount of shift and scaling for each page of the Form with its corresponding page in the specified Master Form.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Master Forms</keywords>
+      <param name="masterAttributes">
+            The Master Form attributes object.
+            </param>
+      <param name="formAttributes">
+            The Form attributes object.
+            </param>
+      <param name="formCallback">
+            Provides status on the progress of the alignment calculations at the form level (i.e. page by page). 
+            Set it to null to ignore the progress.
+            </param>
+      <param name="pageCallback">
+            Provides status on the progress of the alignment calculations at the page level. 
+            Set it to null to ignore the progress.
+            </param>
+      <returns>
+            A list of <see cref="T:Leadtools.Forms.PageAlignment" /> objects that determines the amount of shift and scaling for each page of the Form with its corresponding page in the specified Master Form.
+            </returns>
+      <remarks>
+            Alignment is necessary when processing forms so that data can be extracted correctly. This function returns a <see cref="T:Leadtools.Forms.PageAlignment" /> object that aligns a <see cref="T:Leadtools.Forms.LogicalRectangle" /> located in the Master Form to its equivalent position in the Form.
+            </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      '''This method calculates the alignment for the recognized form.
+        Public Sub AlignForm(ByVal recognitionEngine As FormRecognitionEngine, _
+                             ByVal form As MyForm, _
+                             ByVal calculateAlignment As Boolean)
+            If calculateAlignment Then
+                form.Alignment = recognitionEngine.GetFormAlignment(form.Master.Attributes, _
+                                                                    form.Attributes, Nothing)
+            Else
+                form.Alignment = New List(Of PageAlignment)()
+                Dim i As Integer = 0
+                Do While i &lt; form.Result.PageResults.Count
+                    form.Alignment.Add(form.Result.PageResults(i).Alignment)
+                    i += 1
+                Loop
+            End If
+        End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      ///This method calculates the aligmnet for the recognized form.
+      public void AlignForm(FormRecognitionEngine recognitionEngine, MyForm form, bool calculateAlignment)
+      {
+         if(calculateAlignment)
+         {
+            form.Alignment = recognitionEngine.GetFormAlignment(form.Master.Attributes, form.Attributes, null);
+         }
+         else
+         {
+            form.Alignment = new List&lt;PageAlignment&gt;();
+            for(int i = 0; i &lt; form.Result.PageResults.Count; i++)
+               form.Alignment.Add(form.Result.PageResults[i].Alignment);
+         }
+      }</code>
+        <!--FormRecognitionEngine.GetFormAlignment-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.AddFormPage(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.RasterImage,Leadtools.Forms.Recognition.PageRecognitionOptions)">
+      <summary>
+            Appends a new page to the specified Form attributes object. 
+            The Form attributes object should be opened before the addition 
+            using <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.OpenForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)" />.
+            </summary>
+      <keywords>Forms|Processing|Recognition</keywords>
+      <param name="attributes">
+            The Form attributes object.
+            </param>
+      <param name="page">
+            The page image that is going to be added to the Form attributes object.
+            </param>
+      <param name="pageOptions">
+            Specifies the options for the page.
+            </param>
+      <remarks>
+        <para>The attributes should be a Form attributes, this method does not work for Master Forms attributes. To add a page to a Master Form attributes use <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.AddMasterFormPage(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.RasterImage,Leadtools.Forms.Recognition.PageRecognitionOptions)" />.</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      ''' This method adds a page to a form attributes object for recognition.
+        Public Sub AddPageToForm(ByVal recognitionEngine As FormRecognitionEngine, _
+                                 ByVal image As RasterImage, _
+                                 ByVal attributes As FormRecognitionAttributes)
+            recognitionEngine.OpenForm(attributes)
+            recognitionEngine.AddFormPage(attributes, image, Nothing)
+            recognitionEngine.CloseForm(attributes)
+        End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      /// This method adds a page to form attributes for recognition.
+      public void AddPageToForm(FormRecognitionEngine recognitionEngine, RasterImage image, FormRecognitionAttributes attributes)
+      {
+         recognitionEngine.OpenForm(attributes);
+         recognitionEngine.AddFormPage(attributes, image, null);
+         recognitionEngine.CloseForm(attributes);
+      }</code>
+        <!--FormRecognitionEngine.AddFormPage-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.AddFormPage(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.RasterImage,Leadtools.Forms.Recognition.PageRecognitionOptions,Leadtools.Forms.PageProgressCallback)">
+      <summary>
+            Appends a new page to the specified Form attributes object. 
+            The Form attributes object should be opened before the addition 
+            using <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.OpenForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)" />.
+            </summary>
+      <keywords>Forms|Processing|Recognition</keywords>
+      <param name="attributes">
+            The Form attributes object.
+            </param>
+      <param name="page">
+            The page image that is going to be added to the Form attributes object.
+            </param>
+      <param name="pageOptions">
+            Specifies the options for the page.
+            </param>
+      <param name="callback">
+            Optional callback to show operation progress.
+            </param>
+      <remarks>
+        <para>The object should be a Form attributes object. This method does not work with Master Form attributes objects. To add a page to a Master Form attribute object, use <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.AddMasterFormPage(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.RasterImage,Leadtools.Forms.Recognition.PageRecognitionOptions)" />.</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      ''' This method adds a page to a form attributes object for recognition.
+        Public Sub AddPageToForm(ByVal recognitionEngine As FormRecognitionEngine, _
+                                 ByVal image As RasterImage, _
+                                 ByVal attributes As FormRecognitionAttributes)
+            recognitionEngine.OpenForm(attributes)
+            recognitionEngine.AddFormPage(attributes, image, Nothing)
+            recognitionEngine.CloseForm(attributes)
+        End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      /// This method adds a page to form attributes for recognition.
+      public void AddPageToForm(FormRecognitionEngine recognitionEngine, RasterImage image, FormRecognitionAttributes attributes)
+      {
+         recognitionEngine.OpenForm(attributes);
+         recognitionEngine.AddFormPage(attributes, image, null);
+         recognitionEngine.CloseForm(attributes);
+      }</code>
+        <!--FormRecognitionEngine.AddFormPage-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.InsertFormPage(System.Int32,Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.RasterImage,Leadtools.Forms.Recognition.PageRecognitionOptions,Leadtools.Forms.PageProgressCallback)">
+      <summary>
+            Appends a new page to the specified Form attributes object. 
+            The Form attributes object should be opened before the addition 
+            using <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.OpenForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)" />.
+            </summary>
+      <keywords>Forms|Processing|Recognition</keywords>
+      <param name="formPageNumber">
+            The One-Based index at which page should be inserted.
+            </param>
+      <param name="attributes">
+            The Form attributes object.
+            </param>
+      <param name="page">
+            The page image that is going to be added to the Form attributes object.
+            </param>
+      <param name="pageOptions">
+            Specifies the options for the page.
+            </param>
+      <param name="callback">
+            Optional callback to show operation progress.
+            </param>
+      <remarks>
+        <para>The attributes object should be a Form attributes object, this method does not work for Master Forms attributes. To add a page to a Master Form attributes object use <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.AddMasterFormPage(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.RasterImage,Leadtools.Forms.Recognition.PageRecognitionOptions)" />.</para>
+        <para> If the <paramref name="formPageNumber" /> parameter is equal to -1 the page will be appended to the form pages.</para>
+        <para> If the <paramref name="formPageNumber" /> parameter is greater than the number of form pages an exception is thrown.</para>
+      </remarks>
+      <example>
+        <code lang="VB">        Imports Leadtools
+        Imports Leadtools.Barcode
+        Imports Leadtools.Codecs
+        Imports Leadtools.Forms
+        Imports Leadtools.Forms.Ocr
+        Imports Leadtools.Forms.Processing
+        Imports Leadtools.Forms.Recognition
+        Imports Leadtools.Forms.Recognition.Barcode
+        Imports Leadtools.Forms.Recognition.Ocr
+
+        ''' This method inserts a page to a form attributes object for recognition at the specified index.
+        Public Sub InsertFormPage(ByVal recognitionEngine As FormRecognitionEngine, _
+                                  ByVal image As RasterImage, ByVal index As Integer, _
+                                  ByVal attributes As FormRecognitionAttributes)
+            recognitionEngine.OpenForm(attributes)
+            recognitionEngine.InsertFormPage(index, attributes, image, Nothing, Nothing)
+            recognitionEngine.CloseForm(attributes)
+        End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      /// This method inserts a page to a form attributes object for recognition at the specified index.
+      public void InsertFormPage(FormRecognitionEngine recognitionEngine, 
+                                 RasterImage image, 
+                                 int index, 
+                                 FormRecognitionAttributes attributes)
+      {
+         recognitionEngine.OpenForm(attributes);
+         recognitionEngine.InsertFormPage(index, attributes, image, null, null);
+         recognitionEngine.CloseForm(attributes);
+      }</code>
+        <!--FormRecognitionEngine.InsertFormPage-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.AddMasterFormPage(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.RasterImage,Leadtools.Forms.Recognition.PageRecognitionOptions)">
+      <summary>
+            Appends a new page to the specified Master Form attributes object. 
+            The Master Form attributes object should be opened before the addition 
+            using <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.OpenMasterForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)" />.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Master Forms</keywords>
+      <param name="attributes">
+            The Master Form attributes object.
+            </param>
+      <param name="page">
+            The page image that is going to be added to Master Form attributes object.
+            </param>
+      <param name="pageOptions">
+            Specifies the page options.
+            </param>
+      <remarks>
+        <para>The attributes should be a Master Form attributes, this method does not work for Forms attributes. To add a page to a Form attributes use <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.AddFormPage(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.RasterImage,Leadtools.Forms.Recognition.PageRecognitionOptions)" />.</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      ''' This method adds a page to a Master Form recognition attributes object.
+        Public Sub AddPageToMasterForm(ByVal recognitionEngine As FormRecognitionEngine, _
+                                       ByVal image As RasterImage, _
+                                       ByVal attributes As FormRecognitionAttributes)
+            recognitionEngine.OpenMasterForm(attributes)
+            recognitionEngine.AddMasterFormPage(attributes, image, Nothing)
+            recognitionEngine.CloseMasterForm(attributes)
+        End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      /// This method adds a page to a Master Form recognition attributes.
+      public void AddPageToMasterForm(FormRecognitionEngine recognitionEngine, RasterImage image, FormRecognitionAttributes attributes)
+      {
+         recognitionEngine.OpenMasterForm(attributes);
+         recognitionEngine.AddMasterFormPage(attributes, image, null);
+         recognitionEngine.CloseMasterForm(attributes);
+      }</code>
+        <!--FormRecognitionEngine.AddMasterFormPage-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.AddMasterFormPage(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.RasterImage,Leadtools.Forms.Recognition.PageRecognitionOptions,Leadtools.Forms.PageProgressCallback)">
+      <summary>
+            Appends a new page to the specified Master Form attributes object. 
+            The Master Form attributes object should be opened before the addition 
+            using <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.OpenMasterForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)" />.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Master Forms</keywords>
+      <param name="attributes">
+            The Master Form attributes object.
+            </param>
+      <param name="page">
+            The page image that is going to be added to Master Form attributes object.
+            </param>
+      <param name="pageOptions">
+            Specifies the page options.
+            </param>
+      <param name="callback">
+            Optional callback to show operation progress.
+            </param>
+      <remarks>
+        <para>The attributes should be a Master Form attributes, this method does not work for Forms attributes. To add a page to a Form attributes use <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.AddFormPage(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.RasterImage,Leadtools.Forms.Recognition.PageRecognitionOptions)" />.</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      ''' This method adds a page to a Master Form recognition attributes object.
+        Public Sub AddPageToMasterForm(ByVal recognitionEngine As FormRecognitionEngine, _
+                                       ByVal image As RasterImage, _
+                                       ByVal attributes As FormRecognitionAttributes)
+            recognitionEngine.OpenMasterForm(attributes)
+            recognitionEngine.AddMasterFormPage(attributes, image, Nothing)
+            recognitionEngine.CloseMasterForm(attributes)
+        End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      /// This method adds a page to a Master Form recognition attributes.
+      public void AddPageToMasterForm(FormRecognitionEngine recognitionEngine, RasterImage image, FormRecognitionAttributes attributes)
+      {
+         recognitionEngine.OpenMasterForm(attributes);
+         recognitionEngine.AddMasterFormPage(attributes, image, null);
+         recognitionEngine.CloseMasterForm(attributes);
+      }</code>
+        <!--FormRecognitionEngine.AddMasterFormPage-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionEngine.InsertMasterFormPage(System.Int32,Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.RasterImage,Leadtools.Forms.Recognition.PageRecognitionOptions,Leadtools.Forms.PageProgressCallback)">
+      <summary>
+            Appends a new page to the specified Master Form attributes object. 
+            The Master Form attributes object should be opened before the addition 
+            using <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.OpenMasterForm(Leadtools.Forms.Recognition.FormRecognitionAttributes)" />.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Master Forms</keywords>
+      <param name="masterFormPageNumber">
+            The One-Based index at which page should be inserted.
+            </param>
+      <param name="attributes">
+            The Master Form attributes object.
+            </param>
+      <param name="page">
+            The page image that is going to be added to Master Form attributes object.
+            </param>
+      <param name="pageOptions">
+            Specifies the page options.
+            </param>
+      <param name="callback">
+            Optional callback to show operation progress.
+            </param>
+      <remarks>
+        <para>The attributes object should be a Master Form attributes object, this method does not work for Forms attributes object. To add a page to a Form attributes object use <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.AddFormPage(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.RasterImage,Leadtools.Forms.Recognition.PageRecognitionOptions)" />.</para>
+        <para> If <paramref name="masterFormPageNumber" /> is equal to -1 the page will be appended to the form pages.</para>
+        <para> If <paramref name="masterFormPageNumber" /> is greater than the number of form pages an exception is thrown.</para>
+      </remarks>
+      <example>
+        <code lang="VB">        Imports Leadtools
+        Imports Leadtools.Barcode
+        Imports Leadtools.Codecs
+        Imports Leadtools.Forms
+        Imports Leadtools.Forms.Ocr
+        Imports Leadtools.Forms.Processing
+        Imports Leadtools.Forms.Recognition
+        Imports Leadtools.Forms.Recognition.Barcode
+        Imports Leadtools.Forms.Recognition.Ocr
+
+        ''' This method inserts a page to a Master Form recognition attributes object at the specified index.
+        Public Sub InsertMasterPage(ByVal recognitionEngine As FormRecognitionEngine, _
+                                    ByVal image As RasterImage, ByVal index As Integer, _
+                                    ByVal attributes As FormRecognitionAttributes)
+            recognitionEngine.OpenMasterForm(attributes)
+            recognitionEngine.InsertMasterFormPage(index, attributes, image, Nothing, Nothing)
+            recognitionEngine.CloseMasterForm(attributes)
+        End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      /// This method inserts a page to a Master Form recognition attributes object at the specified index.
+      public void InsertMasterPage(FormRecognitionEngine recognitionEngine,
+                                   RasterImage image, 
+                                   int index, 
+                                   FormRecognitionAttributes attributes)
+      {
+         recognitionEngine.OpenMasterForm(attributes);
+         recognitionEngine.InsertMasterFormPage(index, attributes, image, null, null);
+         recognitionEngine.CloseMasterForm(attributes);
+      }</code>
+        <!--FormRecognitionEngine.InsertMasterFormPage-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.FormRecognitionEngine.ObjectsManagers">
+      <summary>
+            Gets a list of object managers that are used to extract the features of the form for this 
+            <see cref="T:Leadtools.Forms.Recognition.FormRecognitionEngine" />.
+            </summary>
+      <keywords>Forms|Processing|Recognition</keywords>
+      <value>List of object managers that are used to extract the features of the form.</value>
+      <noremarks />
+      <example>
+        <code lang="VB">      Imports Leadtools
+      Imports Leadtools.Barcode
+      Imports Leadtools.Codecs
+      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Ocr
+      Imports Leadtools.Forms.Processing
+      Imports Leadtools.Forms.Recognition
+      Imports Leadtools.Forms.Recognition.Barcode
+      Imports Leadtools.Forms.Recognition.Ocr
+
+      '''This method sets the object managers.
+        Public Sub SetObjectManagers(ByVal recognitionEngine As FormRecognitionEngine, _
+                                     ByVal formsOcrEngine As IOcrEngine, _
+                                     ByVal formsBarcodeEngine As BarcodeEngine, _
+                                     ByVal enableDefault As Boolean, _
+                                     ByVal enableOcr As Boolean, _
+                                     ByVal enableBarcode As Boolean)
+            If recognitionEngine Is Nothing Then
+                Return
+            End If
+            If enableDefault Then
+                Dim defaultObjectManager As DefaultObjectsManager = New DefaultObjectsManager()
+                recognitionEngine.ObjectsManagers.Add(defaultObjectManager)
+            End If
+            If enableOcr Then
+                Dim ocrObejectManager As OcrObjectsManager = New OcrObjectsManager(formsOcrEngine)
+                ocrObejectManager.Engine = formsOcrEngine
+                recognitionEngine.ObjectsManagers.Add(ocrObejectManager)
+            End If
+
+            If enableBarcode Then
+                Dim barcodeObjectManager As BarcodeObjectsManager = New BarcodeObjectsManager(formsBarcodeEngine)
+                barcodeObjectManager.Engine = formsBarcodeEngine
+                recognitionEngine.ObjectsManagers.Add(barcodeObjectManager)
+            End If
+        End Sub</code>
+        <code lang="CS">      using Leadtools;
+      using Leadtools.Barcode;
+      using Leadtools.Codecs;
+      using Leadtools.Forms;
+      using Leadtools.Forms.Ocr;
+      using Leadtools.Forms.Processing;
+      using Leadtools.Forms.Recognition;
+      using Leadtools.Forms.Recognition.Barcode;
+      using Leadtools.Forms.Recognition.Ocr;
+
+      ///This method sets the object managers.
+      public void SetObjectManagers(FormRecognitionEngine recognitionEngine, 
+                                    IOcrEngine formsOcrEngine, 
+                                    BarcodeEngine formsBarcodeEngine, 
+                                    bool enableDefault, 
+                                    bool enableOcr, 
+                                    bool enableBarcode)
+      {
+         if(recognitionEngine == null)
+            return;
+         if(enableDefault)
+         {
+            DefaultObjectsManager defaultObjectManager = new DefaultObjectsManager();
+            recognitionEngine.ObjectsManagers.Add(defaultObjectManager);
+         }
+         if(enableOcr)
+         {
+            OcrObjectsManager ocrObejectManager = new OcrObjectsManager(formsOcrEngine);
+            ocrObejectManager.Engine = formsOcrEngine;
+            recognitionEngine.ObjectsManagers.Add(ocrObejectManager);
+         }
+
+         if(enableBarcode)
+         {
+            BarcodeObjectsManager barcodeObjectManager = new BarcodeObjectsManager(formsBarcodeEngine);
+            barcodeObjectManager.Engine = formsBarcodeEngine;
+            recognitionEngine.ObjectsManagers.Add(barcodeObjectManager);
+         }
+      }</code>
+        <!--FormRecognitionEngine.ObjectsManagers-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Recognition.FormRecognitionOptions">
+      <summary>
+            Specifies the different options for a Form when it is created.
+            </summary>
+      <keywords>Forms|Processing|Recognition</keywords>
+      <remarks>
+        <para>This is for future.</para>
+      </remarks>
+      <noexample />
+              /// 
+            <docaddon>yes</docaddon></member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionOptions.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Recognition.FormRecognitionOptions" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.FormRecognitionOptions.RecognitionMethod">
+      <summary>
+            Specifies which recognition Method to use for forms recognition.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Clean Up|Forms Method|Forms Options</keywords>
+      <value>The <see cref="T:Leadtools.Forms.FormsRecognitionMethod" /> Method for forms recognition.</value>
+      <remarks>
+            Using Simple method <see cref="T:Leadtools.Forms.FormsRecognitionMethod"> Simple</see> has less progress time than <see cref="T:Leadtools.Forms.FormsRecognitionMethod"> Complex</see> but
+            may fail in recognize some forms.
+            </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Recognition
+
+      '''This method will pass  attributes to recognize form.
+      Public Function CompareFormsWithMastersFast(page As RasterImage, formAttributes As FormRecognitionAttributes, mastersAttributes As List(Of FormRecognitionAttributes), engine As FormRecognitionEngine) As FormRecognitionResult
+         Dim pageOptions As New PageRecognitionOptions()
+         pageOptions.AutoCleanUp = True
+         pageOptions.UpdateImage = True
+         pageOptions.RecognitionMethod = FormsRecognitionMethod.Simple
+         formAttributes.Image = page
+         Return engine.CompareFormFast(mastersAttributes, formAttributes, Nothing)
+      End Function</code>
+        <code lang="CS">      using Leadtools.Forms;
+      using Leadtools.Forms.Recognition;
+
+      ///This method will pass  attributes to recognize form.
+      public FormRecognitionResult CompareFormsWithMastersFast(RasterImage page, FormRecognitionAttributes formAttributes, List&lt;FormRecognitionAttributes&gt; mastersAttributes, FormRecognitionEngine engine)
+      {
+         PageRecognitionOptions pageOptions = new PageRecognitionOptions();
+         pageOptions.AutoCleanUp = true;
+         pageOptions.UpdateImage = true;
+         pageOptions.RecognitionMethod = FormsRecognitionMethod.Simple;
+         formAttributes.Image = page;
+         return engine.CompareFormFast(mastersAttributes, formAttributes, null);
+      }</code>
+        <!--PageRecognitionOptionsWithSimpleMethod-->
+      </example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Recognition.FormRecognitionResult">
+      <summary>
+            Contains the 
+            success or failure result of the comparison operation. 
+            </summary>
+      <keywords>Forms|Processing|Recognition</keywords>
+      <remarks>
+            This class is used with the
+            <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CompareForm(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.FormProgressCallback)" /> and 
+            <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.ComparePage(Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32,Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32)" /> methods.
+            </remarks>
+      <example>For an example, refer to <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CompareForm(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.FormProgressCallback)" />.</example>
+              /// 
+            <docaddon>yes</docaddon></member>
+    <member name="M:Leadtools.Forms.Recognition.FormRecognitionResult.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Recognition.FormRecognitionResult" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.FormRecognitionResult.PageResults">
+      <summary>
+            Consists of a list of <see cref="T:Leadtools.Forms.Recognition.PageRecognitionResult" /> objects containing the 
+            success or failure result of comparison operation for each Form page.
+            </summary>
+      <keywords>Forms|Processing|Recognition</keywords>
+      <value>List representing the results of the recognition process for the different Form pages.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.FormRecognitionResult.Reason">
+      <summary>
+            Identifies the reason for the Confidence result.
+            </summary>
+      <keywords>Forms|Processing|Recognition</keywords>
+      <value>Value representing the reason for the recognition result.</value>
+      <remarks>
+        <see cref="T:Leadtools.Forms.Recognition.FormRecognitionReason">Leadtools.Forms.Recognition.FormRecognitionReason.Success</see> means the comparison has been performed successfully and the <see cref="P:Leadtools.Forms.Recognition.FormRecognitionResult.Confidence" /> represents the correlation between the Form and the Master Form.
+            <see cref="T:Leadtools.Forms.Recognition.FormRecognitionReason">Leadtools.Forms.Recognition.FormRecognitionReason.InvalidNumberOfPages</see> means the comparison was failed because the Master Form attributes and the Form attributes has different number of pages to compare. If the Form Attributes has all the pages but different than the number of pages of the master Form attributes this means the Form is not of the type of the Master Form.
+            </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.FormRecognitionResult.Confidence">
+      <summary>
+            Gets or sets the level of confidence that a recognition engine has  
+            when comparing a Form's attributes object with a Master Form's attributes object.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Confidence</keywords>
+      <value>The confidence number expresses the certainty of the recognition process.</value>
+      <remarks>
+            Confidence values range from 0 to 100. 0 represents no confidence, 100 
+            represents full confidence. 
+            The Confidence value is the average confidence of all pages in multi-page forms.
+            </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Recognition
+
+      '''This method identifies the type of the form based on the comparison results.
+      Public Function IdentefyForm(ByVal results As FormRecognitionResult()) As Integer
+         Dim maxIndex As Integer = 0
+         maxIndex = 0
+         Dim i As Integer = 1
+         Do While i &lt; results.Length
+            If results(maxIndex).Confidence &lt; results(i).Confidence Then
+               maxIndex = i
+            End If
+            i += 1
+         Loop
+         If results(maxIndex).Confidence &lt; 30 Then
+            maxIndex = -1 'no match
+         End If
+         Return maxIndex
+      End Function</code>
+        <code lang="CS">      using Leadtools.Forms;
+      using Leadtools.Forms.Recognition;
+
+      ///This method identifies the type of the form based on the comparison results.
+      public int IdentefyForm(FormRecognitionResult[] results)
+      {
+         int maxIndex = 0;
+         maxIndex = 0;
+         for(int i = 1; i &lt; results.Length; i++)
+         {
+            if(results[maxIndex].Confidence &lt; results[i].Confidence)
+               maxIndex = i;
+         }
+         if(results[maxIndex].Confidence &lt; 30)
+            maxIndex = -1;//no match
+         return maxIndex;
+      }</code>
+        <!--FormRecognitionResult.Confidence-->
+      </example>
+              /// 
+            <docaddon>yes</docaddon></member>
+    <member name="P:Leadtools.Forms.Recognition.FormRecognitionResult.LargestConfidencePageNumber">
+      <summary>
+            Specifies the index of the page which has the greatest confidence. This is a 1-based index.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Confidence</keywords>
+      <value>The 1-based integer that specifies the index to the form page with the greatest confidence.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.FormRecognitionResult.MasterAttributes">
+      <summary>
+            The Master Form attribute founded using <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CompareFormFast(System.Collections.Generic.List{Leadtools.Forms.Recognition.FormRecognitionAttributes},Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.FormProgressCallback)" /> Method.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Confidence</keywords>
+      <value>The Master Form attribute associated with result.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.FormRecognitionResult.MasterAttributesCandidatesIndeces">
+      <summary>
+            List of Master Forms indices passed to <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CompareFormFast(System.Collections.Generic.List{Leadtools.Forms.Recognition.FormRecognitionAttributes},Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.FormProgressCallback)" /> that could be master form associated with passed form.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Confidence</keywords>
+      <value>List of integers that specifies the Candidates indeices of master attributes.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Recognition.PageRecognitionOptions">
+      <summary>
+            Specifies the different options for a Form page when it is added to a 
+            form using <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.AddFormPage(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.RasterImage,Leadtools.Forms.Recognition.PageRecognitionOptions)" /> 
+            for Forms or <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.AddMasterFormPage(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.RasterImage,Leadtools.Forms.Recognition.PageRecognitionOptions)" /> 
+            for Master Forms.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Master Forms|Pages</keywords>
+      <remarks>
+        <para>
+          <see cref="P:Leadtools.Forms.Recognition.PageRecognitionOptions.IncludeRectangles" /> forms the region of the image that will be considered for feature extraction, any region outside the include region will be ignored.</para>
+        <para>If <see cref="P:Leadtools.Forms.Recognition.PageRecognitionOptions.IncludeRectangles" /> doesn't have a rectangle then the whole image will be considered as one include region for the feature extraction.</para>
+        <para>
+          <see cref="P:Leadtools.Forms.Recognition.PageRecognitionOptions.ExcludeRectangles" /> forms the region of the image that will be ignored for feature extraction.</para>
+        <para>
+          <see cref="P:Leadtools.Forms.Recognition.PageRecognitionOptions.IncludeRectangles" /> are considered first then the <see cref="P:Leadtools.Forms.Recognition.PageRecognitionOptions.ExcludeRectangles" /> will be excluded from the include region.</para>
+      </remarks>
+      <example>
+        <code lang="VB">      Imports Leadtools.Forms
+      Imports Leadtools.Forms.Recognition
+
+      '''This method add a page to the form attributes object.
+        Public Sub AddPageToFormAttributes(ByVal page As RasterImage, _
+                                           ByVal attributes As FormRecognitionAttributes, _
+                                           ByVal engine As FormRecognitionEngine)
+            Dim pageOptions As PageRecognitionOptions = New PageRecognitionOptions()
+            pageOptions.AutoCleanUp = True
+            pageOptions.UpdateImage = True
+         pageOptions.TradeoffMode = FormsTradeoffMode.Accurate
+#If LEADTOOLS_V19_OR_LATER Then
+            pageOptions.RecognitionMethod = FormsRecognitionMethod.Complex
+#End If
+            pageOptions.IncludeRectangles.Add( _
+               New LogicalRectangle(0, 0, page.Width, page.Height, LogicalUnit.Pixel))
+            pageOptions.ExcludeRectangles.Add( _
+               New LogicalRectangle(page.Width * 6 / 10, _
+                                    page.Height * 4 / 10, _
+                                    page.Width * 3 / 10, _
+                                    page.Height * 2 / 10, _
+                                    LogicalUnit.Pixel))
+            pageOptions.RegionOfInterestRectangles.Add( _
+               New LogicalRectangle(page.Width * 1 / 10, _
+                                    page.Height * 1 / 10, _
+                                    page.Width * 2 / 10, _
+                                    page.Height * 2 / 10, _
+                                    LogicalUnit.Pixel))
+            Dim properties As FormRecognitionProperties = engine.GetFormProperties(attributes)
+            If properties.IsMaster Then
+                engine.OpenMasterForm(attributes)
+                engine.AddMasterFormPage(attributes, page, pageOptions)
+                engine.CloseMasterForm(attributes)
+            Else
+                engine.OpenForm(attributes)
+                engine.AddFormPage(attributes, page, pageOptions)
+                engine.CloseForm(attributes)
+            End If
+        End Sub</code>
+        <code lang="CS">      using Leadtools.Forms;
+      using Leadtools.Forms.Recognition;
+
+      ///This method add a page to the form attributes.
+      public void AddPageToFormAttributes(RasterImage page, FormRecognitionAttributes attributes, FormRecognitionEngine engine)
+      {
+         PageRecognitionOptions pageOptions = new PageRecognitionOptions();
+         pageOptions.AutoCleanUp = true;
+         pageOptions.UpdateImage = true;
+         pageOptions.TradeoffMode = FormsTradeoffMode.Accurate;
+#if LEADTOOLS_V19_OR_LATER
+         pageOptions.RecognitionMethod = FormsRecognitionMethod.Complex;
+#endif//#if LEADTOOLS_V19_OR_LATER
+         pageOptions.IncludeRectangles.Add(new LogicalRectangle(0, 0, page.Width, page.Height, LogicalUnit.Pixel));
+         pageOptions.ExcludeRectangles.Add(new LogicalRectangle(page.Width * 6 / 10, 
+                                                                page.Height * 4 / 10, 
+                                                                page.Width * 3 / 10, 
+                                                                page.Height * 2 / 10, 
+                                                                LogicalUnit.Pixel));
+         pageOptions.RegionOfInterestRectangles.Add(new LogicalRectangle(page.Width * 1 / 10, 
+                                                                         page.Height * 1 / 10, 
+                                                                         page.Width * 2 / 10, 
+                                                                         page.Height * 2 / 10, 
+                                                                         LogicalUnit.Pixel));
+         FormRecognitionProperties properties = engine.GetFormProperties(attributes);
+         if(properties.IsMaster)
+         {
+            engine.OpenMasterForm(attributes);
+            engine.AddMasterFormPage(attributes, page, pageOptions);
+            engine.CloseMasterForm(attributes);
+         }
+         else
+         {
+            engine.OpenForm(attributes);
+            engine.AddFormPage(attributes, page, pageOptions);
+            engine.CloseForm(attributes);
+         }
+      }</code>
+        <!--PageRecognitionOptions-->
+      </example>
+              /// 
+            <docaddon>yes</docaddon></member>
+    <member name="M:Leadtools.Forms.Recognition.PageRecognitionOptions.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Recognition.PageRecognitionOptions" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Pages</keywords>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Forms.Recognition.PageRecognitionOptions" />.</example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.PageRecognitionOptions.ExcludeRectangles">
+      <summary>
+            List of <see cref="T:Leadtools.Forms.LogicalRectangle" /> objects which specify the 
+            portion of the page image that is not a part of the page features.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Logical Rectangles|Pages</keywords>
+      <value> List of <see cref="T:Leadtools.Forms.LogicalRectangle" /> objects representing 
+            the excluded areas of the form.</value>
+      <remarks>
+        <para>
+          <see cref="P:Leadtools.Forms.Recognition.PageRecognitionOptions.ExcludeRectangles" /> forms the region of the image that will be ignored for feature extraction.</para>
+        <para>
+          <see cref="P:Leadtools.Forms.Recognition.PageRecognitionOptions.IncludeRectangles" /> are Ored together then the <see cref="P:Leadtools.Forms.Recognition.PageRecognitionOptions.ExcludeRectangles" /> will be excluded from the include region.</para>
+      </remarks>
+      <example>For an example, refer to <see cref="T:Leadtools.Forms.Recognition.PageRecognitionOptions" />.</example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.PageRecognitionOptions.IncludeRectangles">
+      <summary>
+            List of <see cref="T:Leadtools.Forms.LogicalRectangle" /> objects which specify which portion of the page image 
+            is included as a part of the page features.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Logical Rectangles</keywords>
+      <value>List of <see cref="T:Leadtools.Forms.LogicalRectangle" /> objects 
+            representing the included areas of the form.</value>
+      <remarks>
+        <para>
+          <see cref="P:Leadtools.Forms.Recognition.PageRecognitionOptions.IncludeRectangles" /> forms the region of the image that will be considered for feature extraction, any region outside the include region will be ignored.</para>
+        <para>
+          <see cref="P:Leadtools.Forms.Recognition.PageRecognitionOptions.IncludeRectangles" /> has no rectangle then the whole image will be considered as one include region for feature extraction.</para>
+        <para>
+          <see cref="P:Leadtools.Forms.Recognition.PageRecognitionOptions.IncludeRectangles" /> are Ored together then the <see cref="P:Leadtools.Forms.Recognition.PageRecognitionOptions.ExcludeRectangles" /> will be excluded from the include region.</para>
+      </remarks>
+      <example>For an example, refer to <see cref="T:Leadtools.Forms.Recognition.PageRecognitionOptions" />.</example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.PageRecognitionOptions.RegionOfInterestRectangles">
+      <summary>
+            List of <see cref="T:Leadtools.Forms.LogicalRectangle" /> objects which specify which portion of the page image 
+            represents the important features of the page.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Logical Rectangles|Region of Interest|ROI</keywords>
+      <value>List of <see cref="T:Leadtools.Forms.LogicalRectangle" /> objects representing 
+            the important areas of the form.</value>
+      <remarks>
+        <para>If it has no rectangle then all image features will have the same influence in recognition results.</para>
+      </remarks>
+      <example>For an example, refer to <see cref="T:Leadtools.Forms.Recognition.PageRecognitionOptions" />.</example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.PageRecognitionOptions.AutoCleanUp">
+      <summary>
+            Gets or sets which clean up operation (to get rid of noise) to 
+            perform on the page image before extracting its features.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Clean Up</keywords>
+      <value>true if the clean up operation is going to be performed on the form, otherwise, false.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Forms.Recognition.PageRecognitionOptions" />.</example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.PageRecognitionOptions.UpdateImage">
+      <summary>
+            Gets or sets the update the user image with the cleaned one.
+            </summary>
+      <isnew>2/28/2009</isnew>
+      <keywords>Forms|Processing|Recognition|Clean Up</keywords>
+      <value>True to update the user image with the cleaned one, otherwise it is false.</value>
+      <noremarks />
+      <example>For an example, refer to <see cref="T:Leadtools.Forms.Recognition.PageRecognitionOptions" />.</example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.PageRecognitionOptions.TradeoffMode">
+      <summary>
+            Specifies which recognition algorithm trade-off setting to use for forms recognition.
+            </summary>
+      <isnew>2/28/2009</isnew>
+      <keywords>Forms|Processing|Recognition|Clean Up</keywords>
+      <value>The <see cref="T:Leadtools.Forms.FormsTradeoffMode" /> setting to use for forms recognition.</value>
+      <remarks>
+            Using modes other than <see cref="T:Leadtools.Forms.FormsTradeoffMode"> Accurate</see> may affect the results of the unknown forms recognition, but it has no effect on master forms.
+            <para> This Mode will work only if we select  <see cref="T:Leadtools.Forms.FormsRecognitionMethod"> Complex</see> method in <see cref="T:Leadtools.Forms.Recognition.PageRecognitionOptions">RecognitionMethod</see></para></remarks>
+      <example>For an example, refer to <see cref="T:Leadtools.Forms.Recognition.PageRecognitionOptions" />.</example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.PageRecognitionOptions.PageType">
+      <summary>
+            Specifies the type of Page.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Page Type</keywords>
+      <value>The <see cref="P:Leadtools.Forms.Recognition.PageRecognitionOptions.PageType" /> of the page.</value>
+      <remarks>
+            The type of page, can help and improve recogition of the forms, so you should always select right type for page.
+            </remarks>
+      <example>For an example, refer to <see cref="T:Leadtools.Forms.Recognition.PageRecognitionOptions" />.</example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Recognition.PageRecognitionResult">
+      <summary>
+            Describes the results of the comparison operation for a page, including success or failure as 
+            well as alignment results. 
+            
+            </summary>
+      <keywords>Forms|Processing|Recognition|Pages|Results</keywords>
+      <remarks>
+            This class is 
+            used inside <see cref="T:Leadtools.Forms.Recognition.FormRecognitionResult" />. 
+            The alignment results are only accurate if the OCR object manager is used. 
+            </remarks>
+      <example>For an example, refer to <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.ComparePage(Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32,Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32)" />.</example>
+              /// 
+            <docaddon>yes</docaddon></member>
+    <member name="M:Leadtools.Forms.Recognition.PageRecognitionResult.#ctor">
+      <summary>
+            Initializes a new <see cref="T:Leadtools.Forms.Recognition.PageRecognitionResult" /> class object.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Pages|Results</keywords>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.PageRecognitionResult.Confidence">
+      <summary>
+            Gets or sets the level of confidence that a recognition engine has 
+            when comparing the Form page attributes object to the Master Form page attributes object.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Pages|Results|Master Forms</keywords>
+      <value>The confidence number expressing the certainty of the 
+            recognition of the Form page.</value>
+      <remarks>
+            Confidence values range from 0 to 100. 0 represents no confidence, 100 
+            represents full confidence.
+            </remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.PageRecognitionResult.Alignment">
+      <summary>
+            Gets or sets the amount of shift and scaling a Form page needs in order to match the
+            corresponding Master Form page.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Pages|Results</keywords>
+      <value>Value representing the information needed to 
+            align the Form to its Master Form.</value>
+      <remarks>
+            This value will be updated by the <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CompareForm(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.FormProgressCallback)" /> and <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.ComparePage(Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32,Leadtools.Forms.Recognition.FormRecognitionAttributes,System.Int32)" /> methods, so it is not necessary to call the alignment method to get the alignment for this page. Consequently, the speed of the process will be increased.
+            </remarks>
+      <example>For an example, refer to <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.GetFormAlignment(Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.Recognition.FormRecognitionAttributes,Leadtools.Forms.FormProgressCallback)" />.</example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="T:Leadtools.Forms.Recognition.FormRecognitionProperties">
+      <summary>
+            Specifies the attribute properties for a form. 
+            This class is used by the 
+            <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.GetFormProperties(Leadtools.Forms.Recognition.FormRecognitionAttributes)" /> method.
+            </summary>
+      <keywords>Forms|Processing|Recognition</keywords>
+      <noremarks />
+      <example>For an example, refer to <see cref="M:Leadtools.Forms.Processing.FormProcessingEngine.LoadFields(System.String)">FormProcessingEngine.LoadFields(string fileName)</see>.</example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="F:Leadtools.Forms.Recognition.FormRecognitionProperties.Empty">
+      <summary>
+            Represents a new instance of the <see cref="T:Leadtools.Forms.Recognition.FormRecognitionProperties" /> with uninitialized members.
+            </summary>
+      <value>
+            A new instance of the <see cref="T:Leadtools.Forms.Recognition.FormRecognitionProperties" /> with uninitialized members.
+            </value>
+      <remarks> An uninitialized <see cref="T:Leadtools.Forms.Recognition.FormRecognitionProperties" />.</remarks>
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.FormRecognitionProperties.IsMaster">
+      <summary>
+            Returns a value that indicates whether these attributes are for a Master Form.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Master Forms</keywords>
+      <value>true if this is a Master Form; otherwise, false.</value>
+      <remarks>
+        <para>Use this property to check if this form properties belong to a master form, i.e., a form that was created with the <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CreateMasterForm(System.String,System.Guid,Leadtools.Forms.Recognition.FormRecognitionOptions)" /> method or
+            a normal form, i.e., a form that was created with the <see cref="M:Leadtools.Forms.Recognition.FormRecognitionEngine.CreateForm(Leadtools.Forms.Recognition.FormRecognitionOptions)" /> method.</para>
+      </remarks>
+      <example>For an example, refer to <see cref="T:Leadtools.Forms.Recognition.PageRecognitionOptions" />.</example>
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.FormRecognitionProperties.CreationTime">
+      <summary>
+            Gets or sets the date and time that the form's attribute was created.
+            </summary>
+      <keywords>Forms|Processing|Recognition</keywords>
+      <value>The creation time of this form (2100,0050).</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.FormRecognitionProperties.LastAccessTime">
+      <summary>
+            Gets or sets the date and time that the form's attribute was last accessed.
+            </summary>
+      <keywords>Forms|Processing|Recognition</keywords>
+      <value>The time that this form was last accessed (2100,0050).</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.FormRecognitionProperties.LastModificationTime">
+      <summary>
+            Gets or sets the date and time that the form's attribute was last modified.
+            </summary>
+      <keywords>Forms|Processing|Recognition</keywords>
+      <value>The time that this form was last modified (2100,0050).</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.FormRecognitionProperties.Guid">
+      <summary>
+            Gets or sets the form's attributes ID.
+            </summary>
+      <keywords>Forms|Processing|Recognition</keywords>
+      <value> The GUID associated with this form.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.FormRecognitionProperties.Pages">
+      <summary>
+            Gets or sets the form's attributes number of pages.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Pages</keywords>
+      <value>An integer value that specifies the number of pages in the form.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+    <member name="P:Leadtools.Forms.Recognition.FormRecognitionProperties.Name">
+      <summary>
+            Gets or sets the form's attributes name.
+            </summary>
+      <keywords>Forms|Processing|Recognition|Pages|Results</keywords>
+      <value>A string that is associated with this form.</value>
+      <noremarks />
+      <noexample />
+      <docaddon>yes</docaddon>
+    </member>
+  </members>
+</doc>

@@ -1,0 +1,1554 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.es/" name="ESCTSServiceImplService" targetNamespace="http://ws.es/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://132.35.6.247:8888/RIM/ESCTSService?xsd=1" namespace="http://ws.es/" />
+    </xsd:schema>
+  </types>
+  <message name="isAlive" />
+  <message name="isAliveResponse">
+    <part name="return" type="xsd:string" />
+  </message>
+  <message name="test">
+    <part name="username" type="xsd:string" />
+  </message>
+  <message name="testResponse">
+    <part name="return" type="xsd:string" />
+  </message>
+  <message name="CopyDocument">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="DepartmentID" type="xsd:string" />
+    <part name="ActionByUser" type="xsd:string" />
+    <part name="DocumentNumber" type="xsd:string" />
+    <part name="CopyNumber" type="xsd:int" />
+    <part name="ActionID" type="xsd:string" />
+    <part name="PublicNote" type="xsd:string" />
+    <part name="PrivateNote" type="xsd:string" />
+    <part name="SendTargetAttachments" type="tns:internalSendTargetAttachmentArray" />
+  </message>
+  <message name="CopyDocumentResponse">
+    <part name="return" type="tns:copyInfoData" />
+  </message>
+  <message name="ActiveExport">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="DepartmentID" type="xsd:string" />
+    <part name="ActionByUser" type="xsd:string" />
+    <part name="DocumentNumber" type="xsd:string" />
+    <part name="CopyNumber" type="xsd:int" />
+    <part name="IncomingDocumentInfo" type="tns:wsIncomingDocumentInfo" />
+    <part name="PublicNote" type="xsd:string" />
+    <part name="PrivateNote" type="xsd:string" />
+    <part name="Attachments" type="tns:attachmentArray" />
+  </message>
+  <message name="ActiveExportResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="AddCitizen">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="CitizenInfo" type="tns:citizen" />
+  </message>
+  <message name="AddCitizenResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="GetPrefixes">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetPrefixesResponse">
+    <part name="return" type="tns:prefixData" />
+  </message>
+  <message name="GetViceTypes">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetViceTypesResponse">
+    <part name="return" type="tns:viceTypesData" />
+  </message>
+  <message name="GetRegions">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetRegionsResponse">
+    <part name="return" type="tns:regionData" />
+  </message>
+  <message name="GetStreets">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetStreetsResponse">
+    <part name="return" type="tns:streetData" />
+  </message>
+  <message name="GetStates">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetStatesResponse">
+    <part name="return" type="tns:stateData" />
+  </message>
+  <message name="GetReligions">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetReligionsResponse">
+    <part name="return" type="tns:religionData" />
+  </message>
+  <message name="GetCityInfo">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetCityInfoResponse">
+    <part name="return" type="tns:cityData" />
+  </message>
+  <message name="GetCountries">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetCountriesResponse">
+    <part name="return" type="tns:countryData" />
+  </message>
+  <message name="GetDistricts">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetDistrictsResponse">
+    <part name="return" type="tns:districtData" />
+  </message>
+  <message name="GetGenders">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetGendersResponse">
+    <part name="return" type="tns:genderData" />
+  </message>
+  <message name="GetAreaInfo">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetAreaInfoResponse">
+    <part name="return" type="tns:areaInfoData" />
+  </message>
+  <message name="GetSideTypes">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetSideTypesResponse">
+    <part name="return" type="tns:ownerTypesData" />
+  </message>
+  <message name="GetContacts">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetContactsResponse">
+    <part name="return" type="tns:contactsData" />
+  </message>
+  <message name="GetCitizens">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="Name" type="xsd:string" />
+    <part name="identityNumber" type="xsd:string" />
+    <part name="Citizen_username" type="xsd:string" />
+  </message>
+  <message name="GetCitizensResponse">
+    <part name="return" type="tns:citizenData" />
+  </message>
+  <message name="getOpenedDocumentsByDepartment">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="DepartmentId" type="xsd:string" />
+  </message>
+  <message name="getOpenedDocumentsByDepartmentResponse">
+    <part name="return" type="tns:openedDocumentsData" />
+  </message>
+  <message name="GetDeliveryModes">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetDeliveryModesResponse">
+    <part name="return" type="tns:deliveryModesData" />
+  </message>
+  <message name="GetNationalities">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetNationalitiesResponse">
+    <part name="return" type="tns:nationalitiesData" />
+  </message>
+  <message name="InitiateInternalDocument_url">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="DepartmentID" type="xsd:string" />
+    <part name="ActionByUser" type="xsd:string" />
+    <part name="NewDocumentInfo" type="tns:wsDocumentInfo" />
+    <part name="PublicNote" type="xsd:string" />
+    <part name="PrivateNote" type="xsd:string" />
+    <part name="AttachmentURL" type="tns:attachmentURLArray" />
+  </message>
+  <message name="InitiateInternalDocument_urlResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="GetMunicipalities">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetMunicipalitiesResponse">
+    <part name="return" type="tns:municipalitiesData" />
+  </message>
+  <message name="GetDocumentStatus">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetDocumentStatusResponse">
+    <part name="return" type="tns:documentStatusData" />
+  </message>
+  <message name="ExportDocument_AR">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="ActionByUser" type="xsd:string" />
+    <part name="DepartmentID" type="xsd:string" />
+    <part name="DocumentNumber" type="xsd:string" />
+    <part name="CopyNumber" type="xsd:int" />
+    <part name="ExportReason" type="xsd:string" />
+    <part name="ExternalSendTarget" type="tns:externalSendTargetInfo" />
+    <part name="PublicNote" type="xsd:string" />
+    <part name="PrivateNote" type="xsd:string" />
+    <part name="AttachmentID" type="xsd:int" />
+  </message>
+  <message name="ExportDocument_ARResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="InitiateInternalDocument_AR">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="DepartmentID" type="xsd:string" />
+    <part name="ActionByUser" type="xsd:string" />
+    <part name="NewDocumentInfo" type="tns:wsDocumentInfo" />
+    <part name="PublicNote" type="xsd:string" />
+    <part name="PrivateNote" type="xsd:string" />
+    <part name="AttachmentID" type="xsd:int" />
+  </message>
+  <message name="InitiateInternalDocument_ARResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="TransferDocumentDMS">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="ActionByUser" type="xsd:string" />
+    <part name="TransferInfo" type="tns:wsTransferInfo" />
+    <part name="DMS_DOC_ID" type="xsd:string" />
+  </message>
+  <message name="TransferDocumentDMSResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="InitiateInternalDocument">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="DepartmentID" type="xsd:string" />
+    <part name="ActionByUser" type="xsd:string" />
+    <part name="NewDocumentInfo" type="tns:wsDocumentInfo" />
+    <part name="PublicNote" type="xsd:string" />
+    <part name="PrivateNote" type="xsd:string" />
+    <part name="Attachments" type="tns:attachmentArray" />
+  </message>
+  <message name="InitiateInternalDocumentResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="TransferDocument">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="ActionByUser" type="xsd:string" />
+    <part name="DepartmentID" type="xsd:string" />
+    <part name="TransferInfo" type="tns:wsTransferInfo" />
+    <part name="Attachments" type="tns:attachmentArray" />
+  </message>
+  <message name="TransferDocumentResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="getDocumentInfo">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="DocumentInfoQueryObject" type="tns:documentFullInfo" />
+  </message>
+  <message name="getDocumentInfoResponse">
+    <part name="return" type="tns:documentInfoData" />
+  </message>
+  <message name="ExportDocument">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="ActionByUser" type="xsd:string" />
+    <part name="DepartmentID" type="xsd:string" />
+    <part name="DocumentNumber" type="xsd:string" />
+    <part name="CopyNumber" type="xsd:int" />
+    <part name="ExportReason" type="xsd:string" />
+    <part name="PublicNote" type="xsd:string" />
+    <part name="PrivateNote" type="xsd:string" />
+    <part name="ExternalSendTarget" type="tns:externalSendTargetInfo" />
+    <part name="Attachments" type="tns:attachmentArray" />
+  </message>
+  <message name="ExportDocumentResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="CloseDocument">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="ActionByUser" type="xsd:string" />
+    <part name="DepartmentID" type="xsd:string" />
+    <part name="DocumentNumber" type="xsd:string" />
+    <part name="CopyNumber" type="xsd:int" />
+    <part name="closureReason" type="xsd:string" />
+    <part name="PublicNote" type="xsd:string" />
+    <part name="PrivateNote" type="xsd:string" />
+  </message>
+  <message name="CloseDocumentResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="InitiateIncomingDocument">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="DepartmentID" type="xsd:string" />
+    <part name="ActionByUser" type="xsd:string" />
+    <part name="IncomingDocumentInfo" type="tns:wsIncomingDocumentInfo" />
+    <part name="PublicNote" type="xsd:string" />
+    <part name="PrivateNote" type="xsd:string" />
+    <part name="Attachments" type="tns:attachmentArray" />
+  </message>
+  <message name="InitiateIncomingDocumentResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="ReceiveDocument">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="ActionByUser" type="xsd:string" />
+    <part name="DepartmentID" type="xsd:string" />
+    <part name="DocumentNumber" type="xsd:string" />
+    <part name="copyNumber" type="xsd:int" />
+    <part name="PublicNote" type="xsd:string" />
+    <part name="PrivateNote" type="xsd:string" />
+  </message>
+  <message name="ReceiveDocumentResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="UpdateDocument">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="DepartmentID" type="xsd:string" />
+    <part name="ActionByUser" type="xsd:string" />
+    <part name="DocumentNumber" type="xsd:string" />
+    <part name="CopyNumber" type="xsd:int" />
+    <part name="NewDocumentInfo" type="tns:wsDocumentInfo" />
+  </message>
+  <message name="UpdateDocumentResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="AddGovernment">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="GovernmentInfo" type="tns:governmentInfo" />
+  </message>
+  <message name="AddGovernmentResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="UpdatePrivateSector">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="PrivateSectorInfo" type="tns:privateSectorInfo" />
+  </message>
+  <message name="UpdatePrivateSectorResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="UpdateGovernment">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="GovernmentInfo" type="tns:governmentInfo" />
+  </message>
+  <message name="UpdateGovernmentResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="GetLastDocumentActions">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="LastDocumentActionQueryObject" type="tns:lastDocumentInfo" />
+  </message>
+  <message name="GetLastDocumentActionsResponse">
+    <part name="return" type="tns:documentLastActionData" />
+  </message>
+  <message name="AddPrivateSector">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="PrivateSectorInfo" type="tns:privateSectorInfo" />
+  </message>
+  <message name="AddPrivateSectorResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="ForgetPassword">
+    <part name="SystemUserName" type="xsd:string" />
+    <part name="SystemPassword" type="xsd:string" />
+    <part name="UserProfileName" type="xsd:string" />
+  </message>
+  <message name="ForgetPasswordResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="CopyDocumentCase">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="DepartmentID" type="xsd:string" />
+    <part name="ActionByUser" type="xsd:string" />
+    <part name="DocumentNumber" type="xsd:string" />
+    <part name="CopyNumber" type="xsd:int" />
+    <part name="ActionID" type="xsd:string" />
+    <part name="PublicNote" type="xsd:string" />
+    <part name="PrivateNote" type="xsd:string" />
+    <part name="SendTargetAttachments" type="tns:internalSendTargetAttachmentArray" />
+  </message>
+  <message name="CopyDocumentCaseResponse">
+    <part name="return" type="tns:copyInfoCaseData" />
+  </message>
+  <message name="UpdateCitizen">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="CitizenInfo" type="tns:citizen" />
+  </message>
+  <message name="UpdateCitizenResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="GetContactPrimaryDepartment">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="ContactID" type="xsd:string" />
+  </message>
+  <message name="GetContactPrimaryDepartmentResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="GetDepartmentContacts">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="DepartmentID" type="xsd:string" />
+  </message>
+  <message name="GetDepartmentContactsResponse">
+    <part name="return" type="tns:contactsData" />
+  </message>
+  <message name="getOpenedDocumentsByEmployee">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="EmployeeUserName" type="xsd:string" />
+  </message>
+  <message name="getOpenedDocumentsByEmployeeResponse">
+    <part name="return" type="tns:openedDocumentsData" />
+  </message>
+  <message name="GetTransactionTypes">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetTransactionTypesResponse">
+    <part name="return" type="tns:transactionTypesData" />
+  </message>
+  <message name="GetServiceTypes">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetServiceTypesResponse">
+    <part name="return" type="tns:serviceTypeData" />
+  </message>
+  <message name="GetSecurityLevels">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetSecurityLevelsResponse">
+    <part name="return" type="tns:securityLevelsData" />
+  </message>
+  <message name="GetOrganizations">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="Name" type="xsd:string" />
+    <part name="CommercialNumber" type="xsd:string" />
+    <part name="Code" type="xsd:string" />
+    <part name="Organization_username" type="xsd:string" />
+  </message>
+  <message name="GetOrganizationsResponse">
+    <part name="return" type="tns:organizationData" />
+  </message>
+  <message name="GetDepartments">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="Name" type="xsd:string" />
+    <part name="DepartmentID" type="xsd:string" />
+  </message>
+  <message name="GetDepartmentsResponse">
+    <part name="return" type="tns:departmentData" />
+  </message>
+  <message name="GetOrganizationById">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="OrganizationID" type="xsd:string" />
+  </message>
+  <message name="GetOrganizationByIdResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="GetCitizenById">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="citizenID" type="xsd:string" />
+  </message>
+  <message name="GetCitizenByIdResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="GetDepartmentById">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="departmentID" type="xsd:string" />
+  </message>
+  <message name="GetDepartmentByIdResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="GetOrganizationTypes">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetOrganizationTypesResponse">
+    <part name="return" type="tns:organizationTypesData" />
+  </message>
+  <message name="GetContactById">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+    <part name="contactID" type="xsd:string" />
+  </message>
+  <message name="GetContactByIdResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="GetClosureReasons">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetClosureReasonsResponse">
+    <part name="return" type="tns:closureReasonsData" />
+  </message>
+  <message name="GetTransferActions">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetTransferActionsResponse">
+    <part name="return" type="tns:actionData" />
+  </message>
+  <message name="GetExportReasons">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetExportReasonsResponse">
+    <part name="return" type="tns:exportReasonsData" />
+  </message>
+  <message name="GetDocumentImportance">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetDocumentImportanceResponse">
+    <part name="return" type="tns:documentImportanceData" />
+  </message>
+  <message name="GetOwnerTypes">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetOwnerTypesResponse">
+    <part name="return" type="tns:ownerTypesData" />
+  </message>
+  <message name="GetIdentityTypes">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetIdentityTypesResponse">
+    <part name="return" type="tns:identityTypesData" />
+  </message>
+  <message name="GetMartialStatues">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetMartialStatuesResponse">
+    <part name="return" type="tns:maritalStatuesData" />
+  </message>
+  <message name="GetStreetImportance">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetStreetImportanceResponse">
+    <part name="return" type="tns:streetImportanceData" />
+  </message>
+  <message name="GetRejectionReasons">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetRejectionReasonsResponse">
+    <part name="return" type="tns:rejectionReasonsData" />
+  </message>
+  <message name="GetPaperStates">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetPaperStatesResponse">
+    <part name="return" type="tns:paperStateData" />
+  </message>
+  <message name="GetPhysicalAttachments">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetPhysicalAttachmentsResponse">
+    <part name="return" type="tns:physicalAttachmentsData" />
+  </message>
+  <message name="GetRelatedOwnersTypes">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="GetRelatedOwnersTypesResponse">
+    <part name="return" type="tns:relatedOwnersTypesData" />
+  </message>
+  <message name="SetPassword">
+    <part name="SystemUserName" type="xsd:string" />
+    <part name="SystemPassword" type="xsd:string" />
+    <part name="UserProfileName" type="xsd:string" />
+    <part name="OldPassword" type="xsd:string" />
+    <part name="NewPassword" type="xsd:string" />
+  </message>
+  <message name="SetPasswordResponse">
+    <part name="return" type="tns:serviceResponse" />
+  </message>
+  <message name="LoginUser">
+    <part name="UserName" type="xsd:string" />
+    <part name="Password" type="xsd:string" />
+  </message>
+  <message name="LoginUserResponse">
+    <part name="return" type="tns:loginUserResponse" />
+  </message>
+  <portType name="ESCTSService">
+    <operation name="isAlive">
+      <input message="tns:isAlive" />
+      <output message="tns:isAliveResponse" />
+    </operation>
+    <operation name="test" parameterOrder="username">
+      <input message="tns:test" />
+      <output message="tns:testResponse" />
+    </operation>
+    <operation name="CopyDocument" parameterOrder="UserName Password DepartmentID ActionByUser DocumentNumber CopyNumber ActionID PublicNote PrivateNote SendTargetAttachments">
+      <input message="tns:CopyDocument" />
+      <output message="tns:CopyDocumentResponse" />
+    </operation>
+    <operation name="ActiveExport" parameterOrder="UserName Password DepartmentID ActionByUser DocumentNumber CopyNumber IncomingDocumentInfo PublicNote PrivateNote Attachments">
+      <input message="tns:ActiveExport" />
+      <output message="tns:ActiveExportResponse" />
+    </operation>
+    <operation name="AddCitizen" parameterOrder="UserName Password CitizenInfo">
+      <input message="tns:AddCitizen" />
+      <output message="tns:AddCitizenResponse" />
+    </operation>
+    <operation name="GetPrefixes" parameterOrder="UserName Password">
+      <input message="tns:GetPrefixes" />
+      <output message="tns:GetPrefixesResponse" />
+    </operation>
+    <operation name="GetViceTypes" parameterOrder="UserName Password">
+      <input message="tns:GetViceTypes" />
+      <output message="tns:GetViceTypesResponse" />
+    </operation>
+    <operation name="GetRegions" parameterOrder="UserName Password">
+      <input message="tns:GetRegions" />
+      <output message="tns:GetRegionsResponse" />
+    </operation>
+    <operation name="GetStreets" parameterOrder="UserName Password">
+      <input message="tns:GetStreets" />
+      <output message="tns:GetStreetsResponse" />
+    </operation>
+    <operation name="GetStates" parameterOrder="UserName Password">
+      <input message="tns:GetStates" />
+      <output message="tns:GetStatesResponse" />
+    </operation>
+    <operation name="GetReligions" parameterOrder="UserName Password">
+      <input message="tns:GetReligions" />
+      <output message="tns:GetReligionsResponse" />
+    </operation>
+    <operation name="GetCityInfo" parameterOrder="UserName Password">
+      <input message="tns:GetCityInfo" />
+      <output message="tns:GetCityInfoResponse" />
+    </operation>
+    <operation name="GetCountries" parameterOrder="UserName Password">
+      <input message="tns:GetCountries" />
+      <output message="tns:GetCountriesResponse" />
+    </operation>
+    <operation name="GetDistricts" parameterOrder="UserName Password">
+      <input message="tns:GetDistricts" />
+      <output message="tns:GetDistrictsResponse" />
+    </operation>
+    <operation name="GetGenders" parameterOrder="UserName Password">
+      <input message="tns:GetGenders" />
+      <output message="tns:GetGendersResponse" />
+    </operation>
+    <operation name="GetAreaInfo" parameterOrder="UserName Password">
+      <input message="tns:GetAreaInfo" />
+      <output message="tns:GetAreaInfoResponse" />
+    </operation>
+    <operation name="GetSideTypes" parameterOrder="UserName Password">
+      <input message="tns:GetSideTypes" />
+      <output message="tns:GetSideTypesResponse" />
+    </operation>
+    <operation name="GetContacts" parameterOrder="UserName Password">
+      <input message="tns:GetContacts" />
+      <output message="tns:GetContactsResponse" />
+    </operation>
+    <operation name="GetCitizens" parameterOrder="UserName Password Name identityNumber Citizen_username">
+      <input message="tns:GetCitizens" />
+      <output message="tns:GetCitizensResponse" />
+    </operation>
+    <operation name="getOpenedDocumentsByDepartment" parameterOrder="UserName Password DepartmentId">
+      <input message="tns:getOpenedDocumentsByDepartment" />
+      <output message="tns:getOpenedDocumentsByDepartmentResponse" />
+    </operation>
+    <operation name="GetDeliveryModes" parameterOrder="UserName Password">
+      <input message="tns:GetDeliveryModes" />
+      <output message="tns:GetDeliveryModesResponse" />
+    </operation>
+    <operation name="GetNationalities" parameterOrder="UserName Password">
+      <input message="tns:GetNationalities" />
+      <output message="tns:GetNationalitiesResponse" />
+    </operation>
+    <operation name="InitiateInternalDocument_url" parameterOrder="UserName Password DepartmentID ActionByUser NewDocumentInfo PublicNote PrivateNote AttachmentURL">
+      <input message="tns:InitiateInternalDocument_url" />
+      <output message="tns:InitiateInternalDocument_urlResponse" />
+    </operation>
+    <operation name="GetMunicipalities" parameterOrder="UserName Password">
+      <input message="tns:GetMunicipalities" />
+      <output message="tns:GetMunicipalitiesResponse" />
+    </operation>
+    <operation name="GetDocumentStatus" parameterOrder="UserName Password">
+      <input message="tns:GetDocumentStatus" />
+      <output message="tns:GetDocumentStatusResponse" />
+    </operation>
+    <operation name="ExportDocument_AR" parameterOrder="UserName Password ActionByUser DepartmentID DocumentNumber CopyNumber ExportReason ExternalSendTarget PublicNote PrivateNote AttachmentID">
+      <input message="tns:ExportDocument_AR" />
+      <output message="tns:ExportDocument_ARResponse" />
+    </operation>
+    <operation name="InitiateInternalDocument_AR" parameterOrder="UserName Password DepartmentID ActionByUser NewDocumentInfo PublicNote PrivateNote AttachmentID">
+      <input message="tns:InitiateInternalDocument_AR" />
+      <output message="tns:InitiateInternalDocument_ARResponse" />
+    </operation>
+    <operation name="TransferDocumentDMS" parameterOrder="UserName Password ActionByUser TransferInfo DMS_DOC_ID">
+      <input message="tns:TransferDocumentDMS" />
+      <output message="tns:TransferDocumentDMSResponse" />
+    </operation>
+    <operation name="InitiateInternalDocument" parameterOrder="UserName Password DepartmentID ActionByUser NewDocumentInfo PublicNote PrivateNote Attachments">
+      <input message="tns:InitiateInternalDocument" />
+      <output message="tns:InitiateInternalDocumentResponse" />
+    </operation>
+    <operation name="TransferDocument" parameterOrder="UserName Password ActionByUser DepartmentID TransferInfo Attachments">
+      <input message="tns:TransferDocument" />
+      <output message="tns:TransferDocumentResponse" />
+    </operation>
+    <operation name="getDocumentInfo" parameterOrder="UserName Password DocumentInfoQueryObject">
+      <input message="tns:getDocumentInfo" />
+      <output message="tns:getDocumentInfoResponse" />
+    </operation>
+    <operation name="ExportDocument" parameterOrder="UserName Password ActionByUser DepartmentID DocumentNumber CopyNumber ExportReason PublicNote PrivateNote ExternalSendTarget Attachments">
+      <input message="tns:ExportDocument" />
+      <output message="tns:ExportDocumentResponse" />
+    </operation>
+    <operation name="CloseDocument" parameterOrder="UserName Password ActionByUser DepartmentID DocumentNumber CopyNumber closureReason PublicNote PrivateNote">
+      <input message="tns:CloseDocument" />
+      <output message="tns:CloseDocumentResponse" />
+    </operation>
+    <operation name="InitiateIncomingDocument" parameterOrder="UserName Password DepartmentID ActionByUser IncomingDocumentInfo PublicNote PrivateNote Attachments">
+      <input message="tns:InitiateIncomingDocument" />
+      <output message="tns:InitiateIncomingDocumentResponse" />
+    </operation>
+    <operation name="ReceiveDocument" parameterOrder="UserName Password ActionByUser DepartmentID DocumentNumber copyNumber PublicNote PrivateNote">
+      <input message="tns:ReceiveDocument" />
+      <output message="tns:ReceiveDocumentResponse" />
+    </operation>
+    <operation name="UpdateDocument" parameterOrder="UserName Password DepartmentID ActionByUser DocumentNumber CopyNumber NewDocumentInfo">
+      <input message="tns:UpdateDocument" />
+      <output message="tns:UpdateDocumentResponse" />
+    </operation>
+    <operation name="AddGovernment" parameterOrder="UserName Password GovernmentInfo">
+      <input message="tns:AddGovernment" />
+      <output message="tns:AddGovernmentResponse" />
+    </operation>
+    <operation name="UpdatePrivateSector" parameterOrder="UserName Password PrivateSectorInfo">
+      <input message="tns:UpdatePrivateSector" />
+      <output message="tns:UpdatePrivateSectorResponse" />
+    </operation>
+    <operation name="UpdateGovernment" parameterOrder="UserName Password GovernmentInfo">
+      <input message="tns:UpdateGovernment" />
+      <output message="tns:UpdateGovernmentResponse" />
+    </operation>
+    <operation name="GetLastDocumentActions" parameterOrder="UserName Password LastDocumentActionQueryObject">
+      <input message="tns:GetLastDocumentActions" />
+      <output message="tns:GetLastDocumentActionsResponse" />
+    </operation>
+    <operation name="AddPrivateSector" parameterOrder="UserName Password PrivateSectorInfo">
+      <input message="tns:AddPrivateSector" />
+      <output message="tns:AddPrivateSectorResponse" />
+    </operation>
+    <operation name="ForgetPassword" parameterOrder="SystemUserName SystemPassword UserProfileName">
+      <input message="tns:ForgetPassword" />
+      <output message="tns:ForgetPasswordResponse" />
+    </operation>
+    <operation name="CopyDocumentCase" parameterOrder="UserName Password DepartmentID ActionByUser DocumentNumber CopyNumber ActionID PublicNote PrivateNote SendTargetAttachments">
+      <input message="tns:CopyDocumentCase" />
+      <output message="tns:CopyDocumentCaseResponse" />
+    </operation>
+    <operation name="UpdateCitizen" parameterOrder="UserName Password CitizenInfo">
+      <input message="tns:UpdateCitizen" />
+      <output message="tns:UpdateCitizenResponse" />
+    </operation>
+    <operation name="GetContactPrimaryDepartment" parameterOrder="UserName Password ContactID">
+      <input message="tns:GetContactPrimaryDepartment" />
+      <output message="tns:GetContactPrimaryDepartmentResponse" />
+    </operation>
+    <operation name="GetDepartmentContacts" parameterOrder="UserName Password DepartmentID">
+      <input message="tns:GetDepartmentContacts" />
+      <output message="tns:GetDepartmentContactsResponse" />
+    </operation>
+    <operation name="getOpenedDocumentsByEmployee" parameterOrder="UserName Password EmployeeUserName">
+      <input message="tns:getOpenedDocumentsByEmployee" />
+      <output message="tns:getOpenedDocumentsByEmployeeResponse" />
+    </operation>
+    <operation name="GetTransactionTypes" parameterOrder="UserName Password">
+      <input message="tns:GetTransactionTypes" />
+      <output message="tns:GetTransactionTypesResponse" />
+    </operation>
+    <operation name="GetServiceTypes" parameterOrder="UserName Password">
+      <input message="tns:GetServiceTypes" />
+      <output message="tns:GetServiceTypesResponse" />
+    </operation>
+    <operation name="GetSecurityLevels" parameterOrder="UserName Password">
+      <input message="tns:GetSecurityLevels" />
+      <output message="tns:GetSecurityLevelsResponse" />
+    </operation>
+    <operation name="GetOrganizations" parameterOrder="UserName Password Name CommercialNumber Code Organization_username">
+      <input message="tns:GetOrganizations" />
+      <output message="tns:GetOrganizationsResponse" />
+    </operation>
+    <operation name="GetDepartments" parameterOrder="UserName Password Name DepartmentID">
+      <input message="tns:GetDepartments" />
+      <output message="tns:GetDepartmentsResponse" />
+    </operation>
+    <operation name="GetOrganizationById" parameterOrder="UserName Password OrganizationID">
+      <input message="tns:GetOrganizationById" />
+      <output message="tns:GetOrganizationByIdResponse" />
+    </operation>
+    <operation name="GetCitizenById" parameterOrder="UserName Password citizenID">
+      <input message="tns:GetCitizenById" />
+      <output message="tns:GetCitizenByIdResponse" />
+    </operation>
+    <operation name="GetDepartmentById" parameterOrder="UserName Password departmentID">
+      <input message="tns:GetDepartmentById" />
+      <output message="tns:GetDepartmentByIdResponse" />
+    </operation>
+    <operation name="GetOrganizationTypes" parameterOrder="UserName Password">
+      <input message="tns:GetOrganizationTypes" />
+      <output message="tns:GetOrganizationTypesResponse" />
+    </operation>
+    <operation name="GetContactById" parameterOrder="UserName Password contactID">
+      <input message="tns:GetContactById" />
+      <output message="tns:GetContactByIdResponse" />
+    </operation>
+    <operation name="GetClosureReasons" parameterOrder="UserName Password">
+      <input message="tns:GetClosureReasons" />
+      <output message="tns:GetClosureReasonsResponse" />
+    </operation>
+    <operation name="GetTransferActions" parameterOrder="UserName Password">
+      <input message="tns:GetTransferActions" />
+      <output message="tns:GetTransferActionsResponse" />
+    </operation>
+    <operation name="GetExportReasons" parameterOrder="UserName Password">
+      <input message="tns:GetExportReasons" />
+      <output message="tns:GetExportReasonsResponse" />
+    </operation>
+    <operation name="GetDocumentImportance" parameterOrder="UserName Password">
+      <input message="tns:GetDocumentImportance" />
+      <output message="tns:GetDocumentImportanceResponse" />
+    </operation>
+    <operation name="GetOwnerTypes" parameterOrder="UserName Password">
+      <input message="tns:GetOwnerTypes" />
+      <output message="tns:GetOwnerTypesResponse" />
+    </operation>
+    <operation name="GetIdentityTypes" parameterOrder="UserName Password">
+      <input message="tns:GetIdentityTypes" />
+      <output message="tns:GetIdentityTypesResponse" />
+    </operation>
+    <operation name="GetMartialStatues" parameterOrder="UserName Password">
+      <input message="tns:GetMartialStatues" />
+      <output message="tns:GetMartialStatuesResponse" />
+    </operation>
+    <operation name="GetStreetImportance" parameterOrder="UserName Password">
+      <input message="tns:GetStreetImportance" />
+      <output message="tns:GetStreetImportanceResponse" />
+    </operation>
+    <operation name="GetRejectionReasons" parameterOrder="UserName Password">
+      <input message="tns:GetRejectionReasons" />
+      <output message="tns:GetRejectionReasonsResponse" />
+    </operation>
+    <operation name="GetPaperStates" parameterOrder="UserName Password">
+      <input message="tns:GetPaperStates" />
+      <output message="tns:GetPaperStatesResponse" />
+    </operation>
+    <operation name="GetPhysicalAttachments" parameterOrder="UserName Password">
+      <input message="tns:GetPhysicalAttachments" />
+      <output message="tns:GetPhysicalAttachmentsResponse" />
+    </operation>
+    <operation name="GetRelatedOwnersTypes" parameterOrder="UserName Password">
+      <input message="tns:GetRelatedOwnersTypes" />
+      <output message="tns:GetRelatedOwnersTypesResponse" />
+    </operation>
+    <operation name="SetPassword" parameterOrder="SystemUserName SystemPassword UserProfileName OldPassword NewPassword">
+      <input message="tns:SetPassword" />
+      <output message="tns:SetPasswordResponse" />
+    </operation>
+    <operation name="LoginUser" parameterOrder="UserName Password">
+      <input message="tns:LoginUser" />
+      <output message="tns:LoginUserResponse" />
+    </operation>
+  </portType>
+  <binding name="ESCTSServiceImplPortBinding" type="tns:ESCTSService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="isAlive">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="test">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="CopyDocument">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="ActiveExport">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="AddCitizen">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetPrefixes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetViceTypes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetRegions">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetStreets">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetStates">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetReligions">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetCityInfo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetCountries">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetDistricts">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetGenders">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetAreaInfo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetSideTypes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetContacts">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetCitizens">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="getOpenedDocumentsByDepartment">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetDeliveryModes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetNationalities">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="InitiateInternalDocument_url">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetMunicipalities">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetDocumentStatus">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="ExportDocument_AR">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="InitiateInternalDocument_AR">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="TransferDocumentDMS">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="InitiateInternalDocument">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="TransferDocument">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="getDocumentInfo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="ExportDocument">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="CloseDocument">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="InitiateIncomingDocument">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="ReceiveDocument">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="UpdateDocument">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="AddGovernment">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="UpdatePrivateSector">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="UpdateGovernment">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetLastDocumentActions">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="AddPrivateSector">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="ForgetPassword">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="CopyDocumentCase">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="UpdateCitizen">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetContactPrimaryDepartment">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetDepartmentContacts">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="getOpenedDocumentsByEmployee">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetTransactionTypes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetServiceTypes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetSecurityLevels">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetOrganizations">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetDepartments">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetOrganizationById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetCitizenById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetDepartmentById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetOrganizationTypes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetContactById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetClosureReasons">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetTransferActions">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetExportReasons">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetDocumentImportance">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetOwnerTypes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetIdentityTypes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetMartialStatues">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetStreetImportance">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetRejectionReasons">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetPaperStates">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetPhysicalAttachments">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="GetRelatedOwnersTypes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="SetPassword">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+    <operation name="LoginUser">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.es/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ESCTSServiceImplService">
+    <port name="ESCTSServiceImplPort" binding="tns:ESCTSServiceImplPortBinding">
+      <soap:address location="http://132.35.6.247:8888/RIM/ESCTSService" />
+    </port>
+  </service>
+</definitions>

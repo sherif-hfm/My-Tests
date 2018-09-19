@@ -1,0 +1,6 @@
+﻿<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <appSettings>
+    <add key="webpages:Enabled" xdt:Locator="Match(key)" xdt:Transform="Remove" />
+    <add key="webpages:Enabled" value="true" xdt:Locator="Match(key)" xdt:Transform="Insert" />
+  </appSettings>
+</configuration>

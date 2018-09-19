@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\HtmlWebSocketTest\WebSocketServer\bin\Debug\WebSocketServer.exe.config
+D:\Dropbox\My Tests\My Web Tests\HtmlWebSocketTest\WebSocketServer\bin\Debug\WebSocketServer.exe
+D:\Dropbox\My Tests\My Web Tests\HtmlWebSocketTest\WebSocketServer\bin\Debug\WebSocketServer.pdb
+D:\Dropbox\My Tests\My Web Tests\HtmlWebSocketTest\WebSocketServer\obj\Debug\WebSocketServer.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\HtmlWebSocketTest\WebSocketServer\obj\Debug\WebSocketServer.exe
+D:\Dropbox\My Tests\My Web Tests\HtmlWebSocketTest\WebSocketServer\obj\Debug\WebSocketServer.pdb

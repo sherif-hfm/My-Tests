@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="66ed0a09-bacd-4fcf-a976-a7c9c3a83f05" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8020/Common/User.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="User.xsd" MetadataType="Schema" ID="d00536eb-2f8d-4fa5-b089-67b723a08634" SourceId="1" SourceUrl="http://sherifhamdy.itamana.net:8020/Common/User.svc?xsd=xsd1" />
+    <MetadataFile FileName="User1.xsd" MetadataType="Schema" ID="1493a810-739b-4b9c-9a3e-74ba552ccc34" SourceId="1" SourceUrl="http://sherifhamdy.itamana.net:8020/Common/User.svc?xsd=xsd2" />
+    <MetadataFile FileName="User2.xsd" MetadataType="Schema" ID="0f1063b9-ea76-41f8-a10a-0e2bfe4f564b" SourceId="1" SourceUrl="http://sherifhamdy.itamana.net:8020/Common/User.svc?xsd=xsd0" />
+    <MetadataFile FileName="User.disco" MetadataType="Disco" ID="63580a54-7a19-4cff-bad3-61709fea747f" SourceId="1" SourceUrl="http://sherifhamdy.itamana.net:8020/Common/User.svc?disco" />
+    <MetadataFile FileName="UserData.wsdl" MetadataType="Wsdl" ID="fb45a30d-06d3-4315-a873-3c13e5b5b4a6" SourceId="1" SourceUrl="http://sherifhamdy.itamana.net:8020/Common/User.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

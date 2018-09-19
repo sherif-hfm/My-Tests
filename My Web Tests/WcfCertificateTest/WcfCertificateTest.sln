@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfService", "WcfService\WcfService.csproj", "{2703A647-D7C3-4302-A0C8-7482A4A08B14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfClient", "WcfClient\WcfClient.csproj", "{097447A5-D92E-452B-AD78-EE2CC87C27BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2703A647-D7C3-4302-A0C8-7482A4A08B14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2703A647-D7C3-4302-A0C8-7482A4A08B14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2703A647-D7C3-4302-A0C8-7482A4A08B14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2703A647-D7C3-4302-A0C8-7482A4A08B14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{097447A5-D92E-452B-AD78-EE2CC87C27BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{097447A5-D92E-452B-AD78-EE2CC87C27BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{097447A5-D92E-452B-AD78-EE2CC87C27BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{097447A5-D92E-452B-AD78-EE2CC87C27BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

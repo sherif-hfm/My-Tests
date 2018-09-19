@@ -1,0 +1,16 @@
+<h1>Angular Router</h1>
+    <nav>
+      <a routerLink="/login" routerLinkActive="active">Login</a>
+      <a routerLink="/app1" routerLinkActive="active">app1</a>
+      <a routerLink="/app2" routerLinkActive="active">app2</a>
+      <a routerLink="/app3" routerLinkActive="active">app3</a>
+      <a routerLink="/app" routerLinkActive="active">app Comp1</a>
+      <a [routerLink]="[{ outlets: { popup: ['app'] } }]">app Comp1</a>
+    </nav>
+    
+<hr/>
+    outlet
+    <router-outlet></router-outlet>
+    <hr/>
+    popup
+    <router-outlet name="popup"></router-outlet>

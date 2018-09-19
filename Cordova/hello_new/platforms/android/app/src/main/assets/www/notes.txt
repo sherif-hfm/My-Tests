@@ -1,0 +1,37 @@
+localhost url :
+http://10.0.2.2:8010/index.html
+var url = 'http://10.0.2.2:8010/Otp/UserLogin';
+
+npm install -g cordova
+cordova create hello com.example.hello HelloWorld
+cordova platform add android
+cordova platform ls
+cordova build
+cordova emulate android
+cordova run android
+
+
+https://cordova.apache.org/docs/en/latest/guide/cli/
+https://cordova.apache.org/docs/en/latest/guide/overview/index.html
+
+
+https://github.com/floatinghotpot/cordova-plugin-sms
+cordova plugin add cordova-plugin-sms
+
+cordova plugin list
+
+// to get cordova version
+cordova -v
+
+// to update android
+cordova platform update android
+
+// to update cordova
+npm install -g cordova
+
+<engine name="android" spec="^6.2.3" />
+
+to update
+npm install -g cordova 
+
+

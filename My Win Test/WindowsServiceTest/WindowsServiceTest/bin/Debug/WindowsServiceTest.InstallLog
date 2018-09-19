@@ -1,0 +1,65 @@
+﻿Installing assembly 'D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.InstallLog
+   assemblypath = D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.exe
+Rolling back assembly 'D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.InstallLog
+   assemblypath = D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.exe
+Installing assembly 'D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.InstallLog
+   assemblypath = D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.exe
+Installing service WinServiceTest...
+Creating EventLog source WinServiceTest in log Application...
+Rolling back assembly 'D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.InstallLog
+   assemblypath = D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.exe
+Restoring event log to previous state for source WinServiceTest.
+Installing assembly 'D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.exe'.
+Affected parameters are:
+   i = 
+   logfile = D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.InstallLog
+   assemblypath = D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.exe
+   logtoconsole = 
+Installing service WinServiceTest...
+Creating EventLog source WinServiceTest in log Application...
+Rolling back assembly 'D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.exe'.
+Affected parameters are:
+   i = 
+   logfile = D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.InstallLog
+   assemblypath = D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.exe
+   logtoconsole = 
+Restoring event log to previous state for source WinServiceTest.
+Installing assembly 'D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.exe'.
+Affected parameters are:
+   i = 
+   logfile = D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.InstallLog
+   assemblypath = D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.exe
+   logtoconsole = 
+Rolling back assembly 'D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.exe'.
+Affected parameters are:
+   i = 
+   logfile = D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.InstallLog
+   assemblypath = D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.exe
+   logtoconsole = 
+Installing assembly 'D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.exe'.
+Affected parameters are:
+   i = 
+   logfile = D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.InstallLog
+   assemblypath = D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.exe
+   logtoconsole = 
+Installing service WinServiceTest...
+Service WinServiceTest has been successfully installed.
+Creating EventLog source WinServiceTest in log Application...
+Committing assembly 'D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.exe'.
+Affected parameters are:
+   i = 
+   logfile = D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.InstallLog
+   assemblypath = D:\Dropbox\My Tests\My Win Test\WindowsServiceTest\WindowsServiceTest\bin\Debug\WindowsServiceTest.exe
+   logtoconsole = 

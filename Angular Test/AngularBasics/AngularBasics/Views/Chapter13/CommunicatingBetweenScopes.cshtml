@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Example1";
+}
+
+<h2>Chapter13</h2>
+
+<h2>Communicating Between Scopes</h2>
+
+<div class="well" ng-controller="simpleCtrl" style="display:none">
+    <label>Select a City:</label>
+    <select ng-options="city for city in cities" ng-model="city"></select>
+    <p>The city is: {{city}}</p>
+    <p>The country is: {{getCountry(city) || "Unknown"}}</p>
+</div>
+
+<div ng-controller="simple2Ctrl">
+    <div class="well">
+        <h4>Billing Zip Code</h4>
+        <div class="form-group">
+            <input class="form-control" ng-model="billingZip">
+        </div>
+        <button class="btn btn-primary" ng-click="setAddress('billingZip', billingZip)">
+            Save Billing
+        </button>
+    </div>
+    <div class="well">
+        <h4>Shipping Zip Code</h4>
+        <div class="form-group">
+            <input class="form-control" ng-model="shippingZip">
+        </div>
+        <button class="btn btn-primary" ng-click="copyAddress()">
+            Use Billing
+        </button>
+        <button class="btn btn-primary"
+                ng-click="setAddress('shippingZip', shippingZip)">
+            Save Shipping
+        </button>
+    </div>
+</div>
+
+<div ng-controller="simple2Ctrl">
+    <div class="well">
+        <h4>Billing Zip Code</h4>
+        <div class="form-group">
+            <input class="form-control" ng-model="billingZip">
+        </div>
+        <button class="btn btn-primary" ng-click="setAddress('billingZip', billingZip)">
+            Save Billing
+        </button>
+    </div>
+    <div class="well">
+        <h4>Shipping Zip Code</h4>
+        <div class="form-group">
+            <input class="form-control" ng-model="shippingZip">
+        </div>
+        <button class="btn btn-primary" ng-click="copyAddress()">
+            Use Billing
+        </button>
+        <button class="btn btn-primary"
+                ng-click="setAddress('shippingZip', shippingZip)">
+            Save Shipping
+        </button>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/Scripts/MyScripts/Chapter13/CommunicatingBetweenScopes.js"></script>
+}
+

@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{66F64008-5827-49BB-BD3B-6F39F68E4CA5}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LeadtoolsTest</RootNamespace>
+    <AssemblyName>LeadtoolsTest</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Leadtools, Version=17.0.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Annotations.Automation, Version=19.0.0.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Annotations.Automation.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Annotations.Core, Version=19.0.0.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Annotations.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Annotations.Documents, Version=19.0.0.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Annotations.Documents.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Annotations.Rendering.WinForms, Version=19.0.0.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Annotations.Rendering.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Annotations.WinForms, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Annotations.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Caching, Version=19.0.0.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Codecs, Version=17.0.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Codecs.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Codecs.Doc, Version=17.0.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Codecs.Doc.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Codecs.Dox, Version=17.0.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Codecs.Dox.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Documents, Version=19.0.0.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Documents.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Documents.Converters, Version=19.0.0.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Documents.Converters.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Documents.Pdf, Version=19.0.0.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Documents.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Documents.Raster, Version=19.0.0.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Documents.Raster.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Documents.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Documents.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Documents.UI.WinForms, Version=19.0.0.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Documents.UI.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Drawing, Version=17.0.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Forms, Version=17.0.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Forms.DocumentReaders, Version=19.0.0.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Forms.DocumentReaders.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Forms.DocumentReaders.Pdf, Version=19.0.0.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Forms.DocumentReaders.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Forms.DocumentReaders.Raster, Version=19.0.0.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Forms.DocumentReaders.Raster.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Forms.DocumentReaders.Xps, Version=19.0.0.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Forms.DocumentReaders.Xps.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Forms.DocumentWriters, Version=17.0.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Forms.DocumentWriters.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Forms.Ocr, Version=17.0.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Forms.Ocr.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Forms.Ocr.Advantage, Version=17.0.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Forms.Ocr.Advantage.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Forms.Ocr.Arabic, Version=17.0.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Forms.Ocr.Arabic.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Forms.Ocr.Professional, Version=17.0.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Forms.Ocr.Professional.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Forms.Processing, Version=17.0.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Forms.Processing.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Forms.Recognition, Version=17.0.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Forms.Recognition.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Forms.Recognition.Barcode, Version=17.0.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Forms.Recognition.Barcode.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.ImageProcessing.Core, Version=17.0.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.ImageProcessing.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.JobProcessor.Job, Version=19.0.0.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.JobProcessor.Job.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.JobProcessor.Worker, Version=19.0.0.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.JobProcessor.Worker.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Services.Raster.DataContracts, Version=17.0.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Services.Raster.DataContracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Services.Raster.FaultContracts, Version=17.0.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Services.Raster.FaultContracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Services.Raster.ServiceContracts, Version=17.0.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Services.Raster.ServiceContracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Services.Raster.ServiceImplementations, Version=17.0.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Services.Raster.ServiceImplementations.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools.Svg, Version=19.0.0.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LEADTOOLS 19\Bin\Dotnet4\x64\Leadtools.Svg.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

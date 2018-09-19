@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<doc processed="true">
+  <assembly>
+    <name>Leadtools.Services.Raster.ServiceContracts</name>
+  </assembly>
+  <members>
+    <member name="T:Leadtools.Services.Raster.ServiceContracts.IRasterService">
+      <summary>
+            Represents the WCF service contract for the raster service.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <remarks>
+        <para>You can use the <see cref="M:Leadtools.Services.Raster.ServiceContracts.IRasterService.Convert(Leadtools.Services.Raster.DataContracts.ConvertRequest)" /> method to convert in an image on disk to another format with any of the raster formats supported by LEADTOOLS.</para>
+        <para>You can use the <see cref="M:Leadtools.Services.Raster.ServiceContracts.IRasterService.GetInformation(Leadtools.Services.Raster.DataContracts.GetInformationRequest)" /> method to image information from a disk file.</para>
+      </remarks>
+      <noexample />
+    </member>
+    <member name="M:Leadtools.Services.Raster.ServiceContracts.IRasterService.GetInformation(Leadtools.Services.Raster.DataContracts.GetInformationRequest)">
+      <summary>
+            Gets the image information.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="request">
+            A <see cref="T:System.ServiceModel.MessageContractAttribute" /> containing the data that will be used in this <see cref="M:Leadtools.Services.Raster.ServiceContracts.IRasterService.GetInformation(Leadtools.Services.Raster.DataContracts.GetInformationRequest)" /> operation.
+            </param>
+      <remarks>
+            This method is supported when hosting using WebHttpBinding.
+            </remarks>
+      <returns>A <see cref="T:System.ServiceModel.MessageContractAttribute" /> containing the image information.</returns>
+      <example>
+        <code lang="VB">     Imports Leadtools.Services
+     Imports leadtools.services.raster.datacontracts._2009._01
+     Imports leadtools.services.datacontracts._2009._01
+
+     Public Sub GetInformationExample()
+       Dim client As IRasterService = New RasterServiceClient()
+       Dim sourceBinaryData As RawBinaryData = New RawBinaryData()
+       sourceBinaryData.Data = File.ReadAllBytes(LeadtoolsExamples.Common.ImagesPath.Path &amp; "image1.cmp")
+
+       Dim informationRequest As GetInformationRequest = New GetInformationRequest()
+
+       informationRequest.Source= sourceBinaryData
+       informationRequest.PageNumber = 1
+       informationRequest.TotalPages = False
+
+       Dim response As GetInformationResponse = client.GetInformation(informationRequest)
+       If Not response Is Nothing Then
+         Console.WriteLine(String.Format("BytesPerLine: {0}", response.BytesPerLine))
+         Console.WriteLine(String.Format("ColorSpace: {0}", response.ColorSpace.ToString()))
+         Console.WriteLine(String.Format("Compresion: {0}", response.Compression))
+         Console.WriteLine(String.Format("Format: {0}", response.Format))
+         Console.WriteLine(String.Format("HasAlpha: {0}", response.HasAlpha))
+         Console.WriteLine(String.Format("HasResolution: {0}", response.HasResolution))
+         Console.WriteLine(String.Format("Height: {0}", response.Height))
+         Console.WriteLine(String.Format("IsRotated: {0}", response.IsRotated))
+         Console.WriteLine(String.Format("IsSigned: {0}", response.IsSigned))
+         Console.WriteLine(String.Format("Order: {0}", response.Order))
+         Console.WriteLine(String.Format("PageNumber: {0}", response.PageNumber))
+         Console.WriteLine(String.Format("SizeDisk: {0}", response.SizeDisk))
+         Console.WriteLine(String.Format("SizeMemory: {0}", response.SizeMemory))
+         Console.WriteLine(String.Format("TotalPages: {0}", response.TotalPages))
+         Console.WriteLine(String.Format("ViewPerspective: {0}", response.ViewPerspective))
+         Console.WriteLine(String.Format("Width: {0}", response.Width))
+         Console.WriteLine(String.Format("XResolution: {0}", response.XResolution))
+         Console.WriteLine(String.Format("YResolution: {0}", response.YResolution))
+       End If
+     End Sub</code>
+        <code lang="CS">      using Leadtools.Services;
+      using leadtools.services.raster.datacontracts._2009._01;
+      using leadtools.services.datacontracts._2009._01;
+
+      public void GetInformationExample()
+      {
+         IRasterService client = new RasterServiceClient();
+         RawBinaryData sourceBinaryData = new RawBinaryData();
+         sourceBinaryData.Data = File.ReadAllBytes(Path.Combine(LEAD_VARS.ImagesDir, "image1.cmp"));
+
+         GetInformationRequest informationRequest = new GetInformationRequest();
+
+         informationRequest.Source= sourceBinaryData;
+         informationRequest.PageNumber = 1;
+         informationRequest.TotalPages = false;
+
+         GetInformationResponse response = client.GetInformation(informationRequest);
+         if (response != null)
+         {
+            Console.WriteLine(string.Format("BytesPerLine: {0}", response.BytesPerLine));
+            Console.WriteLine(string.Format("ColorSpace: {0}", response.ColorSpace.ToString()));
+            Console.WriteLine(string.Format("Compresion: {0}", response.Compression));
+            Console.WriteLine(string.Format("Format: {0}", response.Format));
+            Console.WriteLine(string.Format("HasAlpha: {0}", response.HasAlpha));
+            Console.WriteLine(string.Format("HasResolution: {0}", response.HasResolution));
+            Console.WriteLine(string.Format("Height: {0}", response.Height));
+            Console.WriteLine(string.Format("IsRotated: {0}", response.IsRotated));
+            Console.WriteLine(string.Format("IsSigned: {0}", response.IsSigned));
+            Console.WriteLine(string.Format("Order: {0}", response.Order));
+            Console.WriteLine(string.Format("PageNumber: {0}", response.PageNumber));
+            Console.WriteLine(string.Format("SizeDisk: {0}", response.SizeDisk));
+            Console.WriteLine(string.Format("SizeMemory: {0}", response.SizeMemory));
+            Console.WriteLine(string.Format("TotalPages: {0}", response.TotalPages));
+            Console.WriteLine(string.Format("ViewPerspective: {0}", response.ViewPerspective));
+            Console.WriteLine(string.Format("Width: {0}", response.Width));
+            Console.WriteLine(string.Format("XResolution: {0}", response.XResolution));
+            Console.WriteLine(string.Format("YResolution: {0}", response.YResolution));
+         }
+      }
+
+      static class LEAD_VARS
+      {
+      public const string ImagesDir = @"C:\Users\Public\Documents\LEADTOOLS Images";
+      }
+</code>
+        <!--IRasterService.GetInformation-->
+      </example>
+    </member>
+    <member name="M:Leadtools.Services.Raster.ServiceContracts.IRasterService.Convert(Leadtools.Services.Raster.DataContracts.ConvertRequest)">
+      <summary>
+            Converts an image file to any image file format supported by LEADTOOLS.
+            </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <param name="request">
+            A <see cref="T:System.ServiceModel.MessageContractAttribute" /> with contents the data that will be used into this <see cref="M:Leadtools.Services.Raster.ServiceContracts.IRasterService.Convert(Leadtools.Services.Raster.DataContracts.ConvertRequest)" /> operation.
+            </param>
+      <remarks>
+            This method is intended to be used when hosting using WebHttpBinding.
+            </remarks>
+      <returns>A <see cref="T:System.ServiceModel.MessageContractAttribute" /> with contents the image data resulted from <see cref="M:Leadtools.Services.Raster.ServiceContracts.IRasterService.Convert(Leadtools.Services.Raster.DataContracts.ConvertRequest)" /> operation.</returns>
+      <example>For an example, refer to <see cref="T:Leadtools.Services.Raster.DataContracts.ConvertRequest" />.</example>
+    </member>
+    <member name="M:Leadtools.Services.Raster.ServiceContracts.IRasterService.Convert(System.String,System.String,System.String,Leadtools.RasterImageFormat,System.Int32,System.Int32,System.Int32,System.String,System.Int32)">
+      <summary>
+             Converts an image to any image file format supported by LEADTOOLS.
+             </summary>
+      <document>yes</document>
+      <isnew>2/28/2009</isnew>
+      <returns>A Stream that contains the document data.</returns>
+      <example>
+        <code lang="VB">      Imports Leadtools.Services
+      Imports leadtools.services.raster.datacontracts._2009._01
+      Imports leadtools.services.datacontracts._2009._01
+
+      Public Sub ConvertImageExample()
+         Dim buffer As Byte() = New Byte(1024 * 64 - 1) {}
+         Dim totalBytesRead As Integer = 0
+         Dim memoryStream As MemoryStream = New MemoryStream()
+         Dim client As RasterServiceClient = New RasterServiceClient()
+
+         Dim stream As Stream = client.ConvertImage("http://sp2007ep/Ocr/Shared%20Documents/OCR.TIF", "username", "password", RasterImageFormat.Bmp, 24, 200, 200, "White", 0)
+
+         Dim bytesRead As Integer
+         'TODO: INSTANT VB TODO TASK: Assignments within expressions are not supported in VB.NET
+         'ORIGINAL LINE: while ((bytesRead = stream.Read(buffer, 0, buffer.Length)) &gt; 0)
+         Do While (bytesRead = stream.Read(buffer, 0, buffer.Length)) &gt; 0
+            totalBytesRead += bytesRead
+            memoryStream.Write(buffer, 0, bytesRead)
+         Loop
+
+         File.WriteAllBytes(Path.Combine(LEAD_VARS.ImagesDir, "convertimage.bmp"), memoryStream.ToArray())
+
+         client.Close()
+      End Sub
+
+      Public NotInheritable Class LEAD_VARS
+      Public Const ImagesDir As String = "C:\Users\Public\Documents\LEADTOOLS Images"
+      End Class
+</code>
+        <code lang="CS">      using Leadtools.Services;
+      using leadtools.services.raster.datacontracts._2009._01;
+      using leadtools.services.datacontracts._2009._01;
+
+      public void ConvertImageExample()
+      {
+         byte[] buffer = new byte[1024 * 64];
+         int totalBytesRead = 0;
+         MemoryStream memoryStream = new MemoryStream();
+         RasterServiceClient client = new RasterServiceClient();
+
+         Stream stream = client.ConvertImage(@"http://sp2007ep/Ocr/Shared%20Documents/OCR.TIF", "username", "password", RasterImageFormat.Bmp, 24, 200, 200, "White", 0);
+
+         int bytesRead;
+         while ((bytesRead = stream.Read(buffer, 0, buffer.Length)) &gt; 0)
+         {
+            totalBytesRead += bytesRead;
+            memoryStream.Write(buffer, 0, bytesRead);
+         }
+
+         File.WriteAllBytes(Path.Combine(LEAD_VARS.ImagesDir,"convertimage.bmp"), memoryStream.ToArray());
+
+         client.Close();
+      }
+
+      static class LEAD_VARS
+      {
+      public const string ImagesDir = @"C:\Users\Public\Documents\LEADTOOLS Images";
+      }
+</code>
+        <!--IRasterService.ConvertImage-->
+      </example>
+      <param name="uri">The URI of image.</param>
+      <param name="username">The username who has privileges on the the specified URI. Must be passes as (domain/username).</param>
+      <param name="password">The password for the specified user.</param>
+      <param name="format">The output image format.</param>
+      <param name="bitsPerPixel">Value that indicates the number of bits for the destination image.</param>
+      <param name="width">The new image width in pixels.</param>
+      <param name="height">The new image height in pixels.</param>
+      <param name="backColor">A color value to determine how to fill the background color if the image dimensions are smaller than <paramref name="width" /> and <paramref name="height" />. Can be HTML named colors or hexadecimal color values.</param>
+      <param name="qualityFactor">
+             The QualityFactor to be used when converting the image, refer to
+             <see cref="M:Leadtools.Codecs.RasterCodecs.Save(Leadtools.RasterImage,System.Uri,Leadtools.RasterImageFormat,System.Int32,System.Int32,System.Int32)">Save</see>.
+             </param>
+      <noremarks />
+      <noexample />
+    </member>
+  </members>
+</doc>

@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--LLBLGen Pro v4.2 project file. Do not manually edit this file. Incorrect references could lead to an unloadable project file.-->
+<Project Version="4.2" TargetFrameworkName="LLBLGen Pro Runtime Framework">
+  <Properties>
+    <Abbreviations />
+    <Property Name="AdditionalTaskPerformerFolder" Value="" />
+    <Property Name="AdditionalTasksFolder" Value="" />
+    <Property Name="AdditionalTemplatesFolder" Value="" />
+    <Property Name="AdditionalTypeConverterFolder" Value="" />
+    <Property Name="AddNewElementsAfterRefresh" Value="0" />
+    <Property Name="AddNewFieldsAfterRefresh" Value="0" />
+    <Property Name="AddNewViewsAsEntitiesAfterRefresh" Value="0" />
+    <Property Name="AutoAddManyToManyRelationships" Value="false" />
+    <Property Name="AutoAssignSequencesToIntegerPks" Value="true" />
+    <Property Name="AutoAssignTypeConverterToFieldMapping" Value="false" />
+    <Property Name="CleanUpVsNetProjects" Value="true" />
+    <Property Name="ConnectionStringKeyNamePattern" Value="ConnectionString.Main" />
+    <Property Name="DefaultDeleteRuleAction" Value="1" />
+    <Property Name="DefaultUpdateRuleAction" Value="0" />
+    <Property Name="EncodingToUse" Value="0" />
+    <Property Name="EntityActionCombinationDefaultForTable" Value="0" />
+    <Property Name="EntityActionCombinationDefaultForView" Value="4" />
+    <Property Name="EntityFieldNameStripPattern" Value="{}{}" />
+    <Property Name="EntityNameStripPattern" Value="{tbl_}{}" />
+    <Property Name="ExcludableOrphanedElementDetectedAction" Value="3" />
+    <Property Name="FailCodeGenerationOnWriteError" Value="false" />
+    <Property Name="FieldMappedOntoRelatedFieldPattern" Value="{$RelatedFieldName}" />
+    <Property Name="FkFieldsAreNamedAfterTargetField" Value="true" />
+    <Property Name="ForeignKeyConstraintPattern" Value="FK_{$Guid}" />
+    <Property Name="ForeignKeyFieldPattern" Value="{$NavigatorName}{$RelatedFieldName}" />
+    <Property Name="GroupUsage" Value="0" />
+    <Property Name="IdentifyingFieldsFollowDBPrimaryKeyConstraints" Value="0" />
+    <Property Name="InsertUnderscoreAtWordBreakCaseInsensitiveDBs" Value="false" />
+    <Property Name="InsertUnderscoreAtWordBreakCaseSensitiveDBs" Value="false" />
+    <Property Name="LengthPrecisionScaleFollowDBLengthPrecisionScale" Value="0" />
+    <Property Name="MakeElementNamePascalCasing" Value="true" />
+    <Property Name="NavigatorMappedOntoManyToManyPattern" Value="{$EndEntityName}CollectionVia{$IntermediateEntityName$S}" />
+    <Property Name="NavigatorMappedOntoOneManyToOnePattern" Value="{$EndEntityName$S}" />
+    <Property Name="NavigatorMappedOntoOneToManyPattern" Value="{$EndEntityName$P}" />
+    <Property Name="NonExcludableOrphanedElementDetectedAction" Value="3" />
+    <Property Name="PreferDecimalOverCurrencyTypes" Value="true" />
+    <Property Name="PreferNaturalCharacterTypes" Value="true" />
+    <Property Name="PreferSystemSequencesOverSchemaSequencesIfApplicable" Value="true" />
+    <Property Name="PreferVariableLengthTypes" Value="true" />
+    <Property Name="PrimaryKeyConstraintPattern" Value="PK_{$Guid}" />
+    <Property Name="ProjectCreator" Value="Sherif" />
+    <Property Name="ProjectName" Value="LLBLGen" />
+    <Property Name="ReflectNullabilityOfElementFieldInTargetField" Value="0" />
+    <Property Name="RelationalModelDataElementNameCasingCaseInsensitiveDBs" Value="3" />
+    <Property Name="RelationalModelDataElementNameCasingCaseSensitiveDBs" Value="3" />
+    <Property Name="RelationshipsFollowDBForeignKeyConstraints" Value="0" />
+    <Property Name="RemoveUnderscoresFromElementName" Value="true" />
+    <Property Name="RemoveUnmappedElementsAfterRefresh" Value="0" />
+    <Property Name="ResetFieldOrderBasedOnTargetOrderAtRefresh" Value="false" />
+    <Property Name="RetrieveDBCustomProperties" Value="false" />
+    <Property Name="RootNamespace" Value="" />
+    <Property Name="SequenceNameMatchingPattern" Value="SEQ_{$TableName}" />
+    <Property Name="SequencePattern" Value="SEQ_{$EntityName}" />
+    <Property Name="SetGroupNameAfterSchemaName" Value="true" />
+    <Property Name="SetSchemaNameAfterGroupName" Value="true" />
+    <Property Name="SingularizeElementNames" Value="true" />
+    <Property Name="StoredProcNameStripPattern" Value="{pr_, sp_}{}" />
+    <Property Name="StoreTimeLastGeneratedIntoProject" Value="false" />
+    <Property Name="SyncMappedElementNamesAfterRefresh" Value="0" />
+    <Property Name="SyncRelationalModelDataElementNameAfterRename" Value="0" />
+    <Property Name="SyncRenamedMappedElementNamesAfterRefresh" Value="0" />
+    <Property Name="TableValuedFunctionNameStripPattern" Value="{fn_, pr_, sp_}{}" />
+    <Property Name="TargetPerEntityEdgesRequireBackingFkConstraint" Value="true" />
+    <Property Name="TypedViewFieldNameStripPattern" Value="{}{}" />
+    <Property Name="TypedViewMappedOnResultsetPattern" Value="{$ProcFunctionName}{$ResultsetName}Result" />
+    <Property Name="TypedViewNameStripPattern" Value="{vw_}{}" />
+    <Property Name="UniqueConstraintPattern" Value="UC_{$Guid}" />
+    <Property Name="UniqueConstraintsFollowDBUniqueConstraints" Value="0" />
+    <Property Name="UpdateCustomPropertiesAfterRefresh" Value="0" />
+    <Property Name="UseCustomFieldOrderingOnNewElements" Value="false" />
+  </Properties>
+  <TypeShortcuts />
+  <IgnoredWarnings />
+  <SavedSearchQueries />
+  <CodeGenerationCyclePreferences>
+    <OutputType Value="3">
+      <LastUsedPreferences>
+        <DestinationRootFolder Value=".\" />
+        <FrameworkName Value="LLBLGen Pro Runtime Framework" />
+        <LanguageName Value="C#" />
+        <PlatformName Value=".NET 4.5" />
+        <PresetName Value="SD.Presets.Adapter.General" />
+        <RootNamespace Value="LLBLGen" />
+        <TemplateGroup Value="Adapter" />
+        <TemplateBindings>
+          <Binding Name="SD.TemplateBindings.OracleODPNetSpecific" />
+          <Binding Name="SD.TemplateBindings.SharedTemplates.Deprecated" />
+          <Binding Name="SD.TemplateBindings.SharedTemplates.NET45x" />
+          <Binding Name="SD.TemplateBindings.SharedTemplates" />
+          <Binding Name="SD.TemplateBindings.General" />
+        </TemplateBindings>
+      </LastUsedPreferences>
+    </OutputType>
+  </CodeGenerationCyclePreferences>
+  <CodeGenerationMetaDataDefaults>
+    <TargetElement Type="256">
+      <Defaults>
+        <Attributes>
+          <Attribute Value="Browsable($false)" />
+        </Attributes>
+      </Defaults>
+    </TargetElement>
+  </CodeGenerationMetaDataDefaults>
+  <EntityModel>
+    <ValueTypeDefinitions />
+    <EntityDefinitions>
+      <EntityDefinition Name="WebFunction" GroupName="EWEB_USER" ObjectID="b0fa5dde-6c86-4de6-aa36-e91cb6a88915">
+        <Fields>
+          <Field Name="DefaultApp" Type="string" IsOptional="true" MaxLength="20" />
+          <Field Name="DefaultParent" Type="string" IsOptional="true" MaxLength="20" />
+          <Field Name="DefaultSort" Type="short" IsOptional="true" Precision="4" />
+          <Field Name="DisableCode" Type="short" IsOptional="true" Precision="3" />
+          <Field Name="DisableDate" Type="datetime" IsOptional="true" />
+          <Field Name="FunctionAname" Type="string" MaxLength="100" />
+          <Field Name="FunctionEname" Type="string" MaxLength="100" />
+          <Field Name="FunctionId" Type="string" MaxLength="20" IsPrimaryKey="true" />
+          <Field Name="FunctionUrl" Type="string" IsOptional="true" MaxLength="200" />
+          <Field Name="Visible" Type="short" Precision="1" />
+        </Fields>
+      </EntityDefinition>
+    </EntityDefinitions>
+    <Relationships />
+    <InheritanceHierarchies />
+  </EntityModel>
+  <SPCallDefinitions>
+    <SPCallDefinition Name="WebSecurityPkgGetUserMenu" GroupName="EWEB_USER" ObjectID="927f2172-4ddd-4992-b8a3-d0380d1eb79f">
+      <Parameters>
+        <Parameter Name="PUserCode" Type="string" MaxLength="4000" />
+        <Parameter Name="PUserType" Type="decimal" Precision="38" Scale="38" />
+        <Parameter Name="WorkRec" Type="object" Direction="2" />
+      </Parameters>
+    </SPCallDefinition>
+  </SPCallDefinitions>
+  <TargetDatabases>
+    <TargetDatabase Type="A8034CB0-319D-4cdd-BC7D-1E7CFDBA3B74">
+      <ConnectionElements>
+        <ConnectionElement Name="ServerName" Value="RMDEV" />
+        <ConnectionElement Name="CatalogName" Value="RMDEV" />
+        <ConnectionElement Name="UserID" Value="eweb_user" />
+        <ConnectionElement Name="Password" Value="" />
+      </ConnectionElements>
+      <SystemSequences />
+      <Catalogs>
+        <Catalog Name="RMDEV">
+          <Schemas>
+            <Schema Name="EWEB_USER">
+              <Sequences>
+                <Sequence Name="CHAIN_SEQ" />
+                <Sequence Name="ELMAH$ERROR_SEQ" />
+                <Sequence Name="LICEINSE_STREET_SEQ" />
+                <Sequence Name="LOG4NET_SEQ" />
+                <Sequence Name="MED_CERTIFICATE_SEQ" />
+                <Sequence Name="MED_INTERNET_REQ_VAR_SEQ" />
+                <Sequence Name="MED_MODIFICATION_SEQ" />
+                <Sequence Name="MED_RANDOM_SAMPLE_SEQ" />
+                <Sequence Name="MED_REQUEST_SEQ" />
+                <Sequence Name="MED_WORKER_SEQ" />
+                <Sequence Name="MOBILE_REGISTRATIONS_ID" />
+                <Sequence Name="MSG_NUMBER" />
+                <Sequence Name="PROJECT_SEQ" />
+                <Sequence Name="REQUEST_SEQ" />
+                <Sequence Name="SITESETTING_SEQ" />
+                <Sequence Name="SWP_ARCHIVE_SEQ" />
+                <Sequence Name="SWP_LAB_REPORT_SEQ" />
+                <Sequence Name="TLS_LICENCE_SEC" />
+                <Sequence Name="TLS_LICENCE_SEQ" />
+                <Sequence Name="TLS_PAYMENT_SEQ" />
+                <Sequence Name="WEB_USERS_CODE" />
+              </Sequences>
+              <Tables>
+                <Table Name="WEB_FUNCTIONS">
+                  <PkConstraintName Name="WEB_FUNCTIONS_PK" />
+                  <Fields>
+                    <Field Name="FUNCTION_ID" Ordinal="1" IsPrimaryKey="true" DbType="40" Length="20" />
+                    <Field Name="FUNCTION_ENAME" Ordinal="2" DbType="40" Length="100" />
+                    <Field Name="FUNCTION_ANAME" Ordinal="3" DbType="40" Length="100" />
+                    <Field Name="FUNCTION_URL" Ordinal="4" IsOptional="true" DbType="40" Length="200" />
+                    <Field Name="DISABLE_CODE" Ordinal="5" IsOptional="true" DbType="22" Precision="3" />
+                    <Field Name="VISIBLE" Ordinal="6" HasDefaultValue="true" DefaultValue="1 " DbType="22" Precision="1" />
+                    <Field Name="DEFAULT_APP" Ordinal="7" IsOptional="true" DbType="40" Length="20" />
+                    <Field Name="DISABLE_DATE" Ordinal="8" IsOptional="true" DbType="7" />
+                    <Field Name="DEFAULT_PARENT" Ordinal="9" IsOptional="true" DbType="40" Length="20" />
+                    <Field Name="DEFAULT_SORT" Ordinal="10" IsOptional="true" DbType="22" Precision="4" />
+                  </Fields>
+                </Table>
+                <Table Name="WEB_ROLE_FUNCTIONS">
+                  <PkConstraintName Name="WEB_ROLE_FUNCTIONS_PK" />
+                  <Fields>
+                    <Field Name="ROLE_CODE" Ordinal="1" IsPrimaryKey="true" DbType="40" Length="20" />
+                    <Field Name="FUNCTION_ID" Ordinal="2" IsPrimaryKey="true" DbType="40" Length="20" />
+                    <Field Name="FUNCTION_PARENT" Ordinal="3" IsOptional="true" DbType="40" Length="20" />
+                    <Field Name="APP_CODE" Ordinal="4" IsOptional="true" DbType="40" Length="10" />
+                    <Field Name="FUNCTION_SORT_KEY" Ordinal="5" IsOptional="true" DbType="22" Precision="5" />
+                    <Field Name="DISABLE_CODE" Ordinal="6" IsOptional="true" DbType="22" Precision="3" />
+                    <Field Name="DISABLE_DATE" Ordinal="7" IsOptional="true" DbType="7" />
+                  </Fields>
+                </Table>
+              </Tables>
+              <StoredProcedures>
+                <StoredProcedure Name="WEB_SECURITY_PKG.GET_USER_CODE">
+                  <Parameters>
+                    <Parameter Name="RETURN_VALUE" Direction="6" Ordinal="0" DbType="40" Length="4000" />
+                    <Parameter Name="P_USER_LOGIN_NAME" Direction="1" Ordinal="1" DbType="40" Length="4000" />
+                    <Parameter Name="P_USER_TYPE" Direction="1" Ordinal="2" DbType="22" Precision="38" Scale="38" />
+                  </Parameters>
+                </StoredProcedure>
+                <StoredProcedure Name="WEB_SECURITY_PKG.GET_USER_MENU" NumberOfResultsets="2">
+                  <Parameters>
+                    <Parameter Name="P_USER_CODE" Direction="1" Ordinal="1" DbType="40" Length="4000" />
+                    <Parameter Name="P_USER_TYPE" Direction="1" Ordinal="2" DbType="22" Precision="38" Scale="38" />
+                    <Parameter Name="WORK_REC" Direction="2" Ordinal="3" IsResultsetParameter="true" DbType="30" />
+                  </Parameters>
+                </StoredProcedure>
+              </StoredProcedures>
+            </Schema>
+          </Schemas>
+        </Catalog>
+      </Catalogs>
+    </TargetDatabase>
+  </TargetDatabases>
+  <MappingStores>
+    <MappingStore Type="A8034CB0-319D-4cdd-BC7D-1E7CFDBA3B74">
+      <EntityMappings>
+        <EntityMapping EntityName="EWEB_USER:WebFunction" TargetName="RMDEV:EWEB_USER:WEB_FUNCTIONS">
+          <FieldMappings>
+            <FieldMapping FieldName="DefaultApp" TargetFieldName="DEFAULT_APP" />
+            <FieldMapping FieldName="DefaultParent" TargetFieldName="DEFAULT_PARENT" />
+            <FieldMapping FieldName="DefaultSort" TargetFieldName="DEFAULT_SORT" />
+            <FieldMapping FieldName="DisableCode" TargetFieldName="DISABLE_CODE" />
+            <FieldMapping FieldName="DisableDate" TargetFieldName="DISABLE_DATE" />
+            <FieldMapping FieldName="FunctionAname" TargetFieldName="FUNCTION_ANAME" />
+            <FieldMapping FieldName="FunctionEname" TargetFieldName="FUNCTION_ENAME" />
+            <FieldMapping FieldName="FunctionId" TargetFieldName="FUNCTION_ID" />
+            <FieldMapping FieldName="FunctionUrl" TargetFieldName="FUNCTION_URL" />
+            <FieldMapping FieldName="Visible" TargetFieldName="VISIBLE" />
+          </FieldMappings>
+        </EntityMapping>
+      </EntityMappings>
+      <TypedViewMappings />
+      <SPCallMappings>
+        <SPCallMapping SPCallName="EWEB_USER:WebSecurityPkgGetUserMenu" TargetName="RMDEV:EWEB_USER:WEB_SECURITY_PKG.GET_USER_MENU">
+          <FieldMappings>
+            <FieldMapping FieldName="PUserCode" TargetFieldName="P_USER_CODE" />
+            <FieldMapping FieldName="PUserType" TargetFieldName="P_USER_TYPE" />
+            <FieldMapping FieldName="WorkRec" TargetFieldName="WORK_REC" />
+          </FieldMappings>
+        </SPCallMapping>
+      </SPCallMappings>
+      <TvfCallMappings />
+      <TypeConversionDefinitions />
+    </MappingStore>
+  </MappingStores>
+  <ModelViews />
+</Project>

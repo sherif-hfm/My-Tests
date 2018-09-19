@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        var ModuleA = angular.module("ModuleA", []);
+        ModuleA.controller("ControllerA", function ($scope) {
+            $scope.name = "Bob A";
+            $scope.names = ['AA','BB','CC'];
+        });
+        var ModuleB = angular.module("ModuleB", []);
+        ModuleB.controller("ControllerB", function ($scope) {
+            $scope.name = "Bob B";
+        });
+       
+        var app = angular.module("app", ["ModuleA", "ModuleB"]);
+
+        //var div1 = document.getElementById("div1");
+        //angular.bootstrap(div1, ["ModuleA"]);
+        
+    </script>
+    <div ng-app="app">
+        
+        <div>
+            <span>Global</span>
+            <div>
+                <p>
+                    Name: <input type="text" ng-model="gname">
+                </p>
+                <p ng-bind="gname"></p>
+            </div>
+        </div>
+
+        <hr />
+        <div ng-module="ModuleA">
+            <span>ModuleA</span>
+            <div ng-controller="ControllerA">
+                <p>Name: <input type="text" ng-model="name"></p>
+                <p ng-bind="name"></p>
+                <div>{{name}}</div>
+                <div>{{gname}}</div>
+                <ul>
+                    <li ng-repeat="x in names">
+                        {{ x }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <hr />
+        <div ng-module="ModuleB">
+            <span>ModuleB</span>
+            <div ng-controller="ControllerB">
+                <p>
+                    Name: <input type="text" ng-model="name" >
+                </p>
+                <p ng-bind="name"></p>
+                <div>{{name}}</div>
+            </div>
+        </div>
+
+        <hr />
+        <div ng-modules="ModuleA,ModuleB">
+            <span>ModuleA,ModuleB</span>
+            <div ng-controller="ControllerB">
+                <div>{{name}}</div>
+            </div>
+            <div ng-controller="ControllerA">
+                <div>{{name}}</div>
+            </div>
+            </div>
+
+        <hr />
+    </div>
+
+
+</body>
+</html>

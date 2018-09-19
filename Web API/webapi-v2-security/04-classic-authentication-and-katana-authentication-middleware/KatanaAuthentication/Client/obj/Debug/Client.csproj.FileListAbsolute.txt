@@ -1,0 +1,1 @@
+D:\OneDrive\My Tests\Web API\webapi-v2-security\04-classic-authentication-and-katana-authentication-middleware\KatanaAuthentication\Client\bin\Debug\Client.exe.config

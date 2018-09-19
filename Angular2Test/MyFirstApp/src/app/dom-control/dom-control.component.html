@@ -1,0 +1,10 @@
+﻿
+
+<button #button (click)="btn_Click()">show Buttons</button><br />
+
+<div *ngIf="btnShow">
+    <button #button (click)="btn_ShowAlert()">Show Alert</button>
+</div>
+<div *ngIf="alertBoxShow">
+    <alert-box (AlertBoxOnInit)="AlertBoxOnInit($event)" #alertbox1></alert-box>
+</div>

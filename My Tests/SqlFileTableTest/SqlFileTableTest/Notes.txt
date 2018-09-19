@@ -1,0 +1,20 @@
+﻿CREATE DATABASE FileTableTestDb 
+ON
+PRIMARY ( NAME = FileTableTestDb,
+    FILENAME = 'D:\Dropbox\My Tests\My Tests\SqlFileTableTest\DB\FileTableTestDb.mdf'),
+FILEGROUP FileStreamGroup1 CONTAINS FILESTREAM( NAME = FileStream1,
+    FILENAME = 'D:\Dropbox\My Tests\My Tests\SqlFileTableTest\DB\filestream1')
+LOG ON  ( NAME = FileTableTestDblog1,
+    FILENAME = 'D:\Dropbox\My Tests\My Tests\SqlFileTableTest\DB\FileTableTestDb.ldf')
+GO
+
+
+
+
+CREATE TABLE FileTable1 AS FILETABLE
+  WITH
+  (
+    FILETABLE_DIRECTORY = 'FileTable1',
+    FILETABLE_COLLATE_FILENAME = database_default
+  )
+GO

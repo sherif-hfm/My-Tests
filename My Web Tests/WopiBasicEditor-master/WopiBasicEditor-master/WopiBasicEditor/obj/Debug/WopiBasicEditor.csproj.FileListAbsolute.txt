@@ -1,0 +1,7 @@
+D:\Dropbox\My Tests\My Web Tests\WopiBasicEditor-master\WopiBasicEditor-master\WopiBasicEditor\bin\Debug\WopiBasicEditor.exe.config
+D:\Dropbox\My Tests\My Web Tests\WopiBasicEditor-master\WopiBasicEditor-master\WopiBasicEditor\obj\Debug\WopiBasicEditor.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\WopiBasicEditor-master\WopiBasicEditor-master\WopiBasicEditor\bin\Debug\WopiBasicEditor.exe
+D:\Dropbox\My Tests\My Web Tests\WopiBasicEditor-master\WopiBasicEditor-master\WopiBasicEditor\bin\Debug\WopiBasicEditor.pdb
+D:\Dropbox\My Tests\My Web Tests\WopiBasicEditor-master\WopiBasicEditor-master\WopiBasicEditor\obj\Debug\WopiBasicEditor.exe
+D:\Dropbox\My Tests\My Web Tests\WopiBasicEditor-master\WopiBasicEditor-master\WopiBasicEditor\obj\Debug\WopiBasicEditor.pdb
+D:\Dropbox\My Tests\My Web Tests\WopiBasicEditor-master\WopiBasicEditor-master\WopiBasicEditor\bin\Debug\Microsoft.CobaltCore.dll

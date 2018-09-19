@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\AspHttpHandler\AspHttpHandler\bin\AspHttpHandler.dll.config
+D:\Dropbox\My Tests\My Web Tests\AspHttpHandler\AspHttpHandler\bin\AspHttpHandler.dll
+D:\Dropbox\My Tests\My Web Tests\AspHttpHandler\AspHttpHandler\bin\AspHttpHandler.pdb
+D:\Dropbox\My Tests\My Web Tests\AspHttpHandler\AspHttpHandler\obj\Debug\AspHttpHandler.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\AspHttpHandler\AspHttpHandler\obj\Debug\AspHttpHandler.dll
+D:\Dropbox\My Tests\My Web Tests\AspHttpHandler\AspHttpHandler\obj\Debug\AspHttpHandler.pdb

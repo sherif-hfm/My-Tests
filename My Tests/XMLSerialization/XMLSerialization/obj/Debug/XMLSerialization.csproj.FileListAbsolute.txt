@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Tests\XMLSerialization\XMLSerialization\bin\Debug\XMLSerialization.exe.config
+D:\Dropbox\My Tests\My Tests\XMLSerialization\XMLSerialization\bin\Debug\XMLSerialization.exe
+D:\Dropbox\My Tests\My Tests\XMLSerialization\XMLSerialization\bin\Debug\XMLSerialization.pdb
+D:\Dropbox\My Tests\My Tests\XMLSerialization\XMLSerialization\obj\Debug\XMLSerialization.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\XMLSerialization\XMLSerialization\obj\Debug\XMLSerialization.exe
+D:\Dropbox\My Tests\My Tests\XMLSerialization\XMLSerialization\obj\Debug\XMLSerialization.pdb

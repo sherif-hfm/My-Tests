@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\WcfJson\WcfJson\bin\WcfJson.dll.config
+D:\Dropbox\My Tests\My Web Tests\WcfJson\WcfJson\bin\WcfJson.dll
+D:\Dropbox\My Tests\My Web Tests\WcfJson\WcfJson\bin\WcfJson.pdb
+D:\Dropbox\My Tests\My Web Tests\WcfJson\WcfJson\obj\Debug\WcfJson.dll
+D:\Dropbox\My Tests\My Web Tests\WcfJson\WcfJson\obj\Debug\WcfJson.pdb
+D:\Dropbox\My Tests\My Web Tests\WcfJson\WcfJson\obj\Debug\WcfJson.csprojResolveAssemblyReference.cache

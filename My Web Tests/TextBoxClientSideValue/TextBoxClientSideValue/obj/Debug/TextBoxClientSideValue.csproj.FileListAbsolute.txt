@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\TextBoxClientSideValue\TextBoxClientSideValue\bin\TextBoxClientSideValue.dll.config
+D:\Dropbox\My Tests\My Web Tests\TextBoxClientSideValue\TextBoxClientSideValue\bin\TextBoxClientSideValue.dll
+D:\Dropbox\My Tests\My Web Tests\TextBoxClientSideValue\TextBoxClientSideValue\bin\TextBoxClientSideValue.pdb
+D:\Dropbox\My Tests\My Web Tests\TextBoxClientSideValue\TextBoxClientSideValue\obj\Debug\TextBoxClientSideValue.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\TextBoxClientSideValue\TextBoxClientSideValue\obj\Debug\TextBoxClientSideValue.dll
+D:\Dropbox\My Tests\My Web Tests\TextBoxClientSideValue\TextBoxClientSideValue\obj\Debug\TextBoxClientSideValue.pdb

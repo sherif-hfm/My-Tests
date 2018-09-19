@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <input id="txtData" type="text" /><br />
+    <input id="btnGet" type="button" value="Get Data" onclick="Save();" />
+    <script>
+        function Save() {
+            var data = localStorage.getItem("data");
+            var myObj = JSON.parse(localStorage.getItem("myObj"));
+            //document.getElementById("txtData").value = data;
+            console.log(myObj);
+            document.getElementById("txtData").value = myObj.data;
+        }
+    </script>
+
+</body>
+</html>

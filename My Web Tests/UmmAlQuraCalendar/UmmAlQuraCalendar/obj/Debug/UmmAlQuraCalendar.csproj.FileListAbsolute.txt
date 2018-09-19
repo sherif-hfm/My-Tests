@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\UmmAlQuraCalendar\UmmAlQuraCalendar\bin\UmmAlQuraCalendar.dll.config
+D:\Dropbox\My Tests\My Web Tests\UmmAlQuraCalendar\UmmAlQuraCalendar\bin\UmmAlQuraCalendar.dll
+D:\Dropbox\My Tests\My Web Tests\UmmAlQuraCalendar\UmmAlQuraCalendar\bin\UmmAlQuraCalendar.pdb
+D:\Dropbox\My Tests\My Web Tests\UmmAlQuraCalendar\UmmAlQuraCalendar\obj\Debug\UmmAlQuraCalendar.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\UmmAlQuraCalendar\UmmAlQuraCalendar\obj\Debug\UmmAlQuraCalendar.dll
+D:\Dropbox\My Tests\My Web Tests\UmmAlQuraCalendar\UmmAlQuraCalendar\obj\Debug\UmmAlQuraCalendar.pdb

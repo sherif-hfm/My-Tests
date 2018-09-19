@@ -1,0 +1,6 @@
+D:\Dropbox\My Tests\My Web Tests\jQueryTest\jQueryTest\bin\jQueryTest.dll.config
+D:\Dropbox\My Tests\My Web Tests\jQueryTest\jQueryTest\bin\jQueryTest.dll
+D:\Dropbox\My Tests\My Web Tests\jQueryTest\jQueryTest\bin\jQueryTest.pdb
+D:\Dropbox\My Tests\My Web Tests\jQueryTest\jQueryTest\obj\Debug\jQueryTest.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Web Tests\jQueryTest\jQueryTest\obj\Debug\jQueryTest.dll
+D:\Dropbox\My Tests\My Web Tests\jQueryTest\jQueryTest\obj\Debug\jQueryTest.pdb

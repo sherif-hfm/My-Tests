@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocToImageTest", "DocToImageTest\DocToImageTest.csproj", "{B9D81D75-10AB-4CD8-9156-33A7E8FFC2B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageReceiverTest", "ImageReceiverTest\ImageReceiverTest.csproj", "{995E6DD1-C39F-46F7-A1E8-7DD0D9B23732}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileConvertService", "FileConvertService\FileConvertService.csproj", "{56F4F80D-59E2-41EA-88F8-78237FAD0CA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocSenderTest", "DocSenderTest\DocSenderTest.csproj", "{BC7A46EC-E3AB-43A4-BC32-CA50F518AFFD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{56F4F80D-59E2-41EA-88F8-78237FAD0CA1} = {56F4F80D-59E2-41EA-88F8-78237FAD0CA1}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenMsWordTest", "OpenMsWordTest\OpenMsWordTest.csproj", "{04CEB560-6CBA-4989-866E-567C87AC5F08}"
+	ProjectSection(ProjectDependencies) = postProject
+		{56F4F80D-59E2-41EA-88F8-78237FAD0CA1} = {56F4F80D-59E2-41EA-88F8-78237FAD0CA1}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenMsWordHost", "OpenMsWordHost\OpenMsWordHost.csproj", "{DD29CFBF-1069-4EAA-9261-41F24394E8DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenMsWordServer", "OpenMsWordServer\OpenMsWordServer.csproj", "{3C050D54-4B2F-4303-855F-720C7F1F73DE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{56F4F80D-59E2-41EA-88F8-78237FAD0CA1} = {56F4F80D-59E2-41EA-88F8-78237FAD0CA1}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileConvertServiceHost", "FileConvertServiceHost\FileConvertServiceHost.csproj", "{C609A5B5-5526-4E07-ABBF-C5F57EF767A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileConvertServiceWinHost", "FileConvertServiceWinHost\FileConvertServiceWinHost.csproj", "{4E10B7DD-5BA7-41F3-AF64-6C27FA85A242}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9D81D75-10AB-4CD8-9156-33A7E8FFC2B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9D81D75-10AB-4CD8-9156-33A7E8FFC2B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9D81D75-10AB-4CD8-9156-33A7E8FFC2B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9D81D75-10AB-4CD8-9156-33A7E8FFC2B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{995E6DD1-C39F-46F7-A1E8-7DD0D9B23732}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{995E6DD1-C39F-46F7-A1E8-7DD0D9B23732}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{995E6DD1-C39F-46F7-A1E8-7DD0D9B23732}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{995E6DD1-C39F-46F7-A1E8-7DD0D9B23732}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56F4F80D-59E2-41EA-88F8-78237FAD0CA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56F4F80D-59E2-41EA-88F8-78237FAD0CA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56F4F80D-59E2-41EA-88F8-78237FAD0CA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56F4F80D-59E2-41EA-88F8-78237FAD0CA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC7A46EC-E3AB-43A4-BC32-CA50F518AFFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC7A46EC-E3AB-43A4-BC32-CA50F518AFFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC7A46EC-E3AB-43A4-BC32-CA50F518AFFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC7A46EC-E3AB-43A4-BC32-CA50F518AFFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04CEB560-6CBA-4989-866E-567C87AC5F08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04CEB560-6CBA-4989-866E-567C87AC5F08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04CEB560-6CBA-4989-866E-567C87AC5F08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04CEB560-6CBA-4989-866E-567C87AC5F08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD29CFBF-1069-4EAA-9261-41F24394E8DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD29CFBF-1069-4EAA-9261-41F24394E8DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD29CFBF-1069-4EAA-9261-41F24394E8DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD29CFBF-1069-4EAA-9261-41F24394E8DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C050D54-4B2F-4303-855F-720C7F1F73DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C050D54-4B2F-4303-855F-720C7F1F73DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C050D54-4B2F-4303-855F-720C7F1F73DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C050D54-4B2F-4303-855F-720C7F1F73DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C609A5B5-5526-4E07-ABBF-C5F57EF767A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C609A5B5-5526-4E07-ABBF-C5F57EF767A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C609A5B5-5526-4E07-ABBF-C5F57EF767A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C609A5B5-5526-4E07-ABBF-C5F57EF767A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E10B7DD-5BA7-41F3-AF64-6C27FA85A242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E10B7DD-5BA7-41F3-AF64-6C27FA85A242}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E10B7DD-5BA7-41F3-AF64-6C27FA85A242}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E10B7DD-5BA7-41F3-AF64-6C27FA85A242}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

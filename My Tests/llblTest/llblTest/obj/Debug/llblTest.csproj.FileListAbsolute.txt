@@ -1,0 +1,15 @@
+D:\Dropbox\My Tests\My Tests\llblTest\llblTest\bin\Debug\llblTest.exe.config
+D:\Dropbox\My Tests\My Tests\llblTest\llblTest\bin\Debug\llblTest.exe
+D:\Dropbox\My Tests\My Tests\llblTest\llblTest\bin\Debug\llblTest.pdb
+D:\Dropbox\My Tests\My Tests\llblTest\llblTest\obj\Debug\llblTest.csprojResolveAssemblyReference.cache
+D:\Dropbox\My Tests\My Tests\llblTest\llblTest\obj\Debug\llblTest.exe
+D:\Dropbox\My Tests\My Tests\llblTest\llblTest\obj\Debug\llblTest.pdb
+D:\Dropbox\My Tests\My Tests\llblTest\llblTest\bin\Debug\LLBLGen.dll
+D:\Dropbox\My Tests\My Tests\llblTest\llblTest\bin\Debug\LLBLGenDBSpecific.dll
+D:\Dropbox\My Tests\My Tests\llblTest\llblTest\bin\Debug\SD.LLBLGen.Pro.ORMSupportClasses.dll
+D:\Dropbox\My Tests\My Tests\llblTest\llblTest\bin\Debug\SD.LLBLGen.Pro.DQE.OracleODPNet.dll
+D:\Dropbox\My Tests\My Tests\llblTest\llblTest\bin\Debug\LLBLGen.pdb
+D:\Dropbox\My Tests\My Tests\llblTest\llblTest\bin\Debug\LLBLGenDBSpecific.pdb
+D:\Dropbox\My Tests\My Tests\llblTest\llblTest\bin\Debug\SD.LLBLGen.Pro.ORMSupportClasses.pdb
+D:\Dropbox\My Tests\My Tests\llblTest\llblTest\bin\Debug\SD.LLBLGen.Pro.ORMSupportClasses.xml
+D:\Dropbox\My Tests\My Tests\llblTest\llblTest\bin\Debug\SD.LLBLGen.Pro.DQE.OracleODPNet.pdb

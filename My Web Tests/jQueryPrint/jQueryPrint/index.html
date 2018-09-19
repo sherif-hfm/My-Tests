@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"> </script>
+    <script src="jQuery.print.js"></script>
+    <script type="text/javascript">
+
+        function PrintCard() {
+            $("#divPrint").print({
+                //Use Global styles
+                globalStyles: false,
+                //Add link with attrbute media=print
+                mediaPrint: true,
+                //Custom stylesheet
+                stylesheet: "http://fonts.googleapis.com/css?family=Inconsolata",
+                //Print in a hidden iframe
+                iframe: false,
+                //Don't print this
+                noPrintSelector: ".Noprint",
+                //Add this on top
+                append: "",
+                //Add this at bottom
+                prepend: ""
+            });
+        }
+
+    </script>
+</head>
+<body>
+    <div id="divPrint" dir="rtl">
+        <div style="width: 54mm; height: 85mm; border: 1px; border-style: solid;font-size:12px">
+
+            <div>
+                <table>
+                    <tr>
+                        <td>
+                            <label>امانة منطقة الرياض</label> <br />
+                            <label>وكالة الخدمات</label> <br />
+                            <label>الادارة العامة لصحة البيئة</label> <br />
+                            <label>رقم الشهادة الصحية</label> <br />
+                            <label>12345</label>
+                        </td>
+                        <td>
+                            <img src="qcode.jpg" alt="" style="width:17mm;height:20mm" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <label>هذه الشهادة ليست اثبات هوية</label>
+
+            <div style="border:1px;border-style:solid">
+                <table>
+                    <tr>
+                        <td>
+                            <label>المهنة : </label>
+                        </td>
+                        <td>
+                            <label>عامل</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>تاريخ الاصدار</label>
+                        </td>
+                        <td>
+                            <label>XXXXX</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>تاريخ الانتهاء : </label>
+                        </td>
+                        <td>
+                            <label>XXXX</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <br />
+
+            <div style="border:1px;border-style:solid">
+                <table>
+                    <tr>
+                        <td>
+                            <label>الاسم : </label>
+                        </td>
+                        <td>
+                            <label>سراج</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>الجنسية</label>
+                        </td>
+                        <td>
+                            <label>XXXXX</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>رقم الهوية</label>
+                        </td>
+                        <td>
+                            <label>XXXXX</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>تاريخ انتهائها</label>
+                        </td>
+                        <td>
+                            <label>XXXXX</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div>
+                <table>
+                    <tr>
+                        <td>
+                            <label>رقم المسجل</label>
+                        </td>
+                        <td>
+                            <label>مدير إدارة التراخيص</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>XXXXX</label>
+                        </td>
+                        <td>
+                            <label>XXXXX</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <input id="btnPrint"  type="button" value="Print" onclick="PrintCard()" />
+</body>
+</html>
