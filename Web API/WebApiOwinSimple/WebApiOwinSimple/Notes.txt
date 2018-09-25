@@ -1,2 +1,4 @@
 ﻿Microsoft.AspNet.WebApi.Owin
 Microsoft.Owin.Host.SystemWeb (For iis)
+
+for self host Microsoft.AspNet.WebApi.OwinSelfHost
