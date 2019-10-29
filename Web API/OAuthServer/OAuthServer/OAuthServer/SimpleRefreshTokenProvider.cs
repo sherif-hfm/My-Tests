@@ -8,7 +8,7 @@ namespace OAuthServer
 {
     // sample persistence of refresh tokens
     // this is not production ready!
-    public class SimpleRefreshTokenProvider : IAuthenticationTokenProvider
+    public class MyAuthenticationTokenProvider : IAuthenticationTokenProvider
     {
         private static ConcurrentDictionary<string, AuthenticationTicket> _refreshTokens = new ConcurrentDictionary<string, AuthenticationTicket>();
 
@@ -18,15 +18,16 @@ namespace OAuthServer
 
             // maybe only create a handle the first time, then re-use for same client
             // copy properties and set the desired lifetime of refresh token
-            var refreshTokenProperties = new AuthenticationProperties(context.Ticket.Properties.Dictionary)
-            {
-                IssuedUtc = context.Ticket.Properties.IssuedUtc,
-                ExpiresUtc = DateTime.UtcNow.AddYears(1)
-            };
-            var refreshTokenTicket = new AuthenticationTicket(context.Ticket.Identity, refreshTokenProperties);
+            //var refreshTokenProperties = new AuthenticationProperties(context.Ticket.Properties.Dictionary)
+            //{
+            //    IssuedUtc = context.Ticket.Properties.IssuedUtc,
+            //    ExpiresUtc = DateTime.UtcNow.AddYears(1)
+            //};
+            //var refreshTokenTicket = new AuthenticationTicket(context.Ticket.Identity, refreshTokenProperties);
 
             //_refreshTokens.TryAdd(guid, context.Ticket);
-            _refreshTokens.TryAdd(guid, refreshTokenTicket);
+            //_refreshTokens.TryAdd(guid, refreshTokenTicket);
+            _refreshTokens.TryAdd(guid, context.Ticket);
 
             // consider storing only the hash of the handle
             context.SetToken(guid);

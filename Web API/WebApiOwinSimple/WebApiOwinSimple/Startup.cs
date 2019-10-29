@@ -14,6 +14,7 @@ namespace WebApiOwinSimple
             // add web api
             var config = new HttpConfiguration();
             config.MapHttpAttributeRoutes();
+            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(config);
         }
     }

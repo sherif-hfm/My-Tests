@@ -10,7 +10,8 @@ namespace AsyncTest
     {
         static void Main(string[] args)
         {
-           DoNumbers();
+            //RunAsync().GetAwaiter().GetResult();
+            DoNumbers();
            DoOks();
            
            Console.ReadLine();

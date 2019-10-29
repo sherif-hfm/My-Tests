@@ -1,0 +1,116 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script  src="vue.js"></script>
+    <title>Vue Basics</title>
+</head>
+<body>
+    <div id='app'>
+        <input type="text" v-on:input="changeTitle">
+        <p v-once>
+                {{title}}
+        </p>
+        <p>
+            {{sayHello()}} / {{ 1+ 2}}
+        </p>
+        <p>
+               <a v-bind:href="link" target="_blank">Google</a><br>
+               <a :href="link" target="_blank">Google</a><br>
+               <a :[prop]="link" target="_blank">Google</a><br>
+        </p>
+        <div v-html="fullLink">hi</div>
+        <p>
+            <button @click="clickMe($event,1)">Click Me</button>
+            <button @click="counter2++">Click Me2</button>
+        </p>
+        <p>
+            Counter: {{counter%2==0?counter:0}}
+            <br>
+            {{counterRate}} / {{getCounter()}} / {{counter2}}
+        </p>
+        <p v-on:mousemove='mouseMove1'>
+            Coordinates: {{x}}/{{y}}
+            <span v-on:mousemove='mouseMove2'>Dead Zone</span><br>
+            <span v-on:mousemove.stop=''>Dead Zone2</span><br>
+        </p>
+        <p>
+            <input type="text" v-on:keyup.enter.space="onenter" >
+        </p>
+
+        <p>
+            User Name:<input type="text" v-model="userName" >{{userName}}
+        </p>
+    </div>
+    <script>
+        var global=10;
+    new Vue({
+        el:'#app',
+        data: {
+            title:'Hello World!',
+            prop:'href',
+            link:'https://www.google.com',
+            fullLink:'<a href="link" target="_blank">Google</a>',
+            counter:global,
+            counter2:global,
+            x:0,
+            y:0,
+            userName:''
+        },
+        computed:{
+            counterRate:function(){
+                // computed run synchronously for asynchronously use watch
+                //use methods excute with every render but use computed execute on change only
+                console.log('counterRate');
+                    return this.counter > 5 ? 'Great than 5' :'Less than 5'; 
+            }
+        },
+        watch:{
+            counter2:function(value)
+            {
+                // watch run asynchronously for synchronously  use computed
+                // computed is better if i don't want to watch the changed
+                console.log('watch:counter2:' + value);
+                var vm=this;
+                setTimeout(() => {
+                    console.log('watch:counter2.Timer');
+                    //vm.counter2=vm.counter2 + 1;
+                    vm.counter2=0;
+                }, 2000);
+            }
+        },
+        methods: {
+            getCounter:function(){
+                // use methods excute with every render but use computed execute on change only
+                console.log('getCounter'); 
+                return this.counter;
+            },
+            onenter:function(e){
+                e.preventDefault()
+                alert('Enter');
+            },
+            mouseMove1:function(e){
+                this.x=e.clientX;
+                this.y=e.clientY;
+            },
+            mouseMove2:function(e){
+                e.stopPropagation();
+            },
+            changeTitle:function(e){
+                //console.log(e);
+                this.title=e.target.value;
+            },
+            clickMe:function(e,step){
+                console.log(e);
+                this.counter=this.counter+ step;
+            },
+            sayHello:function(){
+                //return 'welcome';
+                return this.title;
+            }
+        },
+    });
+    </script>
+</body>
+</html>

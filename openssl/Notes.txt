@@ -1,0 +1,42 @@
+pfx file
+openssl genrsa 2048 > private.key
+openssl req -x509 -new -key private.key -config openssl.cnf -out public.cer
+openssl pkcs12 -export -in public.cer -inkey private.key -out mycert.pfx
+
+###################################################################################
+
+openssl req -x509 -days 3650 -newkey rsa:2048 -keyout mycert.key -out mycert.cer -config openssl.cnf
+openssl pkcs12 -export -in mycert.cer -inkey mycert.key -out mycert2.pfx
+
+###################################################################################
+
+Root and client
+openssl genrsa -out MyRootCA.key 2048
+openssl req -x509 -new -nodes -key MyRootCA.key -sha256 -days 1024 -out MyRootCA.cer -config openssl.cnf
+
+openssl genrsa -out MyClient1.key 2048
+# IMPORTANT: CN / Common Name should be the clients IP or FQDN like (*.sherif.com)
+openssl req -new -key MyClient1.key  -config openssl.cnf -out MyClient1.csr
+
+openssl x509 -req -in MyClient1.csr -CA MyRootCA.cer -CAkey MyRootCA.key -CAcreateserial -days 1024 -sha256 -extfile v3.ext -out MyClient1.cer
+openssl pkcs12 -export -in MyClient1.cer -inkey MyClient1.key -out MyClient1.pfx
+
+#openssl pkcs12 -export -CAfile MyRootCA.cer -in MyClient1.cer -inkey MyClient1.key -out MyClient1.pfx
+
+###################################################################################
+my vmware esxi
+openssl genrsa -out HomeRootCA.key 2048
+openssl req -x509 -new -nodes -key HomeRootCA.key -sha256 -days 1024 -out HomeRootCA.cer -config openssl.cnf
+openssl x509 -req -in esxi.csr -CA HomeRootCA.cer -CAkey HomeRootCA.key -CAcreateserial -days 1024 -sha256 -extfile esxi.ext -out esxi.cer
+###################################################################################
+my VPS
+openssl genrsa -out MyVpsRootCA.key 2048
+openssl req -x509 -new -nodes -key MyVpsRootCA.key -sha256 -days 1024 -out MyVpsRootCA.cer -config openssl.cnf
+
+openssl genrsa -out hmailserver.key 2048
+openssl req -new -key hmailserver.key  -config openssl.cnf -out hmailserver.csr
+openssl x509 -req -days 365 -in hmailserver.csr -signkey hmailserver.key -sha256 -out hmailserver2.cer
+
+openssl x509 -req -in hmailserver.csr -CA MyVpsRootCA.cer -CAkey MyVpsRootCA.key -CAcreateserial -days 1024 -sha256 -out hmailserver.cer
+
+

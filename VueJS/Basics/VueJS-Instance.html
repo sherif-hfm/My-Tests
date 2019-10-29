@@ -1,0 +1,103 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script  src="vue.js"></script>
+    <title>VueJS Instance</title>
+</head>
+<body>
+    <h1>App1</h1>
+    <div id='app1'>
+            {{title}}
+            <br>
+            <ul>
+                <li v-for="(person,index) in persons" :key="index">{{index}}-{{person.name}}
+                 <button @click='onClick($event)'  ref="btnRef">Click Me</button><br>
+                </li>
+            </ul>
+            <button @click='onClick()' id='btn1' ref="myButton">Click Me</button><br>
+            <button @click='onClick()' id='btn1' ref="myButton">Click Me</button><br>
+            
+    </div>
+    <hr>
+    <h1>App2</h1>
+    <div id='app2'>
+            
+        {{title}}
+        <br>
+        <button @click='onClick()'>Chnage App1 Title</button>
+    </div>
+    <hr>
+    <h1>App3</h1>
+    <div id='app3'>
+
+    </div>
+    <hr>
+    <h1>App4</h1>
+    <div id='app4'>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+    </div>
+    <script>
+   var comp1=Vue.component('button-counter', {
+  data: function () {
+    return {
+      count: 0
+    }
+  },
+  template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+});
+console.log(comp1);
+    var vm1=new Vue({
+        el:'#app1',
+        data:{
+            title:'welcome',
+            persons:[{name:'sherif',age:42},{name:'ahmed',age:40},{name:'mohamed',age:38}]
+        },
+        methods: {
+            onClick:function(){
+                console.log(this.$refs);
+                this.persons.push({name:'mostafa',age:35});
+                this.$refs['btnRef'][0].innerText='Click Me Ref1';
+                this.$refs.myButton.innerText='Click Me2';
+            },
+            onClick2:function(e){
+                console.log(this.$refs);
+            }
+        },
+        beforeCreate:function(){
+            console.log('beforeCreate()');
+        },
+        created:function(){
+            console.log('created()' + this.title);
+        }
+    });
+    setTimeout(() => {
+        vm1.title='changed by timer';
+    }, 3000);
+
+    var vm2=new Vue({
+        el:'#app2',
+        data:{
+            title:'welcome2',
+        },
+        methods: {
+            onClick:function(){
+                vm1.title='changed';
+            },
+        },
+    });
+
+    var vm3=new Vue({
+        template:`<h1>hello</h1>`
+    });
+    vm3.$mount('#app3');
+
+    var vm4=new Vue({
+        el:'#app4',
+    });
+  
+    </script>
+</body>
+</html>

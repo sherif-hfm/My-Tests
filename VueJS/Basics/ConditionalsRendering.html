@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script  src="vue.js"></script>
+    <title>Conditionals Rendering</title>
+</head>
+<body>
+<div id='app'>
+    <p v-if="show">Show me</p>
+    <p v-else>Show me2</p>
+    <br>
+    <template v-if="show">
+        <span>inside the template</span>
+    </template>
+    <br>
+
+    <div v-show="show">
+    show and hide
+    </div>
+    <button @click="show=!show">Show me</button>
+    <hr>
+    <ul>
+        <li v-for="(person,index) in persons" :key="index">{{index}}-{{person.name}}</li>
+    </ul>
+    <template v-for="(person,index) in persons">
+            <div>{{index}}-{{person.name}}</div>
+    </template>
+    <br>
+    <template v-for="(person,index) in persons">
+        <div v-for="(value,key,index) in person">
+            <div>{{index}}-{{key}}:{{value}}</div>
+        </div>
+    </template>
+    <br>
+    <span v-for="index in 10">{{index}}-</span>
+</div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                show:true,
+                persons:[{name:'sherif',age:42},{name:'ahmed',age:40},{name:'mohamed',age:38}]
+            }
+        });
+    </script>
+</body>
+</html>

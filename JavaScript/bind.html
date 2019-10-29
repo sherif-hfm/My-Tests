@@ -1,0 +1,49 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //     var module = {
+        //         x: 42,
+        //         getX: function () {
+        //             return this.x;
+        //         }
+        //     }
+
+        //     var module2 = {
+        //         x: 45,
+        //     }
+
+        //     var unboundGetX = module.getX;
+        //     console.log(unboundGetX()); // The function gets invoked at the global scope
+        //     // expected output: undefined
+
+        //     var boundGetX = unboundGetX.bind(module2);
+        //     console.log(boundGetX());
+        // // expected output: 42
+
+        var driver = {
+            name: 'Sherif',
+            GetCarName: function() {
+                return this.CarName;
+            },
+            GetDriverName: function() {
+                return this.name;
+            }
+        }
+        var Car={
+            CarName:'Toyota No 12365A'
+        }
+        console.log('OK');
+        console.log(driver.GetCarName.bind(Car)());
+        console.log(driver.GetDriverName());
+    </script>
+</body>
+
+</html>

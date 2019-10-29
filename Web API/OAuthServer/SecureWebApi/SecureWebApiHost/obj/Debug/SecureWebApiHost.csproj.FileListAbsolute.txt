@@ -38,3 +38,6 @@ C:\OneDrive\My Tests\Web API\OAuthServer\SecureWebApi\SecureWebApiHost\bin\Debug
 C:\OneDrive\My Tests\Web API\OAuthServer\SecureWebApi\SecureWebApiHost\bin\Debug\Microsoft.Owin.Host.HttpListener.xml
 C:\OneDrive\My Tests\Web API\OAuthServer\SecureWebApi\SecureWebApiHost\bin\Debug\Newtonsoft.Json.dll
 C:\OneDrive\My Tests\Web API\OAuthServer\SecureWebApi\SecureWebApiHost\bin\Debug\Newtonsoft.Json.xml
+D:\OneDrive\My Tests\Web API\OAuthServer\SecureWebApi\SecureWebApiHost\bin\Debug\SecureWebApiHost.exe.config
+D:\OneDrive\My Tests\Web API\OAuthServer\SecureWebApi\SecureWebApiHost\obj\Debug\SecureWebApiHost.exe
+D:\OneDrive\My Tests\Web API\OAuthServer\SecureWebApi\SecureWebApiHost\obj\Debug\SecureWebApiHost.pdb

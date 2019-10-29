@@ -9,3 +9,8 @@ D:\Dropbox\My Tests\My Tests\EncodingTest\EncodingTest\bin\Debug\ArabicNumbers.p
 D:\OneDrive\My Tests\My Tests\EncodingTest\EncodingTest\bin\Debug\EncodingTest.exe.config
 D:\OneDrive\My Tests\My Tests\EncodingTest\EncodingTest\obj\Debug\EncodingTest.exe
 D:\OneDrive\My Tests\My Tests\EncodingTest\EncodingTest\obj\Debug\EncodingTest.pdb
+D:\OneDrive\My Tests\My Tests\EncodingTest\EncodingTest\bin\Debug\EncodingTest.exe
+D:\OneDrive\My Tests\My Tests\EncodingTest\EncodingTest\bin\Debug\EncodingTest.pdb
+D:\OneDrive\My Tests\My Tests\EncodingTest\EncodingTest\bin\Debug\ArabicNumbers.dll
+D:\OneDrive\My Tests\My Tests\EncodingTest\EncodingTest\bin\Debug\ArabicNumbers.pdb
+D:\OneDrive\My Tests\My Tests\EncodingTest\EncodingTest\obj\Debug\EncodingTest.csprojResolveAssemblyReference.cache

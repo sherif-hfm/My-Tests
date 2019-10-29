@@ -21,20 +21,41 @@ namespace UmAlQuraCalendarTest
             //GetPriviosMonth();
             ConvertStringToDate();
             //AddUmAlQuraYear();
+            //UmAlQuraCalendar();
             Console.ReadLine();
+        }
+
+        private static void UmAlQuraCalendar()
+        {
+            UmAlQuraCalendar umAlQuraCalendar = new UmAlQuraCalendar();
+            var mydate = umAlQuraCalendar.ToDateTime(1440, 2, 30, 0, 0, 0, 0);
+            SetCultureInfo();
+            var dateStr = mydate.ToString();
+            var unmYear = umAlQuraCalendar.GetYear(mydate);
         }
 
         private static void ConvertStringToDate()
         {
-            SetCultureInfo();
-            CultureInfo SAculture = new System.Globalization.CultureInfo("ar-SA", true);
-            SAculture.DateTimeFormat.Calendar = new System.Globalization.UmAlQuraCalendar();
+
+            //SetCultureInfo();
+            
+            CultureInfo SAculture = new System.Globalization.CultureInfo("ar-SA", false);
+            var umAlQuraCalendar= new System.Globalization.UmAlQuraCalendar();
+            SAculture.DateTimeFormat.Calendar = umAlQuraCalendar;
 
             CultureInfo EGculture = new System.Globalization.CultureInfo("ar-EG", true);
-            EGculture.DateTimeFormat.Calendar = new System.Globalization.GregorianCalendar();
+            var gregorianCalendar= new System.Globalization.GregorianCalendar();
+            EGculture.DateTimeFormat.Calendar = gregorianCalendar;
+
+            DateTime date0 = new DateTime(2019, 2, 25);
+            DateTime date1 = new DateTime(2019, 2, 1, gregorianCalendar);
+            DateTime date2 = new DateTime(1440, 6, 1, umAlQuraCalendar);
+            string date1str = date1.ToString((IFormatProvider)SAculture);
 
             DateTime dt = DateTime.ParseExact("31-10-2017 23:55", "dd-MM-yyyy HH:mm", (IFormatProvider)EGculture);
-            //DateTime dt = DateTime.ParseExact("29-02-1439 23:55", "dd-MM-yyyy HH:mm", (IFormatProvider)SAculture);
+            DateTime dt2 = DateTime.ParseExact("29-02-1439 23:55", "dd-MM-yyyy HH:mm", (IFormatProvider)SAculture);
+            DateTime dt3 = DateTime.ParseExact("1396/10/05", "yyyy/MM/dd", (IFormatProvider)SAculture);
+            var dateStr = dt2.ToString((IFormatProvider)EGculture);
         }
 
         private static void AddUmAlQuraYear()

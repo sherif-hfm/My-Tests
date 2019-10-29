@@ -30,7 +30,8 @@ namespace SecureWebApi
 
             // token consumption
             app.SetDataProtectionProvider(new MachineKeyProtectionProvider()); //// token generation Need when use sels host
-            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions() { AuthenticationMode = AuthenticationMode.Active });
+            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions()
+            { AuthenticationMode = AuthenticationMode.Active });
 
             // Web API routes
             var config = new HttpConfiguration();
@@ -67,26 +68,5 @@ namespace SecureWebApi
     }
 
 
-    //public class AuthenticationTokenProvider : IAuthenticationTokenProvider
-    //{
-    //    public void Create(AuthenticationTokenCreateContext context)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-
-    //    public Task CreateAsync(AuthenticationTokenCreateContext context)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-
-    //    public void Receive(AuthenticationTokenReceiveContext context)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-
-    //    public Task ReceiveAsync(AuthenticationTokenReceiveContext context)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-    //}
+   
 }

@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="http://localhost:8070/SignalR/scripts/jquery-1.6.4.js"></script>
+    <script src="http://localhost:8070/SignalR/scripts/jquery.signalR-2.4.1.min.js"></script>
+    <script src="http://localhost:8070/SignalR/signalr/hubs"></script>
+</head>
+<body>
+    <button type="button" id="sendMessage">Send Message</button>
+    <script type="text/javascript">
+        $(function () {
+            var myHub = $.connection.myHub;
+            var client = $.connection.hub.start();
+
+            client.done(function () {
+                console.log('hub start done');
+                $('#sendMessage').click(function () {
+                        console.log('Try Send Message');
+                        var message = {};
+                        message.ClientId = $.connection.hub.id;
+                        message.Text = 'Message';
+                        myHub.server.dosomething(message);
+                    });
+                });
+
+            myHub.client.DoSomeThingClient = function (msg) {
+                console.log('DoSomeThingClient');
+                console.log(msg);
+            };
+
+            $.connection.hub.disconnected(function () {
+                console.log('hub disconnected');
+            });
+            client.fail(function () {
+                console.log('Could not connect');
+            });
+        });
+    </script>
+</body>
+</html>

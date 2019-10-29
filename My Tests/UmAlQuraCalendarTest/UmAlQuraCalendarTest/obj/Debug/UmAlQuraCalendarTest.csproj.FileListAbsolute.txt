@@ -4,3 +4,9 @@ D:\Dropbox\My Tests\My Tests\UmAlQuraCalendarTest\UmAlQuraCalendarTest\bin\Debug
 D:\Dropbox\My Tests\My Tests\UmAlQuraCalendarTest\UmAlQuraCalendarTest\obj\Debug\UmAlQuraCalendarTest.csprojResolveAssemblyReference.cache
 D:\Dropbox\My Tests\My Tests\UmAlQuraCalendarTest\UmAlQuraCalendarTest\obj\Debug\UmAlQuraCalendarTest.exe
 D:\Dropbox\My Tests\My Tests\UmAlQuraCalendarTest\UmAlQuraCalendarTest\obj\Debug\UmAlQuraCalendarTest.pdb
+D:\OneDrive\My Tests\My Tests\UmAlQuraCalendarTest\UmAlQuraCalendarTest\bin\Debug\UmAlQuraCalendarTest.exe.config
+D:\OneDrive\My Tests\My Tests\UmAlQuraCalendarTest\UmAlQuraCalendarTest\obj\Debug\UmAlQuraCalendarTest.exe
+D:\OneDrive\My Tests\My Tests\UmAlQuraCalendarTest\UmAlQuraCalendarTest\obj\Debug\UmAlQuraCalendarTest.pdb
+D:\OneDrive\My Tests\My Tests\UmAlQuraCalendarTest\UmAlQuraCalendarTest\bin\Debug\UmAlQuraCalendarTest.exe
+D:\OneDrive\My Tests\My Tests\UmAlQuraCalendarTest\UmAlQuraCalendarTest\bin\Debug\UmAlQuraCalendarTest.pdb
+D:\OneDrive\My Tests\My Tests\UmAlQuraCalendarTest\UmAlQuraCalendarTest\obj\Debug\UmAlQuraCalendarTest.csprojResolveAssemblyReference.cache

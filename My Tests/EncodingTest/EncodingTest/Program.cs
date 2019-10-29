@@ -61,11 +61,11 @@ namespace EncodingTest
         static void Test()
         {
             string str = "0123456789";
-            string str2 = "١٤٣٥/٤١٩١";
+            //string str2 = "١٤٣٥/٤١٩١";
             string str1 = "مكتب الأمين";
-            //var newStr = ArabicNumbers.Convert.ToArabicNumbers(str1);
+            var newStr = ArabicNumbers.Convert.ToArabicNumbers(str);
             //var newStr = ArabicNumbers.Convert.ToEnglishNumbers(str1);
-            var newStr = ArabicNumbers.Convert.ToEnglishNumbers(str2);
+            //var newStr = ArabicNumbers.Convert.ToEnglishNumbers(str2);
         }
 
         static string Replacement(string s, int i)

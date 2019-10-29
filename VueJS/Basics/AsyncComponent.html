@@ -1,0 +1,29 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="vue.js"></script>
+    
+    <!-- <script src="component2-comp.js"></script> -->
+    <title>component</title>
+
+</head>
+
+<body>
+
+    <div id='app1'>
+        {{message}}
+        <p v-if="show">
+            <comp2 @click='doClick()'>hi slot</comp2>
+        </p>
+        <button @click='show=!show' type="button">Show</button>{{show}}
+    </div>
+
+
+    <script src="AsyncComponent.js" type="module"></script>
+</body>
+
+</html>

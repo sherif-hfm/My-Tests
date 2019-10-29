@@ -10,3 +10,4 @@ D:\Dropbox\My Tests\My Tests\ParallelTest\ParallelTest\obj\Debug\ParallelTest.pd
 D:\Dropbox\My Tests\My Tests\ParallelTest\ParallelTest\bin\Debug\ParallelTest.exe
 D:\Dropbox\My Tests\My Tests\ParallelTest\ParallelTest\bin\Debug\ParallelTest.pdb
 D:\Dropbox\My Tests\My Tests\ParallelTest\ParallelTest\obj\Debug\ParallelTest.csprojResolveAssemblyReference.cache
+D:\OneDrive\My Tests\My Tests\ParallelTest\ParallelTest\bin\Debug\ParallelTest.exe.config

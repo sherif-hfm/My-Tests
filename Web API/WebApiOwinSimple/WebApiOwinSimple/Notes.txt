@@ -1,4 +1,4 @@
 ﻿Microsoft.AspNet.WebApi.Owin
 Microsoft.Owin.Host.SystemWeb (For iis)
-
+Microsoft.Owin.Cors for Cors
 for self host Microsoft.AspNet.WebApi.OwinSelfHost

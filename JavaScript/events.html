@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Events</title>
+</head>
+<body>
+    <script type="text/javascript">
+   function Person(name) {
+        this.name = name;
+        this.greeting = function() {
+            console.log('Hi! I\'m ' + this.name + '.');
+            
+            console.log(typeof(this.ongreeting));
+            if(typeof(this.ongreeting)==='function'){
+                this.ongreeting();
+            }
+        };
+    }
+    var person=new Person();
+    person.ongreeting=function(){
+        console.log('ongreeting');
+    }
+    person.greeting();
+    </script>
+</body>
+</body>
+</html>

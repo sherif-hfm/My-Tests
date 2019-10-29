@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/@reactivex/rxjs@6.4.0/dist/global/rxjs.umd.js"></script>
+    <title>Observable</title>
+</head>
+<body>
+    <h1>Observable</h1>
+    <script type="module">
+        var pipe=rxjs.pipe;
+        var of=rxjs.of;
+        var Subject= rxjs.Subject;
+        var filter= rxjs.operators.filter;
+        var map= rxjs.operators.map;
+
+        const subject = new Subject();
+        subject.subscribe((e)=>{
+            console.log(`data:${e}`)
+        });
+        setTimeout(() => {
+            subject.next(1);
+        }, 2000);
+            
+            const nums = of(1, 2, 3, 4, 5);
+ 
+        // Create a function that accepts an Observable.
+        
+        //console.log(rxjs.operators);
+        const squareOddVals = pipe(
+            filter((n) => n % 2 !== 0), map(n => n * n));
+    
+        // Create an Observable that will run the filter and map functions
+        const squareOdd = squareOddVals(nums);
+        
+        // Suscribe to run the combined functions
+        squareOdd.subscribe(x => console.log(x));
+
+        console.log('Done');
+    </script>
+</body>
+</html>

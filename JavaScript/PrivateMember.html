@@ -1,0 +1,32 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function Foo(bar) {
+           
+            //bar is inside a closure now, only these functions can access it
+            this.setBar = function (newBar) {
+                bar = newBar;
+            }
+            this.getBar = function () {
+                return bar;
+            }
+            //Other functions
+        }
+
+
+        var myFoo = new Foo(5);
+        console.log(myFoo.bar); //Undefined, cannot access variable closure
+        myFoo.setBar(6);
+        console.log(myFoo.getBar()); //Works, returns 5
+    </script>
+</body>
+
+</html>

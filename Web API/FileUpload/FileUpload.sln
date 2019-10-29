@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileUpload", "FileUpload\FileUpload.csproj", "{DBA32A70-65F3-41E4-8920-CBE2D9925ED9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileUploadHost", "FileUploadHost\FileUploadHost.csproj", "{B9618913-4875-4074-82C7-05AC1EBA3451}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBA32A70-65F3-41E4-8920-CBE2D9925ED9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBA32A70-65F3-41E4-8920-CBE2D9925ED9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBA32A70-65F3-41E4-8920-CBE2D9925ED9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBA32A70-65F3-41E4-8920-CBE2D9925ED9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9618913-4875-4074-82C7-05AC1EBA3451}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9618913-4875-4074-82C7-05AC1EBA3451}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9618913-4875-4074-82C7-05AC1EBA3451}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9618913-4875-4074-82C7-05AC1EBA3451}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A6CD641D-5071-40EB-AF6A-842BE739F862}
+	EndGlobalSection
+EndGlobal

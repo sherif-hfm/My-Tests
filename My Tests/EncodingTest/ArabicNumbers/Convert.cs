@@ -23,14 +23,14 @@ namespace ArabicNumbers
             codes['9'] = '\u0669';
             codes['-'] = '-';
             codes[' '] = '0';
-            string newStr2 = "";
-            foreach (char crChar in str.ToCharArray())
-            {
-                if (codes.ContainsKey(crChar))
-                    newStr2 += codes[crChar];
-                else
-                    newStr2 += crChar;
-            }
+            //string newStr2 = "";
+            //foreach (char crChar in str.ToCharArray())
+            //{
+            //    if (codes.ContainsKey(crChar))
+            //        newStr2 += codes[crChar];
+            //    else
+            //        newStr2 += crChar;
+            //}
 
             var newStr = Regex.Replace(str, @"[\d]", m =>
             {

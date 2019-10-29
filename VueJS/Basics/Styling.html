@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script  src="vue.js"></script>
+    <style>
+    .demo{
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+        display: inline-block;
+        margin: 10px
+    }
+    .red{
+        background-color: red;
+    }
+
+    .green{
+        background-color: green;
+    }
+
+    .blue{
+        background-color: blue;
+    }
+    </style>
+    <title>Styling</title>
+</head>
+<body>
+        <div id='app'>
+            <div class="demo" @click="attachRed=!attachRed" :class="{red:attachRed}"></div>
+            <div class="demo" @click="attachGreen=!attachGreen" :class="divGreen"></div>
+            <div class="demo" @click="attachBlue=!attachBlue" :[prop]="[color,divGreen,{red:attachRed}]"></div>
+            <br>
+            <input type="text" v-model="color">
+            <hr>
+            <div class="demo" :style="{'background-color':color}"></div>
+            <div class="demo" :style="myStyle"></div>
+        </div>
+        <script>
+       new Vue({
+        el:'#app',
+        data: {
+            attachRed: false,
+            attachGreen: false,
+            attachBlue: false,
+            color:'blue',
+            prop:'class'
+        },
+        computed: {
+            divGreen:function()
+            {
+                return{
+                    green:this.attachGreen,                  
+                };
+            },
+            myStyle:function(){
+            return{
+                backgroundColor:this.color,
+            };
+            }
+        },
+       });
+        </script>
+</body>
+</html>

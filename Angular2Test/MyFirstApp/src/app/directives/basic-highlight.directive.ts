@@ -19,6 +19,7 @@ export class BasicHighlightDirective implements OnInit  {
    @Input('hlColor')
    @Input('hlColor') highLightColor: string="red";
    @HostBinding('style.backgroundColor')  bgColor1: string='white';
+   
    @HostListener('mouseenter') mouseover1(e:Event){
      console.log('mouseenter');
     //this.rend.setStyle(this.elmtRef.nativeElement,'background-color','blue');
